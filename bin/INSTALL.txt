@@ -1,0 +1,24 @@
+
+1 Change the file environment.py to suit your needs
+
+2 Make sure all executable files (python scripts) are in a subdirectory
+
+3 Make a LOGS and a FORMS directory
+
+The whole tree should look like
+
+.:
+bin  FORMS  LOGS
+
+./bin:
+clean.sh                   helper_modify_transaction.py  help.txt
+COPYING                    helper_modify_user.py         INSTALL.txt
+environment.py             helper_query_autofs.py        login.py
+helper_apply_ldif.py       helper_query_groups.py        mpls.py
+helper_help.py             helper_query_netgroup.py      scroller.py
+helper_modify_group.py     helper_query_transaction.py   templateform.ps
+helper_modify_netgroup.py  helper_query_user.py
+
+./FORMS:
+
+./LOGS:

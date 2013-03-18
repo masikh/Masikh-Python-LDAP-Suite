@@ -1,0 +1,2036 @@
+%!
+%%BoundingBox: (atend)
+%%Pages: (atend)
+%%DocumentFonts: (atend)
+%%EndComments
+%%BeginProlog
+%
+% FrameMaker postscript_prolog 3.0, for use with FrameMaker 3.0
+% This postscript_prolog file is Copyright (c) 1986-1991 Frame Technology
+% Corporation.  All rights reserved.  This postscript_prolog file may be
+% freely copied and distributed in conjunction with documents created using
+% FrameMaker.
+%
+% Known Problems:
+%	Due to bugs in Transcript, the 'PS-Adobe-' is omitted from line 1
+/FMversion (3.0) def 
+
+% Set up Color vs. Black-and-White
+
+/FMPrintInColor false def
+/colorimage where { pop
+    /currentcolortransfer where { pop
+	/FMPrintInColor true def
+	statusdict begin 
+	    /processcolors where { 
+		pop processcolors 1 le {
+		    /FMPrintInColor false def
+		} if
+	    }{
+		/deviceinfo where {
+		    pop deviceinfo /Colors known { 
+			deviceinfo /Colors get 1 le {
+			    /FMPrintInColor false def
+			} if
+		    } if
+		} if
+	    } ifelse
+	end
+	/currentcanvas where {  % NeWSprint?
+	    pop systemdict /separationdict known not {
+		/FMPrintInColor false def
+	    } if
+	} if
+    } if
+} if
+
+
+% Uncomment this line to force b&w on color printer
+%   /FMPrintInColor false def
+
+/FrameDict 195 dict def 
+systemdict /errordict known not {/errordict 10 dict def
+		errordict /rangecheck {stop} put} if
+% The readline in 23.0 doesn't recognize cr's as nl's on AppleTalk
+FrameDict /tmprangecheck errordict /rangecheck get put 
+errordict /rangecheck {FrameDict /bug true put} put 
+FrameDict /bug false put 
+mark 
+% Some PS machines read past the CR, so keep the following 3 lines together!
+currentfile 5 string readline
+00
+0000000000
+cleartomark 
+errordict /rangecheck FrameDict /tmprangecheck get put 
+FrameDict /bug get { 
+	/readline {
+		/gstring exch def
+		/gfile exch def
+		/gindex 0 def
+		{
+			gfile read pop 
+			dup 10 eq {exit} if 
+			dup 13 eq {exit} if 
+			gstring exch gindex exch put 
+			/gindex gindex 1 add def 
+		} loop
+		pop 
+		gstring 0 gindex getinterval true 
+		} def
+	} if
+/FMVERSION {
+	FMversion ne {
+		/Times-Roman findfont 18 scalefont setfont
+		100 100 moveto
+		(FrameMaker version does not match postscript_prolog!)
+		dup =
+		show showpage
+		} if
+	} def 
+/FMLOCAL {
+	FrameDict begin
+	0 def 
+	end 
+	} def 
+	/gstring FMLOCAL
+	/gfile FMLOCAL
+	/gindex FMLOCAL
+	/orgxfer FMLOCAL
+	/orgproc FMLOCAL
+	/organgle FMLOCAL
+	/orgfreq FMLOCAL
+	/yscale FMLOCAL
+	/xscale FMLOCAL
+	/manualfeed FMLOCAL
+	/paperheight FMLOCAL
+	/paperwidth FMLOCAL
+/FMDOCUMENT { 
+	array /FMfonts exch def 
+	/#copies exch def
+	FrameDict begin
+	0 ne dup {setmanualfeed} if
+	/manualfeed exch def
+	/paperheight exch def
+	/paperwidth exch def
+	/yscale exch def
+	/xscale exch def
+	currenttransfer cvlit /orgxfer exch def
+	currentscreen cvlit /orgproc exch def
+	/organgle exch def /orgfreq exch def
+	setpapername 
+	manualfeed {true} {papersize} ifelse 
+	{manualpapersize} {false} ifelse 
+	{desperatepapersize} if
+	end 
+	} def 
+	/pagesave FMLOCAL
+	/orgmatrix FMLOCAL
+	/landscape FMLOCAL
+/FMBEGINPAGE { 
+	FrameDict begin 
+	/pagesave save def
+	3.86 setmiterlimit
+	/landscape exch 0 ne def
+	landscape { 
+		90 rotate 0 exch neg translate pop 
+		}
+		{pop pop}
+		ifelse
+	xscale yscale scale
+	/orgmatrix matrix def
+	gsave 
+	} def 
+/FMENDPAGE {
+	grestore 
+	pagesave restore
+	end 
+	showpage
+	} def 
+/FMFONTDEFINE { 
+	FrameDict begin
+	findfont 
+	ReEncode 
+	1 index exch 
+	definefont 
+	FMfonts 3 1 roll 
+	put
+	end 
+	} def 
+/FMFILLS {
+	FrameDict begin
+	array /fillvals exch def
+	end 
+	} def 
+/FMFILL {
+	FrameDict begin
+	 fillvals 3 1 roll put
+	end 
+	} def 
+/FMNORMALIZEGRAPHICS { 
+	newpath
+	0.0 0.0 moveto
+	1 setlinewidth
+	0 setlinecap
+	0 0 0 sethsbcolor
+	0 setgray 
+	} bind def
+	/fx FMLOCAL
+	/fy FMLOCAL
+	/fh FMLOCAL
+	/fw FMLOCAL
+	/llx FMLOCAL
+	/lly FMLOCAL
+	/urx FMLOCAL
+	/ury FMLOCAL
+/FMBEGINEPSF { 
+	end 
+	/FMEPSF save def 
+	/showpage {} def 
+	FMNORMALIZEGRAPHICS 
+	[/fy /fx /fh /fw /ury /urx /lly /llx] {exch def} forall 
+	fx fy translate 
+	rotate
+	fw urx llx sub div fh ury lly sub div scale 
+	llx neg lly neg translate 
+	} bind def
+/FMENDEPSF {
+	FMEPSF restore
+	FrameDict begin 
+	} bind def
+FrameDict begin 
+/setmanualfeed {
+%%BeginFeature *ManualFeed True
+	 statusdict /manualfeed true put
+%%EndFeature
+	} def
+/max {2 copy lt {exch} if pop} bind def
+/min {2 copy gt {exch} if pop} bind def
+/inch {72 mul} def
+/pagedimen { 
+	paperheight sub abs 16 lt exch 
+	paperwidth sub abs 16 lt and
+	{/papername exch def} {pop} ifelse
+	} def
+	/papersizedict FMLOCAL
+/setpapername { 
+	/papersizedict 14 dict def 
+	papersizedict begin
+	/papername /unknown def 
+		/Letter 8.5 inch 11.0 inch pagedimen
+		/LetterSmall 7.68 inch 10.16 inch pagedimen
+		/Tabloid 11.0 inch 17.0 inch pagedimen
+		/Ledger 17.0 inch 11.0 inch pagedimen
+		/Legal 8.5 inch 14.0 inch pagedimen
+		/Statement 5.5 inch 8.5 inch pagedimen
+		/Executive 7.5 inch 10.0 inch pagedimen
+		/A3 11.69 inch 16.5 inch pagedimen
+		/A4 8.26 inch 11.69 inch pagedimen
+		/A4Small 7.47 inch 10.85 inch pagedimen
+		/B4 10.125 inch 14.33 inch pagedimen
+		/B5 7.16 inch 10.125 inch pagedimen
+	end
+	} def
+/papersize {
+	papersizedict begin
+		/Letter {lettertray letter} def
+		/LetterSmall {lettertray lettersmall} def
+		/Tabloid {11x17tray 11x17} def
+		/Ledger {ledgertray ledger} def
+		/Legal {legaltray legal} def
+		/Statement {statementtray statement} def
+		/Executive {executivetray executive} def
+		/A3 {a3tray a3} def
+		/A4 {a4tray a4} def
+		/A4Small {a4tray a4small} def
+		/B4 {b4tray b4} def
+		/B5 {b5tray b5} def
+		/unknown {unknown} def
+	papersizedict dup papername known {papername} {/unknown} ifelse get
+	end
+	/FMdicttop countdictstack 1 add def 
+	statusdict begin stopped end 
+	countdictstack -1 FMdicttop {pop end} for 
+	} def
+/manualpapersize {
+	papersizedict begin
+		/Letter {letter} def
+		/LetterSmall {lettersmall} def
+		/Tabloid {11x17} def
+		/Ledger {ledger} def
+		/Legal {legal} def
+		/Statement {statement} def
+		/Executive {executive} def
+		/A3 {a3} def
+		/A4 {a4} def
+		/A4Small {a4small} def
+		/B4 {b4} def
+		/B5 {b5} def
+		/unknown {unknown} def
+	papersizedict dup papername known {papername} {/unknown} ifelse get
+	end
+	stopped 
+	} def
+/desperatepapersize {
+	statusdict /setpageparams known
+		{
+		paperwidth paperheight 0 1 
+		statusdict begin
+		{setpageparams} stopped pop 
+		end
+		} if
+	} def
+/savematrix {
+	orgmatrix currentmatrix pop
+	} bind def
+/restorematrix {
+	orgmatrix setmatrix
+	} bind def
+/dmatrix matrix def
+/dpi    72 0 dmatrix defaultmatrix dtransform
+    dup mul exch   dup mul add   sqrt def
+/freq dpi 18.75 div 8 div round dup 0 eq {pop 1} if 8 mul dpi exch div def
+/sangle 1 0 dmatrix defaultmatrix dtransform exch atan def
+/DiacriticEncoding [
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /space /exclam /quotedbl
+/numbersign /dollar /percent /ampersand /quotesingle /parenleft
+/parenright /asterisk /plus /comma /hyphen /period /slash /zero /one
+/two /three /four /five /six /seven /eight /nine /colon /semicolon
+/less /equal /greater /question /at /A /B /C /D /E /F /G /H /I /J /K
+/L /M /N /O /P /Q /R /S /T /U /V /W /X /Y /Z /bracketleft /backslash
+/bracketright /asciicircum /underscore /grave /a /b /c /d /e /f /g /h
+/i /j /k /l /m /n /o /p /q /r /s /t /u /v /w /x /y /z /braceleft /bar
+/braceright /asciitilde /.notdef /Adieresis /Aring /Ccedilla /Eacute
+/Ntilde /Odieresis /Udieresis /aacute /agrave /acircumflex /adieresis
+/atilde /aring /ccedilla /eacute /egrave /ecircumflex /edieresis
+/iacute /igrave /icircumflex /idieresis /ntilde /oacute /ograve
+/ocircumflex /odieresis /otilde /uacute /ugrave /ucircumflex
+/udieresis /dagger /.notdef /cent /sterling /section /bullet
+/paragraph /germandbls /registered /copyright /trademark /acute
+/dieresis /.notdef /AE /Oslash /.notdef /.notdef /.notdef /.notdef
+/yen /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/ordfeminine /ordmasculine /.notdef /ae /oslash /questiondown
+/exclamdown /logicalnot /.notdef /florin /.notdef /.notdef
+/guillemotleft /guillemotright /ellipsis /.notdef /Agrave /Atilde
+/Otilde /OE /oe /endash /emdash /quotedblleft /quotedblright
+/quoteleft /quoteright /.notdef /.notdef /ydieresis /Ydieresis
+/fraction /currency /guilsinglleft /guilsinglright /fi /fl /daggerdbl
+/periodcentered /quotesinglbase /quotedblbase /perthousand
+/Acircumflex /Ecircumflex /Aacute /Edieresis /Egrave /Iacute
+/Icircumflex /Idieresis /Igrave /Oacute /Ocircumflex /.notdef /Ograve
+/Uacute /Ucircumflex /Ugrave /dotlessi /circumflex /tilde /macron
+/breve /dotaccent /ring /cedilla /hungarumlaut /ogonek /caron
+] def
+/ReEncode { 
+	dup 
+	length 
+	dict begin 
+	{
+	1 index /FID ne 
+		{def} 
+		{pop pop} ifelse 
+	} forall 
+	0 eq {/Encoding DiacriticEncoding def} if 
+	currentdict 
+	end 
+	} bind def
+/graymode true def
+	/bwidth FMLOCAL
+	/bpside FMLOCAL
+	/bstring FMLOCAL
+	/onbits FMLOCAL
+	/offbits FMLOCAL
+	/xindex FMLOCAL
+	/yindex FMLOCAL
+	/x FMLOCAL
+	/y FMLOCAL
+/setpattern {
+	 /bwidth  exch def
+	 /bpside  exch def
+	 /bstring exch def
+	 /onbits 0 def  /offbits 0 def
+	 freq sangle landscape {90 add} if 
+		{/y exch def
+		 /x exch def
+		 /xindex x 1 add 2 div bpside mul cvi def
+		 /yindex y 1 add 2 div bpside mul cvi def
+		 bstring yindex bwidth mul xindex 8 idiv add get
+		 1 7 xindex 8 mod sub bitshift and 0 ne
+		 {/onbits  onbits  1 add def 1}
+		 {/offbits offbits 1 add def 0}
+		 ifelse
+		}
+		setscreen
+	 {} settransfer
+	 offbits offbits onbits add div FMsetgray
+	/graymode false def
+	} bind def
+/grayness {
+	FMsetgray
+	graymode not {
+		/graymode true def
+		orgxfer cvx settransfer
+		orgfreq organgle orgproc cvx setscreen
+		} if
+	} bind def
+	/HUE FMLOCAL
+	/SAT FMLOCAL
+	/BRIGHT FMLOCAL
+	/Colors FMLOCAL
+FMPrintInColor 
+	
+	{
+	/HUE 0 def
+	/SAT 0 def
+	/BRIGHT 0 def
+	% array of arrays Hue and Sat values for the separations [HUE BRIGHT]
+	/Colors   
+	[[0    0  ]    % black
+	 [0    0  ]    % white
+	 [0.00 1.0]    % red
+	 [0.37 1.0]    % green
+	 [0.60 1.0]    % blue
+	 [0.50 1.0]    % cyan
+	 [0.83 1.0]    % magenta
+	 [0.16 1.0]    % comment / yellow
+	 ] def
+      
+	/BEGINBITMAPCOLOR { 
+		BITMAPCOLOR} def
+	/BEGINBITMAPCOLORc { 
+		BITMAPCOLORc} def
+	/BEGINBITMAPTRUECOLOR { 
+		BITMAPTRUECOLOR } def
+	/BEGINBITMAPTRUECOLORc { 
+		BITMAPTRUECOLORc } def
+	/K { 
+		Colors exch get dup
+		0 get /HUE exch store 
+		1 get /BRIGHT exch store
+		  HUE 0 eq BRIGHT 0 eq and
+			{1.0 SAT sub setgray}
+			{HUE SAT BRIGHT sethsbcolor} 
+		  ifelse
+		} def
+	/FMsetgray { 
+		/SAT exch 1.0 exch sub store 
+		  HUE 0 eq BRIGHT 0 eq and
+			{1.0 SAT sub setgray}
+			{HUE SAT BRIGHT sethsbcolor} 
+		  ifelse
+		} bind def
+	}
+	
+	{
+	/BEGINBITMAPCOLOR { 
+		BITMAPGRAY} def
+	/BEGINBITMAPCOLORc { 
+		BITMAPGRAYc} def
+	/BEGINBITMAPTRUECOLOR { 
+		BITMAPTRUEGRAY } def
+	/BEGINBITMAPTRUECOLORc { 
+		BITMAPTRUEGRAYc } def
+	/FMsetgray {setgray} bind def
+	/K { 
+		pop
+		} def
+	}
+ifelse
+/normalize {
+	transform round exch round exch itransform
+	} bind def
+/dnormalize {
+	dtransform round exch round exch idtransform
+	} bind def
+/lnormalize { 
+	0 dtransform exch cvi 2 idiv 2 mul 1 add exch idtransform pop
+	} bind def
+/H { 
+	lnormalize setlinewidth
+	} bind def
+/Z {
+	setlinecap
+	} bind def
+	/fillvals FMLOCAL
+/X { 
+	fillvals exch get
+	dup type /stringtype eq
+	{8 1 setpattern} 
+	{grayness}
+	ifelse
+	} bind def
+/V { 
+	gsave eofill grestore
+	} bind def
+/N { 
+	stroke
+	} bind def
+/M {newpath moveto} bind def
+/E {lineto} bind def
+/D {curveto} bind def
+/O {closepath} bind def
+	/n FMLOCAL
+/L { 
+ 	/n exch def
+	newpath
+	normalize
+	moveto 
+	2 1 n {pop normalize lineto} for
+	} bind def
+/Y { 
+	L 
+	closepath
+	} bind def
+	/x1 FMLOCAL
+	/x2 FMLOCAL
+	/y1 FMLOCAL
+	/y2 FMLOCAL
+	/rad FMLOCAL
+/R { 
+	/y2 exch def
+	/x2 exch def
+	/y1 exch def
+	/x1 exch def
+	x1 y1
+	x2 y1
+	x2 y2
+	x1 y2
+	4 Y 
+	} bind def
+/RR { 
+	/rad exch def
+	normalize
+	/y2 exch def
+	/x2 exch def
+	normalize
+	/y1 exch def
+	/x1 exch def
+	newpath
+	x1 y1 rad add moveto
+	x1 y2 x2 y2 rad arcto
+	x2 y2 x2 y1 rad arcto
+	x2 y1 x1 y1 rad arcto
+	x1 y1 x1 y2 rad arcto
+	closepath
+	16 {pop} repeat
+	} bind def
+/C { 
+	grestore
+	gsave
+	R 
+	clip
+	} bind def
+	/FMpointsize FMLOCAL
+/F { 
+	FMfonts exch get
+	FMpointsize scalefont
+	setfont
+	} bind def
+/Q { 
+	/FMpointsize exch def
+	F 
+	} bind def
+/T { 
+	moveto show
+	} bind def
+/RF { 
+	rotate
+	0 ne {-1 1 scale} if
+	} bind def
+/TF { 
+	gsave
+	moveto 
+	RF
+	show
+	grestore
+	} bind def
+/P { 
+	moveto
+	0 32 3 2 roll widthshow
+	} bind def
+/PF { 
+	gsave
+	moveto 
+	RF
+	0 32 3 2 roll widthshow
+	grestore
+	} bind def
+/S { 
+	moveto
+	0 exch ashow
+	} bind def
+/SF { 
+	gsave
+	moveto
+	RF
+	0 exch ashow
+	grestore
+	} bind def
+/B { 
+	moveto
+	0 32 4 2 roll 0 exch awidthshow
+	} bind def
+/BF { 
+	gsave
+	moveto
+	RF
+	0 32 4 2 roll 0 exch awidthshow
+	grestore
+	} bind def
+/G { 
+	gsave
+	newpath
+	normalize translate 0.0 0.0 moveto 
+	dnormalize scale 
+	0.0 0.0 1.0 5 3 roll arc 
+	closepath fill
+	grestore
+	} bind def
+/A { 
+	gsave
+	savematrix
+	newpath
+	2 index 2 div add exch 3 index 2 div sub exch 
+	normalize 2 index 2 div sub exch 3 index 2 div add exch 
+	translate 
+	scale 
+	0.0 0.0 1.0 5 3 roll arc 
+	restorematrix
+	stroke
+	grestore
+	} bind def
+	/x FMLOCAL
+	/y FMLOCAL
+	/w FMLOCAL
+	/h FMLOCAL
+	/xx FMLOCAL
+	/yy FMLOCAL
+	/ww FMLOCAL
+	/hh FMLOCAL
+	/FMsaveobject FMLOCAL
+	/FMoptop FMLOCAL
+	/FMdicttop FMLOCAL
+/BEGINPRINTCODE { 
+	/FMdicttop countdictstack 1 add def 
+	/FMoptop count 4 sub def 
+	/FMsaveobject save def
+	userdict begin 
+	/showpage {} def 
+	FMNORMALIZEGRAPHICS 
+	3 index neg 3 index neg translate
+	} bind def
+/ENDPRINTCODE {
+	count -1 FMoptop {pop pop} for 
+	countdictstack -1 FMdicttop {pop end} for 
+	FMsaveobject restore 
+	} bind def
+/gn { 
+	0 
+	{	46 mul 
+		cf read pop 
+		32 sub 
+		dup 46 lt {exit} if 
+		46 sub add 
+		} loop
+	add 
+	} bind def
+	/str FMLOCAL
+/cfs { 
+	/str sl string def 
+	0 1 sl 1 sub {str exch val put} for 
+	str def 
+	} bind def
+/ic [ 
+	0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0223
+	0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0223
+	0
+	{0 hx} {1 hx} {2 hx} {3 hx} {4 hx} {5 hx} {6 hx} {7 hx} {8 hx} {9 hx}
+	{10 hx} {11 hx} {12 hx} {13 hx} {14 hx} {15 hx} {16 hx} {17 hx} {18 hx}
+	{19 hx} {gn hx} {0} {1} {2} {3} {4} {5} {6} {7} {8} {9} {10} {11} {12}
+	{13} {14} {15} {16} {17} {18} {19} {gn} {0 wh} {1 wh} {2 wh} {3 wh}
+	{4 wh} {5 wh} {6 wh} {7 wh} {8 wh} {9 wh} {10 wh} {11 wh} {12 wh}
+	{13 wh} {14 wh} {gn wh} {0 bl} {1 bl} {2 bl} {3 bl} {4 bl} {5 bl} {6 bl}
+	{7 bl} {8 bl} {9 bl} {10 bl} {11 bl} {12 bl} {13 bl} {14 bl} {gn bl}
+	{0 fl} {1 fl} {2 fl} {3 fl} {4 fl} {5 fl} {6 fl} {7 fl} {8 fl} {9 fl}
+	{10 fl} {11 fl} {12 fl} {13 fl} {14 fl} {gn fl}
+	] def
+	/sl FMLOCAL
+	/val FMLOCAL
+	/ws FMLOCAL
+	/im FMLOCAL
+	/bs FMLOCAL
+	/cs FMLOCAL
+	/len FMLOCAL
+	/pos FMLOCAL
+/ms { 
+	/sl exch def 
+	/val 255 def 
+	/ws cfs 
+	/im cfs 
+	/val 0 def 
+	/bs cfs 
+	/cs cfs 
+	} bind def
+400 ms 
+/ip { 
+	is 
+	0 
+	cf cs readline pop 
+	{	ic exch get exec 
+		add 
+		} forall 
+	pop 
+	
+	} bind def
+/wh { 
+	/len exch def 
+	/pos exch def 
+	ws 0 len getinterval im pos len getinterval copy pop
+	pos len 
+	} bind def
+/bl { 
+	/len exch def 
+	/pos exch def 
+	bs 0 len getinterval im pos len getinterval copy pop
+	pos len 
+	} bind def
+/s1 1 string def
+/fl { 
+	/len exch def 
+	/pos exch def 
+	/val cf s1 readhexstring pop 0 get def
+	pos 1 pos len add 1 sub {im exch val put} for
+	pos len 
+	} bind def
+/hx { 
+	3 copy getinterval 
+	cf exch readhexstring pop pop 
+	} bind def
+	/h FMLOCAL
+	/w FMLOCAL
+	/d FMLOCAL
+	/lb FMLOCAL
+	/bitmapsave FMLOCAL
+	/is FMLOCAL
+	/cf FMLOCAL
+/wbytes { 
+	dup 
+	8 eq {pop} {1 eq {7 add 8 idiv} {3 add 4 idiv} ifelse} ifelse
+	} bind def
+/BEGINBITMAPBWc { 
+	1 {} COMMONBITMAPc
+	} bind def
+/BEGINBITMAPGRAYc { 
+	8 {} COMMONBITMAPc
+	} bind def
+/BEGINBITMAP2BITc { 
+	2 {} COMMONBITMAPc
+	} bind def
+/COMMONBITMAPc { 
+	/r exch def
+	/d exch def
+	gsave
+	translate rotate scale /h exch def /w exch def
+	/lb w d wbytes def 
+	sl lb lt {lb ms} if 
+	/bitmapsave save def 
+	r                    
+	/is im 0 lb getinterval def 
+	ws 0 lb getinterval is copy pop 
+	/cf currentfile def 
+	w h d [w 0 0 h neg 0 h] 
+	{ip} image 
+	bitmapsave restore 
+	grestore
+	} bind def
+/BEGINBITMAPBW { 
+	1 {} COMMONBITMAP
+	} bind def
+/BEGINBITMAPGRAY { 
+	8 {} COMMONBITMAP
+	} bind def
+/BEGINBITMAP2BIT { 
+	2 {} COMMONBITMAP
+	} bind def
+/COMMONBITMAP { 
+	/r exch def
+	/d exch def
+	gsave
+	translate rotate scale /h exch def /w exch def
+	/bitmapsave save def 
+	r                    
+	/is w d wbytes string def
+	/cf currentfile def 
+	w h d [w 0 0 h neg 0 h] 
+	{cf is readhexstring pop} image
+	bitmapsave restore 
+	grestore
+	} bind def
+	/proc1 FMLOCAL
+	/proc2 FMLOCAL
+	/newproc FMLOCAL
+/Fmcc {
+    /proc2 exch cvlit def
+    /proc1 exch cvlit def
+    /newproc proc1 length proc2 length add array def
+    newproc 0 proc1 putinterval
+    newproc proc1 length proc2 putinterval
+    newproc cvx
+} bind def
+/ngrayt 256 array def
+/nredt 256 array def
+/nbluet 256 array def
+/ngreent 256 array def
+	/gryt FMLOCAL
+	/blut FMLOCAL
+	/grnt FMLOCAL
+	/redt FMLOCAL
+	/indx FMLOCAL
+	/cynu FMLOCAL
+	/magu FMLOCAL
+	/yelu FMLOCAL
+	/k FMLOCAL
+	/u FMLOCAL
+/colorsetup {
+	currentcolortransfer
+	/gryt exch def
+	/blut exch def
+	/grnt exch def
+	/redt exch def
+	0 1 255 {
+		/indx exch def
+		/cynu 1 red indx get 255 div sub def
+		/magu 1 green indx get 255 div sub def
+		/yelu 1 blue indx get 255 div sub def
+		/k cynu magu min yelu min def
+		/u k currentundercolorremoval exec def
+		nredt indx 1 0 cynu u sub max sub redt exec put
+		ngreent indx 1 0 magu u sub max sub grnt exec put
+		nbluet indx 1 0 yelu u sub max sub blut exec put
+		ngrayt indx 1 k currentblackgeneration exec sub gryt exec put
+	} for
+	{255 mul cvi nredt exch get}
+	{255 mul cvi ngreent exch get}
+	{255 mul cvi nbluet exch get}
+	{255 mul cvi ngrayt exch get}
+	setcolortransfer
+	{pop 0} setundercolorremoval
+	{} setblackgeneration
+	} bind def
+	/tran FMLOCAL
+/fakecolorsetup {
+	/tran 256 string def
+	0 1 255 {/indx exch def 
+		tran indx
+		red indx get 77 mul
+		green indx get 151 mul
+		blue indx get 28 mul
+		add add 256 idiv put} for
+	currenttransfer
+	{255 mul cvi tran exch get 255.0 div}
+	exch Fmcc settransfer
+} bind def
+/BITMAPCOLOR { 
+	/d 8 def
+	gsave
+	translate rotate scale /h exch def /w exch def
+	/bitmapsave save def 
+	colorsetup
+	/is w d wbytes string def
+	/cf currentfile def 
+	w h d [w 0 0 h neg 0 h] 
+	{cf is readhexstring pop} {is} {is} true 3 colorimage 
+	bitmapsave restore 
+	grestore
+	} bind def
+/BITMAPCOLORc { 
+	/d 8 def
+	gsave
+	translate rotate scale /h exch def /w exch def
+	/lb w d wbytes def 
+	sl lb lt {lb ms} if 
+	/bitmapsave save def 
+	colorsetup
+	/is im 0 lb getinterval def 
+	ws 0 lb getinterval is copy pop 
+	/cf currentfile def 
+	w h d [w 0 0 h neg 0 h] 
+	{ip} {is} {is} true 3 colorimage
+	bitmapsave restore 
+	grestore
+	} bind def
+/BITMAPTRUECOLORc { 
+        gsave
+        translate rotate scale /h exch def /w exch def
+        /bitmapsave save def 
+        
+        /is w string def
+        
+        ws 0 w getinterval is copy pop 
+        /cf currentfile def 
+        w h 8 [w 0 0 h neg 0 h] 
+        {ip} {gip} {bip} true 3 colorimage
+        bitmapsave restore 
+        grestore
+        } bind def
+/BITMAPTRUECOLOR { 
+        gsave
+        translate rotate scale /h exch def /w exch def
+        /bitmapsave save def 
+        /is w string def
+        /gis w string def
+        /bis w string def
+        /cf currentfile def 
+        w h 8 [w 0 0 h neg 0 h] 
+        { cf is readhexstring pop } 
+        { cf gis readhexstring pop } 
+        { cf bis readhexstring pop } 
+        true 3 colorimage 
+        bitmapsave restore 
+        grestore
+        } bind def
+/BITMAPTRUEGRAYc { 
+        gsave
+        translate rotate scale /h exch def /w exch def
+        /bitmapsave save def 
+        
+        /is w string def
+        
+        ws 0 w getinterval is copy pop 
+        /cf currentfile def 
+        w h 8 [w 0 0 h neg 0 h] 
+        {ip gip bip w gray} image
+        bitmapsave restore 
+        grestore
+        } bind def
+/ww FMLOCAL
+/r FMLOCAL
+/g FMLOCAL
+/b FMLOCAL
+/i FMLOCAL
+/gray { 
+        /ww exch def
+        /b exch def
+        /g exch def
+        /r exch def
+        0 1 ww 1 sub { /i exch def r i get .299 mul g i get .587 mul
+			b i get .114 mul add add r i 3 -1 roll floor cvi put } for
+        r
+        } bind def
+/BITMAPTRUEGRAY { 
+        gsave
+        translate rotate scale /h exch def /w exch def
+        /bitmapsave save def 
+        /is w string def
+        /gis w string def
+        /bis w string def
+        /cf currentfile def 
+        w h 8 [w 0 0 h neg 0 h] 
+        { cf is readhexstring pop 
+          cf gis readhexstring pop 
+          cf bis readhexstring pop w gray}  image
+        bitmapsave restore 
+        grestore
+        } bind def
+/BITMAPGRAY { 
+	8 {fakecolorsetup} COMMONBITMAP
+	} bind def
+/BITMAPGRAYc { 
+	8 {fakecolorsetup} COMMONBITMAPc
+	} bind def
+/ENDBITMAP {
+	} bind def
+end 
+	/ALDsave FMLOCAL
+	/ALDmatrix matrix def ALDmatrix currentmatrix pop
+/StartALD {
+	/ALDsave save def
+	 savematrix
+	 ALDmatrix setmatrix
+	} bind def
+/InALD {
+	 restorematrix
+	} bind def
+/DoneALD {
+	 ALDsave restore
+	} bind def
+%%EndProlog
+%%BeginSetup
+(3.0) FMVERSION
+1 1 595.28 841.89 0 1 17 FMDOCUMENT
+0 0 /Times-Bold FMFONTDEFINE
+1 0 /Times-Roman FMFONTDEFINE
+2 0 /Times-Italic FMFONTDEFINE
+3 0 /Helvetica FMFONTDEFINE
+4 1 /ZapfDingbats FMFONTDEFINE
+5 0 /Courier FMFONTDEFINE
+6 0 /Times-BoldItalic FMFONTDEFINE
+32 FMFILLS
+0 0 FMFILL
+1 0.1 FMFILL
+2 0.3 FMFILL
+3 0.5 FMFILL
+4 0.7 FMFILL
+5 0.9 FMFILL
+6 0.97 FMFILL
+7 1 FMFILL
+8 <0f1e3c78f0e1c387> FMFILL
+9 <0f87c3e1f0783c1e> FMFILL
+10 <cccccccccccccccc> FMFILL
+11 <ffff0000ffff0000> FMFILL
+12 <8142241818244281> FMFILL
+13 <03060c183060c081> FMFILL
+14 <8040201008040201> FMFILL
+16 1 FMFILL
+17 0.9 FMFILL
+18 0.7 FMFILL
+19 0.5 FMFILL
+20 0.3 FMFILL
+21 0.1 FMFILL
+22 0.03 FMFILL
+23 0 FMFILL
+24 <f0e1c3870f1e3c78> FMFILL
+25 <f0783c1e0f87c3e1> FMFILL
+26 <3333333333333333> FMFILL
+27 <0000ffff0000ffff> FMFILL
+28 <7ebddbe7e7dbbd7e> FMFILL
+29 <fcf9f3e7cf9f3f7e> FMFILL
+30 <7fbfdfeff7fbfdfe> FMFILL
+%%EndSetup
+%%Page: "1" 1
+%%BeginPaperSize: A4
+%%EndPaperSize
+595.28 841.89 0 FMBEGINPAGE
+0 0 0 700 453 290.49 170.08 275.81 261.48 FMBEGINEPSF
+%%BeginDocument: <inline>
+%!PS-Adobe-2.0 EPSF-1.2
+%%BoundingBox: 0 0 700 453 
+%%EndComments
+ /wpdict 120 dict def  
+ wpdict begin  
+ /bdef	{bind def} bind def  
+   
+ /bflg	false def  
+ /Bfont	0 def  
+ /bon	false def  
+   
+ /psz	0 def  
+ /_S	/show load def  
+ /_t	{0 rmoveto} bdef  
+ /_pixelsnap { transform .25 sub round .25 add 
+ 	 exch .25 sub round .25 add exch 
+ 	 itransform } bdef 
+  
+ /_pixeldsnap { dtransform round exch round exch 
+ 	 idtransform } bdef 
+  
+ /_lt		{_pixelsnap lineto} bdef 
+ /_rlt	{_pixeldsnap rlineto} bdef 
+ /_mt		{_pixelsnap moveto} bdef 
+ /_rmt	{_pixeldsnap rmoveto} bdef 
+  
+ /bshow  
+ { gsave  
+    psz 30 div 0 _rmt dup show  
+   grestore  
+   show  
+ } bdef  
+   
+ /DUx	0 def  
+ /DUy	0 def  
+ /hscl	0 def  
+   
+ /M  
+ { _mt  
+   2 mul -2 2  
+   {	-2 roll  
+ 	0 _rmt  
+ 	_S  
+   } for  
+ } bdef  
+   
+ /makeoutl  
+ {   dup /OutlineFlag known not  
+     {	dup dup length 2 add dict begin  
+ 	{ 1 index /FID ne { def }{ pop pop } ifelse  
+ 	} forall  
+ 	/UniqueID known {/UniqueID UniqueID 10000 add def} if  
+ 	/PaintType PaintType 0 eq { 2 }{ PaintType } ifelse def  
+ 	/StrokeWidth 15 def 	 
+ 	/OutlineFlag true def 		/OutlineFont currentdict end definefont  
+     } if } bdef  
+   
+ /nbuff	32 string def  
+ /orntsv	0 def  
+ /plen	0 def  
+ /pwid	0 def  
+ /picstr 1 string def  
+   
+ /reencode  
+ { dup FontDirectory exch known  
+   { findfont }  
+   {	dup nbuff cvs dup length 1 sub get 82 eq  
+ 	{	dup nbuff cvs dup length 1 sub 0 exch getinterval  
+ 		findfont begin  
+ 		currentdict dup length dict begin  
+ 		    { 1 index /FID ne {def} {pop pop} ifelse } forall  
+ 		    /FontName exch def  
+ 		    /Encoding WPencoding def  
+ 		currentdict dup end end  
+ 		/FontName get exch definefont  
+ 	}  
+ 	{ findfont } ifelse  
+   } ifelse  
+ } bdef  
+   
+ /ron	false def  
+ /sflg	false def  
+ /slan	0 def  
+ /sp 32 def 
+   
+ /sshow  
+ { save exch  
+    gsave  
+     psz 20 div dup neg _rmt dup show  
+    grestore  
+    dup  
+    save exch  
+     Bfont setfont  
+     1 setgray show  
+    restore  
+    currentfont makeoutl setfont show  
+    currentpoint 3 -1 roll  
+   restore _mt  
+ } bdef  
+   
+ /Sx	0 def  
+ /Sy	0 def  
+ /Ux	0 def  
+ /Uy	0 def  
+ /W /widthshow load def 
+   
+ /WPencoding StandardEncoding 256 array copy def 0 [ 127  
+    /Aacute/Acircumflex/Adieresis/Agrave/Aring/Atilde/Ccedilla       /Delta/Eacute/Ecircumflex/Edieresis/Egrave/Eth/Gamma/Iacute/Icircumflex     
+    /Idieresis/Igrave/Lambda/Ntilde/Oacute/Ocircumflex/Odieresis/Ograve  
+    /Omega/Otilde/Phi/Pi/Psi/Scaron/Sigma/TeXtext32/Theta/Thorn  
+   209 /Uacute/Ucircumflex/Udieresis/Ugrave/Upsilon/Xi/Yacute/Ydieresis  
+    /Zcaron/aacute/acircumflex/adieresis/agrave/aring/atilde/brokenbar  
+   228 /ccedilla/copyright/degree/divide  
+   236 /dotlessj/eacute/ecircumflex/edieresis/egrave 242 /eth/ff/ffi  
+   246 /ffl/iacute 252 /icircumflex/idieresis/igrave/logicalnot  
+   1 /minus/mu/multiply/ntilde/oacute/ocircumflex/odieresis/ograve/onehalf  
+    /onequarter/onesuperior/otilde/plusminus/registered/scaron/thorn  
+    /threequarters/threesuperior/trademark/twosuperior/uacute/ucircumflex  
+    /udieresis/ugrave/yacute/ydieresis/zcaron  
+ ]  
+ { dup type /nametype eq  
+   {  WPencoding 2 index 2 index put  
+      pop 1 add  
+   }  
+   {  exch pop  
+   } ifelse  
+ } forall pop  
+   
+ /_B	{/bflg true def  
+ 	 sflg not {/_S /bshow load def /bon true def} if  
+ 	} bdef  
+ /_b	{/bflg false def  
+ 	 bon {/_S /show load def /bon false def} if  
+ 	} bdef  
+ /_bd	{save} bdef  
+ /_bp	{save 2 setmiterlimit .06 .06 scale 0 0 _mt} bdef  
+ /_ccprocs  
+ 	{/proc2 exch cvlit def  
+ 	 /proc1 exch cvlit def  
+ 	 /newproc proc1 length proc2 length add  
+ 	  array def  
+ 	 newproc 0 proc1 putinterval  
+ 	 newproc proc1 length proc2 putinterval  
+ 	 newproc cvx  
+ 	} def  
+ /_clr	{3 {255 div 3 1 roll} repeat  
+ 	 ron  
+ 	  {6 3 roll pop pop pop}  
+ 	  {setrgbcolor} ifelse 	} bdef /_cp	/closepath load def  
+ /_cw	{stroke initclip _mt 0 2 index 
+ 	_rlt 0 _rlt 0 exch neg 
+ 	_rlt clip newpath} bdef  
+ /_d	/setdash load def  
+ /_DU	{ currentpoint /DUy exch def /DUx exch def } bdef  
+ /_du	{gsave  
+ 		save  
+ 		8 setlinewidth  
+ 		currentpoint  
+ 		-30 add _mt  
+ 		DUx DUy -30 add _lt  
+ 		stroke  
+ 		restore  
+ 		8 setlinewidth  
+ 		currentpoint  
+ 		-50 add _mt  
+ 		DUx DUy -50 add _lt  
+ 		stroke  
+ 	grestore} bdef  
+ /_ed	{restore} bdef  
+ /_ep	{showpage restore 0 0 _mt} bdef  
+ /_f	/eofill load def  
+ /_ff  
+ { exch reencode exch  
+   3 div dup /psz exch def  
+   scalefont dup /Bfont exch def setfont  
+ } bdef  
+   
+ /_ffs  
+ { /slan exch 10 div def /hscl exch 1000 div def  
+   /psz exch 3 div def  
+   [ psz hscl mul 0 slan dup sin exch cos div psz mul psz 0 0 ]  
+   exch reencode exch makefont dup /Bfont exch def setfont  
+ } bdef  
+ /_g	/setgray load def  
+ /_gs {neg 100 add 100 div setgray } bdef  
+ /_i	{gsave  
+ 		dup /picstr exch 7 add 8 idiv string def  
+ 		3 1 roll translate dup 1 scale  
+ 		dup 1 1 [5 -1 roll 0 0 1 0 0]  
+ 		{currentfile picstr readhexstring pop} image  
+ 		grestore  
+ 	} bdef  
+ /_is {save 4 1 roll 
+ 		dup /picstr exch 7 add 8 idiv string def 
+ 		3 1 roll translate dup 1 scale 
+ 		dup 1 1 [5 -1 roll 0 0 1 0 0] 
+ 		{currentfile picstr readhexstring pop} image 
+ 		restore 
+ 	} bdef 
+ /_ie	{  
+ 		1 eq {{1 exch sub} currenttransfer _ccprocs settransfer} 		if 		/_isx exch def /_isy exch def  
+ 		_isx mul exch _isy mul translate  
+ 		add 2 div /_txc exch def  
+ 		add 2 div /_tyc exch def  
+ 		_txc _isx mul _tyc _isy mul translate  
+ 		360 exch sub rotate  
+ 		1 eq { _isx neg _isy scale }  
+ 		{ _isx _isy scale }  
+ 		ifelse _txc neg _tyc neg translate  
+ 	} bdef  
+ /_epsi	{  
+ 	  1 eq {{1 exch sub} currenttransfer _ccprocs settransfer} if  
+ 	  /yp exch def /xp exch def	 
+ 	  /dhgt exch def /dwid exch def  
+ 	  4 copy sub /swid exch def 	 
+ 	  sub /shgt exch def 		 
+ 	  add 2 div /icx exch def 	 
+ 	  add 2 div /icy exch def	 
+ 	  xp dwid 2 div add icx sub  
+ 	  yp dhgt 2 div sub 		 
+ 	  icy sub translate		 
+ 	  icx icy translate 		 
+ 	  360 exch sub rotate 
+ 	  dwid swid div /xsc exch def exch 	 
+ 	  dhgt shgt div /ysc exch def exch 	 
+ 	  dup 1 eq {xsc neg /xsc exch def pop}   
+ 	           {dup 2 eq {ysc neg /ysc exch def pop}  
+ 		   {3 eq {ysc neg /ysc exch def xsc neg /xsc exch def}  
+ 			 {} ifelse} ifelse} ifelse 
+ 	  xsc ysc scale			 
+ 	  100 div exch 100 div exch scale	 
+ 	  icx neg icy neg translate	 
+ 	} bind def 
+  
+ /_irms	{ save  
+ 		12 1 roll  
+ 		1 eq {{1 exch sub} currenttransfer _ccprocs settransfer} if  
+ 		/picstr exch string def translate  
+ 		2 index 6 index sub 2 div 2 index 6 index sub 2 div neg  
+ 		translate  
+ 		5 index 5 index 2 div neg exch 2 div exch  
+ 		2 copy neg exch neg exch 5 2 roll translate  
+ 		360 exch sub rotate  
+ 		3 index 3 index 7 index div exch 8 index div exch scale  
+ 		translate pop pop 2 index 2 index scale  
+ 		3 index 0 eq  
+ 		{ [ 3 index 0 0 5 index neg 0 0 ] }  
+ 		{ 3 index 1 eq  
+ 		   { [ 3 index 0 0 5 index 0 7 index ] }  
+ 		   { 3 index 128 eq  
+ 			{ [ 3 index neg 0 0 5 index neg 7 index 0 ] }  
+ 			{ [ 3 index neg 0 0 5 index 7 index 7 index ] }  
+ 			ifelse  
+ 	 	   } ifelse  
+ 		} ifelse  
+  		{currentfile picstr readhexstring pop} image  
+ 		pop  
+ 	restore} bdef  
+   
+ /_l	{_lt} bdef  
+ /_lr {_rlt} bdef  
+ /_m  {_mt} bdef  
+ /_O	{currentfont makeoutl setfont} bdef  
+ /_o	{Bfont setfont} bdef  
+ /_ornt	{/pwid exch def /plen exch def  
+ 	orntsv 1 eq {0 pwid translate -90 rotate} if  
+ 	orntsv 2 eq {pwid plen translate 180 rotate} if  
+ 	orntsv 3 eq {plen 0 translate 90 rotate} if  
+ 	dup 1 eq {pwid 0 translate 90 rotate} if  
+ 	dup 2 eq {pwid plen translate 180 rotate} if  
+ 	dup 3 eq {0 plen translate -90 rotate} if  
+ 	/orntsv exch def  
+ 	} bdef  
+ /_lod1	{currentpoint orntsv plen pwid 6 -1 roll restore save} bdef  
+ /_lod2	{_bp 7 2 roll _ornt _mt} bdef  
+ /_unlod	{currentpoint orntsv plen pwid 7 -2 roll restore restore 	 _bp 6 1 roll _ornt _mt  
+ 	} bdef  
+ /_p	{2 copy _mt 1 0 _rlt _mt} bdef  
+ /_pl	{{_lt} repeat} bdef  
+ /_R	{/ron true def currentrgbcolor 1 .25 .25 setrgbcolor} bdef  
+ /_r	{/ron false def setrgbcolor} bdef /_rm	{0 _rmt} bdef  
+ /_rmxy {_rmt} bdef /_s	/stroke load def  
+ /_SH	{bon {/bon false def} if  
+ 	 /_S /sshow load def /sflg true def 	} bdef  
+ /_sh	{/_S /show load def /sflg false def bflg {_B} if} bdef  
+ /_sp 	{ gsave stroke grestore } bdef  
+ /_ST	{currentpoint /Sy exch def /Sx exch def} bdef  
+ /_st	{gsave  
+ 		currentpoint pop  
+ 		Sx dup Sy _mt sub 
+ 		(\320) stringwidth pop div 
+ 		dup floor cvi dup 
+ 		{(\320) show} repeat sub 
+ 		dup 0 gt {1 scale (\320) show}{pop} ifelse 
+ 	grestore} bdef  
+ /_U	{currentpoint /Uy exch def /Ux exch def} bdef  
+ /_u	{gsave  
+ 		currentpoint  
+ 		-30 add _mt  
+ 		Ux Uy -30 add _lt  
+ 		12 setlinewidth  
+ 		stroke  
+ 	grestore} bdef  
+ /_w	/setlinewidth load def  
+ end  
+/wpdict2 100 dict def
+wpdict begin wpdict2 begin
+_bd
+/_rhs{readhexstring}bdef/_tr{translate}bdef
+/_ix{index}bdef/_mx{matrix}bdef
+/ife{ifelse}bdef/_x{exch}bdef
+/_is{save 4 1 roll
+dup/picstr _x 7 add 8 idiv string def
+3 1 roll _tr dup 1 scale
+dup 1 1[5 -1 roll 0 0 1 0 0]
+{currentfile picstr _rhs pop}image restore}bdef
+/_epsi{1 eq{{1 _x sub}currenttransfer _ccprocs settransfer}if
+/yp _x def/xp _x def/dhgt _x def/dwid _x def
+4 copy sub/swid _x def
+sub/shgt _x def
+add 2 div/icx _x def add 2 div/icy _x def
+xp dwid 2 div add icx sub yp dhgt 2 div sub
+icy sub _tr icx icy _tr
+360 _x sub rotate
+dwid swid div/xsc _x def _x
+dhgt shgt div/ysc _x def _x
+dup 1 eq{xsc neg/xsc _x def pop}
+{dup 2 eq{ysc neg /ysc _x def pop}
+{3 eq{ysc neg/ysc _x def xsc neg/xsc _x def}
+{}ife}ife}ife
+xsc ysc scale
+100 div _x 100 div _x scale
+icx neg icy neg _tr}bdef
+/_c{3{255 div 3 1 roll}repeat setrgbcolor}bdef
+/eq3{3 copy 2 _ix eq{eq{true}{false}ife}{pop
+pop false}ife}bdef
+/g{255 div setgray}bdef
+/_clr{ron{6 3 roll pop pop pop}{eq3{pop
+pop g}{_c}ife}ife}bdef
+/_r{/ron false def eq3{1 sub neg g pop
+pop}{setrgbcolor}ife}bdef
+/_ircms{save 15 1 roll
+1 eq{{1 exch sub}currenttransfer _ccprocs settransfer}if
+/pstr _x string def _tr
+/Cli _x def/USy _x def/USx _x def/Rot _x def/HTd _x def
+/WDd _x def/Bdep _x def/HTs _x def/WDs _x def/MIR _x def
+USx 100 div USy 100 div scale
+WDd WDs sub 2 div HTd HTs sub 2 div neg _tr
+WDs HTs 2 div neg _x 2 div _x _tr
+Rot 360 _x sub rotate WDd HTd HTs div _x WDs div _x scale
+WDs 2 div neg HTs 2 div _tr
+WDs HTs scale WDs HTs Bdep MIR 0
+eq{[WDs 0 0 HTs neg 0 0]}{MIR 1 eq{[WDs 0 0 HTs 0 HTs]}
+{MIR 128 eq{[WDs neg 0 0 HTs neg WDs 0]}
+{[WDs neg 0 0 HTs WDs HTs]}ife}ife}ife
+{currentfile pstr _rhs pop}Cli
+0 eq{image}{false 3 colorimage}ife
+restore}bdef
+/_bp{save 2 setlinecap 2 setmiterlimit
+.06 .06 scale 0 0 moveto}bdef
+/tctm _mx def/trot _mx def/tscale _mx def/rmtx _mx def
+/fr{72 0 rmtx defaultmatrix dtransform
+/yres _x def/xres _x def
+xres dup mul yres dup mul add sqrt}bdef
+/sus{/spotf _x def/sang _x def/csz _x def
+/m tctm currentmatrix def/rm sang trot rotate def
+/sm csz dup tscale scale def
+sm rm m m concatmatrix m concatmatrix pop
+1 0 m dtransform /y1 _x def/x1 _x def
+/veclength x1 dup mul y1 dup mul add sqrt def
+/frcy fr veclength div def /nsang y1 x1 atan def
+frcy nsang/spotf load setscreen}bdef
+/bitis{/ybit _x def /xbit _x def
+/bval bstring ybit bwidth mul xbit 8 idiv add get def
+/mask 1 7 xbit 8 mod sub bitshift def
+bval mask and 0 ne}bdef
+/bps{/y _x def /x _x def
+/xndx x 1 add 2 div bpside mul cvi def
+/yndx y 1 add 2 div bpside mul cvi def
+xndx yndx bitis
+{/onb onb 1 add def 1}{/ofb ofb 1 add def 0}ife}bdef
+/stpatt{/csz _x def /angle _x def /bwidth _x def
+/bpside _x def /bstring _x def
+/onb 0 def /ofb 0 def
+csz angle /bps load
+sus{}settransfer
+ofb ofb onb add div _g}bdef
+/_fp{8 1 0 cpi stpatt}bdef
+/_pf{gsave eofill grestore}bdef
+/_np{newpath}bdef/_lc{setlinecap}bdef
+/_sr{/cpi _x def}bdef
+
+%%EndProlog
+_bp gsave 128 _sr _s 0 0 _m 11670 0 11670 7560 0 7560 3 _pl clip _np gsave 0 g 611 663 div 663 663 div 152 dup 3 index mul sub 3704 dup 3 index mul sub translate scale 152 3945 _m
+/Times-RomanR 1989 _ff
+0 g (R)_S  grestore 
+7908 4928 _m 11432 4923 11436 3617 7902 3614 3 _pl gsave 0 g <8800220088002200> _fp _pf grestore _np gsave 0 g 611 663 div 663 663 div 695 dup 3 index mul sub 3704 dup 3 index mul sub translate scale 695 3945 _m
+/Times-RomanR 1989 _ff
+0 g (i)_S  grestore gsave 0 g 611 663 div 663 663 div 1103 dup 3 index mul sub 3704 dup 3 index mul sub translate scale 1103 3945 _m
+/Times-RomanR 1989 _ff
+0 g (j)_S  grestore gsave 0 g 611 663 div 663 663 div 1484 dup 3 index mul sub 3704 dup 3 index mul sub translate scale 1484 3945 _m
+/Times-RomanR 1989 _ff
+0 g (k)_S  grestore gsave 0 g 611 663 div 663 663 div 2046 dup 3 index mul sub 3704 dup 3 index mul sub translate scale 2046 3945 _m
+/Times-RomanR 1989 _ff
+0 g (s)_S  grestore gsave 0 g 672 599 div 599 599 div 2809 dup 3 index mul sub 3724 dup 3 index mul sub translate scale 2809 3930 _m
+/HelveticaR 1797 _ff
+0 g /Helvetica-BoldR 1797 _ff
+(U)_S  /HelveticaR 1797 _ff
+grestore gsave 0 g 672 599 div 599 599 div 3482 dup 3 index mul sub 3725 dup 3 index mul sub translate scale 3482 3931 _m
+/HelveticaR 1797 _ff
+0 g (n)_S  grestore gsave 0 g 672 599 div 599 599 div 4032 dup 3 index mul sub 3725 dup 3 index mul sub translate scale 4032 3931 _m
+/HelveticaR 1797 _ff
+0 g (i)_S  grestore gsave 0 g 672 599 div 599 599 div 4359 dup 3 index mul sub 3725 dup 3 index mul sub translate scale 4359 3931 _m
+/HelveticaR 1797 _ff
+0 g (v)_S  grestore gsave 0 g 672 599 div 599 599 div 4819 dup 3 index mul sub 3725 dup 3 index mul sub translate scale 4819 3931 _m
+/HelveticaR 1797 _ff
+0 g (e)_S  grestore gsave 0 g 672 599 div 599 599 div 5291 dup 3 index mul sub 3725 dup 3 index mul sub translate scale 5291 3931 _m
+/HelveticaR 1797 _ff
+0 g (r)_S  grestore gsave 0 g 672 599 div 599 599 div 5609 dup 3 index mul sub 3726 dup 3 index mul sub translate scale 5609 3932 _m
+/HelveticaR 1797 _ff
+0 g (s)_S  grestore gsave 0 g 672 599 div 599 599 div 6099 dup 3 index mul sub 3725 dup 3 index mul sub translate scale 6099 3931 _m
+/HelveticaR 1797 _ff
+0 g (i)_S  grestore gsave 0 g 672 599 div 599 599 div 6426 dup 3 index mul sub 3726 dup 3 index mul sub translate scale 6426 3932 _m
+/HelveticaR 1797 _ff
+0 g (t)_S  grestore gsave 0 g 672 599 div 599 599 div 6734 dup 3 index mul sub 3726 dup 3 index mul sub translate scale 6734 3932 _m
+/HelveticaR 1797 _ff
+0 g (e)_S  grestore gsave 0 g 672 599 div 599 599 div 7264 dup 3 index mul sub 3726 dup 3 index mul sub translate scale 7264 3932 _m
+/HelveticaR 1797 _ff
+0 g (i)_S  grestore gsave 0 g 672 599 div 599 599 div 7566 dup 3 index mul sub 3726 dup 3 index mul sub translate scale 7566 3932 _m
+/HelveticaR 1797 _ff
+0 g (t)_S  grestore gsave 0 g 672 599 div 599 599 div 8292 dup 3 index mul sub 3735 dup 3 index mul sub translate scale 8292 3941 _m
+/HelveticaR 1797 _ff
+0 g /Helvetica-BoldR 1797 _ff
+(L)_S  /HelveticaR 1797 _ff
+grestore gsave 0 g 672 599 div 599 599 div 8855 dup 3 index mul sub 3720 dup 3 index mul sub translate scale 8855 3926 _m
+/HelveticaR 1797 _ff
+0 g (e)_S  grestore gsave 0 g 672 599 div 599 599 div 9351 dup 3 index mul sub 3735 dup 3 index mul sub translate scale 9351 3941 _m
+/HelveticaR 1797 _ff
+0 g (i)_S  grestore gsave 0 g 672 599 div 599 599 div 9646 dup 3 index mul sub 3727 dup 3 index mul sub translate scale 9646 3933 _m
+/HelveticaR 1797 _ff
+0 g (d)_S  grestore gsave 0 g 672 599 div 599 599 div 10155 dup 3 index mul sub 3727 dup 3 index mul sub translate scale 10155 3933 _m
+/HelveticaR 1797 _ff
+0 g (e)_S  grestore gsave 0 g 672 599 div 599 599 div 10677 dup 3 index mul sub 3727 dup 3 index mul sub translate scale 10677 3933 _m
+/HelveticaR 1797 _ff
+0 g (n)_S  grestore 
+[] 0  _d 0 g 132 _w 8344 4991 11220 4990 _m 1 _pl _s 
+2894 3629 2894 3245 _m 1 _pl _s 
+11480 4866 11480 4433 _m 1 _pl _s 
+11494 4104 11494 3678 _m 1 _pl _s 
+8349 3583 8837 3583 _m 1 _pl _s 
+24 _w 3424 3667 3424 3174 _m 1 _pl _s 
+4052 3667 4052 3174 _m 1 _pl _s 
+4683 3667 4683 3174 _m 1 _pl _s 
+5312 3666 5312 3172 _m 1 _pl _s 
+5936 3666 5936 3172 _m 1 _pl _s 
+6588 3666 6588 3172 _m 1 _pl _s 
+7206 3667 7206 3174 _m 1 _pl _s 
+7847 3666 7847 3172 _m 1 _pl _s 
+grestore _ep
+_ed end end
+%%Trailer
+
+%%EndDocument
+FMENDEPSF
+0 14 Q
+0 X
+0 K
+(Afdeling Informatica) 56.69 804.21 T
+1 F
+(Groep Systeembeheer) 56.69 788.21 T
+0 F
+(Accountr) 240 766.21 T
+(egistratie formulier) 295.73 766.21 T
+2 8 Q
+(voor informatie over dit formulier kunt u ter) 327.31 746.21 T
+(echt) 468.56 746.21 T
+(bij helpdesk@issc.leidenuniv.nl, telefoon 071-5278888) 325.98 736.21 T
+3 7 Q
+(Universiteit Leiden) 57.32 369.58 T
+(Afdeling Informatica) 57.32 360.58 T
+(Postbus 9512, 2300 RA Leiden) 57.32 351.58 T
+(Niels Bohrweg 1, 2333 CA Leiden) 57.32 342.58 T
+(T) 57.32 333.58 T
+(el: 071 5277063 \050secr\051) 60.82 333.58 T
+(Fax: 071 5276985) 57.32 324.58 T
+%%BeginBinary:  11519    
+265 300 60.04 67.97 0 488.98 745.58 BEGINBITMAPBWc
+
+E$
+C00003D&
+8000000007C#9#
+C000000FB#;#
+FC00007FB"="
+8003A#=#
+FC00007FA"8%9"
+C001FFFFFF07@*8"
+FE000003FFF03FBFFF00@"8(8"
+F0FFFE0F0F8FFFF83F@.
+C0000F80FF9FC78FFCFFE00007@%8(
+00007E7CE7CFF9FBFE0000?&8)
+FC0007FCFEE3CFFBFBFFC0003F?0
+E0003E79FF7F9FF3C7F3F1FFF8000F?'8(
+8001FEF9FFFFE7F7F0FFDF0001?%;"8%
+000FFEF3E7CFC0007F>$<)
+FC007FE3EFF4FFDFFC001F>$<)
+F000E7F3CFF47FDFFF000F>$=(
+C0078FDFEE3F9FFF8003>$<#8%
+800FC7F19FBFF07000=';)
+FE003FE3FEF1BFEF1FBFC79E007F=%8#8":%
+FC00FFF1FC0FF98FEF001F=%8"9*
+F0033FF8FFF87FEF8F7F1FF7C007='>&
+E00C3FFC7EF97E3FF1F003='9&9#
+C01E3FFE3EF8E7FCFFDFC7FC01=+9(
+007F1FFF1EF8FE079FCFE77C7FF1FE007F<-8#8$
+FE00FF9FFF8EFC7EE7800FFDE2FCFF003F<28#
+F803FFCFFFC6FE3CF30FFFFFFF9FF2FCFFC00F=/:#
+07FFC7FFE6FF11FFFB002FFE1FF0E007<5
+5E01FFFE7FFF0FFCFF000000003FFF9F8FFE1FFF803<*9#9%
+C03FFFE3FFD8FFFC00001FE7FFFC01<5
+6807FFFF3FF9CFF80007FFFFE0000FDF9FFC7FFFF007F<1:#
+00FFFFF1FF9FFC001FFFFFFFFC001FFC803F;#8'9$8"8#
+FE03F9FF1FC00FFFFFF0018F401F;"9&;*
+FCF8FF1E007FFF007EFF1FE3FF200F;*<%8#
+F80FFFE3FCFCF00FFFF00F3E3F1807;#8%8$8)
+E01FFE73807F804000FF81C0FFF7FC0403
+<"9*8(
+377701FFFFFC01E0003FC07BFFFFFC2601;(8&8#8$
+C070FFFFFE080F0003C1E001F81FF8F900;$8%8(8%
+80F03F603FFFFCF3F0007FFFFE07F0FC807F;38%
+01F00FFFFF81FFFFF00060F3C0C00FFFFF81E1FE403F:%8"8(8(
+FE03FB0107C0079830E0F803E07FFFC1FF201F:(8(8(
+F807FBE07FFC1F000F7F01C1FC01F83FFF867F300F:5
+9F00FFDE01FF83FFFFE000EFF0301FC007FFFFE0FFF0F3F3807:5
+9E01FFDCE0360FFFFFC0006F01001F4003FFFFF07FF1F9E3C03:'8'8"8&
+C03FFE9F80C3F8000EE0BE701FC0FE3FC07E;&8*8'
+7FFE3FE107F0000FF3BF3CF0000FE0703FE0FF01:'8"8$8"8'
+80DFFE7FF60FE0F7BFA007F8107FF3FF80:'8"8$8"8$8#
+008FFF7FEC3FC0C7BF9103FE08FFC07F9$8#8*8(
+FE0103F07F80000DE7BFCFE00001FF04FFE3FFE03F:'8*9$
+07E1FFBFE0FF000001E79FC3C00000C07FC79$8";"8#8"8'
+FC0FF8C100C0007FE0BF87FFF01F9'8"9$<'
+F81FFC7F9F87FE0F9FE0F04F0FFFF80F9'8"?"8&
+F01FFE1FDF0FFC3FF8201FFFFC:&>"<$8"
+3FFF0FC61FF0FE103F079*:#9"9&
+E071FFC7C431E1FFF8BE001F0FFFFF86039(<"<'
+C070FFE3C87DE3B880F007FFF807:';$9"9&
+F83FF8F0F9CF1FE1800FC3FF878F819*9$;(
+81F80FFC61F9DFFFF04000D0F9E7E1F0678F809(;$;(
+01FE07FCC3F9C38030C1F1E3F087F31FC08)<#;)
+FE03FEE1FF87FBF93FE1F7FCF85FF83FE07F9&?#:&8"
+07FEE0FF0FE080E7FEFC3FFC3F8);#:&8#
+FC07FF783E1FF3FC43FF07FFEFFE7E7FF09&=$>"8#
+0FFF3E163F23FFF81FF81F8"8$=%<&
+F8BF0C7F21E7E2007F0FFCFF089%8"<#;)
+1FFE1F88F9FFE0E7FC7F87F8FFE40F8);$<'
+F030001FD0FFE6F14CE3F0B8FFC3F9FFF49(;#=(
+3801FFF1FC8F0330F7C1FFE3F1FFFA078);#<(
+E07C7FFFE3FE1FDF007FFFFFFFE1F3FFFB9(<#>&
+7F3FFFC3FFFFFF3F70F0E3FFF1038&:":#>&
+C0C7CFFFC7E000F0F8C7FFC1019%`:#9a%
+8FE7FF800FF847FF06818+:#9*
+80BFF8FF0FFFFFFDFFFE2FFCDFFFFFFFFFC027FC0E8&8%9#9":&
+817FFF3F1FFFFFFF806FFEFFFE3FF83F40;#>$>%
+C23F1E333EFF1FE0FF8%?%?%
+02FFFFE67F3E7CE083FF207F8&>%>%
+06FCFFC47FFF3FFCFC880FFE607&>&>&
+FE05FC7FC801FFBFFC7F8C3FFE703F9%=%?%
+FDFFC8FF03FF38C0C47FFFF87&b9%b#
+FC0CF9FF90003CFF8006FF8#8':%="9"
+081B34440F7FFF201807FFC0021F8%P(9"P"8"
+1A03FFA1F8004007FFF0C30FF3FC7&="8$>"9"
+F81FE0FFA378F1C7FBF90F9$="8#B"
+F07F0338D1CFFE7&='>"9"
+F03FFC1F470C07E62FFFF9F8079$='?"
+FF07C7060FE0E3FFFD5F8%b'8d"
+7FFFC080030FE3C0FFFC017&P"8&8"P&
+E0783FF08FFE1FCF007FFE3FFC0FF7E3038%=&?%
+6007F91F018F9E003FFE1FF7C78$>'A#
+CF81FF00EF78001FFC8F837%b8%9b%
+C0DFF07F6EF0000F1FFB1F818%P)8"P%
+BFFC3E07E03FC001E00407FD07F00FFA3F7$=)>&
+C1BFFFF03FFC13C20807FBF80FF87FC17%=(A#
+817FFF987FFF030618C3F3FFC0:"?%@#
+D8EF047F0107F17"<"9)?$
+83F3003FF807FF80F3E0E3FFE07%9":"8$;"9'
+020FFFD0E100FB0003F103C7FF207FFF8";";&;":$
+03C1000FFC07F3E08FFF307%9":';#8'
+06F01FA00013E0FFFE0C03C07F021FFC103FFF8#@%@%
+F80FE1FFFC7E031FF85048&8%
+FE07FF800FFFFFFC80BFFFF9982FFFFFC3FDF30FFFFE001F873FF1F09,8$;)
+E0701FF87C401FC7F6046F87EDFB040FE7FD037FE3F875
+>0FFFFE7010F870080F8782044FFFFC1FB2DBF0040878700E07C3C207FF87"8%8%84
+FCFF4E003807870010F03FBC69F0031018700403C38008FF0FF81FFF:"848%
+81F000078F00400FFFC3FC3C69E001801878000700FE3FFC7"858#
+1F780803CF8001FCF80804FFF87FBDC69FC00C03EFE000FEFFC7F9)95
+FD80C07C7E003F8F4FC07F7FE313C00403C7FE0FFCF804078FFFC0FFF"85
+F8;C18040783F007F0FC1006F800FF7F8787000207C3F807F8FC040718*8(8+
+F0010061E00000000320001FFBF9F0FEF000000007F08061FFFE7(8#8'8*
+30003900201FA06800909FFFFCFEC107FE000FF801803E078'8'90
+19FD0027800000E20023E1BF3D8010E000000003C1003FF81A07FF
+7':"9"8&9#8#
+38FBFF003C000E3FDE3C8016000071FF82-8"8,9"
+F03E7BFE0020218F1E3C710283FFBE7E0010010F9E384003FB7#8(8'8#8#9"
+3F3B1071CF0E1C7382877FFFCEFE7F73CFE383FF7#8/9)
+7FDB167080000001CA0013067FF7F37EF3800000638A001F8'8/8#:#
+E3FC001400000002001F0E7FB79B5F3F00126000011A03FF8"8"8#9#8.
+FB10DFFE0E0CFD3F3F8010000001800000001B8"9&8(8&8&
+FC0FFFFFFFFF00187FFFFB1F1F07FFFFFFFC187FFF83FF%c8.8#
+E07FFF7C1A67FF39170F8000000E0040000B8F9"@&:$9#
+8C7E787F7D3B0000000FF07&P"8/8#
+FFFFC8001FFE7C018FFCF807800D1EF0F1FF9FFEFB0F7&8"8"8/9$
+CFFFE8003F3FFF180027FA738780391FF0F07FDFFFF081FF7$9#=,9%
+C3FDF8FE0F17FC6803C0381C1FF87F87FDF0C1FF7$9#:#8#8,
+DFFE78FC030178DCE839B80F387F81EF0007FDC3%8'9$:'9"
+C0BFFFB8F3F800FFFC9F0717F0E8081A3F030787918(8#
+D8003E00F0086FFC1F0003780F0BF8EC38E007021C06C3FC0F"8"85;"
+C1D04067000EFFC070002700F8C7C4807C03C780707003F;#8&8%8'8#
+3C07CFFE0F000784FD980F380103000E43F87F>";/8#
+03F00F805DA04FE00C040987800F61F1FF7";%8#82
+9F30001FFC0FE02DA003E00E000EC7C00F3F0003C3FFC0FF7+</
+C7FFB00038077000FFF02F4039E00F000047801F9F0002877$9"8#8/8%
+E1FF3060C03F800FC030C261C00C000103C00FDF1FFFE0FF-8)8%8"
+81F80070003F1E7007FF807F000F800F80C3403C97C007CF3F7$8&:(8%8"
+FE01F03EF00F38001F800003C2003EB78001E77F7#8#8&:*9"
+FFFF3E3C0000FF001E0610102C000F900000FF9"8&8"8*8$
+E0F9E00600011C81000C100800080000660003;';-
+3FF3F0000007838009F38821FE0FF3F3800E"8"9"8"8#9&8$
+83A0FC0F1E0219FFC82FF8E3803F9"8"9"8":+9"
+20E71F1C1803083E7007F3EB801F1F8"9#;#:)
+FCCFF83D8270603E6001FBEB8C8#8#8"8":+9"
+C0A0DFFF0F3FC1FCD872408078020C0AFF8"9"9"9"8,
+839F010281838D8C33C0C07A0004028":"?$:%
+07FE93030D3A000C017$8#8"9/
+F03FE0BFF003065F87B27035A437E0F0001E9E027#9#8";':#
+E0BF3FE00797B66035A03EBC237";"8"82
+07C03F3E067FDFF6C7C7887C00F8E1DCA7E200017":#;":+;"
+1F1F807ECFEF9C380EFEE1C19F477F7":#8"808"
+E78E000F7C0EFF9F06186FB47E7EFE00003E0F7F7":"8#9/:#
+F9C0400709F0DE02182F807FFEFE1C07BF1EA0FF7#9&808%
+FE3FE00003E003780000FE03112FF00000001C000000000020FF7#9';,;"
+FF9FFC0007F801EF01913FF03FFCFE1C1FB0FE7F8"95:%
+E74F801003E00C700790002000199BFF83FFEFE003F7FFFA07F8#8.:&;"
+F820F000001F000700730007E000C9FF619FB006FF8"<#;$<$:#
+FE0FF0F0004D8FBFFAE0FF8#9/8&
+FFA0010007F80300770047F80043BE38C000079C02<):$9%
+C0000003FD8F007F47381CC007000E7'9#9'8$
+FE3FE0001FE0FFCF67FC00CE008060E303>%;$8'
+8000FFFE119801FF61C7800002>":"9%8"8&
+C06F1F3863886078C000033F7#;#90
+FF7FF0010E0027FC18337FF800003017C0F8E08"8.8"8&8"
+FF0FC000E007FFFC001E0837FC08F01837E1E3E41F>#9)8&8"
+60033C083FFC89B304300FF7F1FFFCDF"=#:":#8&8"
+81F001180C2001F7E3C3F8FF9$8%8"8%8&
+F00007F800E3F8008B964FE0007788C0C8=%8":$9'
+3C7C00477C865C600038424000029.8$9%8"
+D00003E01FFFE003F000F800378C1840023001E003">"9"@";#
+C1F8F003003F8/8#:%9$
+F8100001F00FFFFF83E001E000139938078001C00041FF8"8":"<+8&
+0000CFCB99788001FFFFF7800001FFA040FF7$8#8(8$:)
+8001D07C07FF8003E00203FD3C800018800007FFFF41FF7$8$="8%8$:#
+C0FFF07F077FFCB600007FC19100C1FF7"9$8#8"8'8$
+F3023F80FE10038BCB3F00043F8F3E387)8#9$8#8#
+FCFFF800031FE03F3007FF9BC3061F1C7C$8#9%:+
+C0FF3F0787F8700700C60C00070FFFF67FF0788"8)8"8#8'
+CF03C3EC7FFFF0F80643E60083FFF7FFE0F88"8'8$9"8"9"8"8#
+E707E0FFFFFFC101030382C1830F81FF$9#8$8"8#8&8"
+E0FFC7F83F03F00423F6D2F07FF7FE07098"8,8#8&8&
+8F03FC0FFFFC0FF804030321F246F80FF7F81F081FFF83FF8#8):#8&9"
+1FFCFF00FFC03FF00402F864FE0013007F007$9.8&8$
+7E3FF4C00000FFF804060331FB9BFC60FFC00001FF0B80017*=$9$9#
+7C7FE40007FFF80007DBFC10FE001F13FC7*9":#9$9&
+78FC040003FFFFC2FF0CFD80FFFFFF17FCE103FF%:"9)@%
+F07003F4FF00080339FBD9FC00FDFD07FF7$?$8"
+63FFFE1803B9F87"?)B"
+3FF001900399FBC9FCF9
+A$9#@$
+F803F0CDFF2FFDFBC%B$
+E0039CF927FBFA%c":#8c"8#
+F837FFFF0FCCFE370FFF7#?"<#>$
+30003F01C071F3F27&P,P&
+17FF03003FFE3FC1038CF9C6FCFFF83FFE007801F67$>#<">$
+1FFFE37F82807E0C0C"8#?(>&
+FCC380078EF8C67CF8037FFE0C1FFF9"?";#>$
+8F06003FFFFFFC7$>$8%>$
+0FFF1FF80603C33C07FFBFFFF88$b"<#b
+FE3FC0701FF0%>*=#8#
+FE0FF8FF3B1C03C778C19DFFE001033FFF7%R$;"R#
+07F1FFC13F1C07E7F1008$>#8#@$
+E3FFE1FC03C0CD700FD0&=$8#?'
+FF07C7FFA17FC08340E5E27E01D07FFF7%=*>$
+060FFE2170018383F84070FFEFFF80307%<%9"A#
+023FF010FE602103789C207$?(>'
+037FC0630F8F7840387FC5FFBF20FFFF7%<*A"
+837E01F8FF307007BF60C01E07607&<)>%
+81780FF87FB60003FF71C00F0385FF7F408#=*>%
+807F860000F87E3FC007FB8CFE7F417%`,b%
+C181FFFE6080000FFF7CFFC003FBE00EFF3EC17#="8(>%
+C08F20FFFE61FFE000671FFFFE817-8&S8#
+E0DFFE7F1FFFFFFFFE38000FFFFCC0000FFC838$:%8&=%
+7FF007F800007F0F1E007FFFFE0FFFF99#:+?%
+C071F00001FFFFFFE22380FF07FFF1037&9$9$?&
+F07F03FE8F8001C3F8798FFC01FFFF078#:%9$@$
+3E1FFC001FE7FE783F407FFE8%8%:#?&
+3C7FFE4780000FFF71FFF87C0FFE0F7)="A#
+F81CFFFF43FFF80067FF838"8':#@%
+1D63FF80007FFFFF1FF0FFE07C7,:":"`&
+FC09FFFE2004000F000000FFF001FFE80C1F8(9">"=#
+0DFFF0300200F00F00EF08:&9"="<&
+C01000FC0007FC03FFDFD83F7(:"="<"8"
+FE05FF00F8000001F007D07%="="<&
+FF06FE0F00E00403BFD07F8%="<"<%
+02F03FFC7FC00C003FA08%="<"<$
+0340FFF43F800FF3BF8%=c<&
+8103FFF21FFF9F40FF9$J"
+8FFFF37C08+?+
+C09FFFC107FFFFFFFFFC0FFFFFFFFF003FFFE0819*?&9"
+DFFF808001C00030023003000040F18,>#:%
+E07FF81FC000400020004080024FFFFF03:#<"=#;"
+F03F1001008F8&;"=";&
+F03FE1FFE014070103FFFE07:$;"="<$
+87FFF01101E0FFDE8&;#B&
+F8160FFC10104003F87FCE0F9%<"Q";%
+183FF1C81F8107FC1FCC8&<"C%
+FC0CFFF3E43FFF0FC81F8+?*
+FE04FFE7F21FFFFFFFFC1FFFFFFFE00BFF83D89"8(>+
+06FB000020003190630000800013FFE1903F8#8":#>":%
+FF03F920308133FFF8209#8":"8"8%:&
+01F780181F9FFF82016DFFFC607F9&:$9$;&
+81E7E3F8C0043FFE0FFF84FDFFFEC0FF9"8#:"8"8$:#
+80F0E0020F07FF8801FE9&:*=#
+C067E3FFB0003FFF07FFFE0FFF90FD819"8#<(:&
+E0FC18F383FFFC1FFF8003FE7FF9019&<&<"8#
+F037F3FF0CE1C1FFF83C07E203:"8&81
+11E607FFFFFEE0C0FFF0383F803FFFFFF00FFDBFE6079#8'8%8*
+F808FB0000200180007FE030C001000017FBBFFC0F:&8%9%9%
+0667FFF98000603EF0007F810023F3DFF89'9*:&
+FC078FFFF8C0183C00003FC000E3834027DFF01F9$8"9"9&9'
+FE01FF60141F8000438701D807EFF03F9#8#9#8&9'
+FF00F9F0103E0F0000078903FF00EFE07F:&:"8&9'
+807FFE71FC3F0608000F810FFFFC07C0FFE$<"9"
+01060C0D80:5
+9C01FFC33FF03FFF8101F8007C01E021F8107FFC011FFFFE301:)8,8#
+E01FFD93FF800033E60FC03F033F811B000021FF03:38"8#
+F00FDFC3FE600010701FFC1FF07FC1FF81C1F0FE07;&8(8)
+07DFE7FE18101FF83FE0FFE0810001F87FFFFC0F:'8(8%8"
+F8039FE3F9EC0C3FFCFFC03FF001000FFCF8:'8$8-
+FE019FC3F3E7043FFF1FF9FF8200001FFE3FFFF01F:*9&8'
+FF00CFCCCFE7C01002820FFFFF807FFF1FF7E03F;*8"9*
+8067CF3FE7F010001F06880001BFFF0FF7C07F;(9$8*
+C033CEFFC7F800FE0F078000073FFF87F780FF
+;$8":$:"8$
+E01D89E6FC1F833CC7E701;(8'8'
+F00E87FFCFE1C0F0F01FC1F87FFE1FFFE3E603;$8#8*8$
+F8071FE7F080203FE0603F8003FFE1C807;(8/
+FC019FFF9FCFFE00007FF0001F000FBF8FFFF0900F;$9&8&8$
+FE00DFFF801F0F800F9F00703FF8601F;$8'8+
+FF807F9FFF781F1FC01F8F038C3FC7FFFCC03F<%8#8-
+C03FFE1F8E1EFFF81FCF1F3FBFE1FFF9807F<(9$8#8$
+E01FFC0F3FFF8F7FF03F7FFFE200FF<%80
+F007F8F39F9E1FFC3FF0FFCF1EFFFFF0FE0C01<-8"8%
+F803F9FC7FFF1F9F1FFE3FE33EF87F1007<%8);#
+FE01F1FE3F8F0FFF1FE7FF9EE00F<&<";%
+FF0079FCFFC7FE3FC01F=#8%;#9#
+8019FE3FCF8F7E7F003F=5
+4E00EF9FC7E7FC78FFE3FE7FF1C7E3FFFFF0E00FF=&8-
+F00339F80E87FC3FE3FF0C7F0007FF1801=4
+F801C3F1F07FE300007FF00018FFC003FF7003=(8+
+FE0073F3FCFFF1FFF80031FFFFF9FFC00F=&8'8%
+FF801DF3F8E3FFFFFFFE61FDFE003F>#9#9#8%
+C00FF0F7FFE3F9F8007F>(:"8%
+F003F3F9FFF87FC7FBC001FF>(:'
+F800F9F1FFFC1F8FFFEFE78007>(:'
+FE001E73FFFE0F0FFFE21C000F>(9(
+FF800783FFFF07FE1FFFF1E0003F?$8"9(
+E000F183F83FFFFF0000FF?$8"9'
+F0001FE0F0FFFFF80007?$8#8"8$
+FE0003F83FC1C0003F?(8'
+FF80007FFFFC0F03FFFE0001FF@.
+E00007FFFF01FFF80FFFC0000F@.
+FC00003FFFC000003FF800003F@.
+FF8000007FFC0001F8000003FFA"8`8"
+F00FA"?"
+FEFFA#="
+FFF01FB"<#
+FF01FFC";"
+FC3FC(
+FFFFFF83FFFFFFF"
+FF
+ENDBITMAP
+%%EndBinary
+56.69 5.64 136.25 310.93 R
+4 X
+V
+1 10 Q
+0 X
+(V) 56.69 292.27 T
+(erklaring) 62.8 292.27 T
+(W) 56.69 208.27 T
+(achtwoord) 65.33 208.27 T
+(Geldigheid) 56.69 112.27 T
+(Accountinformatie) 56.69 76.27 T
+(Overige informatie) 56.69 28.27 T
+(Dit formulier betreft een) 142.36 690.45 T
+4 14 Q
+(m) 284.09 690.45 T
+1 10 Q
+( aanvraag nieuw account) 296.31 690.45 T
+4 14 Q
+(m) 284.09 678.45 T
+1 10 Q
+( ophef) 296.31 678.45 T
+(\336ng account) 321.4 678.45 T
+4 14 Q
+(m) 284.09 666.45 T
+1 10 Q
+( wijziging accountgegevens) 296.31 666.45 T
+2 F
+(Dit formulier is alleen geschikt voor het aanvragen van een account met standaar) 142.36 642.45 T
+(d faciliteiten..) 469.73 642.45 T
+1 F
+(Accountnaam:) 142.36 618.45 T
+270.82 617.47 213.22 617.47 2 L
+V
+0.48 H
+0 Z
+N
+5 12 Q
+(USERID) 213.22 618.45 T
+1 10 Q
+(Groep:) 369.13 618.45 T
+3 F
+(employeeType) 399.4 618.45 T
+1 7 Q
+(indien niet bekend in laten vullen door systeembeheer) 369.13 606.45 T
+1 10 Q
+(Naam:) 142.36 582.45 T
+429.22 581.47 213.22 581.47 2 L
+V
+N
+5 12 Q
+(GECOS) 213.22 582.45 T
+1 10 Q
+(Studienummer:) 142.36 558.45 T
+256.42 557.47 213.22 557.47 2 L
+V
+N
+5 12 Q
+(employeeNumber) 213.22 558.45 T
+1 10 Q
+(Groep: COMPUTERACCOUNT) 369.13 558.45 T
+1 7 Q
+(indien ingeschreven bij een groep) 369.13 546.45 T
+1 9 Q
+(De accounthouder verklaart) 142.36 535.12 T
+(\245 de regels voor het gebruik van apparatuur van de Afdeling, waaronder de) 142.36 524.12 T
+2 F
+(r) 413.43 524.12 T
+(egeling gebruik computerlaborato-) 416.6 524.12 T
+(ria) 148.03 513.12 T
+1 F
+(, te kennen en te zullen respecteren) 158.53 513.12 T
+(\245 dit account niet te zullen gebruiken voor het plegen van onrechtmatige handelingen) 142.36 502.12 T
+(\245 \050in eerste instantie\051 volledig verantwoordelijk te zijn voor al het \050computer\051 gebruik van/met dit account) 142.36 491.12 T
+-0.11 (\245 te accepteren dat inschrijving aan de Afdeling een noodzakelijke voorwaarde, doch geen reden, is voor het ver-) 142.36 480.12 P
+(krijgen van een account) 148.03 469.12 T
+(\245 op de hoogte te zijn van en accoord te gaan met het feit dat het systeembeheer kan besluiten het account) 142.36 457.45 T
+(onvoorwaardelijk en zonder voorafgaande waarschuwing op te hef) 148.03 445.45 T
+(fen) 388.04 445.45 T
+1 10 Q
+(.) 399.53 445.45 T
+(Datum:) 142.36 421.45 T
+(____-____-____) 199.05 421.45 T
+(Handtekening:) 142.36 409.45 T
+(_______________________) 199.05 385.45 T
+56.69 379.7 136.06 711.5 R
+4 X
+V
+0 X
+(Reden) 56.69 692.83 T
+(Accountgegevens) 56.69 620.83 T
+(Persoonsgegevens) 56.69 584.83 T
+(V) 56.69 524.83 T
+(erklaring) 62.8 524.83 T
+(Ondertekening) 56.69 416.83 T
+56.69 637.8 136.06 638.42 2 L
+1 H
+2 Z
+N
+56.69 600.95 136.06 600.95 2 L
+N
+56.69 705.83 136.06 705.83 2 L
+N
+56.69 433.7 136.06 433.7 2 L
+N
+56.69 541.42 136.06 541.42 2 L
+N
+283.04 701.23 297.21 687.05 2 L
+3 H
+N
+283.04 687.05 297.21 701.23 2 L
+N
+-1.25 315.61 596.86 315.61 2 L
+1 H
+10 X
+N
+1 8 Q
+0 X
+(Dit account mag gebruikt worden in overeenstemming met de ondertekende verklaring:) 143.13 295.87 T
+2 7 Q
+(De accounthouder verklaart) 157.3 286.54 T
+(\245 de r) 157.3 277.54 T
+(egels voor het gebruik van apparatuur van de Afdeling, waar) 172.32 277.54 T
+(onder de) 343.55 277.54 T
+6 F
+(regeling gebruik computerlaboratoria) 369.99 277.54 T
+2 F
+(, te kennen en te zullen) 478.89 277.54 T
+(r) 162.97 268.54 T
+(especter) 165.43 268.54 T
+(en) 188.5 268.54 T
+(\245 dit account niet te zullen gebruiken voor het plegen van onr) 157.3 259.54 T
+(echtmatige handelingen) 328.44 259.54 T
+(\245 \050in eerste instantie\051 volledig verantwoor) 157.3 250.54 T
+(delijk te zijn voor al het \050computer\051 gebruik van/met dit account) 274.01 250.54 T
+(\245 te accepter) 157.3 241.54 T
+(en dat inschrijving aan de Afdeling een noodzakelijke voorwaar) 192.15 241.54 T
+(de, doch geen r) 371.15 241.54 T
+(eden, is voor het verkrijgen van een account) 414.05 241.54 T
+-0.17 (\245 op de hoogte te zijn van en accoor) 157.3 232.54 P
+-0.17 (d te gaan met het feit dat het systeembeheer kan besluiten het account onvoorwaar) 256.09 232.54 P
+-0.17 (delijk en zonder voor-) 485.14 232.54 P
+(afgaande waarschuwing op te heffen) 162.97 223.54 T
+1 F
+(.) 266.02 223.54 T
+1 8 Q
+(Bij dit account hoort een door u te kiezen wachtwoord. Het account is publiekelijk bekend, het wachtwoord dient u om van-) 143.13 207.87 T
+-0.28 (zelfsprekende redenen voor u te houden. Om te voorkomen dat iemand anders gebruik maakt van uw account, dient u een goed) 143.13 197.87 P
+(wachtwoord te kiezen. Neem daarbij de volgende regels in acht:) 143.13 187.87 T
+2 F
+(\245 gebruik een combinatie van hoofdletters, kleine letters en eventueel cijfers. T) 157.3 177.87 T
+(ekens als -,.{}[] in het wachtwoor) 407.55 177.87 T
+(d maken) 515.2 177.87 T
+(het eveneens moeilijker te achter) 162.97 167.87 T
+(halen.) 268.13 167.87 T
+(\245 gebruik in geen geval woor) 157.3 157.87 T
+(den uit welke taal dan ook.) 249.35 157.87 T
+(\245 gebruik geen tot u zelf herleidbar) 157.3 147.87 T
+(e informatie \050geboortedatum, namen, adr) 268.68 147.87 T
+(es, postcode, etc.\051) 400.82 147.87 T
+(\245 wijzig uw wachtwoor) 157.3 137.87 T
+(d minimaal eens per maand) 229.82 137.87 T
+1 9 Q
+(Het uitgereikte account is geldig zolang u bent ingeschreven aan de Afdeling. Indien een account 4 weken niet) 143.13 116.21 T
+(gebruikt wordt, wordt het buiten werking gesteld. Het hieronder vermelde wachtwoord is beperkt geldig.) 143.13 105.21 T
+(Op) 143.13 77.21 T
+216.37 76.39 156.37 76.39 2 L
+V
+0.4 H
+0 Z
+N
+5 10 Q
+(DDMMJJJX) 156.37 77.21 T
+1 9 Q
+( is voor u een account aangemaakt met de volgende gegevens:) 216.37 77.21 T
+(Uw account is) 143.13 66.21 T
+332.86 65.39 284.86 65.39 2 L
+V
+N
+5 10 Q
+(USERID) 284.86 66.21 T
+1 9 Q
+(Uw wachtwoord is) 143.13 55.21 T
+% 332.86 54.39 284.86 54.39 2 L
+V
+N
+5 10 Q
+(PASSWORD) 284.86 55.21 T
+1 9 Q
+(Het wachtwoord is geldig tot en met) 143.13 44.21 T
+344.86 43.39 284.86 43.39 2 L
+V
+N
+5 10 Q
+(DDMMJJJY) 284.86 44.21 T
+1 9 Q
+(V) 143.13 27.21 T
+(oor informatie over dit account kunt u terecht bij helpdesk@issc.leidenuniv.nl, telefoon 071-5278888) 148.46 27.21 T
+56.69 87.88 136.06 87.88 2 L
+1 H
+2 Z
+N
+56.69 124.73 136.06 124.73 2 L
+N
+56.69 218.27 136.06 218.27 2 L
+N
+56.69 303.31 136.06 303.31 2 L
+N
+56.69 39.69 136.06 39.69 2 L
+N
+1 6 Q
+(deel bestemd voor systeembeheer) 297.64 317.48 T
+(deel bestemd voor accounthouder) 297.64 311.48 T
+90 450 3.83 1.28 573.13 318.18 A
+90 450 3.83 1.28 572.97 313.24 A
+552.76 318.9 569.76 314.65 2 L
+N
+552.76 310.39 569.76 316.77 2 L
+N
+90 450 3.83 1.28 20.65 318.9 A
+90 450 3.83 1.28 20.81 313.96 A
+41.02 319.61 24.02 315.36 2 L
+N
+41.02 311.11 24.02 317.49 2 L
+N
+(ARF1a-20010826a) 0 -270 18.26 331.18 TF
+(ARF1a-20010826b) 0 -270 18.26 259.98 TF
+FMENDPAGE
+%%EndPage: "1" 0
+%%Trailer
+%%BoundingBox: 0 0 595.28 841.89
+%%Pages: 1 -1
+%%DocumentFonts: Times-Bold
+%%+ Times-Roman
+%%+ Times-Italic
+%%+ Helvetica
+%%+ ZapfDingbats
+%%+ Courier
+%%+ Times-BoldItalic
