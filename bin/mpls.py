@@ -10,7 +10,6 @@ from os import system
 os.putenv("ESCDELAY", "25") # no delay after pressing ESC key
 
 import helper_query_autofs as query_autofs
-import helper_show_logs as query_logs
 import helper_query_user as query_user
 import helper_query_netgroup as query_netgroup
 import helper_query_groups as query_groups
