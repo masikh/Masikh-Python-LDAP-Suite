@@ -15,19 +15,24 @@ def getUndofiles(env):
         # Initialize dictonairies for logfiles
         logfiles = []
        	revertables = []
- 
-        # Build a dictionary of all log files
-        for file in dirList:
-                # Make an array of filename part with field seperator "."
-                t = file.split(".")
-                # Build a tuple and append it to the logfiles dictionary
-		x = {	'tid': str(t[0]),
-			'type' : t[1],
-			'action': t[2],
-                 	'entity': t[3],
-                 	'filename': file
-		    }
-                logfiles.append(x)
+
+	# If no logfiles found skip else
+	if dirList == []:
+		indexed_logs = { 0 : {'tid' : 0, 'type' : 'NO LOGS FOUND!', 'action' : 'None', 'entity' : 'None', 'filename' : 'None' }}
+		return indexed_logs 
+	else:
+	        # Build a dictionary of all log files
+	        for file in dirList:
+	                # Make an array of filename part with field seperator "."
+	                t = file.split(".")
+	                # Build a tuple and append it to the logfiles dictionary
+			x = {	'tid': str(t[0]),
+				'type' : t[1],
+				'action': t[2],
+	                 	'entity': t[3],
+	                 	'filename': file
+			    }
+	                logfiles.append(x)
 
 	# Get all undoable transactions  
         count = 0
