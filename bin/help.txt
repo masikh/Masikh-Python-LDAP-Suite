@@ -715,9 +715,9 @@ the systems MPLS interacts with.
 5.2.1	-> Group -> Add new group
 
 	With this helper you can add a new group to the LDAP database. A
-	group is either a primairy or secundairy group.
+	group is either a primary or secundary group.
 	
-	NOTE: If you add a primairy group make sure you reflect these
+	NOTE: If you add a primary group make sure you reflect these
 	changes in the MPLS environment file also. See chapter
 	'Configuring MPLS for your environment'
 
@@ -728,7 +728,7 @@ the systems MPLS interacts with.
 	Add new group
 	
 	Enter group:   [csdale]
-	Is this group a primairy group?: [y/n]
+	Is this group a primary group?: [y/n]
 
 	result:
 

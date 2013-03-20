@@ -67,7 +67,7 @@ def ldif2dict(LDIF):
 	This function builds an list of ordered dictionairies from an ldif file. The input (LDIF) is
 	in the form of a flat ldif ascii file. Comments and white lines are allowed. This function
 	returns	a list of dictionairies. Comments are discarded all other fields are included in the 
-	dictionairy. 
+	dictionary. 
 	
 	Dependencies: unident(LDIF) and unfold(LDIF). These resp. convert base64 to one line and gives
 	the long version of a - notation.
@@ -84,7 +84,7 @@ def ldif2dict(LDIF):
 	
 	LDIF = unindent(LDIF)
 	LDIF = unfold(LDIF)
-	dictionairy = OrderedDict()
+	dictionary = OrderedDict()
         dictlist = []
 	currentdn = ""
 	error="OK"
@@ -105,21 +105,21 @@ def ldif2dict(LDIF):
 		elif match:
                         # If begin of new DN container... 
                	        if match.group(1) == "dn":
-				if currentdn != "":dictlist += [ (dictionairy) ]
-				dictionairy = OrderedDict()	
+				if currentdn != "":dictlist += [ (dictionary) ]
+				dictionary = OrderedDict()	
                	                currentdn = match.group(2)
-                                if not dictionairy.has_key( currentdn ):
-                                        dictionairy[ currentdn  ] = OrderedDict()
+                                if not dictionary.has_key( currentdn ):
+                                        dictionary[ currentdn  ] = OrderedDict()
 			# else fill DN containers attributes...
                         else:
-			        if not dictionairy[ currentdn ].has_key( match.group(1) ):
-                                        dictionairy[ currentdn ][ match.group(1) ] = [ match.group(2) ]
+			        if not dictionary[ currentdn ].has_key( match.group(1) ):
+                                        dictionary[ currentdn ][ match.group(1) ] = [ match.group(2) ]
                                 else:
-                                       if not match.group(2) in dictionairy[ currentdn ][ match.group(1) ]:
-                                                dictionairy[ currentdn ][ match.group(1) ] += [ match.group(2) ]
+                                       if not match.group(2) in dictionary[ currentdn ][ match.group(1) ]:
+                                                dictionary[ currentdn ][ match.group(1) ] += [ match.group(2) ]
         	else:
 			error="Invalid LDIF File!"
-	dictlist += [ (dictionairy) ]
+	dictlist += [ (dictionary) ]
 	return dictlist,error
 
 def apply_ldif(content,env):
@@ -149,7 +149,7 @@ def apply_ldif(content,env):
 			connection = ldap.open(env.LDAPSERVER)
 			connection.simple_bind_s(env.BINDDN, env.LDAPPW)
 		except ldap.LDAPError, error:return "Unable to bind to %s with %s. (Wrong credentials?)" % (env.LDAPSERVER, env.BINDDN)
-	# Get (dictionairy-)content and devide in dn containers.
+	# Get (dictionary-)content and devide in dn containers.
 	for transaction in content:
 		for dn,entry in transaction.items():
 			time.sleep(0.015)

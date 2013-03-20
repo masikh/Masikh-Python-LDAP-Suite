@@ -35,7 +35,7 @@ class environment:
 
 	@classmethod 
 	def group_ranges(self, typeset):
-		self.ranges = { 'primairy': ['100','999'],
+		self.ranges = { 'primary': ['100','999'],
 		                'secondairy': ['11100', '13999'] }
 		return self.ranges[typeset][0],self.ranges[typeset][1]
 

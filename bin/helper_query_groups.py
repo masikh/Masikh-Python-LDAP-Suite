@@ -30,7 +30,7 @@ def helper_query_groups_byuser(UID,env):
 	try:result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
 	except ldap.LDAPError, e:result = [("Generic error occured (are you logged in?)",{"": ""})]
 	if result == []:
-		warning  = "\nWarning:\n\n\tPrimairy group for user %s does not exist.\n"%(UID)
+		warning  = "\nWarning:\n\n\tPrimary group for user %s does not exist.\n"%(UID)
 		warning += "\t%s's primairy gid is: %s\n"%(UID,gidNumber)
 		warning += "\tYou'd might like to add a group with gidNumber: %s\n\n"%(gidNumber)
 	output += "gidNumber Primairy group DN for user %s\n"%(UID)

@@ -15,8 +15,8 @@ class environment():
 	LDBUG = False
 	VERBOSE = False
 	def group_ranges(self, typeset):
-		self.ranges = { 'primairy': ['100','999'],
-				'secondairy': ['11100', '13999'] }
+		self.ranges = { 'primary': ['100','999'],
+				'secondary': ['11100', '13999'] }
 		return self.ranges[typeset][0],self.ranges[typeset][1]
 
 def WriteLog(content,fname, env):
@@ -453,13 +453,13 @@ def GUI_add_group(env, screen):
 	if GROUP == "":
 		s.clear()
 		return
-	s.addstr(5, 2, "Is this group a primairy group?: [y/n]", curses.color_pair(1))
+	s.addstr(5, 2, "Is this group a primary group?: [y/n]", curses.color_pair(1))
 	TYPE = getInput(s,5,41,1,0,False)
 	if TYPE == "":
 		s.erase()
 		return
-	elif TYPE == "y" or TYPE == "Y":TYPE = "primairy"
-	else:TYPE = "secondairy"
+	elif TYPE == "y" or TYPE == "Y":TYPE = "primary"
+	else:TYPE = "secondary"
 	error = helper_add_group(GROUP, TYPE, env)
 	s.addstr(7, 2, error, curses.color_pair(2))
 	s.addstr(19, 2, "[Press any key to continue]", curses.color_pair(1))
@@ -597,7 +597,7 @@ if __name__ == "__main__":
 				action='store',
 				metavar=('group [{pri,sec}]'),
 				help='groupname [{pri,sec}]')
-	choices = ['primairy','secondairy']
+	choices = ['primary','secondary']
 	
 	parser.add_argument(  '--password',
 				action='store',
@@ -640,12 +640,12 @@ if __name__ == "__main__":
 			error = helper_add_user(args['u'][0],args['u'][1], env)
 			if error != "OK":print error
 		else:
-			if len(args['g']) != 2:print "usage: -g groupname {primairy, secondairy}"
+			if len(args['g']) != 2:print "usage: -g groupname {primary, secondary}"
 			elif args['g'][1] == choices[0] or args['g'][1] == choices[1]:
 				error = helper_add_group(args['g'][0], args['g'][1], env)
 				if error != "OK":print error
 			else:
-				print "usage: -g groupname {primairy, secondairy}"
+				print "usage: -g groupname {primary, secondary}"
 	else:
                 if args['g'] == None:
                         error = helper_del_user(args['u'][0],args['u'][1], env)
