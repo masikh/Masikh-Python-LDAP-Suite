@@ -707,11 +707,8 @@ def helper_modified_user_to_ldif(env, result, modified):
 		undofile += "deleteoldrdn: 1\n\n"
 		UID = result['uid'][0]
 		error, groups = get_Groups(UID, env)
-		if error != "OK": return dofile, undofile, error
 		error, netgroups = get_Netgroups(UID, env)
-		if error != "OK": return dofile, undofile, error
 		error, autofs = get_Autofs(UID, env)
-		if error != "OK": return dofile, undofile, error
 		temp1, temp2 = mod_user(modified, UID, groups, netgroups, autofs, env)
 		dofile += temp1
 		undofile += temp2
