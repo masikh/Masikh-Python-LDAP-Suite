@@ -179,7 +179,7 @@ def query_groups_bygroup(env, screen):
         s.addstr(2, 2, "Query group by name", curses.color_pair(3))
 	s.addstr(19, 2, "[Use [ESC] to abort!]", curses.color_pair(1))
         s.addstr(4, 2, "Enter groupname: ", curses.color_pair(1))
-        GROUP = getInput(s,4,19,58,2,True)
+        GROUP = getInput(s,4,19,57,2,True)
 	if GROUP == "":
 		s.erase()
 		return

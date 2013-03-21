@@ -101,7 +101,7 @@ def helper_query_autofs(env, screen):
 	s.addstr(2, 2, "Query Autofs", curses.color_pair(3))
 	s.addstr(19, 2, "[Use [ESC] to abort!]", curses.color_pair(1))
 	s.addstr(4, 2, "Enter username: ", curses.color_pair(1))
-        UID = getInput(s,4,18,60,1,True)
+        UID = getInput(s,4,18,58,1,True)
 	if UID == "":
 		s.erase()
 		return
