@@ -1,23 +1,23 @@
-﻿# Copyright:      Copyright 2013 Robert Nagtegaal
-#                 Robert Nagtegaal <masikh@gmail.com>
-#                 This program is distributed under the terms of the GNU 
-#                 General Public License (or the Lesser GPL)
+﻿## Copyright:      Copyright 2013 Robert Nagtegaal
+##                 Robert Nagtegaal <masikh@gmail.com>
+##                 This program is distributed under the terms of the GNU 
+##                 General Public License (or the Lesser GPL)
 
-User manual for Masikh's Python LDAP Suite (MPLS)
+### User manual for Masikh's Python LDAP Suite (MPLS)
 
-contents:
+### contents:
 
-1	A short introduction into MPLS
-2	General usage
-3       Overview of MPLS options
-4	Search menu
-5	Modify menu
-6	Login menu
-7	Help menu
-8	Exit
-9	Configuring MPLS for your environment (uidNumber ranges, etc...)
-10	What is a 'user', 'group' or 'netgroup anyway?
-11	About & Copyrights
+- 1	A short introduction into MPLS
+- 2	General usage
+- 3       Overview of MPLS options
+- 4	Search menu
+- 5	Modify menu
+- 6	Login menu
+- 7	Help menu
+- 8	Exit
+- 9	Configuring MPLS for your environment (uidNumber ranges, etc...)
+- 10	What is a 'user', 'group' or 'netgroup anyway?
+- 11	About & Copyrights
                
 
 conventions used in this manual:
