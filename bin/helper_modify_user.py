@@ -531,7 +531,7 @@ def helper_del_user(UID, env):
 def helper_change_password(UID, env):
 	error = "OK"
 	error,isuser = isUser(UID, env)
-	if error != "OK":return error
+	if error != "OK":return error, ""
 	if isuser == False:return "No such user!",""
 	error,oldpassword = getOldPassword(UID, env)
 	if error != "OK":return error,""
@@ -548,12 +548,12 @@ def helper_change_password(UID, env):
 	undofile += "replace: userPassword\n"
 	undofile += "userPassword: %s\n" % (oldpassword)
 	content,error=apply_ldif.ldif2dict(dofile)
-        if error != "OK":return error
+        if error != "OK":return error, "NO PASSWORD CHANGED"
         error=apply_ldif.apply_ldif(content,env)
-	if error != "OK":return error
+	if error != "OK":return error, "NO PASSWORD CHANGED"
 	WriteLog(dofile, "password_change.done.%s"%(UID), env)
 	WriteLog(undofile, "password_change.undo.%s"%(UID), env)
-	return error,newpassword
+	return error, newpassword
 
 def helper_get_userattr(UID, env):
 	error = "OK"
@@ -561,9 +561,12 @@ def helper_get_userattr(UID, env):
 	DN="ou=People,%s"%(env.BASEDN)
 	FILTER="(&(objectClass=posixAccount)(uid=%s))"%(UID)
 	ATTR=None
-	connection = ldap.open(env.LDAPSERVER)
-	connection.simple_bind_s()
-	result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
+
+	try:
+		connection = ldap.open(env.LDAPSERVER)
+		connection.simple_bind_s()
+		result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
+	except ldap.LDAPError, error:return "Generic error occured (are you logged in?)", ""
 	connection.unbind()
 	if result == []:
 		error="ERROR: User %s does not exists!"%(UID)
@@ -916,7 +919,7 @@ def GUI_change_password(env,screen):
         if UID == "":
 		s.erase()
 		return
-	error,newpassword = helper_change_password(UID, env)
+	error, newpassword = helper_change_password(UID, env)
 	if error != "OK":s.addstr(6, 2, error, curses.color_pair(2))
 	else:
 		s.addstr(6, 2, "Password reset: %s" % error, curses.color_pair(2))
