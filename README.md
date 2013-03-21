@@ -291,7 +291,7 @@ the systems MPLS interacts with.
 	result:
 
 	Members of group csdale (gidNumber: 11158)
-	-------------------------------------
+	- - - - - - - - - - - - - - - - - - - - - 
 	memberUid: csdale
 	memberUid: tcocx 
 
