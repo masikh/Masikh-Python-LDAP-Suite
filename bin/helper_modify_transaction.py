@@ -10,7 +10,7 @@ import helper_apply_ldif as apply_ldif
 
 def getUndofiles(env):
 	# Get logfiles as list.
-	dirList=os.listdir(env.LOGS)
+	dirList = [f for f in os.listdir(env.LOGS) if f.endswith('.ldif')]
         
         # Initialize dictonairies for logfiles
         logfiles = []
