@@ -19,7 +19,7 @@
 Every item within brackets is user input. E.g. [fverbeek], in this case
 'fverbeek' is user input (without the brackets!!!).
 
-## 1	A short introduction to: Masikh's Python LDAP Suite. (MPLS)
+## A short introduction.
 
 MPLS is a user account tool for LDAP. It stands-out of other LDAP software
 because it handles NIS-netgroups and has a transaction undo feature.
@@ -58,7 +58,7 @@ philosophy of MPLS is: Make security not the problem of MPLS but that of
 the systems MPLS interacts with.
 
 
-## 2	General usage
+## General usage
 
 - 2.1	Navigate through the program
 	
@@ -124,7 +124,7 @@ the systems MPLS interacts with.
 	nothing to do with MPLS but rather the underlying (n)Curses
 	interface. 
 
-## 3	Overview of MPLS options
+## Overview of MPLS options
 
 	MPLS has five top-level menu items: Search, Modify, Login, Help
 	and Exit. The two most important are Search and Modify.
@@ -147,7 +147,7 @@ the systems MPLS interacts with.
 	*	Exit: Every program needs a stop condition. This is the
 		one!
 
-## 4	Search menu
+## Search menu
 
 	In this menu you can query for user, group or NIS-netgroups items.
 	Furthermore, you can query all transactions/modifications on the
@@ -435,7 +435,7 @@ the systems MPLS interacts with.
 	1363176151  masikh  Wed Mar 13 13:02 2013 password_change   reverted
 	...
 
-## 5	Modify menu
+## Modify menu
 
 	The modify menu enables you to modify user, group and netgroup
 	properties. Furthermore you can view and UNDO past modifications
@@ -868,7 +868,7 @@ the systems MPLS interacts with.
 - 5.3.7	-> Netgroup -> Unlink entity to netgroup -> Host to netgroup
 - 5.3.8	-> Netgroup -> Unlink entity to netgroup -> Netgroup to netgroup
 
-## 10	What is a 'user', 'group' or 'netgroup' anyway?
+## What is a 'user', 'group' or 'netgroup' anyway?
 
 	UNIX user:
 
@@ -896,7 +896,7 @@ the systems MPLS interacts with.
 	Network groups are stored in a network information services, such
 	as LDAP, NIS, or NIS+, NOT in a local file.
 
-## 11	About the Author/Programmer and Copyrights
+## About the Author/Programmer and Copyrights
 
 Author:         Robert Nagtegaal
 
