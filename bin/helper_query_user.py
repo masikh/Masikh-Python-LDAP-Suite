@@ -26,9 +26,10 @@ def helper_query_user(UID,env):
 		"homeDirectory",
 		"objectClass"
 	     ]
-        connection = ldap.open(env.LDAPSERVER)
-        connection.simple_bind_s()
-        try:result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
+	try:
+	        connection = ldap.open(env.LDAPSERVER)
+	        connection.simple_bind_s()
+        	result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
        	except ldap.LDAPError, e:result = [("Generic error occured (are you logged in?)",{"": ""})]
 	if result == []:result = [("No such user!",{"": ""})]
 	connection.unbind()
@@ -38,9 +39,10 @@ def query_bypart(UID,env):
         DN="ou=People," + env.BASEDN
         FILTER="(&(objectClass=posixAccount)(uid=*" + UID + "*))"
         ATTR=["dn", "uid"]
-        connection = ldap.open(env.LDAPSERVER)
-        connection.simple_bind_s()
-        try:result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
+        try:
+		connection = ldap.open(env.LDAPSERVER)
+	        connection.simple_bind_s()
+        	result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
        	except ldap.LDAPError, e:result = [("Generic error occured (are you logged in?)","")] 
 	connection.unbind_s()
 	return result

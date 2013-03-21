@@ -12,9 +12,10 @@ def helper_query_homedir(UID,env):
 	DN="ou=auto.home,ou=Autofs," + env.BASEDN
 	FILTER="(&(objectClass=automount)(cn=" + UID + "))"
 	ATTR=["automountInformation"]
-	connection = ldap.open(env.LDAPSERVER)
-	connection.simple_bind_s()
-	try:result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
+	try:
+		connection = ldap.open(env.LDAPSERVER)
+		connection.simple_bind_s()
+		result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
 	except ldap.LDAPError, e:result = [("Generic error occured (are you logged in?)",{"automountInformation": [""]})]
 	if result == []:result = [("No such user!",{'automountInformation': [""]})]
 	connection.unbind()
@@ -24,9 +25,10 @@ def helper_query_direct(env):
 	DN="ou=auto.direct,ou=Autofs," + env.BASEDN
 	FILTER="(&(objectClass=automount)(cn=*))"
 	ATTR=["automountInformation"]
-	connection = ldap.open(env.LDAPSERVER)
-	connection.simple_bind_s()
-	try:result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
+	try:
+		connection = ldap.open(env.LDAPSERVER)
+		connection.simple_bind_s()
+		result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
 	except ldap.LDAPError, e:result = [("Generic error occured (are you logged in?)",{"automountInformation": [""]})]
 	connection.unbind()
 	return (result)

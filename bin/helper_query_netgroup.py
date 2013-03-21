@@ -12,9 +12,10 @@ def helper_query_netgroups(UID,env):
         DN="ou=netgroup," + env.BASEDN
         FILTER="(&(objectClass=nisNetgroup)(nisNetgroupTriple=*," + UID + ",*))"
         ATTR=[ "cn" ]
-        connection = ldap.open(env.LDAPSERVER)
-        connection.simple_bind_s()
-	try:result = connection.search_s(DN, ldap.SCOPE_ONELEVEL, str(FILTER), ATTR)
+	try:
+	        connection = ldap.open(env.LDAPSERVER)
+	        connection.simple_bind_s()
+		result = connection.search_s(DN, ldap.SCOPE_ONELEVEL, str(FILTER), ATTR)
 	except ldap.LDAPError, e:result = [("Generic error occured (are you logged in?)",{"": ""})]
 	connection.unbind()
         if result == []:result = [("No such user!",{"": ""})]
@@ -24,9 +25,10 @@ def helper_query_allgroups(env):
         DN="ou=netgroup," + env.BASEDN
         FILTER="cn=*"
         ATTR=[ "cn" ]
-        connection = ldap.open(env.LDAPSERVER)
-        connection.simple_bind_s()
-        try:result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
+	try:
+	        connection = ldap.open(env.LDAPSERVER)
+	        connection.simple_bind_s()
+        	result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
         except ldap.LDAPError, e:result = [("Generic error occured (are you logged in?)",{"": ""})]
 	connection.unbind()
 	result.sort(key=lambda tup: tup[1])
@@ -36,9 +38,10 @@ def helper_query_dn(NETGROUP,env):
 	DN="ou=netgroup," + env.BASEDN
 	FILTER="cn=" + NETGROUP
 	ATTR=[ "cn" ]
-	connection = ldap.open(env.LDAPSERVER)
-	connection.simple_bind_s()
-	try:result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
+	try:
+		connection = ldap.open(env.LDAPSERVER)
+		connection.simple_bind_s()
+		result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
 	except ldap.LDAPError, e:result = [("Generic error occured (are you logged in?)",{"": ""})]
 	if result == []:result = [("No such netgroup!",{"": ""})]
 	connection.unbind()
@@ -48,9 +51,10 @@ def helper_query_membergroups(NETGROUP,env):
         DN="ou=netgroup," + env.BASEDN
         FILTER="cn=" + NETGROUP
         ATTR=[ "memberNisNetgroup" ]
-        connection = ldap.open(env.LDAPSERVER)
-        connection.simple_bind_s()
-        try:result = connection.search_s(DN, ldap.SCOPE_ONELEVEL, FILTER, ATTR)
+	try:
+	        connection = ldap.open(env.LDAPSERVER)
+	        connection.simple_bind_s()
+        	result = connection.search_s(DN, ldap.SCOPE_ONELEVEL, FILTER, ATTR)
         except ldap.LDAPError, e:result = [("Generic error occured (are you logged in?)",{"": ""})]
 	connection.unbind()
         return (result)
@@ -59,9 +63,10 @@ def helper_query_hosttriples(NETGROUP,env):
         DN="ou=netgroup," + env.BASEDN
         FILTER="(&(objectClass=nisNetgroup)(cn=" + NETGROUP + ")(nisNetgroupTriple=\(*,,*\)))"
         ATTR=None
-        connection = ldap.open(env.LDAPSERVER)
-        connection.simple_bind_s()
-        try:result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
+	try:
+	        connection = ldap.open(env.LDAPSERVER)
+	        connection.simple_bind_s()
+        	result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
         except ldap.LDAPError, e:result = [("Generic error occured (are you logged in?)",{"": ""})]
 	connection.unbind()
         return (result)
@@ -70,9 +75,10 @@ def helper_query_usertriples(NETGROUP,env):
         DN="ou=netgroup," + env.BASEDN
         FILTER="(&(objectClass=nisNetgroup)(cn=" + NETGROUP + ")(nisNetgroupTriple=\(-,*,*\)))"
         ATTR=None
-        connection = ldap.open(env.LDAPSERVER)
-        connection.simple_bind_s()
-       	try:result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
+	try:
+	        connection = ldap.open(env.LDAPSERVER)
+	        connection.simple_bind_s()
+       		result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
 	except ldap.LDAPError, e:result = [("Generic error occured (are you logged in?)",{"": ""})]
 	connection.unbind()
         return (result)

@@ -14,9 +14,10 @@ def helper_query_groups_byuser(UID,env):
         DN="ou=People," + env.BASEDN
         FILTER="(&(objectClass=PosixAccount)(uid=%s))"%(UID)
 	ATTR = [ "gidNumber" ]
-        connection = ldap.open(env.LDAPSERVER)
-        connection.simple_bind_s()
-        try:result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
+	try:
+	        connection = ldap.open(env.LDAPSERVER)
+	        connection.simple_bind_s()
+        	result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
 	except ldap.LDAPError, e:result = [("Generic error occured (are you logged in?)",{"": ""})]
 	try:
 	     gidNumber=result[0][1]["gidNumber"][0]
@@ -27,8 +28,10 @@ def helper_query_groups_byuser(UID,env):
 	DN="ou=Group,%s"%(env.BASEDN)
 	FILTER="(&(objectClass=posixGroup)(gidNumber=%s))"%(gidNumber)
 	ATTR = ["cn"]
-	try:result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
-	except ldap.LDAPError, e:result = [("Generic error occured (are you logged in?)",{"": ""})]
+	try:
+		result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
+	except ldap.LDAPError, e:
+		result = [("Generic error occured (are you logged in?)",{"": ""})]
 	if result == []:
 		warning  = "\nWarning:\n\n\tPrimary group for user %s does not exist.\n"%(UID)
 		warning += "\t%s's primairy gid is: %s\n"%(UID,gidNumber)
@@ -43,13 +46,16 @@ def helper_query_groups_byuser(UID,env):
         DN="ou=Group," + env.BASEDN
 	FILTER="(&(objectClass=posixGroup)(memberUid=" + UID + "))"
 	ATTR = None
-        try:result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
-	except ldap.LDAPError, e:result = [("Generic error occured (are you logged in?)",{"": ""})]
+        try:
+		result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
+	except ldap.LDAPError, e:
+		result = [("Generic error occured (are you logged in?)",{"": ""})]
 	connection.unbind()
 	output += "\ngidNumber Non-primary groups DNs for user " + UID + "\n"
         output += "--------- -------------------------------------\n"
-	for dn,entry in result:
-		output += "%s\t  dn: %s\n"%(entry["gidNumber"][0], dn)
+	if result != [('Generic error occured (are you logged in?)', {'': ''})]:
+		for dn,entry in result:
+			output += "%s\t  dn: %s\n"%(entry["gidNumber"][0], dn)
 	return output
 
 def helper_query_groups_bygroup(GROUP,env):
@@ -58,12 +64,14 @@ def helper_query_groups_bygroup(GROUP,env):
         FILTER="(&(objectClass=posixGroup)(cn=" + GROUP + "))"
         ATTR1 = [ "memberUid" ]
         ATTR2 = [ "gidNumber" ]
-        connection = ldap.open(env.LDAPSERVER)
-        connection.simple_bind_s()
-        try:
-		result1 = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR1)
+	try:
+		connection = ldap.open(env.LDAPSERVER)
+		connection.simple_bind_s()
+        	result1 = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR1)
 		result2 = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR2)
-	except ldap.LDAPError, e:result1 = [("",{"Error": ["Generic error occured (are you logged in?)"]})]
+	except ldap.LDAPError, e:
+		output += "Generic error occured (are you logged in?)\n"
+		return output
 	if result1 == []:result1 = [("",{"memberUid": ["No such group!"]})]
 	GROUPID = result2[0][1]['gidNumber'][0]
 	output += "Members of group %s (gidNumber: %s)\n"%(GROUP,GROUPID)
@@ -79,9 +87,10 @@ def helper_query_groups_all(env):
         DN="ou=Group," + env.BASEDN
         FILTER="(&(objectClass=posixGroup)(cn=*))"
         ATTR = [ "cn" ]
-        connection = ldap.open(env.LDAPSERVER)
-        connection.simple_bind_s()
-        try:result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
+	try:
+	        connection = ldap.open(env.LDAPSERVER)
+	        connection.simple_bind_s()
+        	result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
 	except ldap.LDAPError, e:result = [("Generic error occured (are you logged in?)",{"": ""})]
 	result.sort(key=lambda tup: tup[1])
 	for dn,entry in result:
