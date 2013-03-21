@@ -1,10 +1,4 @@
-﻿## Copyright:      Copyright 2013 Robert Nagtegaal
-##                 Robert Nagtegaal <masikh@gmail.com>
-##                 This program is distributed under the terms of the GNU 
-##                 General Public License (or the Lesser GPL)
-
-### User manual for Masikh's Python LDAP Suite (MPLS)
-
+﻿## User manual for Masikh's Python LDAP Suite (MPLS)
 ### contents:
 
 - 1	A short introduction into MPLS
@@ -20,14 +14,12 @@
 - 11	About & Copyrights
                
 
-conventions used in this manual:
+## conventions used in this manual:
 
 Every item within brackets is user input. E.g. [fverbeek], in this case
 'fverbeek' is user input (without the brackets!!!).
 
---------------------------------------------------------------------------
-
-1)	A short introduction to: Masikh's Python LDAP Suite. (MPLS)
+- 1	A short introduction to: Masikh's Python LDAP Suite. (MPLS)
 
 MPLS is a user account tool for LDAP. It stands-out of other LDAP software
 because it handles NIS-netgroups and has a transaction undo feature.
@@ -66,9 +58,9 @@ philosophy of MPLS is: Make security not the problem of MPLS but that of
 the systems MPLS interacts with.
 
 
-2)	General usage
+- 2	General usage
 
-2.1	Navigate through the program
+- 2.1	Navigate through the program
 	
 	Moving around in the program can be done in several ways
 	
@@ -82,7 +74,7 @@ the systems MPLS interacts with.
 	  menu) the down-arrow opens an item but in a vertical menu the
 	  right-arrow opens a menu-item.
 
-2.2	Color usage and its function
+- 2.2	Color usage and its function
 
 	Through out the whole program there is a consistent color usage.
 	
@@ -96,7 +88,7 @@ the systems MPLS interacts with.
 	  item. E.g.
 		Query by (part of) username
 
-2.3	Bread crumbs
+- 2.3	Bread crumbs
 
 	Through out the whole program you can easily see where you are 
 	in terms of the menu-structure. Every step in the menu-structure
@@ -104,7 +96,7 @@ the systems MPLS interacts with.
 	are printed in the left-bottom of the screen. If the trail gets
 	to long, the begin is truncated as dots 
 
-2.4	Input validation
+- 2.4	Input validation
 
 	Every editable item in this program (e.g. enter username:) is
 	validated on proper input. This works mostly but probably not 
@@ -116,14 +108,14 @@ the systems MPLS interacts with.
 	This warning is displayed at the bottom of the active screen
         in the color RED
 
-2.5     Leaving a sub-module (part of the program)
+- 2.5     Leaving a sub-module (part of the program)
 
 	Most of the time people are 'just browsing around' through the
 	program. If you enter one of the sub-modules (e.g. Add user)
 	you can simply bail out by pressing [esc] or give empty input
 	(e.g. [enter])
 	
-2.6	Terminal size
+- 2.6	Terminal size
 
 	MPLS has been designed to work in a standard 'telnet' window.
 	These windows are typically 80 characters wide and 24 lines long
