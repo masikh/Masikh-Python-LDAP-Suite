@@ -19,7 +19,7 @@
 Every item within brackets is user input. E.g. [fverbeek], in this case
 'fverbeek' is user input (without the brackets!!!).
 
-- 1	A short introduction to: Masikh's Python LDAP Suite. (MPLS)
+## 1	A short introduction to: Masikh's Python LDAP Suite. (MPLS)
 
 MPLS is a user account tool for LDAP. It stands-out of other LDAP software
 because it handles NIS-netgroups and has a transaction undo feature.
@@ -58,7 +58,7 @@ philosophy of MPLS is: Make security not the problem of MPLS but that of
 the systems MPLS interacts with.
 
 
-- 2	General usage
+## 2	General usage
 
 - 2.1	Navigate through the program
 	
@@ -124,7 +124,7 @@ the systems MPLS interacts with.
 	nothing to do with MPLS but rather the underlying (n)Curses
 	interface. 
 
-3)	Overview of MPLS options
+## 3	Overview of MPLS options
 
 	MPLS has five top-level menu items: Search, Modify, Login, Help
 	and Exit. The two most important are Search and Modify.
@@ -147,17 +147,17 @@ the systems MPLS interacts with.
 	*	Exit: Every program needs a stop condition. This is the
 		one!
 
-4)	Search menu
+## 4	Search menu
 
 	In this menu you can query for user, group or NIS-netgroups items.
 	Furthermore, you can query all transactions/modifications on the
 	LDAP database via MPLS.
 
-4.1	Search -> User
+- 4.1	Search -> User
 
 	In this sub menu you can query for a user or user specific items.
 
-4.1.1	-> User -> By part of username
+- 4.1.1	-> User -> By part of username
 
 	With this helper you can look-up an username if you only know part
 	of its name.
@@ -172,7 +172,7 @@ the systems MPLS interacts with.
 	dn: uid=lerts,ou=People,dc=unix,dc=example,dc=org
 	dn: uid=robert,ou=People,dc=unix,dc=example,dc=org
 
-4.1.2	-> User -> Information
+- 4.1.2	-> User -> Information
 
 	With this helper you can lookup all attributes of a single user.
 
@@ -200,7 +200,7 @@ the systems MPLS interacts with.
 	Note: employeeNumber is either a concatenation of gidNumber and
 	uidNumber or a student registration number.
 
-4.1.3	-> User -> Query Autofs
+- 4.1.3	-> User -> Query Autofs
 
 	With this helper you can lookup all exports for this user known in
 	the LDAP database. Thus all autofs entries.
@@ -227,13 +227,13 @@ the systems MPLS interacts with.
 	exports, /scratch, /var/spool/mail and /appl. The respective
 	exporting servers are: nfs-server01 and nfs-server02.
 
-4.2	Search -> Group
+- 4.2	Search -> Group
 
 	In this menu you can query group information. You can show all
 	available groups, the groups a user is member of and the users in a
 	certain group.
 
-4.2.1	-> Group -> Show all groups
+- 4.2.1	-> Group -> Show all groups
 
 	With this helper you can lookup all groups
 
@@ -253,7 +253,7 @@ the systems MPLS interacts with.
 	dn: cn=apparc,ou=Group,dc=unix,dc=example,dc=org 
 	...
 
-4.2.2	-> Group -> By user name
+- 4.2.2	-> Group -> By user name
 
 	With this helper you can lookup groups assign to a user.
 
@@ -280,7 +280,7 @@ the systems MPLS interacts with.
 	Note: In this example the user 'fverbeek' has primary group
 	'staff' with gidNumber '100' and seven secondary groups.
 
-4.2.3	-> Group -> By group name
+- 4.2.3	-> Group -> By group name
 
 	With this helper you can lookup members of a given group.
 
@@ -299,14 +299,14 @@ the systems MPLS interacts with.
 	being 'csdale' itself and 'tcocx'. Furthermore the gidNumber of
 	'csdale' is 11158.
 
-4.3	Search -> Netgroup
+- 4.3	Search -> Netgroup
 
 	In this sub menu you can query for netgroup information. Analogue
 	to the 'Search -> Group' menu there is an option to view all
 	netgroups, show user/host membership of a netgroup and child
 	groups of a netgroup.
 
-4.3.1	-> Netgroup -> Show all netgroups
+- 4.3.1	-> Netgroup -> Show all netgroups
 
 	This helper gives a list of all available netgroups. 
 
@@ -326,7 +326,7 @@ the systems MPLS interacts with.
 	dn: cn=cdh000c,ou=Netgroup,dc=unix,dc=example,dc=nl  
 	...
 
-4.3.2	-> Netgroup -> Show membership
+- 4.3.2	-> Netgroup -> Show membership
 
 	This helper shows the netgroups a user is member of.
 
@@ -347,7 +347,7 @@ the systems MPLS interacts with.
 	hosts in sun, pc156a etc..are hosts the user fverbeek has access
 	to.
 
-4.3.3	-> Netgroup -> Information
+- 4.3.3	-> Netgroup -> Information
 
 	This helper shows all information of a given netgroup.
 
@@ -381,7 +381,7 @@ the systems MPLS interacts with.
 	can observe that is only has one member nis-group, 'users-pc302'.
 	Using this mechanism users and hosts are bind-ed together.
 
-4.4	-> Transactions
+- 4.4	-> Transactions
 
 	Every modification from MPLS to a LDAP database is logged in a
 	transaction. Of every transaction made, there is also an undo file
@@ -435,19 +435,19 @@ the systems MPLS interacts with.
 	1363176151  masikh  Wed Mar 13 13:02 2013 password_change   reverted
 	...
 
-5)	Modify menu
+## 5	Modify menu
 
 	The modify menu enables you to modify user, group and netgroup
 	properties. Furthermore you can view and UNDO past modifications
 	of the LDAP database done via the MPLS software.
 
-5.1	Modify -> User
+- 5.1	Modify -> User
 
 	In this submenu you can add or delete a user. Change a users
 	password, modify its attributes. Adding users in a batch process
 	can be done with the 'Add multiple users' helper.
 
-5.1.1	-> User -> Add user
+- 5.1.1	-> User -> Add user
 
 	With the 'Add user' helper you can add a new user to the LDAP
 	database. This helper will assign a primary group of choice, a
@@ -556,7 +556,7 @@ the systems MPLS interacts with.
 	NOTE: Per default, no netgroups will be assigned to this new user.
 	If you wish, you can assign these memberships separately.
 
-5.1.2	-> User -> Delete user
+- 5.1.2	-> User -> Delete user
 
 	This helper enables you to delete a single user. When a user is
 	deleted an undo-file is created. From this undo-file you can
@@ -573,7 +573,7 @@ the systems MPLS interacts with.
 
 	NOTE: A transaction is added to the transaction list afterward.
 
-5.1.3	-> User -> Change user password
+- 5.1.3	-> User -> Change user password
 
 	With this helper you can reset a user its password.
 
@@ -586,7 +586,7 @@ the systems MPLS interacts with.
 	Password reset: OK
 	New Password: unZl2gs3VI  
 
-5.1.4	-> User -> Modify user attributes
+- 5.1.4	-> User -> Modify user attributes
 
 	With this helper its possible to change EVERY attribute of a given
 	user. Yes even the username itself! (mod(r)dn in LDAP terms)
@@ -628,7 +628,7 @@ the systems MPLS interacts with.
 
 	NOTE: An astrix '*' means a changed attribute.
 
-5.1.5	-> User -> Add multiple users
+- 5.1.5	-> User -> Add multiple users
 
 	With this helper you can add users in a batch process. You can
 	cut&paste a list of users from a text file into MPLS and create
@@ -699,12 +699,12 @@ the systems MPLS interacts with.
 	ISSC_P2202_33       Snellius, kamer 56, PAND 2202
 	hp-106-bw           Snellius, kamer 106, PAND 2202
 
-5.2	Modify -> Group
+- 5.2	Modify -> Group
 
 	In this submenu you can add or delete a group, modify group
 	properties. You can also add or delete a user to/from a group.
 
-5.2.1	-> Group -> Add new group
+- 5.2.1	-> Group -> Add new group
 
 	With this helper you can add a new group to the LDAP database. A
 	group is either a primairy or secundairy group.
@@ -726,7 +726,7 @@ the systems MPLS interacts with.
 
 	'OK' or 'Group csdale already exist!'
 
-5.2.2	-> Group -> Delete group
+- 5.2.2	-> Group -> Delete group
 
 	With this helper you can remove a group from the LDAP database. If
 	you deleted the wrong group the undo feature (transaction logs)
@@ -741,7 +741,7 @@ the systems MPLS interacts with.
 
 	'OK' or 'No such group'
 
-5.2.3	-> Group -> Modify group
+- 5.2.3	-> Group -> Modify group
 
 	With this helper you can modify group attributes. These attributes
 	are: cn (the group name), gidNumber and the group password.
@@ -762,7 +762,7 @@ the systems MPLS interacts with.
 
 	NOTE: This transaction is logged and revertable
 
-5.2.4	-> Group -> Link user to group
+- 5.2.4	-> Group -> Link user to group
 
 	With this helper you can add a user to a group.
 
@@ -775,7 +775,7 @@ the systems MPLS interacts with.
 
 	'OK' or 'User masikh already in group csdale'
 
-5.2.5	-> Group -> Unlink user from group
+- 5.2.5	-> Group -> Unlink user from group
 
 	With this helper you can remove a user from a group
 
@@ -788,13 +788,13 @@ the systems MPLS interacts with.
 
 	'OK' or 'User masikh is not a member of group csdale!'
 
-5.3	Modify -> Netgroup
+- 5.3	Modify -> Netgroup
 
 	In this submenu you can add or delete a netgroup. Furthermore you
 	can add or remove an entity from a netgroup. An entity is either a
 	user, host or netgroup itself.
 
-5.3.1	-> Netgroup -> Add new netgroup
+- 5.3.1	-> Netgroup -> Add new netgroup
 
 	With this helper you can add a new netgroup to the LDAP database.
 
@@ -806,7 +806,7 @@ the systems MPLS interacts with.
 
 	'netgroup lgm created' or 'ERROR: netgroup lgm already exists!'
 
-5.3.2	-> Netgroup -> Delete netgroup
+- 5.3.2	-> Netgroup -> Delete netgroup
 
 	With this helper you can remove a netgroup from the LDAP
 	database. 
@@ -819,7 +819,7 @@ the systems MPLS interacts with.
 
 	'OK' or 'ERROR: netgroup lgm does not exists!'
 
-5.3.3	-> Netgroup -> Link entity to netgroup -> User to netgroup
+- 5.3.3	-> Netgroup -> Link entity to netgroup -> User to netgroup
 
 	With this helper you can add a user to a netgroup.
 
@@ -833,7 +833,7 @@ the systems MPLS interacts with.
 	'OK' or 'ERROR: netgroup users-sil does not exists!' or 'ERROR:
 	user masikh does not exists!'
 
-5.3.4	-> Netgroup -> Link entity to netgroup -> Host to netgroup
+- 5.3.4	-> Netgroup -> Link entity to netgroup -> Host to netgroup
 
 	With this helper you can add a hostname to a netgroup.
 
@@ -846,7 +846,7 @@ the systems MPLS interacts with.
 
 	'OK' or 'ERROR: netgroup all_wi does not exists!'
 
-5.3.5	-> Netgroup -> Link entity to netgroup -> Netgroup to netgroup
+- 5.3.5	-> Netgroup -> Link entity to netgroup -> Netgroup to netgroup
 
 	With this helper you can add a netgroup to a netgroup (Yes,
 	recursion!) It gives you the possibility to nest netgroups. This
@@ -861,14 +861,14 @@ the systems MPLS interacts with.
 
 	'OK' or 'ERROR: netgroup .... does not exist!'
 
-5.3.6	-> Netgroup -> Unlink entity to netgroup -> User to netgroup
+- 5.3.6	-> Netgroup -> Unlink entity to netgroup -> User to netgroup
 
 	
 
-5.3.7	-> Netgroup -> Unlink entity to netgroup -> Host to netgroup
-5.3.8	-> Netgroup -> Unlink entity to netgroup -> Netgroup to netgroup
+- 5.3.7	-> Netgroup -> Unlink entity to netgroup -> Host to netgroup
+- 5.3.8	-> Netgroup -> Unlink entity to netgroup -> Netgroup to netgroup
 
-10	What is a 'user', 'group' or 'netgroup' anyway?
+## 10	What is a 'user', 'group' or 'netgroup' anyway?
 
 	UNIX user:
 
@@ -896,7 +896,7 @@ the systems MPLS interacts with.
 	Network groups are stored in a network information services, such
 	as LDAP, NIS, or NIS+, NOT in a local file.
 
-11)	About the Author/Programmer and Copyrights
+## 11	About the Author/Programmer and Copyrights
 
 Author:         Robert Nagtegaal
 
@@ -906,9 +906,6 @@ Copyright:      Copyright 2013 Robert Nagtegaal
 		Robert Nagtegaal <masikh@gmail.com>
                 This program is distributed under the terms of the GNU 
                 General Public License (or the Lesser GPL)
-
-Disclaimer:     There are no guaranties that this program does what it 
-                should, there is only a very high probability.
 
 Thanks to:      Maartje Mulder (For putting up with all my absence)
                 Kristian Rietveld
