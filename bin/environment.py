@@ -15,7 +15,7 @@ class environment:
 		      LOGS = "./../LOGS/",
 		      ACCOUNTFORM = "./../FORMS/",
 		      LDAPPW = "YOURVERYSECRETPASSWORDHERE",
-		      LDAPSERVER = "ldap.unix.example.nl",
+		      LDAPSERVER = "ldaps://ldap.unix.example.nl:636",
 		      LDBUG = False,
 		      VERBOSE = False,
 		      BASEDN = "dc=unix,dc=example,dc=nl",
