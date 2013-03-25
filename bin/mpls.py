@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
 # Copyright:      Copyright 2013 Robert Nagtegaal
-#		  Robert Nagtegaal <masikh@gmail.com>
 #                 This program is distributed under the terms of the GNU 
 #                 General Public License (or the Lesser GPL)
 
@@ -10,6 +9,7 @@ from os import system
 os.putenv("ESCDELAY", "25") # no delay after pressing ESC key
 
 import helper_query_autofs as query_autofs
+#import helper_show_logs as query_logs
 import helper_query_user as query_user
 import helper_query_netgroup as query_netgroup
 import helper_query_groups as query_groups

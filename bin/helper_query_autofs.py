@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
 # Copyright:      Copyright 2013 Robert Nagtegaal
-#                 Robert Nagtegaal <masikh@gmail.com>
 #                 This program is distributed under the terms of the GNU 
 #                 General Public License (or the Lesser GPL)
 
@@ -12,10 +11,11 @@ def helper_query_homedir(UID,env):
 	DN="ou=auto.home,ou=Autofs," + env.BASEDN
 	FILTER="(&(objectClass=automount)(cn=" + UID + "))"
 	ATTR=["automountInformation"]
-	try:
-		connection = ldap.open(env.LDAPSERVER)
-		connection.simple_bind_s()
-		result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
+	options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
+	ldap.set_option(*options[0])
+	connection = ldap.initialize(env.LDAPSERVER)
+	connection.simple_bind_s()
+	try:result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
 	except ldap.LDAPError, e:result = [("Generic error occured (are you logged in?)",{"automountInformation": [""]})]
 	if result == []:result = [("No such user!",{'automountInformation': [""]})]
 	connection.unbind()
@@ -25,10 +25,11 @@ def helper_query_direct(env):
 	DN="ou=auto.direct,ou=Autofs," + env.BASEDN
 	FILTER="(&(objectClass=automount)(cn=*))"
 	ATTR=["automountInformation"]
-	try:
-		connection = ldap.open(env.LDAPSERVER)
-		connection.simple_bind_s()
-		result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
+	options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
+	ldap.set_option(*options[0])
+	connection = ldap.initialize(env.LDAPSERVER)
+	connection.simple_bind_s()
+	try:result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
 	except ldap.LDAPError, e:result = [("Generic error occured (are you logged in?)",{"automountInformation": [""]})]
 	connection.unbind()
 	return (result)
@@ -101,7 +102,7 @@ def helper_query_autofs(env, screen):
 	s.addstr(2, 2, "Query Autofs", curses.color_pair(3))
 	s.addstr(19, 2, "[Use [ESC] to abort!]", curses.color_pair(1))
 	s.addstr(4, 2, "Enter username: ", curses.color_pair(1))
-        UID = getInput(s,4,18,58,1,True)
+        UID = getInput(s,4,18,60,1,True)
 	if UID == "":
 		s.erase()
 		return

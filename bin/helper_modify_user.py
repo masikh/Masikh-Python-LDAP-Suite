@@ -2,7 +2,6 @@
 # -*- coding: utf8 -*-
 
 # Copyright:      Copyright 2013 Robert Nagtegaal
-#                 Robert Nagtegaal <masikh@gmail.com>
 #                 This program is distributed under the terms of the GNU 
 #                 General Public License (or the Lesser GPL)
 
@@ -193,7 +192,9 @@ def query_user(UID,env):
                 "objectClass",
 		"userPassword"
              ]
-        connection = ldap.open(env.LDAPSERVER)
+	options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
+	ldap.set_option(*options[0])
+	connection = ldap.initialize(env.LDAPSERVER)
         connection.simple_bind_s()
         try:result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
         except ldap.LDAPError, e:result = [("Generic error occured (are you logged in?)",{"": ""})]
@@ -207,7 +208,9 @@ def getOldPassword(UID, env):
 	FILTER="(&(objectClass=posixAccount)(uid=%s))" % UID
 	ATTR=[ "userPassword" ]
 	try:
-		connection = ldap.open(env.LDAPSERVER)
+		options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
+		ldap.set_option(*options[0])
+		connection = ldap.initialize(env.LDAPSERVER)
 	        connection.simple_bind_s(env.BINDDN, env.LDAPPW)
         	result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
         except ldap.LDAPError, e:return error,""
@@ -220,7 +223,9 @@ def isUser(UID, env):
         FILTER="(&(objectClass=posixAccount)(uid=%s))"%UID
         ATTR = [ "uid" ]
         try:
-                connection = ldap.open(env.LDAPSERVER)
+		options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
+		ldap.set_option(*options[0])
+		connection = ldap.initialize(env.LDAPSERVER)
                 connection.simple_bind_s()
                 result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
         except ldap.LDAPError, error:return "Generic error occured (are you logged in?)", True
@@ -233,7 +238,9 @@ def get_Groups(UID, env):
         FILTER="(&(objectClass=posixGroup)(memberUid=" + UID + "))"
         ATTR = None
         try:
-		connection = ldap.open(env.LDAPSERVER)
+		options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
+		ldap.set_option(*options[0])
+		connection = ldap.initialize(env.LDAPSERVER)
 		connection.simple_bind_s()
 		result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
         except ldap.LDAPError, e:result = [("Generic error occured (are you logged in?)",{"": ""})]
@@ -246,7 +253,9 @@ def get_Netgroups(UID, env):
         FILTER="(&(objectClass=nisNetgroup)(nisNetgroupTriple=*," + UID + ",*))"
         ATTR=[ "nisNetgroupTriple" ]
 	try:
-	        connection = ldap.open(env.LDAPSERVER)
+		options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
+		ldap.set_option(*options[0])
+		connection = ldap.initialize(env.LDAPSERVER)
 	        connection.simple_bind_s()
         	result = connection.search_s(DN, ldap.SCOPE_ONELEVEL, str(FILTER), ATTR)
         except ldap.LDAPError, error:return "Generic error occured (are you logged in?)",""
@@ -260,7 +269,9 @@ def get_Autofs(UID, env):
         FILTER="(&(objectClass=automount)(cn=" + UID + "))"
         ATTR=["automountInformation"]
 	try:
-	        connection = ldap.open(env.LDAPSERVER)
+		options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
+		ldap.set_option(*options[0])
+		connection = ldap.initialize(env.LDAPSERVER)
 	        connection.simple_bind_s()
         	result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
         except ldap.LDAPError, error:return "Generic error occured (are you logged in?)",""
@@ -280,7 +291,9 @@ def helper_next_free(TYPE, env):
 		end= ranges[TYPE][2]
 	except:begin=end=100
 	try:
-		connection = ldap.open(env.LDAPSERVER)
+		options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
+		ldap.set_option(*options[0])
+		connection = ldap.initialize(env.LDAPSERVER)
         	connection.simple_bind_s()
  		result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
 	except ldap.LDAPError, error: return "Generic error occured (are you logged in?)", toprange 
@@ -304,7 +317,9 @@ def helper_uid_isfree(uid, env):
 	FILTER="(uid=*)"
 	ATTR=["uidNumber"]
 	try:
-		connection = ldap.open(env.LDAPSERVER)
+		options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
+		ldap.set_option(*options[0])
+		connection = ldap.initialize(env.LDAPSERVER)
         	connection.simple_bind_s()
  		result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
 	except ldap.LDAPError, error: return "Generic error occured (are you logged in?)", false 
@@ -531,7 +546,7 @@ def helper_del_user(UID, env):
 def helper_change_password(UID, env):
 	error = "OK"
 	error,isuser = isUser(UID, env)
-	if error != "OK":return error, ""
+	if error != "OK":return error
 	if isuser == False:return "No such user!",""
 	error,oldpassword = getOldPassword(UID, env)
 	if error != "OK":return error,""
@@ -548,12 +563,12 @@ def helper_change_password(UID, env):
 	undofile += "replace: userPassword\n"
 	undofile += "userPassword: %s\n" % (oldpassword)
 	content,error=apply_ldif.ldif2dict(dofile)
-        if error != "OK":return error, "NO PASSWORD CHANGED"
+        if error != "OK":return error
         error=apply_ldif.apply_ldif(content,env)
-	if error != "OK":return error, "NO PASSWORD CHANGED"
+	if error != "OK":return error
 	WriteLog(dofile, "password_change.done.%s"%(UID), env)
 	WriteLog(undofile, "password_change.undo.%s"%(UID), env)
-	return error, newpassword
+	return error,newpassword
 
 def helper_get_userattr(UID, env):
 	error = "OK"
@@ -561,12 +576,11 @@ def helper_get_userattr(UID, env):
 	DN="ou=People,%s"%(env.BASEDN)
 	FILTER="(&(objectClass=posixAccount)(uid=%s))"%(UID)
 	ATTR=None
-
-	try:
-		connection = ldap.open(env.LDAPSERVER)
-		connection.simple_bind_s()
-		result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
-	except ldap.LDAPError, error:return "Generic error occured (are you logged in?)", ""
+	options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
+	ldap.set_option(*options[0])
+	connection = ldap.initialize(env.LDAPSERVER)
+	connection.simple_bind_s()
+	result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
 	connection.unbind()
 	if result == []:
 		error="ERROR: User %s does not exists!"%(UID)
@@ -694,7 +708,8 @@ def helper_modify_userattr_nav(s, env, x, pos, result, modified, selection):
 	return error, escape, x, pos, modified
 
 def helper_modified_user_to_ldif(env, result, modified):
-	dofile = undofile = temp1 = temp2 = autofs_orig = autofs2_new = error = ""
+	dofile = ""; undofile = ""; temp1 = ""; temp2 = ""; autofs_orig = ""; autofs2_new = "";	error = ""
+
 	autofs_orig = result['automountInformation'][0]
 	autofs_new = modified['automountInformation'][0]
 	del result['automountInformation']
@@ -714,7 +729,7 @@ def helper_modified_user_to_ldif(env, result, modified):
 		error, autofs = get_Autofs(UID, env)
 		temp1, temp2 = mod_user(modified, UID, groups, netgroups, autofs, env)
 		dofile += temp1
-		undofile += temp2
+		undofile += temp2	
 	for item in result:
 		# Make sure uid change is skipped!
 		if item == "uid":continue
@@ -919,7 +934,7 @@ def GUI_change_password(env,screen):
         if UID == "":
 		s.erase()
 		return
-	error, newpassword = helper_change_password(UID, env)
+	error,newpassword = helper_change_password(UID, env)
 	if error != "OK":s.addstr(6, 2, error, curses.color_pair(2))
 	else:
 		s.addstr(6, 2, "Password reset: %s" % error, curses.color_pair(2))

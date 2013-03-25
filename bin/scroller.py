@@ -1,17 +1,8 @@
 #!/usr/bin/env python
 
 # Copyright:      Copyright 2013 Robert Nagtegaal
-#                 Robert Nagtegaal <masikh@gmail.com>
 #                 This program is distributed under the terms of the GNU 
 #                 General Public License (or the Lesser GPL)
-
-#
-# NOTE:		  This code is based on an example found on the internet.
-#		  Thus it resembles a strong similairity with the example.
-#		  I believe it's 99% written by me. Unfortunally I could
-#		  not find the example anymore on the internet. If this
-#		  is a problem, rewrite this code. 
-
 
 import curses,time
 from os import system
@@ -60,6 +51,7 @@ def scroller(screen,data,header):
 	elif inkey==27:break
 	elif inkey==263:break
 	elif inkey==ord('q'):break
+	#curses.flushinp()
 
 if __name__ == "__main__":
 	print "call the function scroller(screen, data) for a program"

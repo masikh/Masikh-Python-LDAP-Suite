@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
 # Copyright:      Copyright 2013 Robert Nagtegaal
-#                 Robert Nagtegaal <masikh@gmail.com>
 #                 This program is distributed under the terms of the GNU 
 #                 General Public License (or the Lesser GPL)
 
@@ -15,8 +14,8 @@ class environment():
 	LDBUG = False
 	VERBOSE = False
 	def group_ranges(self, typeset):
-		self.ranges = { 'primary': ['100','999'],
-				'secondary': ['11100', '13999'] }
+		self.ranges = { 'primairy': ['100','999'],
+				'secondairy': ['11100', '13999'] }
 		return self.ranges[typeset][0],self.ranges[typeset][1]
 
 def WriteLog(content,fname, env):
@@ -37,7 +36,9 @@ def isGroup(GROUP, env):
         FILTER="(&(objectClass=posixGroup)(cn=" + GROUP + "))"
         ATTR = [ "memberUid" ]
         try:
-        	connection = ldap.open(env.LDAPSERVER)
+		options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
+		ldap.set_option(*options[0])
+		connection = ldap.initialize(env.LDAPSERVER)
 		connection.simple_bind_s()
         	result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
         except ldap.LDAPError, error:return error, True
@@ -50,7 +51,9 @@ def isUser(UID, env):
         FILTER="(&(objectClass=posixAccount)(uid=" + UID + "))"
         ATTR = [ "uid" ]
         try:
-                connection = ldap.open(env.LDAPSERVER)
+		options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
+		ldap.set_option(*options[0])
+		connection = ldap.initialize(env.LDAPSERVER)
                 connection.simple_bind_s()
                 result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
         except ldap.LDAPError, error:return error, True
@@ -63,7 +66,9 @@ def isInGroup(UID, GROUP, env):
         FILTER="(&(cn=%s)(memberUid=%s))"%(GROUP,UID)
         ATTR = [ "cn" ]
 	try:
-		connection = ldap.open(env.LDAPSERVER)
+		options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
+		ldap.set_option(*options[0])
+		connection = ldap.initialize(env.LDAPSERVER)
 	        connection.simple_bind_s()
         	result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
         except ldap.LDAPError, error: return "Generic error occured (are you logged in?)", None
@@ -76,7 +81,9 @@ def helper_get_gidNumber(GROUP, env):
 	FILTER="(&(objectClass=posixGroup)(cn=" + GROUP + "))"
 	ATTR = [ "gidNumber" ]
 	try:
-		connection = ldap.open(env.LDAPSERVER)
+		options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
+		ldap.set_option(*options[0])
+		connection = ldap.initialize(env.LDAPSERVER)
 		connection.simple_bind_s()
 		result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
 	except ldap.LDAPError, error:return "Generic error occured (are you logged in?)", "0"
@@ -92,7 +99,9 @@ def helper_get_memberUID(GROUP, env):
 	FILTER="(&(objectClass=posixGroup)(cn=" + GROUP + "))"
 	ATTR = [ "memberUid" ]
 	try:
-		connection = ldap.open(env.LDAPSERVER)
+		options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
+		ldap.set_option(*options[0])
+		connection = ldap.initialize(env.LDAPSERVER)
 		connection.simple_bind_s()
 		result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
 	except ldap.LDAPError, error:return "Generic error occured (are you logged in?)", "0"
@@ -111,7 +120,9 @@ def helper_get_group_attr(attributes, GROUP, env):
 	FILTER="(&(objectClass=posixGroup)(cn=%s))"%(GROUP)
 	ATTR = None 
 	try:
-		connection = ldap.open(env.LDAPSERVER)
+		options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
+		ldap.set_option(*options[0])
+		connection = ldap.initialize(env.LDAPSERVER)
 		connection.simple_bind_s()
 		temp = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
 	except ldap.LDAPError, error:return "Generic error occured (are you logged in?)", "0"
@@ -284,7 +295,9 @@ def helper_next_free(TYPE, env):
 	try:begin,end=env.group_ranges(TYPE)
 	except:begin=end=100
 	try:
-		connection = ldap.open(env.LDAPSERVER)
+		options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
+		ldap.set_option(*options[0])
+		connection = ldap.initialize(env.LDAPSERVER)
         	connection.simple_bind_s()
  		result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
 	except ldap.LDAPError, error: return error, toprange 
@@ -307,8 +320,10 @@ def helper_free_gid(gidNumber, env):
 	DN="ou=Group,%s"%(env.BASEDN)
 	FILTER="(&(objectClass=posixGroup)(gidNumber=%s))"%(gidNumber)
 	ATTR = ["cn"]
-	try:	
-		connection = ldap.open(env.LDAPSERVER)
+	try:
+		options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
+		ldap.set_option(*options[0])
+		connection = ldap.initialize(env.LDAPSERVER)
 		connection.simple_bind_s()
 		result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
 	except ldap.LDAPError, e:return error, False
@@ -453,13 +468,13 @@ def GUI_add_group(env, screen):
 	if GROUP == "":
 		s.clear()
 		return
-	s.addstr(5, 2, "Is this group a primary group?: [y/n]", curses.color_pair(1))
+	s.addstr(5, 2, "Is this group a primairy group?: [y/n]", curses.color_pair(1))
 	TYPE = getInput(s,5,41,1,0,False)
 	if TYPE == "":
 		s.erase()
 		return
-	elif TYPE == "y" or TYPE == "Y":TYPE = "primary"
-	else:TYPE = "secondary"
+	elif TYPE == "y" or TYPE == "Y":TYPE = "primairy"
+	else:TYPE = "secondairy"
 	error = helper_add_group(GROUP, TYPE, env)
 	s.addstr(7, 2, error, curses.color_pair(2))
 	s.addstr(19, 2, "[Press any key to continue]", curses.color_pair(1))
@@ -597,7 +612,7 @@ if __name__ == "__main__":
 				action='store',
 				metavar=('group [{pri,sec}]'),
 				help='groupname [{pri,sec}]')
-	choices = ['primary','secondary']
+	choices = ['primairy','secondairy']
 	
 	parser.add_argument(  '--password',
 				action='store',
@@ -640,12 +655,12 @@ if __name__ == "__main__":
 			error = helper_add_user(args['u'][0],args['u'][1], env)
 			if error != "OK":print error
 		else:
-			if len(args['g']) != 2:print "usage: -g groupname {primary, secondary}"
+			if len(args['g']) != 2:print "usage: -g groupname {primairy, secondairy}"
 			elif args['g'][1] == choices[0] or args['g'][1] == choices[1]:
 				error = helper_add_group(args['g'][0], args['g'][1], env)
 				if error != "OK":print error
 			else:
-				print "usage: -g groupname {primary, secondary}"
+				print "usage: -g groupname {primairy, secondairy}"
 	else:
                 if args['g'] == None:
                         error = helper_del_user(args['u'][0],args['u'][1], env)

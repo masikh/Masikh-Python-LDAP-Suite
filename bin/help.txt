@@ -1,9 +1,8 @@
-﻿# Copyright:      Copyright 2013 Robert Nagtegaal
-#                 Robert Nagtegaal <masikh@gmail.com>
-#                 This program is distributed under the terms of the GNU 
-#                 General Public License (or the Lesser GPL)
+﻿User manual for Masikh's Python LDAP Suite (MPLS)
 
-User manual for Masikh's Python LDAP Suite (MPLS)
+Disclaimer:     There are no guaranties that Masikh's Python LDAP Suite
+                (or short: MPLS) does what it should, there is only a very
+                high probability.
 
 contents:
 
@@ -17,7 +16,7 @@ contents:
 8	Exit
 9	Configuring MPLS for your environment (uidNumber ranges, etc...)
 10	What is a 'user', 'group' or 'netgroup anyway?
-11	About & Copyrights
+11	About & GPL
                
 
 conventions used in this manual:
@@ -41,7 +40,7 @@ from MPLS is logged and made undo-able. Thus if you delete a user or some-
 thing else you can easily undo this. This is part of the philosophy of
 MPLS. 
 
-The philosophy behind MPLS is: Every helper-program should be callable
+Another philosophy behind MPLS is: Every helper-program should be callable
 from MPLS and the CLI. Every helper-program (helpers) has a set of
 'command-line arguments' you can set. This is obviously not needed when
 you call these helpers from within MPLS. Because every helper is a stand-
@@ -176,8 +175,8 @@ the systems MPLS interacts with.
 
 	result:
 
-	dn: uid=labert,ou=People,dc=unix,dc=example,dc=org
-	dn: uid=lerts,ou=People,dc=unix,dc=example,dc=org
+	dn: uid=jlambert,ou=People,dc=unix,dc=example,dc=org
+	dn: uid=lbertens,ou=People,dc=unix,dc=example,dc=org
 	dn: uid=robert,ou=People,dc=unix,dc=example,dc=org
 
 4.1.2	-> User -> Information
@@ -220,7 +219,7 @@ the systems MPLS interacts with.
 	result:
 
 	dn: cn=robert,ou=auto.home,ou=Autofs,dc=unix,dc=example,dc=org
-	-soft,intr,nosuid nfs-server01:/users/staff:&
+	-soft,intr,nosuid praseodymium:/users/staff:&
 	
 	dn: cn=/scratch,ou=auto.direct,ou=Autofs,dc=unix,dc=example,dc=org
 	scratch.example.org:/scratch
@@ -229,11 +228,11 @@ the systems MPLS interacts with.
 	mailhost.example.org:/var/spool/mail
 	
 	dn: cn=/appl,ou=auto.direct,ou=Autofs,dc=unix,dc=example,dc=org
-	nfs-server01.example.org,nfs-server02.example.org:/appl
+	praseodymium.example.org,protactinium.example.org:/appl
 
 	Note: The user 'Robert' has one home-directory and three other
 	exports, /scratch, /var/spool/mail and /appl. The respective
-	exporting servers are: nfs-server01 and nfs-server02.
+	exporting servers are: praseodymium and protactinium.
 
 4.2	Search -> Group
 
@@ -326,12 +325,12 @@ the systems MPLS interacts with.
 	result:
 
 	...
-	dn: cn=all_se,ou=Netgroup,dc=unix,dc=example,dc=nl
-	dn: cn=all_wi,ou=Netgroup,dc=unix,dc=example,dc=nl
-	dn: cn=all_ws,ou=Netgroup,dc=unix,dc=example,dc=nl
-	dn: cn=cdh000a,ou=Netgroup,dc=unix,dc=example,dc=nl
-	dn: cn=cdh000b,ou=Netgroup,dc=unix,dc=example,dc=nl
-	dn: cn=cdh000c,ou=Netgroup,dc=unix,dc=example,dc=nl  
+	dn: cn=all_se,ou=Netgroup,dc=unix,dc=liacs,dc=nl
+	dn: cn=all_wi,ou=Netgroup,dc=unix,dc=liacs,dc=nl
+	dn: cn=all_ws,ou=Netgroup,dc=unix,dc=liacs,dc=nl
+	dn: cn=cdh000a,ou=Netgroup,dc=unix,dc=liacs,dc=nl
+	dn: cn=cdh000b,ou=Netgroup,dc=unix,dc=liacs,dc=nl
+	dn: cn=cdh000c,ou=Netgroup,dc=unix,dc=liacs,dc=nl  
 	...
 
 4.3.2	-> Netgroup -> Show membership
@@ -344,11 +343,11 @@ the systems MPLS interacts with.
 
 	result:
 
-	dn: cn=sun,ou=Netgroup,dc=unix,dc=example,dc=nl
-	dn: cn=pc156a,ou=Netgroup,dc=unix,dc=example,dc=nl
-	dn: cn=pc409a,ou=Netgroup,dc=unix,dc=example,dc=nl
-	dn: cn=users-pc306,ou=Netgroup,dc=unix,dc=example,dc=nl
-	dn: cn=users-pc302,ou=Netgroup,dc=unix,dc=example,dc=nl
+	dn: cn=sun,ou=Netgroup,dc=unix,dc=liacs,dc=nl
+	dn: cn=pc156a,ou=Netgroup,dc=unix,dc=liacs,dc=nl
+	dn: cn=pc409a,ou=Netgroup,dc=unix,dc=liacs,dc=nl
+	dn: cn=users-pc306,ou=Netgroup,dc=unix,dc=liacs,dc=nl
+	dn: cn=users-pc302,ou=Netgroup,dc=unix,dc=liacs,dc=nl
 
 	Note: In this example the user fverbeek is a member of the netgroups
 	'sun', 'pc156a', 'pc409a', 'users-pc306 and 'users-pc302'. All
@@ -367,7 +366,7 @@ the systems MPLS interacts with.
 
 	Distinguished name of netgroup users-pc302
 	-------------------------------------
-	dn: cn=users-pc302,ou=Netgroup,dc=unix,dc=example,dc=nl
+	dn: cn=users-pc302,ou=Netgroup,dc=unix,dc=liacs,dc=nl
 	
 	Member nis-groups of nis-group users-pc302
 	-------------------------------------
@@ -518,11 +517,11 @@ the systems MPLS interacts with.
 	
 	HINT: Older exports (before 2013) are at the bottom!
 	-------------------------------------------------------------------
-	Staff leden      -soft,intr,nosuid nfs-server01:/users/staff:&
-	Student 2013     -soft,intr,nosuid nfs-server02:/users/13/student:&
-	Student 2014     -soft,intr,nosuid nfs-server02:/users/14/student:&
-	Student 2015     -soft,intr,nosuid nfs-server02:/users/15/student:&
-	Student 2016     -soft,intr,nosuid nfs-server02:/users/16/student:&
+	Staff leden      -soft,intr,nosuid praseodymium:/users/staff:&
+	Student 2013     -soft,intr,nosuid protactinium:/users/13/student:&
+	Student 2014     -soft,intr,nosuid protactinium:/users/14/student:&
+	Student 2015     -soft,intr,nosuid protactinium:/users/15/student:&
+	Student 2016     -soft,intr,nosuid protactinium:/users/16/student:&
 	...
 
 	
@@ -607,7 +606,7 @@ the systems MPLS interacts with.
 	If you try to rename an username to an existing user, an error will
 	be reported. E.g.
 
-	ERROR Moving dn: uid=masikh,ou=People,dc=unix,dc=example,dc=nl REASON:
+	ERROR Moving dn: uid=masikh,ou=People,dc=unix,dc=liacs,dc=nl REASON:
 	Already exists
 
 	Example usage:
@@ -623,7 +622,7 @@ the systems MPLS interacts with.
 	 gecos:                Masikh Masih
 	 employeeNumber:       500.6948
 	 homeDirectory:        /home/masikh
-	 automountInformation: -soft,intr,nosuid nfs-server02:/users/13/student:&
+	 automountInformation: -soft,intr,nosuid protactinium:/users/13/student:&
 	 cn:                   ---
 	
 
@@ -685,7 +684,7 @@ the systems MPLS interacts with.
 	automountInformation will be asked:
 
 	*employeeType:         CDH
-	*automountInformation: -soft,intr,nosuid nfs-server02:/users/13/student:&
+	*automountInformation: -soft,intr,nosuid protactinium:/users/13/student:&
 	
 	Press escape when all is filled in correctly. A do you which to
 	commit question will be asked. E.g.
@@ -715,9 +714,9 @@ the systems MPLS interacts with.
 5.2.1	-> Group -> Add new group
 
 	With this helper you can add a new group to the LDAP database. A
-	group is either a primary or secundary group.
+	group is either a primairy or secundairy group.
 	
-	NOTE: If you add a primary group make sure you reflect these
+	NOTE: If you add a primairy group make sure you reflect these
 	changes in the MPLS environment file also. See chapter
 	'Configuring MPLS for your environment'
 
@@ -728,7 +727,7 @@ the systems MPLS interacts with.
 	Add new group
 	
 	Enter group:   [csdale]
-	Is this group a primary group?: [y/n]
+	Is this group a primairy group?: [y/n]
 
 	result:
 
@@ -834,11 +833,11 @@ the systems MPLS interacts with.
 	Example usage:
 
 	Enter username:  [masikh]
-	Enter netgroup:  [users-sil]
+	Enter netgroup:  [users-silver]
 
 	result:
 
-	'OK' or 'ERROR: netgroup users-sil does not exists!' or 'ERROR:
+	'OK' or 'ERROR: netgroup users-silver does not exists!' or 'ERROR:
 	user masikh does not exists!'
 
 5.3.4	-> Netgroup -> Link entity to netgroup -> Host to netgroup
@@ -869,12 +868,108 @@ the systems MPLS interacts with.
 
 	'OK' or 'ERROR: netgroup .... does not exist!'
 
-5.3.6	-> Netgroup -> Unlink entity to netgroup -> User to netgroup
+5.3.6	-> Netgroup -> Unlink entity from netgroup -> User from netgroup
 
+	With this this helper you can remove a user from a given netgroup,
+	thus revoking the authorization for parts (or the whole) of your
+	network equipment (e.g. a host)
+
+	Example usage:
+
+	Enter username:   [robert]
+	Enter netgroup:   [sbh]
+
+	result:
+
+	'OK' or 'ERROR: robert is not a member of netgroup sbh'
+
+5.3.7	-> Netgroup -> Unlink entity from netgroup -> Host from netgroup
+
+	With this helper you can remove a hostname from a given netgroup.
+	The given hostname is the name know to the LDAP database not DNS!
+
+	Example usage:
+
+	Enter hostname:   [stoeidoos]
+	Enter netgroup:   [silver]
+
+	result:
+
+	'OK' or 'ERROR: stoeidoos is not a host in netgroup silver' or
+	'ERROR: netgroup silver does not exists!'
+
+5.3.8	-> Netgroup -> Unlink entity from netgroup -> Netgroup from  netgroup
+
+	With this helper you can remove a netgroup from a netgroup.
+	Netgroups can be nested to build an abstraction of your
+	organisation. 
+
+	Example usage:
+
+	Enter parent netgroup:   [silver]
+	Enter child netgroup:	 [users-silver]
+
+	result:
+
+	'OK: Netgroup users-silver deleted from netgroup silver.' or
+	'ERROR: netgroup users-silver is not a member of silver!' or
+	'ERROR: netgroup silver does not exists'
+
+6)	Login menu
+
+	With this helper its possible to logon to a LDAP server without
+	the predevined settings from the environment.py file. This enables
+	un-privileged users to bind anonymously to a LDAP server or simply
+	change any of the following at runtime: Servername, BaseDN, BindDN
+	and the Password for the 'binding user'.
+	Furthermore, entering the login menu triggers a login to the
+	predevined LDAP server. A status of the connection will be shown
+	at the bottom of the active window. E.g.
+
+	[Authentication at ldap.unix.example.nl succesful]
+
+	If you enter the helper with a predevined environment the output
+	looks somewhat like this:
+
+	Servername: ldap.unix.example.nl
+	Base DN:    dc=unix,dc=example,dc=nl
+	Bind DN:    cn=admin,dc=unix,dc=example,dc=nl
 	
+	reset values? [y,[n]]
 
-5.3.7	-> Netgroup -> Unlink entity to netgroup -> Host to netgroup
-5.3.8	-> Netgroup -> Unlink entity to netgroup -> Netgroup to netgroup
+	Pressing [enter] or [n] just leaves this helper. 
+
+	If you choose to reset the settings (only in memory, the
+	environment.py file won't be touched!) the helper will clear the
+	runtime environment regarding the login settings and exit the
+	helper.
+
+	Entering the login helper again will yeild to a number of
+	questions:
+
+	Example:
+
+	Servername:     [ldap.unix.example.nl]
+	Base DN:        dc=unix,dc=example,dc=nl
+	Bind DN:        cn=admin,dc=unix,dc=example,dc=nl
+	Password:       .....(not echoed)
+
+	Result:
+
+	'Authentication at ldap.unix.liacs.nl succesful' or 'Cannot reach
+	server' or 'Credential failure.'
+
+7)	Help menu
+
+	This helper shows this help. You can use [esc] to leave this help
+	and the arrow keys to browse around.
+
+8)	Exit
+
+	This 'helper' stops the execution of the MPLS interface, thus
+	exiting the program.
+
+9)
 
 10	What is a 'user', 'group' or 'netgroup' anyway?
 
@@ -911,7 +1006,6 @@ Author:         Robert Nagtegaal
 E-mail:         robert@example.org, masikh@gmail.com
 
 Copyright:      Copyright 2013 Robert Nagtegaal
-		Robert Nagtegaal <masikh@gmail.com>
                 This program is distributed under the terms of the GNU 
                 General Public License (or the Lesser GPL)
 

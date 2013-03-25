@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
 # Copyright:      Copyright 2013 Robert Nagtegaal
-#                 Robert Nagtegaal <masikh@gmail.com>
 #                 This program is distributed under the terms of the GNU 
 #                 General Public License (or the Lesser GPL)
 
@@ -60,8 +59,9 @@ def getInput(screen,offset_y,offset_x,length,alfabet,cursor):
 def login(LDAPSERVER,BASEDN,BINDDN,LDAPPW):
 	if LDAPSERVER == "":return "Servername can't be empty!"
 	if BASEDN == "":return "Base dn can't be empty!"
-	
-	connection = ldap.initialize('ldap://%s:389'%LDAPSERVER)
+	options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
+	ldap.set_option(*options[0])	
+	connection = ldap.initialize('%s'%LDAPSERVER)
 	connection.set_option(ldap.OPT_NETWORK_TIMEOUT, 5.0)
 	results = "Authentication at %s succesful" % (LDAPSERVER)
 

@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
 # Copyright:      Copyright 2013 Robert Nagtegaal
-#                 Robert Nagtegaal <masikh@gmail.com>
 #                 This program is distributed under the terms of the GNU 
 #                 General Public License (or the Lesser GPL)
 
@@ -31,10 +30,11 @@ def helper_create_netgroup(NETGROUP,env):
         DN="ou=Netgroup," + env.BASEDN
         FILTER="(&(objectClass=nisnetgroup)(cn=" + NETGROUP + "))"
 	ATTR = [ "cn" ]
-	try:
-		connection = ldap.open(env.LDAPSERVER)
-	        connection.simple_bind_s()
-        	result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
+	options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
+	ldap.set_option(*options[0])
+	connection = ldap.initialize(env.LDAPSERVER)
+        connection.simple_bind_s()
+        try:result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
         except ldap.LDAPError, e:
 		result = "Generic error occured (are you logged in?)"
 		return dofile, undofile, result
@@ -57,10 +57,11 @@ def helper_delete_netgroup(NETGROUP,env):
 	DN="ou=Netgroup," + env.BASEDN
 	FILTER="(&(objectClass=nisnetgroup)(cn=" + NETGROUP + "))"
 	ATTR=None
-	try:
-	        connection = ldap.open(env.LDAPSERVER)
-	        connection.simple_bind_s()
-        	result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
+	options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
+	ldap.set_option(*options[0])
+	connection = ldap.initialize(env.LDAPSERVER)
+        connection.simple_bind_s()
+        try:result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
         except ldap.LDAPError, e:
                 result = "Generic error occured (are you logged in?)"
                 return dofile, undofile, result
@@ -82,10 +83,11 @@ def helper_add_user_to_netgroup(NETGROUP, UID, env):
         DN="ou=Netgroup," + env.BASEDN
         FILTER="(&(objectClass=nisNetgroup)(cn=" + NETGROUP + ")(nisNetgroupTriple=\(*," + UID + ",*\)))"
         ATTR=[ "cn" ]
-	try:
-	        connection = ldap.open(env.LDAPSERVER)
-	        connection.simple_bind_s()
-        	result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
+	options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
+	ldap.set_option(*options[0])
+	connection = ldap.initialize(env.LDAPSERVER)
+        connection.simple_bind_s()
+        try:result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
         except ldap.LDAPError, e:
                 result = "Generic error occured (are you logged in?)"
                 return dofile, undofile, result
@@ -97,10 +99,11 @@ def helper_add_user_to_netgroup(NETGROUP, UID, env):
         DN="ou=Netgroup," + env.BASEDN
         FILTER="(&(objectClass=nisnetgroup)(cn=" + NETGROUP + "))"
         ATTR=None
-	try:
-	        connection = ldap.open(env.LDAPSERVER)
-	        connection.simple_bind_s()
-        	result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
+	options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
+	ldap.set_option(*options[0])
+	connection = ldap.initialize(env.LDAPSERVER)
+        connection.simple_bind_s()
+        try:result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
         except ldap.LDAPError, e:
                 result = "Generic error occured (are you logged in?)"
                 return dofile, undofile, result
@@ -112,10 +115,11 @@ def helper_add_user_to_netgroup(NETGROUP, UID, env):
         DN="ou=People," + env.BASEDN
         FILTER="(&(objectClass=posixAccount)(uid=" + UID + "))"
         ATTR=[ "cn" ]
-	try:
-	        connection = ldap.open(env.LDAPSERVER)
-	        connection.simple_bind_s()
-        	result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
+	options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
+	ldap.set_option(*options[0])
+	connection = ldap.initialize(env.LDAPSERVER)
+        connection.simple_bind_s()
+        try:result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
         except ldap.LDAPError, e:
                 result = "Generic error occured (are you logged in?)"
                 return dofile, undofile, result
@@ -141,10 +145,11 @@ def helper_del_user_from_netgroup(NETGROUP, UID, env):
         DN="ou=People," + env.BASEDN
         FILTER="(&(objectClass=posixAccount)(uid=" + UID + "))"
         ATTR=[ "cn" ]
-	try:
-	        connection = ldap.open(env.LDAPSERVER)
-	        connection.simple_bind_s()
-        	result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
+	options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
+	ldap.set_option(*options[0])
+	connection = ldap.initialize(env.LDAPSERVER)
+        connection.simple_bind_s()
+        try:result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
         except ldap.LDAPError, e:
                 result = "Generic error occured (are you logged in?)"
                 return dofile, undofile, result
@@ -156,14 +161,12 @@ def helper_del_user_from_netgroup(NETGROUP, UID, env):
         DN="ou=Netgroup," + env.BASEDN
         FILTER="(&(objectClass=nisnetgroup)(cn=" + NETGROUP + "))"
         ATTR=None
-	try:
-	        connection = ldap.open(env.LDAPSERVER)
-	        connection.simple_bind_s()
-	        result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
-        except ldap.LDAPError, e:
-		result = "Generic error occured (are you logged in?)"
-		return dofile, undofile, result
-	connection.unbind()
+	options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
+	ldap.set_option(*options[0])
+	connection = ldap.initialize(env.LDAPSERVER)
+        connection.simple_bind_s()
+        result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
+        connection.unbind()
         if result == []:
                 error="ERROR: netgroup " + NETGROUP + " does not exists!"
                 return dofile, undofile, error
@@ -171,13 +174,11 @@ def helper_del_user_from_netgroup(NETGROUP, UID, env):
         DN="ou=Netgroup," + env.BASEDN
         FILTER="(&(objectClass=nisNetgroup)(cn=" + NETGROUP + ")(nisNetgroupTriple=\(*," + UID + ",*\)))"
         ATTR=[ "nisNetgroupTriple" ]
-	try:
-	        connection = ldap.open(env.LDAPSERVER)
-	        connection.simple_bind_s()
-	        result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
-	except ldap.LDAPError, e:
-		result = "Generic error occured (are you logged in?)"
-		return dofile, undofile, result
+	options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
+	ldap.set_option(*options[0])
+	connection = ldap.initialize(env.LDAPSERVER)
+        connection.simple_bind_s()
+        result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
         connection.unbind()
         if result == []:
                 error="ERROR: " + UID + " is not a member of netgroup " + NETGROUP
@@ -206,13 +207,11 @@ def helper_del_host_from_netgroup(NETGROUP, HOST, env):
 	DN="ou=Netgroup,%s"%(env.BASEDN)
 	FILTER="(&(objectClass=nisnetgroup)(cn=%s))"%(NETGROUP)                         
 	ATTR=None
-	try:
-		connection = ldap.open(env.LDAPSERVER)                                          
-		connection.simple_bind_s()
-		result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)              
-	except ldap.LDAPError, e:
-		error = "Generic error occured (are you logged in?)"
-		return dofile, undofile, error
+	options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
+	ldap.set_option(*options[0])
+	connection = ldap.initialize(env.LDAPSERVER)
+	connection.simple_bind_s()
+	result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)              
 	connection.unbind()
 	if result == []:
 		error="ERROR: netgroup %s does not exists!"%(NETGROUP)                  
@@ -221,7 +220,9 @@ def helper_del_host_from_netgroup(NETGROUP, HOST, env):
 	DN="ou=Netgroup,%s"%(env.BASEDN)
 	FILTER="(&(objectClass=nisNetgroup)(cn=%s)(nisNetgroupTriple=\(%s,,\)))"%(NETGROUP, HOST)    
 	ATTR=[ "nisNetgroupTriple" ]
-	connection = ldap.open(env.LDAPSERVER)                                          
+	options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
+	ldap.set_option(*options[0])
+	connection = ldap.initialize(env.LDAPSERVER)
 	connection.simple_bind_s() 
 	result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)              
 	connection.unbind()
@@ -251,13 +252,11 @@ def helper_add_host_to_netgroup(NETGROUP, HOST, env):
 	DN="ou=Netgroup,%s"%(env.BASEDN)
 	FILTER="(&(objectClass=nisnetgroup)(cn=%s))"%(NETGROUP)                         
 	ATTR=None
-	try:
-		connection = ldap.open(env.LDAPSERVER)                                          
-		connection.simple_bind_s()
-		result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
-	except ldap.LDAPError, e:
-		error = "Generic error occured (are you logged in?)"
-		return dofile, undofile, error
+	options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
+	ldap.set_option(*options[0])
+	connection = ldap.initialize(env.LDAPSERVER)
+	connection.simple_bind_s()
+	result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)              
 	connection.unbind()
 	if result == []:
 		error="ERROR: netgroup %s does not exists!"%(NETGROUP)                  
@@ -266,13 +265,11 @@ def helper_add_host_to_netgroup(NETGROUP, HOST, env):
 	DN="ou=Netgroup,%s"%(env.BASEDN)
 	FILTER="(&(objectClass=nisNetgroup)(cn=%s)(nisNetgroupTriple=\(%s,,\)))"%(NETGROUP, HOST)    
 	ATTR=[ "nisNetgroupTriple" ]
-	try:
-		connection = ldap.open(env.LDAPSERVER)                                          
-		connection.simple_bind_s() 
-		result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)              
-	except ldap.LDAPError, e:
-		error = "Generic error occured (are you logged in?)"
-		return dofile, undofile, error
+	options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
+	ldap.set_option(*options[0])
+	connection = ldap.initialize(env.LDAPSERVER)
+	connection.simple_bind_s() 
+	result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)              
 	connection.unbind()
 	if result != []:
 		error="ERROR: host %s already in netgroup %s"%(HOST, NETGROUP)            
@@ -295,15 +292,13 @@ def helper_add_netgroup_to_netgroup(PARENT, CHILD, env):
 	FILTER2="(&(objectClass=nisnetgroup)(cn=%s))"%(CHILD)                         
 	FILTER3="(&(objectClass=nisnetgroup)(cn=%s)(memberNisNetgroup=%s))"%(PARENT, CHILD)                         
 	ATTR=None
-	try:
-		connection = ldap.open(env.LDAPSERVER)                                          
-		connection.simple_bind_s()
-		result1 = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER1, ATTR)              
-		result2 = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER2, ATTR)              
-		result3 = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER3, ATTR)              
-	except ldap.LDAPError, e:
-		error = "Generic error occured (are you logged in?)"
-		return dofile, undofile, error
+	options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
+	ldap.set_option(*options[0])
+	connection = ldap.initialize(env.LDAPSERVER)
+	connection.simple_bind_s()
+	result1 = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER1, ATTR)              
+	result2 = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER2, ATTR)              
+	result3 = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER3, ATTR)              
 	connection.unbind()
 	if result1 == []:
 		error="ERROR: netgroup %s does not exists!"%(PARENT)                  
@@ -333,14 +328,12 @@ def helper_del_netgroup_from_netgroup(PARENT, CHILD, env):
 	FILTER1="(&(objectClass=nisnetgroup)(cn=%s))"%(PARENT)                         
 	FILTER2="(&(objectClass=nisnetgroup)(cn=%s)(memberNisNetgroup=%s))"%(PARENT, CHILD)                         
 	ATTR=None
-	try:
-		connection = ldap.open(env.LDAPSERVER)                                          
-		connection.simple_bind_s()
-		result1 = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER1, ATTR)              
-		result2 = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER2, ATTR)              
-	except ldap.LDAPError, e:
-		error = "Generic error occured (are you logged in?)"
-		return dofile, undofile, error
+	options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
+	ldap.set_option(*options[0])
+	connection = ldap.initialize(env.LDAPSERVER)
+	connection.simple_bind_s()
+	result1 = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER1, ATTR)              
+	result2 = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER2, ATTR)              
 	connection.unbind()
 	if result1 == []:
 		error="ERROR: netgroup %s does not exists!"%(PARENT)                  
