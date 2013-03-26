@@ -14,7 +14,7 @@
 - 11	About & Copyrights
                
 
-## conventions used in this manual:
+## Conventions used in this manual:
 
 Every item within brackets is user input. E.g. [fverbeek], in this case
 'fverbeek' is user input (without the brackets!!!).
