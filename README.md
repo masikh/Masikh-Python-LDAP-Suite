@@ -15,8 +15,8 @@
 
 ### Screenshots
 
-![Alt text](/Overview.png "Overview")
-![Alt text](/Add-users.png "Add multiple users")
+![Some menu's](/Overview.png "Overview")
+![Add Multiple users](/Add-users.png "Add multiple users")
 
 ## Conventions used in this manual:
 
