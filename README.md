@@ -1,4 +1,11 @@
 ## User manual for Masikh's Python LDAP Suite (MPLS)
+
+### Screenshots
+
+![Some menu's](/Overview.png "Overview")
+
+![Add Multiple users](/Add-users.png "Add multiple users")
+
 ### contents:
 
 - 1	A short introduction into MPLS
@@ -12,11 +19,6 @@
 - 9	Configuring MPLS for your environment (uidNumber ranges, etc...)
 - 10	What is a 'user', 'group' or 'netgroup anyway?
 - 11	About & Copyrights
-
-### Screenshots
-
-- ![Some menu's](/Overview.png "Overview")
-- ![Add Multiple users](/Add-users.png "Add multiple users")
 
 ## Conventions used in this manual:
 
