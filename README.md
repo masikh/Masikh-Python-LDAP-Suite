@@ -391,12 +391,12 @@ Host triples in netgroup
 
 User triples in netgroup  
 ============================== ===========  
-(-,aakachar,)   (-,aaleman,)    (-,aandreye,)   (-,aandring,)  
-(-,aanton,)     (-,aassink,)    (-,abacaoan,)   (-,abaggio,)  
-(-,abaihaki,)   (-,abegia,)     (-,abijlsma,)   (-,abom,)  
-(-,aboogert,)   (-,abosman,)    (-,acaraghi,)   (-,acavusog,)  
-(-,acervell,)   (-,achaibra,)   (-,achinedu,)   (-,aclairmo,)  
-(-,acomley,)    (-,adarvish,)   (-,adegroot,)   (-,adejonge,)   
+|(-,aakachar,)  | (-,aaleman,)  | (-,aandreye,) | (-,aandring,) |
+|(-,aanton,)    | (-,aassink,)  | (-,abacaoan,) | (-,abaggio,)  | 
+|(-,abaihaki,)  | (-,abegia,)   | (-,abijlsma,) | (-,abom,)     |
+|(-,aboogert,)  | (-,abosman,)  | (-,acaraghi,) | (-,acavusog,) |  
+|(-,acervell,)  | (-,achaibra,) | (-,achinedu,) | (-,aclairmo,) | 
+|(-,acomley,)   | (-,adarvish,) | (-,adegroot,) | (-,adejonge,) | 
 
 Note: In this example there are only user 'triples' in the
 netgroup 'users-pc302'. If we would lookup netgroup 'pc302a' we
