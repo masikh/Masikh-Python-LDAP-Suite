@@ -379,17 +379,17 @@ Enter netgroup: [users-pc302]
 
 result:
 
-Distinguished name of netgroup users-pc302  
-============================== ===========  
-dn: cn=users-pc302,ou=Netgroup,dc=unix,dc=example,dc=nl  
+|Distinguished name of netgroup users-pc302||||
+|:--------------|:--------------|:--------------|:--------------|
+|dn: cn=users-pc302,ou=Netgroup,dc=unix,dc=example,dc=nl||||
 
-Member nis-groups of nis-group users-pc302  
-============================== ===========  
+|Member nis-groups of nis-group users-pc302||||
+|:--------------|:--------------|:--------------|:--------------|
 
-|Host triples in netgroup|||
-============================== ===========  
+|Host triples in netgroup||||
+|:--------------|:--------------|:--------------|:--------------|
 
-|User triples in netgroup|||
+|User triples in netgroup||||
 |:--------------|:--------------|:--------------|:--------------|
 |(-,aakachar,)  | (-,aaleman,)  | (-,aandreye,) | (-,aandring,) |
 |(-,aanton,)    | (-,aassink,)  | (-,abacaoan,) | (-,abaggio,)  | 
