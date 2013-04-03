@@ -266,14 +266,14 @@ escape to exit this helper.
 
 result:
 
-...
-dn: cn=acmmm,ou=Group,dc=unix,dc=example,dc=org
-dn: cn=admin,ou=Group,dc=unix,dc=example,dc=org
-dn: cn=afddoc,ou=Group,dc=unix,dc=example,dc=org
-dn: cn=afdrap,ou=Group,dc=unix,dc=example,dc=org
-dn: cn=alumni,ou=Group,dc=unix,dc=example,dc=org
-dn: cn=apparc,ou=Group,dc=unix,dc=example,dc=org 
-...
+...  
+dn: cn=acmmm,ou=Group,dc=unix,dc=example,dc=org  
+dn: cn=admin,ou=Group,dc=unix,dc=example,dc=org  
+dn: cn=afddoc,ou=Group,dc=unix,dc=example,dc=org  
+dn: cn=afdrap,ou=Group,dc=unix,dc=example,dc=org  
+dn: cn=alumni,ou=Group,dc=unix,dc=example,dc=org  
+dn: cn=apparc,ou=Group,dc=unix,dc=example,dc=org  
+...  
 
 ### <a name="searchmenu-group-byuser" />-> Group -> By user name
 
