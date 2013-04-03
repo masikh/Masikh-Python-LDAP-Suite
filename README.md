@@ -32,7 +32,28 @@
     - [-> Netgroup -> Show membership](#searchmenu-netgroup-membership)
     - [-> Netgroup -> Information](#searchmenu-netgroup-information)
   - [Search -> Transactions](#searchmenu-transactions)
-- [Modify menu](#modifymenu)  
+- [Modify menu](#modifymenu) 
+  - [Modifymenu -> User](#modifymenu-user)
+    - [-> User -> Add user](#modifymenu-user-adduser)
+    - [-> User -> Delete user](#modifymenu-user-deluser)
+    - [-> User -> Change user password](#modifymenu-user-password)
+    - [-> User -> Modify user attributes](#modifymenu-user-attr)
+    - [-> User -> Add multiple users](#modifymenu-user-add-multiple)
+  - [Modifymenu -> Group](#modifymenu-group)
+    - [-> Group -> Add new group](#modifymenu-group-addgroup)
+    - [-> Group -> Delete group](#modifymenu-group-delgroup)
+    - [-> Group -> Modify group](#modifymenu-group-modgroup)
+    - [-> Group -> Link user to group](#modifymenu-group-adduser)
+    - [-> Group -> Unlink user from group](#modifymenu-group-deluser)
+  - [Modifymenu -> Netgroup](#modifymenu-netgroup)
+    - [-> Netgroup -> Add new netgroup](#modifymenu-netgroup-addgroup)
+    - [-> Netgroup -> Delete netgroup](#modifymenu-netgroup-delgroup)
+    - [-> Netgroup -> Link entity to netgroup -> User to netgroup](#modifymenu-netgroup-linkuser)
+    - [-> Netgroup -> Link entity to netgroup -> Host to netgroup](#modifymenu-netgroup-linkhost)
+    - [-> Netgroup -> Link entity to netgroup -> Netgroup to netgroup](#modifymenu-netgroup-linknetgroup)
+    - [-> Netgroup -> Unlink entity to netgroup -> User to netgroup](#modifymenu-netgroup-unlinkuser)
+    - [-> Netgroup -> Unlink entity to netgroup -> Host to netgroup](#modifymenu-netgroup-unlinkhost)
+    - [-> Netgroup -> Unlink entity to netgroup -> Netgroup to netgroup](#modifymenu-netgroup-unlinknetgroup)
 - [Login menu](#loginmenu)  
 - [Help menu](#helpmenu)  
 - [Exit](#exit)  
@@ -465,13 +486,13 @@ The modify menu enables you to modify user, group and netgroup
 properties. Furthermore you can view and UNDO past modifications
 of the LDAP database done via the MPLS software.
 
-- 5.1	Modify -> User
+### <a name="modifymenu-user" />Modify -> User
 
 In this submenu you can add or delete a user. Change a users
 password, modify its attributes. Adding users in a batch process
 can be done with the 'Add multiple users' helper.
 
-- 5.1.1	-> User -> Add user
+### <a name="modifymenu-user-adduser" />-> User -> Add user
 
 With the 'Add user' helper you can add a new user to the LDAP
 database. This helper will assign a primary group of choice, a
@@ -580,7 +601,7 @@ account form by hand!!!)
 NOTE: Per default, no netgroups will be assigned to this new user.
 If you wish, you can assign these memberships separately.
 
-- 5.1.2	-> User -> Delete user
+### <a name="modifymenu-user-deluser" />-> User -> Delete user
 
 This helper enables you to delete a single user. When a user is
 deleted an undo-file is created. From this undo-file you can
@@ -597,7 +618,7 @@ result:
 
 NOTE: A transaction is added to the transaction list afterward.
 
-- 5.1.3	-> User -> Change user password
+### <a name="modifymenu-user-password" />-> User -> Change user password
 
 With this helper you can reset a user its password.
 
@@ -610,7 +631,7 @@ result:
 Password reset: OK
 New Password: unZl2gs3VI  
 
-- 5.1.4	-> User -> Modify user attributes
+### <a name="modifymenu-user-attr" />-> User -> Modify user attributes
 
 With this helper its possible to change EVERY attribute of a given
 user. Yes even the username itself! (mod(r)dn in LDAP terms)
@@ -652,7 +673,7 @@ Do you wish to commit the changes? [y|n]
 
 NOTE: An astrix ' * ' means a changed attribute.
 
-- 5.1.5	-> User -> Add multiple users
+### <a name="modifymenu-user-add-multiple" />-> User -> Add multiple users
 
 With this helper you can add users in a batch process. You can
 cut&paste a list of users from a text file into MPLS and create
@@ -723,12 +744,12 @@ ISSC-P2202-24       Snellius, kamer 404, PAND 2202
 ISSC-P2202-33       Snellius, kamer 56, PAND 2202
 hp-106-bw           Snellius, kamer 106, PAND 2202
 
-- 5.2	Modify -> Group
+### <a name="modifymenu-group" />Modify -> Group
 
 In this submenu you can add or delete a group, modify group
 properties. You can also add or delete a user to/from a group.
 
-- 5.2.1	-> Group -> Add new group
+### <a name="modifymenu-group-addgroup" />-> Group -> Add new group
 
 With this helper you can add a new group to the LDAP database. A
 group is either a primairy or secundairy group.
@@ -750,7 +771,7 @@ result:
 
 'OK' or 'Group csdale already exist!'
 
-- 5.2.2	-> Group -> Delete group
+### <a name="modifymenu-group-delgroup" />-> Group -> Delete group
 
 With this helper you can remove a group from the LDAP database. If
 you deleted the wrong group the undo feature (transaction logs)
@@ -765,7 +786,7 @@ result:
 
 'OK' or 'No such group'
 
-- 5.2.3	-> Group -> Modify group
+### <a name="modifymenu-group-modgroup" />-> Group -> Modify group
 
 With this helper you can modify group attributes. These attributes
 are: cn (the group name), gidNumber and the group password.
@@ -786,7 +807,7 @@ commit changes? [y|[n]]'.
 
 NOTE: This transaction is logged and revertable
 
-- 5.2.4	-> Group -> Link user to group
+### <a name="modifymenu-group-adduser" />-> Group -> Link user to group
 
 With this helper you can add a user to a group.
 
@@ -799,7 +820,7 @@ result:
 
 'OK' or 'User masikh already in group csdale'
 
-- 5.2.5	-> Group -> Unlink user from group
+### <a name="modifymenu-group-deluser" />-> Group -> Unlink user from group
 
 With this helper you can remove a user from a group
 
@@ -812,13 +833,13 @@ result:
 
 'OK' or 'User masikh is not a member of group csdale!'
 
-- 5.3	Modify -> Netgroup
+### <a name="modifymenu-netgroup" />Modify -> Netgroup
 
 In this submenu you can add or delete a netgroup. Furthermore you
 can add or remove an entity from a netgroup. An entity is either a
 user, host or netgroup itself.
 
-- 5.3.1	-> Netgroup -> Add new netgroup
+### <a name="modifymenu-netgroup-addgroup" />-> Netgroup -> Add new netgroup
 
 With this helper you can add a new netgroup to the LDAP database.
 
@@ -830,7 +851,7 @@ result:
 
 'netgroup lgm created' or 'ERROR: netgroup lgm already exists!'
 
-- 5.3.2	-> Netgroup -> Delete netgroup
+### <a name="modifymenu-netgroup-delgroup" />-> Netgroup -> Delete netgroup
 
 With this helper you can remove a netgroup from the LDAP
 database. 
@@ -843,7 +864,7 @@ result:
 
 'OK' or 'ERROR: netgroup lgm does not exists!'
 
-- 5.3.3	-> Netgroup -> Link entity to netgroup -> User to netgroup
+### <a name="modifymenu-netgroup-linkuser" />-> Netgroup -> Link entity to netgroup -> User to netgroup
 
 With this helper you can add a user to a netgroup.
 
@@ -857,7 +878,7 @@ result:
 'OK' or 'ERROR: netgroup users-sil does not exists!' or 'ERROR:
 user masikh does not exists!'
 
-- 5.3.4	-> Netgroup -> Link entity to netgroup -> Host to netgroup
+### <a name="modifymenu-netgroup-linkhost" />-> Netgroup -> Link entity to netgroup -> Host to netgroup
 
 With this helper you can add a hostname to a netgroup.
 
@@ -870,7 +891,7 @@ result:
 
 'OK' or 'ERROR: netgroup allwi does not exists!'
 
-- 5.3.5	-> Netgroup -> Link entity to netgroup -> Netgroup to netgroup
+### <a name="modifymenu-netgroup-linkgroup" />-> Netgroup -> Link entity to netgroup -> Netgroup to netgroup
 
 With this helper you can add a netgroup to a netgroup (Yes,
 recursion!) It gives you the possibility to nest netgroups. This
@@ -885,9 +906,9 @@ result:
 
 'OK' or 'ERROR: netgroup .... does not exist!'
 
-- 5.3.6	-> Netgroup -> Unlink entity to netgroup -> User to netgroup
-- 5.3.7	-> Netgroup -> Unlink entity to netgroup -> Host to netgroup
-- 5.3.8	-> Netgroup -> Unlink entity to netgroup -> Netgroup to netgroup
+### <a name="modifymenu-netgroup-unlinkuser" />-> Netgroup -> Unlink entity to netgroup -> User to netgroup
+### <a name="modifymenu-netgroup-unlinkhost" />-> Netgroup -> Unlink entity to netgroup -> Host to netgroup
+### <a name="modifymenu-netgroup-unlinkgroup" />-> Netgroup -> Unlink entity to netgroup -> Netgroup to netgroup
 
 ## <a name="loginmenu" />Login Menu
 ## <a name="helpmenu" />Help Menu
