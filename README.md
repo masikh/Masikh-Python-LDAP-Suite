@@ -48,15 +48,9 @@ MPLS has no security whatsoever. The security of this tool is handled by the mec
 	
 	Moving around in the program can be done in several ways
 	
-	* Hot keys. Hot keys are marked as red letters. Typing such a let-
-	  ter will automaticly select the appropriate menu item within the
-	  current sub menu.
+	* Hot keys. Hot keys are marked as red letters. Typing such a letter will automaticly select the appropriate menu item within the current sub menu.
 
-	* Arrow keys. Arrow keys can be used to navigate through the menu-
-	  structure. Note the behavior of the arrow keys change between
-	  horizontal and vertical menus. E.g. In a horizontal menu (top-
-	  menu) the down-arrow opens an item but in a vertical menu the
-	  right-arrow opens a menu-item.
+	* Arrow keys. Arrow keys can be used to navigate through the menustructure. Note the behavior of the arrow keys change between horizontal and vertical menus. E.g. In a horizontal menu (top-menu) the down-arrow opens an item but in a vertical menu the right-arrow opens a menu-item.
 
 ### <a name="generalusage-colorusage" />Color usage and its function
 
@@ -74,18 +68,11 @@ MPLS has no security whatsoever. The security of this tool is handled by the mec
 
 ### <a name="generalusage-breadcrumbs" />Bread crumbs
 
-	Through out the whole program you can easily see where you are 
-	in terms of the menu-structure. Every step in the menu-structure
-	will leave a bread-crumb. Thus it leaves a trail. These crumbs 
-	are printed in the left-bottom of the screen. If the trail gets
-	to long, the begin is truncated as dots 
+	Through out the whole program you can easily see where you are in terms of the menu-structure. Every step in the menu-structure will leave a bread-crumb. Thus it leaves a trail. These crumbs are printed in the left-bottom of the screen. If the trail gets to long, the begin is truncated as dots 
 
 ### <a name="generalusage-inputvalidation" />Input validation
 
-	Every editable item in this program (e.g. enter username:) is
-	validated on proper input. This works mostly but probably not 
-	always, be warned! If a user enters an invalid input, the user
-	gets a warning. This warning looks like: 
+	Every editable item in this program (e.g. enter username:) is validated on proper input. This works mostly but probably not always, be warned! If a user enters an invalid input, the user gets a warning. This warning looks like: 
 	
 	(Wrong input: Use -_.+=, a-z A-Z 0-9 only)
 
@@ -94,48 +81,29 @@ MPLS has no security whatsoever. The security of this tool is handled by the mec
 
 ### <a name="generalusage-leaving" />Leaving a sub-module (part of the program)
 
-	Most of the time people are 'just browsing around' through the
-	program. If you enter one of the sub-modules (e.g. Add user)
-	you can simply bail out by pressing [esc] or give empty input
-	(e.g. [enter])
+	Most of the time people are 'just browsing around' through the program. If you enter one of the sub-modules (e.g. Add user) you can simply bail out by pressing [esc] or give empty input (e.g. [enter])
 	
 ### <a name="generalusage-terminalsize" />Terminal size
 
-	MPLS has been designed to work in a standard 'telnet' window.
-	These windows are typically 80 characters wide and 24 lines long
-	(80x24). A larger window is not a problem, but MPLS ~WILL CRASH~
-	if you make the terminal window smaller than 80x24. This has
-	nothing to do with MPLS but rather the underlying (n)Curses
-	interface. 
+	MPLS has been designed to work in a standard 'telnet' window.  These windows are typically 80 characters wide and 24 lines long (80x24). A larger window is not a problem, but MPLS ~WILL CRASH~ if you make the terminal window smaller than 80x24. This has nothing to do with MPLS but rather the underlying (n)Curses interface. 
 
 ## <a name="mplsoptions" />Overview of MPLS options
 
-	MPLS has five top-level menu items: Search, Modify, Login, Help
-	and Exit. The two most important are Search and Modify.
+	MPLS has five top-level menu items: Search, Modify, Login, Help and Exit. The two most important are Search and Modify.
 
-	*	Search: In this menu you can query for user, group or
-		NIS-netgroups items. Furthermore, you can query all
-		transactions/modifications on the LDAP database via MPLS.
+	*	Search: In this menu you can query for user, group or NIS-netgroups items. Furthermore, you can query all transactions/modifications on the LDAP database via MPLS.
 
-	*	Modify: In this menu you can modify user(s), group(s)
-		and NIS-Netgroups. Furthermore, you can query, view and
-		undo transactions/modifications on the LDAP database via
-		MPLS.
+	*	Modify: In this menu you can modify user(s), group(s) and NIS-Netgroups. Furthermore, you can query, view and undo transactions/modifications on the LDAP database via MPLS.
 	
-	*	Login: From here you can bind to a different LDAP server
-		Then the default server. (The Default server is	configured
-		in the MPLS environment file; environment.py)
+	*	Login: From here you can bind to a different LDAP server Then the default server. (The Default server is configured in the MPLS environment file; environment.py)
 
 	*	Help menu: You can browse through these help-pages.
 
-	*	Exit: Every program needs a stop condition. This is the
-		one!
+	*	Exit: Every program needs a stop condition. This is the one!
 
 ## <a name="searchmenu" />Search menu
 
-	In this menu you can query for user, group or NIS-netgroups items.
-	Furthermore, you can query all transactions/modifications on the
-	LDAP database via MPLS.
+	In this menu you can query for user, group or NIS-netgroups items. Furthermore, you can query all transactions/modifications on the LDAP database via MPLS.
 
 - 4.1	Search -> User
 
@@ -143,8 +111,7 @@ MPLS has no security whatsoever. The security of this tool is handled by the mec
 
 - 4.1.1	-> User -> By part of username
 
-	With this helper you can look-up an username if you only know part
-	of its name.
+	With this helper you can look-up an username if you only know part of its name.
 
 	Example usage:
 
