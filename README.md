@@ -208,7 +208,7 @@ __Example usage:__
 
 1: Enter username: [ert]
 
-__result:__
+__Result:__
 
 dn: uid=labert,ou=People,dc=unix,dc=example,dc=org  
 dn: uid=lerts,ou=People,dc=unix,dc=example,dc=org  
@@ -222,7 +222,7 @@ __Example usage:__
 
 1: Enter username: [robert]
 
-__result:__
+__Result:__
 
 dn: uid=robert,ou=People,dc=unix,dc=example,dc=org  
 employeeType: Staff  
@@ -251,7 +251,7 @@ __Example usage:__
 
 1: Enter username: [robert]  
 
-__result:__  
+__Result:__  
 
 dn: cn=robert,ou=auto.home,ou=Autofs,dc=unix,dc=example,dc=org  
 -soft,intr,nosuid nfs-server01:/users/staff:&  
@@ -284,7 +284,7 @@ __Example usage:__
 Use your arrow keys to scroll through all available groups and use
 escape to exit this helper.
 
-__result:__
+__Result:__
 
 ...  
 dn: cn=acmmm,ou=Group,dc=unix,dc=example,dc=org  
@@ -303,7 +303,7 @@ __Example usage:__
 
 Enter username: [fbeek]
 
-__result:__
+__Result:__
 
 |gidNumber|Primary group DN for user fbeek|
 |:--------|:---------------------------------|
@@ -330,7 +330,7 @@ __Example usage:__
 
 Enter groupname: [csdale]
 
-__result:__
+__Result:__
 
 |Members of group csdale|(gidNumber: 11158)|
 |:----------------------|:-----------------|
@@ -357,7 +357,7 @@ __Example usage:__
 Use your arrow keys to scroll through all available groups and use
 escape to exit this helper.
 
-__result:__
+__Result:__
 
 ...  
 dn: cn=allse,ou=Netgroup,dc=unix,dc=example,dc=nl  
@@ -376,7 +376,7 @@ __Example usage:__
 
 Enter username: [fbeek]
 
-__result:__
+__Result:__
 
 dn: cn=sun,ou=Netgroup,dc=unix,dc=example,dc=nl  
 dn: cn=pc156a,ou=Netgroup,dc=unix,dc=example,dc=nl  
@@ -397,7 +397,7 @@ __Example usage:__
 
 Enter netgroup: [users-pc302]
 
-__result:__
+__Result:__
 
 |Distinguished name of netgroup users-pc302||||
 |:--------------|:--------------|:--------------|:--------------|
@@ -465,7 +465,7 @@ Use your arrow keys to scroll through all available transactions.
 Press enter to view the highlighted entry and escape to leave the
 helper.
 
-__result:__
+__Result:__
 
 Show transaction
 
@@ -610,7 +610,7 @@ __Example usage:__
 
 Enter username: [masikh]
 
-__result:__
+__Result:__
 
 'OK' or 'NO such user!'
 
@@ -624,7 +624,7 @@ __Example usage:__
 
 Enter username: [masikh]
 
-__result:__
+__Result:__
 
 Password reset: OK
 New Password: unZl2gs3VI  
@@ -765,7 +765,7 @@ Add new group
 Enter group:   [csdale]
 Is this group a primairy group?: [y/n]
 
-__result:__
+__Result:__
 
 'OK' or 'Group csdale already exist!'
 
@@ -780,7 +780,7 @@ __Example usage:__
 
 Enter group:   [csdale]
 
-__result:__
+__Result:__
 
 'OK' or 'No such group'
 
@@ -814,7 +814,7 @@ __Example usage:__
 Enter username:   [masikh]
 Enter group:      [csdale]
 
-__result:__
+__Result:__
 
 'OK' or 'User masikh already in group csdale'
 
@@ -827,7 +827,7 @@ __Example usage:__
 Enter username:   [masikh]
 Enter group:      [csdale]
 
-__result:__
+__Result:__
 
 'OK' or 'User masikh is not a member of group csdale!'
 
@@ -845,7 +845,7 @@ __Example usage:__
 
 Enter netgroup:  [lgm]
 
-__result:__
+__Result:__
 
 'netgroup lgm created' or 'ERROR: netgroup lgm already exists!'
 
@@ -858,7 +858,7 @@ __Example usage:__
 
 Enter netgroup:  [lgm]
 
-__result:__
+__Result:__
 
 'OK' or 'ERROR: netgroup lgm does not exists!'
 
@@ -871,7 +871,7 @@ __Example usage:__
 Enter username:  [masikh]
 Enter netgroup:  [users-sil]
 
-__result:__
+__Result:__
 
 'OK' or 'ERROR: netgroup users-sil does not exists!' or 'ERROR:
 user masikh does not exists!'
@@ -885,7 +885,7 @@ __Example usage:__
 Enter hostname:  [stoeidoos]
 Enter netgroup:  [allwi]
 
-__result:__
+__Result:__
 
 'OK' or 'ERROR: netgroup allwi does not exists!'
 
@@ -900,7 +900,7 @@ __Example usage:__
 Enter parent netgroup:  [allwi]
 Enter child netgroup:   [wsstaf]
 
-__result:__
+__Result:__
 
 'OK' or 'ERROR: netgroup .... does not exist!'
 
