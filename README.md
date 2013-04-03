@@ -436,21 +436,21 @@ to the LDAP database. Each column in the overview gives specific
 information about the transaction
 
 __TID:__ Transaction identification number. It's a UNIX date-stamp in
-seconds (thus always incrementing!)
-__Entity:__ The user, group or netgroup which is modified.
-__Date:__ The transaction date (computed from the TID)
-__Type:__ The type of modification made.  
-E.g. add-grp (a unix group is added), multiple-user-add (a bunch of users was created) etc...
-__Action:__ There are three types of actions:
-__done:__ 	This is a transaction done somewhere in	the past.
+seconds (thus always incrementing!)  
+__Entity:__ The user, group or netgroup which is modified.  
+__Date:__ The transaction date (computed from the TID)  
+__Type:__ The type of modification made. E.g. add-grp (a unix group is added),
+multiple-user-add (a bunch of users was created) etc...  
+__Action:__ There are three types of actions:  
+__done:__ 	This is a transaction done somewhere in	the past.  
 __undo:__ 	For every transaction there exists an undo
 		file. The undo transaction is not
 		committed (yet) to the LDAP server but can
-		be used to undo a past transaction.
+		be used to undo a past transaction.  
 __reverted:__	These are the undo transactions which has
 		been committed. Thus if you commit an undo
 		transaction it becomes a reverted
-		transaction.
+		transaction.  
 
 __Example usage:__
 
