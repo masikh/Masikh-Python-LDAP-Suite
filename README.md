@@ -253,6 +253,7 @@ __Example usage:__
 
 __Result:__  
 
+```bash
 dn: cn=robert,ou=auto.home,ou=Autofs,dc=unix,dc=example,dc=org  
 -soft,intr,nosuid nfs-server01:/users/staff:&  
   
@@ -264,8 +265,9 @@ mailhost.example.org:/var/spool/mail
   
 dn: cn=/appl,ou=auto.direct,ou=Autofs,dc=unix,dc=example,dc=org  
 nfs-server01.example.org,nfs-server02.example.org:/appl  
+```
 
-Note: The user 'Robert' has one home-directory and three other
+__Note:__ The user 'Robert' has one home-directory and three other
 exports, /scratch, /var/spool/mail and /appl. The respective
 exporting servers are: nfs-server01 and nfs-server02.
 
@@ -286,6 +288,7 @@ escape to exit this helper.
 
 __Result:__
 
+```bash
 ...  
 dn: cn=acmmm,ou=Group,dc=unix,dc=example,dc=org  
 dn: cn=admin,ou=Group,dc=unix,dc=example,dc=org  
@@ -294,6 +297,7 @@ dn: cn=afdrap,ou=Group,dc=unix,dc=example,dc=org
 dn: cn=alumni,ou=Group,dc=unix,dc=example,dc=org  
 dn: cn=apparc,ou=Group,dc=unix,dc=example,dc=org  
 ...  
+```
 
 ### <a name="searchmenu-group-byuser" />-> Group -> By user name
 
@@ -305,20 +309,22 @@ Enter username: [fbeek]
 
 __Result:__
 
-|gidNumber|Primary group DN for user fbeek|
-|:--------|:---------------------------------|
-|100      |dn: cn=staff,ou=Group,dc=unix,dc=example,dc=org|
-  
-|gidNumber|Non-primary groups DNs for user fbeek|
-|:--------|:---------------------------------------|
-|11177    | dn: cn=cshrpr,ou=Group,dc=unix,dc=example,dc=org |
-|11147    | dn: cn=cszebra,ou=Group,dc=unix,dc=example,dc=org| 
-|11185    | dn: cn=csstuva,ou=Group,dc=unix,dc=example,dc=org|
-|11175    | dn: cn=csbpn,ou=Group,dc=unix,dc=example,dc=org  |
-|11153    | dn: cn=cshci,ou=Group,dc=unix,dc=example,dc=org  |
-|11192    | dn: cn=csre,ou=Group,dc=unix,dc=example,dc=org   |
-|11144    | dn: cn=csbio,ou=Group,dc=unix,dc=example,dc=org  |
-  
+```bash
+gidNumber Primary group DN for user fbeek
+------------------------------------------------------------
+100      dn: cn=staff,ou=Group,dc=unix,dc=example,dc=org
+ 
+gidNumber Non-primary groups DNs for user fbeek|
+-------------------------------------------------------------
+11177     dn: cn=cshrpr,ou=Group,dc=unix,dc=example,dc=org -
+11147     dn: cn=cszebra,ou=Group,dc=unix,dc=example,dc=org-
+11185     dn: cn=csstuva,ou=Group,dc=unix,dc=example,dc=org
+11175     dn: cn=csbpn,ou=Group,dc=unix,dc=example,dc=org  
+11153     dn: cn=cshci,ou=Group,dc=unix,dc=example,dc=org  
+11192     dn: cn=csre,ou=Group,dc=unix,dc=example,dc=org   
+11144     dn: cn=csbio,ou=Group,dc=unix,dc=example,dc=org  
+```
+
 Note: In this example the user 'fbeek' has primary group  
 'staff' with gidNumber '100' and seven secondary groups.  
 
@@ -332,10 +338,12 @@ Enter groupname: [csdale]
 
 __Result:__
 
-|Members of group csdale|(gidNumber: 11158)|
-|:----------------------|:-----------------|
-|memberUid: csdale||
-|memberUid: tcocx||
+```bash
+Members of group csdale (gidNumber: 11158)
+------------------------------------------
+memberUid: csdale
+memberUid: tcocx
+```
 
 Note: In this example there are two members of the group 'csdale'
 being 'csdale' itself and 'tcocx'. Furthermore the gidNumber of
@@ -359,6 +367,7 @@ escape to exit this helper.
 
 __Result:__
 
+```bash
 ...  
 dn: cn=allse,ou=Netgroup,dc=unix,dc=example,dc=nl  
 dn: cn=allwi,ou=Netgroup,dc=unix,dc=example,dc=nl  
@@ -367,6 +376,7 @@ dn: cn=cdh000a,ou=Netgroup,dc=unix,dc=example,dc=nl
 dn: cn=cdh000b,ou=Netgroup,dc=unix,dc=example,dc=nl  
 dn: cn=cdh000c,ou=Netgroup,dc=unix,dc=example,dc=nl    
 ...  
+```
 
 ### <a name="searchmenu-netgroup-membership" />-> Netgroup -> Show membership
 
@@ -378,11 +388,13 @@ Enter username: [fbeek]
 
 __Result:__
 
+```bash
 dn: cn=sun,ou=Netgroup,dc=unix,dc=example,dc=nl  
 dn: cn=pc156a,ou=Netgroup,dc=unix,dc=example,dc=nl  
 dn: cn=pc409a,ou=Netgroup,dc=unix,dc=example,dc=nl  
 dn: cn=users-pc306,ou=Netgroup,dc=unix,dc=example,dc=nl  
 dn: cn=users-pc302,ou=Netgroup,dc=unix,dc=example,dc=nl  
+```
 
 Note: In this example the user fbeek is a member of the netgroups
 'sun', 'pc156a', 'pc409a', 'users-pc306 and 'users-pc302'. All
