@@ -19,7 +19,7 @@
   - [Terminal size](#generalusage-terminalsize)
 - [Overview of MPLS options](#mplsoptions)  
 - [Search menu](#searchmenu)  
-  - [Search -> User](#searchmenu-user)
+  - [Search -> User](#searchmenu---user)
     - [-> User -> By part of username](#searchmenu-user-partof)
     - [-> User -> Information](#searchmenu-user-information)
     - [-> User -> Query Autofs](#searchmenu-user-autofs)
