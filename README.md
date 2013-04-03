@@ -28,45 +28,20 @@
 - [About & Copyrights](#gpl)  
 
 ## <a name="conventions" />Conventions used in this manual
-Every item within brackets is user input. E.g. [fverbeek], in this case
-'fverbeek' is user input (without the brackets!!!).
+Every item within brackets is user input. E.g. [fverbeek], in this case 'fverbeek' is user input (without the brackets!!!).
 
 ## <a name="introductionmpls" />A short introduction into MPLS
-MPLS is a user account tool for LDAP. It stands-out of other LDAP software
-because it handles NIS-netgroups and has a transaction undo feature.
+MPLS is a user account tool for LDAP. It stands-out of other LDAP software because it handles NIS-netgroups and has a transaction undo feature.
 
-MPLS is meant as a unified tool for LDAP manipulations. Unified means that
-it's build to accommodate the needs of 'users', 'help-desk' and 'system-
-administrators.' MPLS tries to simplify standard daily tasks but also the
-somewhat complex tasks. E.g. renaming a user and make sure its (net-)group
-memberships are preserved. Every transaction made to the LDAP database
-from MPLS is logged and made undo-able. Thus if you delete a user or some-
-thing else you can easily undo this. This is part of the philosophy of
-MPLS. 
+MPLS is meant as a unified tool for LDAP manipulations. Unified means that it's build to accommodate the needs of 'users', 'help-desk' and 'system-administrators.' MPLS tries to simplify standard daily tasks but also the somewhat complex tasks. E.g. renaming a user and make sure its (net-)group memberships are preserved. Every transaction made to the LDAP database from MPLS is logged and made undo-able. Thus if you delete a user or something else you can easily undo this. This is part of the philosophy of MPLS. 
 
-Another philosophy behind MPLS is: Every helper-program should be callable
-from MPLS and the CLI. Every helper-program (helpers) has a set of
-'command-line arguments' you can set. This is obviously not needed when
-you call these helpers from within MPLS. Because every helper is a stand-
-alone unit (like UNIX tools) MPLS is easily expendable.
+Another philosophy behind MPLS is: Every helper-program should be callable from MPLS and the CLI. Every helper-program (helpers) has a set of 'command-line arguments' you can set. This is obviously not needed when you call these helpers from within MPLS. Because every helper is a standalone unit (like UNIX tools) MPLS is easily expendable.  
 
-There is a unified menu-structure which is trivially expandable with new 
-items. The menu-structure as such has nothing to do with MPLS as whole but
-is rather a convenient method of presenting helpers to a user. See chapter
-'Further Development' for more in-depth information.
+There is a unified menu-structure which is trivially expandable with new items. The menu-structure as such has nothing to do with MPLS as whole but is rather a convenient method of presenting helpers to a user. See chapter 'Further Development' for more in-depth information.
 
-MPLS is by no means a complete product. It aims at taking away the burden 
-of repetitive account tasks and delegating tasks to appropriate skilled
-personnel.
+MPLS is by no means a complete product. It aims at taking away the burden of repetitive account tasks and delegating tasks to appropriate skilled personnel.
 
-MPLS has no security whatsoever. The security of this tool is handled by
-the mechanisms already in place on the target systems. E.g. You can
-access this tool via SSH protocol (Just make it the default shell of a 
-'special user'). SSH is charged with the security not MPLS! Every
-connection made to the LDAP server is done with the security measures 
-imposed by the LDAP server itself (e.g. SSL/TLS) not MPLS. The
-philosophy of MPLS is: Make security not the problem of MPLS but that of
-the systems MPLS interacts with.
+MPLS has no security whatsoever. The security of this tool is handled by the mechanisms already in place on the target systems. E.g. You can access this tool via SSH protocol (Just make it the default shell of a 'special user'). SSH is charged with the security not MPLS! Every connection made to the LDAP server is done with the security measures imposed by the LDAP server itself (e.g. SSL/TLS) not MPLS. The philosophy of MPLS is: Make security not the problem of MPLS but that of the systems MPLS interacts with.
 
 ## <a name="generalusage" />General usage
 ### <a name="generalusage-navigate" />Navigate through the program
