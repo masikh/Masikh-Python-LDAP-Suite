@@ -425,7 +425,7 @@ netgroup 'users-pc302'. If we would lookup netgroup 'pc302a' we
 can observe that is only has one member nis-group, 'users-pc302'.
 Using this mechanism users and hosts are bind-ed together.
 
-### <a name="searchmenu-transactions" />-> Transactions
+### <a name="searchmenu-transactions" />Search -> Transactions
 
 Every modification from MPLS to a LDAP database is logged in a
 transaction. Of every transaction made, there is also an undo file
@@ -437,23 +437,16 @@ information about the transaction
 
 __TID:__ Transaction identification number. It's a UNIX date-stamp in
 seconds (thus always incrementing!)
-
 __Entity:__ The user, group or netgroup which is modified.
-
 __Date:__ The transaction date (computed from the TID)
-
 __Type:__ The type of modification made.  
 E.g. add-grp (a unix group is added), multiple-user-add (a bunch of users was created) etc...
-
 __Action:__ There are three types of actions:
-
 __done:__ 	This is a transaction done somewhere in	the past.
-
 __undo:__ 	For every transaction there exists an undo
 		file. The undo transaction is not
 		committed (yet) to the LDAP server but can
 		be used to undo a past transaction.
-
 __reverted:__	These are the undo transactions which has
 		been committed. Thus if you commit an undo
 		transaction it becomes a reverted
