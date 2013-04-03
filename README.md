@@ -210,10 +210,11 @@ __Example usage:__
 
 __Result:__
 
+```bash
 dn: uid=labert,ou=People,dc=unix,dc=example,dc=org  
 dn: uid=lerts,ou=People,dc=unix,dc=example,dc=org  
 dn: uid=robert,ou=People,dc=unix,dc=example,dc=org
-
+```
 ### <a name="searchmenu-user-information" />-> User -> Information
 
 With this helper you can lookup all attributes of a single user.
@@ -224,6 +225,7 @@ __Example usage:__
 
 __Result:__
 
+```bash
 dn: uid=robert,ou=People,dc=unix,dc=example,dc=org  
 employeeType: Staff  
 uid: robert  
@@ -238,8 +240,9 @@ sn: Nagtegaal
 homeDirectory: /home/robert  
 cn: Robert  
 employeeNumber: 100.58430  
+```
 
-Note: employeeNumber is either a concatenation of gidNumber and
+__Note:__ employeeNumber is either a concatenation of gidNumber and
 uidNumber or a student registration number.
 
 ### <a name="searchmenu-user-autofs" />-> User -> Query Autofs
