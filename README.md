@@ -177,7 +177,7 @@ the systems MPLS interacts with.
 
 	dn: uid=labert,ou=People,dc=unix,dc=example,dc=org  
 	dn: uid=lerts,ou=People,dc=unix,dc=example,dc=org  
-	dn: uid=robert,ou=People,dc=unix,dc=example,dc=org  
+	dn: uid=robert,ou=People,dc=unix,dc=example,dc=org
 
 - 4.1.2	-> User -> Information
 
