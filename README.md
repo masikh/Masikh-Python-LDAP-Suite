@@ -286,11 +286,11 @@ Enter username: [fverbeek]
 result:
 
 gidNumber Primary group DN for user fverbeek  
---------- -------------------------------------  
+========= ==================================  
 100       dn: cn=staff,ou=Group,dc=unix,dc=example,dc=org  
   
 gidNumber Non-primary groups DNs for user fverbeek  
---------- -------------------------------------  
+========= ======================================== 
 11177     dn: cn=cshrpr,ou=Group,dc=unix,dc=example,dc=org  
 11147     dn: cn=cszebra,ou=Group,dc=unix,dc=example,dc=org  
 11185     dn: cn=csstuva,ou=Group,dc=unix,dc=example,dc=org  
@@ -313,7 +313,7 @@ Enter groupname: [csdale]
 result:
 
 Members of group csdale (gidNumber: 11158)  
-------------------------------------------  
+========================================== 
 memberUid: csdale  
 memberUid: tcocx   
 
