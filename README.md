@@ -528,18 +528,19 @@ gidNumber will change accordingly. (Use arrow keys to select!)
 
 __Example:__
 
-* employeeType:         /------------\  
-  uid:                  | CS-Account |  
-  loginShell:           | CDH        |  
-* uidNumber:            |-Bijvak-----|  
-* employeeNumber:       | Student    |  
-* gidNumber:            | Gast       |  
-  gecos:                | Staff      |  
-  sn:                   \------------/  
-  homeDirectory:        /home/masikh  
-  automountInformation: ---  
-  cn:                   ---  
-
+```bash
+  * employeeType:         /------------\  
+    uid:                  | CS-Account |  
+    loginShell:           | CDH        |  
+  * uidNumber:            |-Bijvak-----|  
+  * employeeNumber:       | Student    |  
+  * gidNumber:            | Gast       |  
+    gecos:                | Staff      |  
+    sn:                   \------------/  
+    homeDirectory:        /home/masikh  
+    automountInformation: ---  
+    cn:                   ---  
+```
 __NOTE:__ An asterix ' * ' will appear before each changed user
 attribute.
 
