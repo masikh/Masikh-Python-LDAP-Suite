@@ -530,14 +530,14 @@ gidNumber will change accordingly. (Use arrow keys to select!)
 __Example:__
 
 ```bash
-  * employeeType:         /------------\  
+  * employeeType:         ┌────────────┐
     uid:                  | CS-Account |  
     loginShell:           | CDH        |  
   * uidNumber:            |-Bijvak-----|  
   * employeeNumber:       | Student    |  
   * gidNumber:            | Gast       |  
     gecos:                | Staff      |  
-    sn:                   \------------/  
+    sn:                   └────────────┘  
     homeDirectory:        /home/masikh  
     automountInformation: ---  
     cn:                   ---  
