@@ -546,7 +546,7 @@ def helper_del_user(UID, env):
 def helper_change_password(UID, env):
 	error = "OK"
 	error,isuser = isUser(UID, env)
-	if error != "OK":return error
+	if error != "OK":return error, ""
 	if isuser == False:return "No such user!",""
 	error,oldpassword = getOldPassword(UID, env)
 	if error != "OK":return error,""
@@ -577,11 +577,13 @@ def helper_get_userattr(UID, env):
 	FILTER="(&(objectClass=posixAccount)(uid=%s))"%(UID)
 	ATTR=None
 	options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
-	ldap.set_option(*options[0])
-	connection = ldap.initialize(env.LDAPSERVER)
-	connection.simple_bind_s()
-	result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
-	connection.unbind()
+	try:
+		ldap.set_option(*options[0])
+		connection = ldap.initialize(env.LDAPSERVER)
+		connection.simple_bind_s()
+		result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
+		connection.unbind()
+	except ldap.LDAPError, e:return "Generic error occured (are you logged in?)", ""
 	if result == []:
 		error="ERROR: User %s does not exists!"%(UID)
 		return error, result
