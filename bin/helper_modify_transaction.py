@@ -14,8 +14,10 @@ def getUndofiles(env):
         # Initialize dictonairies for logfiles
         logfiles = []
        	revertables = []
- 
-        # Build a dictionary of all log files
+
+        if dirList == [] or dirList == ['.gitignore']:
+		dirList = ['0..Epoch.']
+	# Build a dictionary of all log files
         for file in dirList:
                 # Make an array of filename part with field seperator "."
                 t = file.split(".")
