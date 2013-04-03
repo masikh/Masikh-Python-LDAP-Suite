@@ -399,26 +399,26 @@ Enter netgroup: [users-pc302]
 
 __Result:__
 
-|Distinguished name of netgroup users-pc302||||
-|:--------------|:--------------|:--------------|:--------------|
-|dn: cn=users-pc302,ou=Netgroup,dc=unix,dc=example,dc=nl||||
+```bash
+Distinguished name of netgroup users-pc302
+-----------------------------------------------------------------
+dn: cn=users-pc302,ou=Netgroup,dc=unix,dc=example,dc=nl
 
-|Member nis-groups of nis-group users-pc302||||
-|:--------------|:--------------|:--------------|:--------------|
-|None||||
+Member nis-groups of nis-group users-pc302
+-----------------------------------------------------------------
 
-|Host triples in netgroup||||
-|:--------------|:--------------|:--------------|:--------------|
-|None||||
+Host triples in netgroup
+-----------------------------------------------------------------
 
-|User triples in netgroup||||
-|:--------------|:--------------|:--------------|:--------------|
-|(-,aakachar,)  | (-,aaleman,)  | (-,aandreye,) | (-,aandring,) |
-|(-,aanton,)    | (-,aassink,)  | (-,abacaoan,) | (-,abaggio,)  | 
-|(-,abaihaki,)  | (-,abegia,)   | (-,abijlsma,) | (-,abom,)     |
-|(-,aboogert,)  | (-,abosman,)  | (-,acaraghi,) | (-,acavusog,) |  
-|(-,acervell,)  | (-,achaibra,) | (-,achinedu,) | (-,aclairmo,) | 
-|(-,acomley,)   | (-,adarvish,) | (-,adegroot,) | (-,adejonge,) | 
+User triples in netgroup
+-----------------------------------------------------------------
+(-,aakachar,)   (-,aaleman,)   (-,aandreye,)  (-,aandring,) 
+(-,aanton,)     (-,aassink,)   (-,abacaoan,)  (-,abaggio,)  
+(-,abaihaki,)   (-,abegia,)    (-,abijlsma,)  (-,abom,)     
+(-,aboogert,)   (-,abosman,)   (-,acaraghi,)  (-,acavusog,)   
+(-,acervell,)   (-,achaibra,)  (-,achinedu,)  (-,aclairmo,)  
+(-,acomley,)    (-,adarvish,)  (-,adegroot,)  (-,adejonge,)  
+```
 
 __Note:__ In this example there are only user 'triples' in the
 netgroup 'users-pc302'. If we would lookup netgroup 'pc302a' we
