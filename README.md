@@ -544,17 +544,18 @@ the new user with you arrow keys and press enter to select.
 
 __Example:__
 
+```bash
 Select export for account
 
-|HINT:           | Older exports (before 2013) are at the bottom!   |
-|:---------------|:-------------------------------------------------|
-|Staff leden     |-soft,intr,nosuid nfs-server01:/users/staff:&     |
-|Student 2013    |-soft,intr,nosuid nfs-server02:/users/13/student:&|
-|Student 2014    |-soft,intr,nosuid nfs-server02:/users/14/student:&|
-|Student 2015    |-soft,intr,nosuid nfs-server02:/users/15/student:&|
-|Student 2016    |-soft,intr,nosuid nfs-server02:/users/16/student:&|
-|...             |                                                  |
-
+HINT: Older exports (before 2013) are at the bottom! 
+---------------------------------------------------------------------
+Staff leden     -soft,intr,nosuid nfs-server01:/users/staff:&     
+Student 2013    -so-soft,intr,nosuid nfs-server02:/users/13/student:&
+Student 2014    -so-soft,intr,nosuid nfs-server02:/users/14/student:&
+Student 2015    -so-soft,intr,nosuid nfs-server02:/users/15/student:&
+Student 2016    -so-soft,intr,nosuid nfs-server02:/users/16/student:&
+...                                                               
+```
 
 After you have entered all (needed) attributes for a given user,
 you press escape. If you left any attributes blank (---) a
