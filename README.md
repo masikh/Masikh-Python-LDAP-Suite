@@ -1060,7 +1060,7 @@ __Example usage:__
 ││                                                                            ││
 │└─[Press any key to continue]────────────────────────────────────────────────┘│
 └──[Modify > Netgroup > Link entity to netgroup > Host to netgroup]────────────┘
-
+```
 __Result:__
 
 'OK' or 'ERROR: netgroup sil does not exists!'
