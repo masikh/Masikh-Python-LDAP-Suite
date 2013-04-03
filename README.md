@@ -11,6 +11,8 @@
 - [Conventions used in this manual](#conventions)  
 - [A short introduction into MPLS](#test)  
 - [General usage](#generalusage)  
+ - [Navigate through the program](#generalusage-navigate) 
+ - [Color usage and its function](#generalusage-colorusage)
 - [Overview of MPLS options](#mplsoptions)  
 - [Search menu](#searchmenu)  
 - [Modify menu](#modifymenu)  
@@ -22,12 +24,10 @@
 - [About & Copyrights](#gpl)  
 
 ## <a name="conventions" />Conventions used in this manual
-
 Every item within brackets is user input. E.g. [fverbeek], in this case
 'fverbeek' is user input (without the brackets!!!).
 
 ## <a name="introductionmpls" />A short introduction into MPLS
-
 MPLS is a user account tool for LDAP. It stands-out of other LDAP software
 because it handles NIS-netgroups and has a transaction undo feature.
 
@@ -64,10 +64,8 @@ imposed by the LDAP server itself (e.g. SSL/TLS) not MPLS. The
 philosophy of MPLS is: Make security not the problem of MPLS but that of
 the systems MPLS interacts with.
 
-
 ## <a name="generalusage" />General usage
-
-- 2.1	Navigate through the program
+### <a name="generalusage-navigate" />Navigate through the program
 	
 	Moving around in the program can be done in several ways
 	
@@ -81,7 +79,7 @@ the systems MPLS interacts with.
 	  menu) the down-arrow opens an item but in a vertical menu the
 	  right-arrow opens a menu-item.
 
-- 2.2	Color usage and its function
+### <a name="generalusage-colorusage" />Color usage and its function
 
 	Through out the whole program there is a consistent color usage.
 	
