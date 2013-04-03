@@ -19,6 +19,19 @@
  - [Terminal size](#generalusage-terminalsize)
 - [Overview of MPLS options](#mplsoptions)  
 - [Search menu](#searchmenu)  
+ - [Search -> User](#searchmenu-user)
+  - [-> User -> By part of username](#searchmenu-user-partof)
+  - [-> User -> Information](#searchmenu-user-information)
+  - [-> User -> Query Autofs](#searchmenu-user-autofs)
+ - [Search -> Group](#searchmenu-group)
+  - [-> Group -> Show all groups](#searchmenu-group-all)
+  - [-> Group -> By user name](#searchmenu-group-byuser)
+  - [-> Group -> By group name](#searchmenu-group-byname)
+ - [Search -> Netgroup](#searchmenu-netgroup)
+  - [-> Netgroup -> Show all netgroups](#searchmenu-netgroup-all)
+  - [-> Netgroup -> Show membership](#searchmenu-netgroup-membership)
+  - [-> Netgroup -> Information](#searchmenu-netgroup-information)
+ - [Search -> Transactions](#searchmenu-transactions)
 - [Modify menu](#modifymenu)  
 - [Login menu](#loginmenu)  
 - [Help menu](#helpmenu)  
@@ -162,11 +175,11 @@ In this menu you can query for user, group or NIS-netgroups items.
 Furthermore, you can query all transactions/modifications on the
 LDAP database via MPLS.
 
-- 4.1	Search -> User
+### <a name="seachmenu-user" />Search -> User
 
 In this sub menu you can query for a user or user specific items.
 
-- 4.1.1	-> User -> By part of username
+### <a name="searchmenu-user-partof" />-> User -> By part of username
 
 With this helper you can look-up an username if you only know part
 of its name.
@@ -181,7 +194,7 @@ dn: uid=labert,ou=People,dc=unix,dc=example,dc=org
 dn: uid=lerts,ou=People,dc=unix,dc=example,dc=org  
 dn: uid=robert,ou=People,dc=unix,dc=example,dc=org
 
-- 4.1.2	-> User -> Information
+### <a name="seachmenu-user-information" />-> User -> Information
 
 With this helper you can lookup all attributes of a single user.
 
@@ -209,7 +222,7 @@ employeeNumber: 100.58430
 Note: employeeNumber is either a concatenation of gidNumber and
 uidNumber or a student registration number.
 
-- 4.1.3	-> User -> Query Autofs
+### <a name="searchmenu-user-autofs" />-> User -> Query Autofs
 
 With this helper you can lookup all exports for this user known in
 the LDAP database. Thus all autofs entries.
@@ -236,13 +249,13 @@ Note: The user 'Robert' has one home-directory and three other
 exports, /scratch, /var/spool/mail and /appl. The respective
 exporting servers are: nfs-server01 and nfs-server02.
 
-- 4.2	Search -> Group
+### <a name="searchmenu-group" />Search -> Group
 
 In this menu you can query group information. You can show all
 available groups, the groups a user is member of and the users in a
 certain group.
 
-- 4.2.1	-> Group -> Show all groups
+### <a name="searchmenu-group-all" />-> Group -> Show all groups
 
 With this helper you can lookup all groups
 
@@ -262,7 +275,7 @@ dn: cn=alumni,ou=Group,dc=unix,dc=example,dc=org
 dn: cn=apparc,ou=Group,dc=unix,dc=example,dc=org 
 ...
 
-- 4.2.2	-> Group -> By user name
+### <a name="searchmenu-group-byuser" />-> Group -> By user name
 
 With this helper you can lookup groups assign to a user.
 
@@ -289,7 +302,7 @@ gidNumber Non-primary groups DNs for user fverbeek
 Note: In this example the user 'fverbeek' has primary group
 'staff' with gidNumber '100' and seven secondary groups.
 
-- 4.2.3	-> Group -> By group name
+### <a name="searchmenu-group-byname" />-> Group -> By group name
 
 With this helper you can lookup members of a given group.
 
@@ -308,14 +321,14 @@ Note: In this example there are two members of the group 'csdale'
 being 'csdale' itself and 'tcocx'. Furthermore the gidNumber of
 'csdale' is 11158.
 
-- 4.3	Search -> Netgroup
+### <a name="searchmenu-netgroup" />Search -> Netgroup
 
 In this sub menu you can query for netgroup information. Analogue
 to the 'Search -> Group' menu there is an option to view all
 netgroups, show user/host membership of a netgroup and child
 groups of a netgroup.
 
-- 4.3.1	-> Netgroup -> Show all netgroups
+### <a name="searchmenu-netgroup-all" />-> Netgroup -> Show all netgroups
 
 This helper gives a list of all available netgroups. 
 
@@ -335,7 +348,7 @@ dn: cn=cdh000b,ou=Netgroup,dc=unix,dc=example,dc=nl
 dn: cn=cdh000c,ou=Netgroup,dc=unix,dc=example,dc=nl  
 ...
 
-- 4.3.2	-> Netgroup -> Show membership
+### <a name="searchmenu-netgroup-membership" />-> Netgroup -> Show membership
 
 This helper shows the netgroups a user is member of.
 
@@ -356,7 +369,7 @@ Note: In this example the user fverbeek is a member of the netgroups
 hosts in sun, pc156a etc..are hosts the user fverbeek has access
 to.
 
-- 4.3.3	-> Netgroup -> Information
+### <a name="searchmenu-netgroup-information" />-> Netgroup -> Information
 
 This helper shows all information of a given netgroup.
 
@@ -390,7 +403,7 @@ netgroup 'users-pc302'. If we would lookup netgroup 'pc302a' we
 can observe that is only has one member nis-group, 'users-pc302'.
 Using this mechanism users and hosts are bind-ed together.
 
-- 4.4	-> Transactions
+### <a name="searchmenu-transactions" />-> Transactions
 
 Every modification from MPLS to a LDAP database is logged in a
 transaction. Of every transaction made, there is also an undo file
@@ -435,13 +448,13 @@ result:
 
 Show transaction
 
-Transaction Entity  Date                  Type              Action
-------------------------------------------------------------------
-1363183419  Bijvak  Wed Mar 13 15:03 2013 multiple-user-add done
-1363183419  Bijvak  Wed Mar 13 15:03 2013 multiple-user-add undo
-1363178314  Student Wed Mar 13 13:38 2013 multiple-user-add done
-1363178314  Student Wed Mar 13 13:38 2013 multiple-user-add undo
-1363176151  masikh  Wed Mar 13 13:02 2013 passwordchange    reverted
+Transaction Entity  Date                  Type              Action  
+------------------------------------------------------------------  
+1363183419  Bijvak  Wed Mar 13 15:03 2013 multiple-user-add done  
+1363183419  Bijvak  Wed Mar 13 15:03 2013 multiple-user-add undo  
+1363178314  Student Wed Mar 13 13:38 2013 multiple-user-add done  
+1363178314  Student Wed Mar 13 13:38 2013 multiple-user-add undo  
+1363176151  masikh  Wed Mar 13 13:02 2013 passwordchange    reverted  
 ...
 
 ## <a name="modifymenu" />Modify menu
