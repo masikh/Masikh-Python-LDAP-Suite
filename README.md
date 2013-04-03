@@ -19,7 +19,7 @@
   - [Terminal size](#generalusage-terminalsize)
 - [Overview of MPLS options](#mplsoptions)  
 - [Search menu](#searchmenu)  
-  - [Search -> User](#searchmenu---user)
+  - [Search -> User](#searchmenu-user)
     - [-> User -> By part of username](#searchmenu-user-partof)
     - [-> User -> Information](#searchmenu-user-information)
     - [-> User -> Query Autofs](#searchmenu-user-autofs)
@@ -175,7 +175,7 @@ In this menu you can query for user, group or NIS-netgroups items.
 Furthermore, you can query all transactions/modifications on the
 LDAP database via MPLS.
 
-### <a name="seachmenu-user" />Search -> User
+### <a name="seachmenu---user" />Search -> User
 
 In this sub menu you can query for a user or user specific items.
 
