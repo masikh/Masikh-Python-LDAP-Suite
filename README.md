@@ -285,22 +285,22 @@ Enter username: [fverbeek]
 
 result:
 
-gidNumber Primary group DN for user fverbeek
---------- -------------------------------------
-100       dn: cn=staff,ou=Group,dc=unix,dc=example,dc=org
-
-gidNumber Non-primary groups DNs for user fverbeek
---------- -------------------------------------
-11177     dn: cn=cshrpr,ou=Group,dc=unix,dc=example,dc=org
-11147     dn: cn=cszebra,ou=Group,dc=unix,dc=example,dc=org
-11185     dn: cn=csstuva,ou=Group,dc=unix,dc=example,dc=org
-11175     dn: cn=csbpn,ou=Group,dc=unix,dc=example,dc=org
-11153     dn: cn=cshci,ou=Group,dc=unix,dc=example,dc=org
-11192     dn: cn=csre,ou=Group,dc=unix,dc=example,dc=org
-11144     dn: cn=csbio,ou=Group,dc=unix,dc=example,dc=org
-
-Note: In this example the user 'fverbeek' has primary group
-'staff' with gidNumber '100' and seven secondary groups.
+gidNumber Primary group DN for user fverbeek  
+--------- -------------------------------------  
+100       dn: cn=staff,ou=Group,dc=unix,dc=example,dc=org  
+  
+gidNumber Non-primary groups DNs for user fverbeek  
+--------- -------------------------------------  
+11177     dn: cn=cshrpr,ou=Group,dc=unix,dc=example,dc=org  
+11147     dn: cn=cszebra,ou=Group,dc=unix,dc=example,dc=org  
+11185     dn: cn=csstuva,ou=Group,dc=unix,dc=example,dc=org  
+11175     dn: cn=csbpn,ou=Group,dc=unix,dc=example,dc=org  
+11153     dn: cn=cshci,ou=Group,dc=unix,dc=example,dc=org  
+11192     dn: cn=csre,ou=Group,dc=unix,dc=example,dc=org  
+11144     dn: cn=csbio,ou=Group,dc=unix,dc=example,dc=org  
+  
+Note: In this example the user 'fverbeek' has primary group  
+'staff' with gidNumber '100' and seven secondary groups.  
 
 ### <a name="searchmenu-group-byname" />-> Group -> By group name
 
@@ -312,10 +312,10 @@ Enter groupname: [csdale]
 
 result:
 
-Members of group csdale (gidNumber: 11158)
-- - - - - - - - - - - - - - - - - - - - - 
-memberUid: csdale
-memberUid: tcocx 
+Members of group csdale (gidNumber: 11158)  
+------------------------------------------  
+memberUid: csdale  
+memberUid: tcocx   
 
 Note: In this example there are two members of the group 'csdale'
 being 'csdale' itself and 'tcocx'. Furthermore the gidNumber of
