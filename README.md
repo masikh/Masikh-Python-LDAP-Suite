@@ -8,24 +8,25 @@
 
 ### contents:
 
-- 1	A short introduction into MPLS
-- 2	General usage
-- 3       Overview of MPLS options
-- 4	Search menu
-- 5	Modify menu
-- 6	Login menu
-- 7	Help menu
-- 8	Exit
-- 9	Configuring MPLS for your environment (uidNumber ranges, etc...)
-- 10	What is a 'user', 'group' or 'netgroup anyway?
-- 11	About & Copyrights
+[Conventions used in this manual](#conventions)
+[A short introduction into MPLS](#test)
+[General usage](#generalusage)
+[Overview of MPLS options](#mplsoptions)
+[Search menu](#searchmenu)
+[Modify menu](#modifymenu)
+[Login menu](#loginmenu)
+[Help menu](#helpmenu)
+[Exit](#exit)
+[Configuring MPLS for your environment (uidNumber ranges, etc...)](#environment)
+[What is a 'user', 'group' or 'netgroup anyway?](#whatis)
+[About & Copyrights](#gpl)
 
-## Conventions used in this manual:
+## <a name="conventions" />Conventions used in this manual
 
 Every item within brackets is user input. E.g. [fverbeek], in this case
 'fverbeek' is user input (without the brackets!!!).
 
-## A short introduction.
+## <a name="introductionmpls" />A short introduction into MPLS
 
 MPLS is a user account tool for LDAP. It stands-out of other LDAP software
 because it handles NIS-netgroups and has a transaction undo feature.
@@ -39,7 +40,7 @@ from MPLS is logged and made undo-able. Thus if you delete a user or some-
 thing else you can easily undo this. This is part of the philosophy of
 MPLS. 
 
-The philosophy behind MPLS is: Every helper-program should be callable
+Another philosophy behind MPLS is: Every helper-program should be callable
 from MPLS and the CLI. Every helper-program (helpers) has a set of
 'command-line arguments' you can set. This is obviously not needed when
 you call these helpers from within MPLS. Because every helper is a stand-
@@ -64,7 +65,7 @@ philosophy of MPLS is: Make security not the problem of MPLS but that of
 the systems MPLS interacts with.
 
 
-## General usage
+## <a name="generalusage" />General usage
 
 - 2.1	Navigate through the program
 	
@@ -130,7 +131,7 @@ the systems MPLS interacts with.
 	nothing to do with MPLS but rather the underlying (n)Curses
 	interface. 
 
-## Overview of MPLS options
+## <a name="mplsoptions" />Overview of MPLS options
 
 	MPLS has five top-level menu items: Search, Modify, Login, Help
 	and Exit. The two most important are Search and Modify.
@@ -153,7 +154,7 @@ the systems MPLS interacts with.
 	*	Exit: Every program needs a stop condition. This is the
 		one!
 
-## Search menu
+## <a name="searchmenu" />Search menu
 
 	In this menu you can query for user, group or NIS-netgroups items.
 	Furthermore, you can query all transactions/modifications on the
@@ -441,7 +442,7 @@ the systems MPLS interacts with.
 	1363176151  masikh  Wed Mar 13 13:02 2013 password_change   reverted
 	...
 
-## Modify menu
+## <a name="modifymenu" />Modify menu
 
 	The modify menu enables you to modify user, group and netgroup
 	properties. Furthermore you can view and UNDO past modifications
@@ -874,7 +875,11 @@ the systems MPLS interacts with.
 - 5.3.7	-> Netgroup -> Unlink entity to netgroup -> Host to netgroup
 - 5.3.8	-> Netgroup -> Unlink entity to netgroup -> Netgroup to netgroup
 
-## What is a 'user', 'group' or 'netgroup' anyway?
+## <a name="loginmenu" />Login Menu
+## <a name="helpmenu" />Help Menu
+## <a name="exit" />Exit Menu
+## <a name="environment" />Configuring MPLS for your environment (uidNumber ranges, etc...)
+## <a name="whatis" />What is a 'user', 'group' or 'netgroup' anyway?
 
 	UNIX user:
 
@@ -902,16 +907,14 @@ the systems MPLS interacts with.
 	Network groups are stored in a network information services, such
 	as LDAP, NIS, or NIS+, NOT in a local file.
 
-## About the Author/Programmer and Copyrights
+## <a name="gpl" />About the Author/Programmer and Copyrights
 
-Author:         Robert Nagtegaal
-
-E-mail:         robert@example.org, masikh@gmail.com
-
-Copyright:      Copyright 2013 Robert Nagtegaal
-		Robert Nagtegaal <masikh@gmail.com>
-                This program is distributed under the terms of the GNU 
-                General Public License (or the Lesser GPL)
+Author:         Robert Nagtegaal  
+E-mail:         robert@example.org, masikh@gmail.com  
+Copyright:      Copyright 2013 Robert Nagtegaal  
+		Robert Nagtegaal <masikh@gmail.com>  
+                This program is distributed under the terms of the GNU   
+                General Public License (or the Lesser GPL)  
 
 Thanks to:      Maartje Mulder (For putting up with all my absence)
                 Kristian Rietveld
