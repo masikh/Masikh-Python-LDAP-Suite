@@ -12,10 +12,11 @@ def helper_query_netgroups(UID,env):
         FILTER="(&(objectClass=nisNetgroup)(nisNetgroupTriple=*," + UID + ",*))"
         ATTR=[ "cn" ]
 	options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
-	ldap.set_option(*options[0])
-	connection = ldap.initialize(env.LDAPSERVER)
-        connection.simple_bind_s()
-	try:result = connection.search_s(DN, ldap.SCOPE_ONELEVEL, str(FILTER), ATTR)
+	try:
+		ldap.set_option(*options[0])
+		connection = ldap.initialize(env.LDAPSERVER)
+        	connection.simple_bind_s()
+		result = connection.search_s(DN, ldap.SCOPE_ONELEVEL, str(FILTER), ATTR)
 	except ldap.LDAPError, e:result = [("Generic error occured (are you logged in?)",{"": ""})]
 	connection.unbind()
         if result == []:result = [("No such user!",{"": ""})]
@@ -26,10 +27,11 @@ def helper_query_allgroups(env):
         FILTER="cn=*"
         ATTR=[ "cn" ]
 	options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
-	ldap.set_option(*options[0])
-	connection = ldap.initialize(env.LDAPSERVER)
-        connection.simple_bind_s()
-        try:result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
+	try:
+		ldap.set_option(*options[0])
+		connection = ldap.initialize(env.LDAPSERVER)
+        	connection.simple_bind_s()
+        	result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
         except ldap.LDAPError, e:result = [("Generic error occured (are you logged in?)",{"": ""})]
 	connection.unbind()
 	result.sort(key=lambda tup: tup[1])
@@ -40,10 +42,11 @@ def helper_query_dn(NETGROUP,env):
 	FILTER="cn=" + NETGROUP
 	ATTR=[ "cn" ]
 	options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
-	ldap.set_option(*options[0])
-	connection = ldap.initialize(env.LDAPSERVER)
-	connection.simple_bind_s()
-	try:result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
+	try:
+		ldap.set_option(*options[0])
+		connection = ldap.initialize(env.LDAPSERVER)
+		connection.simple_bind_s()
+		result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
 	except ldap.LDAPError, e:result = [("Generic error occured (are you logged in?)",{"": ""})]
 	if result == []:result = [("No such netgroup!",{"": ""})]
 	connection.unbind()
@@ -54,10 +57,11 @@ def helper_query_membergroups(NETGROUP,env):
         FILTER="cn=" + NETGROUP
         ATTR=[ "memberNisNetgroup" ]
 	options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
-	ldap.set_option(*options[0])
-	connection = ldap.initialize(env.LDAPSERVER)
-        connection.simple_bind_s()
-        try:result = connection.search_s(DN, ldap.SCOPE_ONELEVEL, FILTER, ATTR)
+	try:
+		ldap.set_option(*options[0])
+		connection = ldap.initialize(env.LDAPSERVER)
+        	connection.simple_bind_s()
+        	result = connection.search_s(DN, ldap.SCOPE_ONELEVEL, FILTER, ATTR)
         except ldap.LDAPError, e:result = [("Generic error occured (are you logged in?)",{"": ""})]
 	connection.unbind()
         return (result)
@@ -67,10 +71,11 @@ def helper_query_hosttriples(NETGROUP,env):
         FILTER="(&(objectClass=nisNetgroup)(cn=" + NETGROUP + ")(nisNetgroupTriple=\(*,,*\)))"
         ATTR=None
 	options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
-	ldap.set_option(*options[0])
-	connection = ldap.initialize(env.LDAPSERVER)
-        connection.simple_bind_s()
-        try:result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
+	try:
+		ldap.set_option(*options[0])
+		connection = ldap.initialize(env.LDAPSERVER)
+        	connection.simple_bind_s()
+        	result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
         except ldap.LDAPError, e:result = [("Generic error occured (are you logged in?)",{"": ""})]
 	connection.unbind()
         return (result)
@@ -80,10 +85,11 @@ def helper_query_usertriples(NETGROUP,env):
         FILTER="(&(objectClass=nisNetgroup)(cn=" + NETGROUP + ")(nisNetgroupTriple=\(-,*,*\)))"
         ATTR=None
 	options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
-	ldap.set_option(*options[0])
-	connection = ldap.initialize(env.LDAPSERVER)
-        connection.simple_bind_s()
-       	try:result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
+	try:
+		ldap.set_option(*options[0])
+		connection = ldap.initialize(env.LDAPSERVER)
+        	connection.simple_bind_s()
+       		result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
 	except ldap.LDAPError, e:result = [("Generic error occured (are you logged in?)",{"": ""})]
 	connection.unbind()
         return (result)
