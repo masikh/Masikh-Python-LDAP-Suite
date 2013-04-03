@@ -644,16 +644,30 @@ helper.
 __Result:__
 
 ```bash
-Show transaction
-
-Transaction Entity  Date                   Type               Action 
------------ ------- ---------------------  -----------------  --------
-1363183419  Bijvak  Wed Mar 13 15:03 2013  multiple-user-add  done 
-1363183419  Bijvak  Wed Mar 13 15:03 2013  multiple-user-add  undo  
-1363178314  Student Wed Mar 13 13:38 2013  multiple-user-add  done  
-1363178314  Student Wed Mar 13 13:38 2013  multiple-user-add  undo  
-1363176151  masikh  Wed Mar 13 13:02 2013  passwordchange     reverted 
-...
+┌──────────────────────────────────────────────────────────────────────────────┐
+│    Search           Modify           Login           Help           Exit     │
+│──┌───────────────┐───────────────────────────────────────────────────────────│
+│┌────────────────────────────────────────────────────────────────────────────┐│
+││                                                                            ││
+││ Show transaction                                                           ││
+││                                                                            ││
+││ Transaction  Entity   Date                      Type               Action  ││
+││ ────────────────────────────────────────────────────────────────────────── ││
+││ 1364222906   robert   Mon Mar 25 15:48:26 2013  modify_user        reverte ││
+││ 1364222906   robert   Mon Mar 25 15:48:26 2013  modify_user        done    ││
+││ 1364220092   qwertyngpMon Mar 25 15:01:32 2013  del_netgroup_from_ done    ││
+││ 1364220092   qwertyngpMon Mar 25 15:01:32 2013  del_netgroup_from_ undo    ││
+││ 1364220084   users-silMon Mar 25 15:01:24 2013  del_netgroup_from_ done    ││
+││ 1364220084   users-silMon Mar 25 15:01:24 2013  del_netgroup_from_ undo    ││
+││ 1364220061   stoeidoosMon Mar 25 15:01:01 2013  del_host_from_netg undo    ││
+││ 1364220061   stoeidoosMon Mar 25 15:01:01 2013  del_host_from_netg done    ││
+││ 1364220026   robert-qwMon Mar 25 15:00:26 2013  add_user_to_netgro done    ││
+││ 1364220026   robert-qwMon Mar 25 15:00:26 2013  add_user_to_netgro undo    ││
+││ 1364219969   users-silMon Mar 25 14:59:29 2013  add_netgroup_to_ne undo    ││
+││ 1364219969   users-silMon Mar 25 14:59:29 2013  add_netgroup_to_ne done    ││
+││                                                                            ││
+│└─[Usage: [ESC] abort [ENTER] Show transaction]──────────────────────────────┘│
+└──[Search > Transactions ]────────────────────────────────────────────────────┘
 ```
 ## <a name="modifymenu" />Modify menu
 
@@ -685,23 +699,43 @@ the helper will abort all actions! (e.g. ERROR: User robert
 already exists!)
 
 ```bash
-Enter new username: [masikh]
+┌──────────────────────────────────────────────────────────────────────────────┐
+│    Search           Modify           Login           Help           Exit     │
+│────────────────────┌─────────────┐───────────────────────────────────────────│
+│┌────────────────────────────────────────────────────────────────────────────┐│
+││                                                                            ││
+││ Add user                                                                   ││
+││                                                                            ││
+││ Enter new username: masikh                                                 ││
+││                                                                            ││
+│└────────────────────────────────────────────────────────────────────────────┘│
+└──[Modify > User > Add user]──────────────────────────────────────────────────┘
 ```
 
 After you press enter the following screen will appear:
 
 ```bash
-    employeeType:         Staff
-    uid:                  masikh
-    loginShell:           /bin/tcsh
-    uidNumber:            58441
-    employeeNumber:       100.58441
-    gidNumber:            100
-    gecos:                ---
-    sn:                   ---
-    homeDirectory:        /home/masikh
-    automountInformation: ---
-    cn:                   --- 
+┌──────────────────────────────────────────────────────────────────────────────┐
+│    Search           Modify           Login           Help           Exit     │
+│────────────────────┌─────────────┐───────────────────────────────────────────│
+│┌────────────────────────────────────────────────────────────────────────────┐│
+││                                                                            ││
+││ Add user                                                                   ││
+││                                                                            ││
+││*employeeType:         Student                                              ││
+││ uid:                  masikh                                               ││
+││ loginShell:           /bin/tcsh                                            ││
+││*uidNumber:            6929                                                 ││
+││*employeeNumber:       500.6929                                             ││
+││*gidNumber:            500                                                  ││
+││*gecos:                Masikh Masih                                         ││
+││*sn:                   Masih                                                ││
+││ homeDirectory:        /home/masikh                                         ││
+││*automountInformation: -soft,intr,nosuid nfs-01:/users/14/student:&         ││
+││*cn:                   Masikh                                               ││
+││                                                                            ││
+│└─[Press [ESC] when done, [arrow keys] to select and [enter] to edit.]───────┘│
+└──[Modify > User > Add user]──────────────────────────────────────────────────┘
 ```
 If you change the employeeType, the uidNumber, employeeNumber and
 gidNumber will change accordingly. (Use arrow keys to select!)
@@ -709,17 +743,27 @@ gidNumber will change accordingly. (Use arrow keys to select!)
 __Example:__
 
 ```bash
-  * employeeType:         ┌────────────┐
-    uid:                  | CS-Account |  
-    loginShell:           | CDH        |  
-  * uidNumber:            |-Bijvak-----|  
-  * employeeNumber:       | Student    |  
-  * gidNumber:            | Gast       |  
-    gecos:                | Staff      |  
-    sn:                   └────────────┘  
-    homeDirectory:        /home/masikh  
-    automountInformation: ---  
-    cn:                   ---  
+┌──────────────────────────────────────────────────────────────────────────────┐
+│    Search           Modify           Login           Help           Exit     │
+│────────────────────┌─────────────┐───────────────────────────────────────────│
+│┌────────────────────────────────────────────────────────────────────────────┐│
+││                                                                            ││
+││ Add user                                                                   ││
+││                                                                            ││
+││*employeeType:         ┌────────────┐                                       ││
+││ uid:                  │ CS-Account │                                       ││
+││ loginShell:           │ CDH        │                                       ││
+││*uidNumber:            │ Bijvak     │                                       ││
+││*employeeNumber:       │ Student    │                                       ││
+││*gidNumber:            │ Gast       │                                       ││
+││*gecos:                │ Staff      │                                       ││
+││*sn:                   └────────────┘                                       ││
+││ homeDirectory:        /home/masikh                                         ││
+││*automountInformation: -soft,intr,nosuid nfs-01:/users/14/student:&         ││
+││*cn:                   Masikh                                               ││
+││                                                                            ││
+│└─[Use [arrows] to navigate and [enter] to select.]──────────────────────────┘│
+└──[Modify > User > Add user]──────────────────────────────────────────────────┘
 ```
 __NOTE:__ An asterix ' * ' will appear before each changed user
 attribute.
@@ -731,16 +775,30 @@ the new user with you arrow keys and press enter to select.
 __Example:__
 
 ```bash
-Select export for account
-
-HINT: Older exports (before 2013) are at the bottom! 
----------------------------------------------------------------------
-Staff leden     -soft,intr,nosuid nfs-server01:/users/staff:&     
-Student 2013    -so-soft,intr,nosuid nfs-server02:/users/13/student:&
-Student 2014    -so-soft,intr,nosuid nfs-server02:/users/14/student:&
-Student 2015    -so-soft,intr,nosuid nfs-server02:/users/15/student:&
-Student 2016    -so-soft,intr,nosuid nfs-server02:/users/16/student:&
-...                                                               
+┌──────────────────────────────────────────────────────────────────────────────┐
+│    Search           Modify           Login           Help           Exit     │
+│────────────────────┌─────────────┐───────────────────────────────────────────│
+│┌────────────────────────────────────────────────────────────────────────────┐│
+││                                                                            ││
+││ Select export for account                                                  ││
+││                                                                            ││
+││ HINT: Older exports (before 2013) are at the bottom!                       ││
+││────────────────────────────────────────────────────────────────────────────││
+││ Staff leden      -soft,intr,nosuid nfs-01:/users/staff:&                   ││
+││ Student 2013     -soft,intr,nosuid nfs-02:/users/13/student:&              ││
+││ Student 2014     -soft,intr,nosuid nfs-02:/users/14/student:&              ││
+││ Student 2015     -soft,intr,nosuid nfs-02:/users/15/student:&              ││
+││ Student 2016     -soft,intr,nosuid nfs-02:/users/16/student:&              ││
+││ Student 2017     -soft,intr,nosuid nfs-02:/users/17/student:&              ││
+││ Bijvak 2013      -soft,intr,nosuid nfs-02:/users/13/bijvak:&               ││
+││ Bijvak 2014      -soft,intr,nosuid nfs-02:/users/14/bijvak:&               ││
+││ Bijvak 2015      -soft,intr,nosuid nfs-02:/users/15/bijvak:&               ││
+││ Bijvak 2016      -soft,intr,nosuid nfs-02:/users/16/bijvak:&               ││
+││ Bijvak 2017      -soft,intr,nosuid nfs-02:/users/17/bijvak:&               ││
+││ IIB 2013         -soft,intr,nosuid nfs-02:/users/13/iib:&                  ││
+││                                                                            ││
+│└─[Usage: [ESC] quits, [arrows] choose selection, [enter] make selection]────┘│
+└──[Modify > User > Add user]──────────────────────────────────────────────────┘
 ```
 
 After you have entered all (needed) attributes for a given user,
@@ -748,16 +806,25 @@ you press escape. If you left any attributes blank (---) a
 informative warning will be issued E.g.
 
 ```bash
-WARNING: Attribute 'gecos' is not set.  
-WARNING: Attribute 'sn' is not set.  
-WARNING: Attribute 'cn' is not set.  
+┌──────────────────────────────────────────────────────────────────────────────┐
+│    Search           Modify           Login           Help           Exit     │
+│────────────────────┌─────────────┐───────────────────────────────────────────│
+│┌────────────────────────────────────────────────────────────────────────────┐│
+││                                                                            ││
+││ Add user                                                                   ││
+││                                                                            ││
+││ WARNING: Attribute 'gecos' is not set.                                     ││
+││ WARNING: Attribute 'sn' is not set.                                        ││
+││ WARNING: Attribute 'automountInformation' is not set.                      ││
+││ WARNING: Attribute 'cn' is not set.                                        ││
+││                                                                            ││
+││ Do you wish to add user 'masikh' [y|n]                                     ││
+││                                                                            ││
+│└────────────────────────────────────────────────────────────────────────────┘│
+└──[Modify > User > Add user]──────────────────────────────────────────────────┘
 ```
 
-If you agree with this warning press 'y' or 'Y' to commit this transaction. E.g.
-
-```bash
-Do you wish to add user 'masikh' [y|n]
-```
+If you agree with this warning press 'y' or 'Y' to commit this transaction. 
 
 The user will now be created. You will receive the new password
 for the given user and an option to printout an account form.
@@ -765,19 +832,58 @@ for the given user and an option to printout an account form.
 E.g.
 
 ```bash
-User 'masikh' added successfully!
-
-Login:    masikh
-Password: 7D,OB0|4Or
-
-Account form has been saved as: 1363099593.user-add.masikh.ps
-
-Do you wish to print 1363099593.user-add.masikh.ps? [y|n]
+┌──────────────────────────────────────────────────────────────────────────────┐
+│    Search           Modify           Login           Help           Exit     │
+│────────────────────┌─────────────┐───────────────────────────────────────────│
+│┌────────────────────────────────────────────────────────────────────────────┐│
+││                                                                            ││
+││ Add user                                                                   ││
+││                                                                            ││
+││ User 'masikh' added succesfully!                                           ││
+││                                                                            ││
+││ Login:    masikh                                                           ││
+││ Password: 2~CRVSY|81                                                       ││
+││                                                                            ││
+││ Account form has been saved as: 1365004233.user-add.masikh.ps              ││
+││                                                                            ││
+││ Do you wish to print 1365004233.user-add.masikh.ps? [y|n]                  ││
+││                                                                            ││
+│└────────────────────────────────────────────────────────────────────────────┘│
+└──[Modify > User > Add user]──────────────────────────────────────────────────┘
 ```
 
 You almost always want to print this account form. If you choose
 to do so, a list of available CUPS printers will be presented.
 Select your printer of choice and printout the account-form. 
+
+E.g.
+
+```bash
+┌──────────────────────────────────────────────────────────────────────────────┐
+│    Search           Modify           Login           Help           Exit     │
+│────────────────────┌─────────────┐───────────────────────────────────────────│
+│┌────────────────────────────────────────────────────────────────────────────┐│
+││                                                                            ││
+││ Print account form                                                         ││
+││                                                                            ││
+││ Queue               Location                                               ││
+││────────────────────────────────────────────────────────────────────────────││
+││ hp-119-bw           Snellius, kamer 119, PAND 2202                         ││
+││ hp-123-c            Snellius, kamer 123, PAND 2202                         ││
+││ hp-144-c            Snellius, kamer 144, PAND 2202                         ││
+││ hp-145-c            Snellius, kamer 145, PAND 2202                         ││
+││ hp-153-bw           Snellius, kamer 153, PAND 2202                         ││
+││ hp-155-bw           Snellius, kamer 155, PAND 2202                         ││
+││ hp-156-bw           Snellius, kamer 156, PAND 2202                         ││
+││ hp-304-bw           Snellius, kamer 302, PAND 2202                         ││
+││ hp-410-bw           Snellius, kamer 410, PAND 2202                         ││
+││ hp-57-bw            Snellius, kamer 57, PAND 2202                          ││
+││ hp204               Snellius, Kamer 204, PAND 2202                         ││
+││ hp206a              Snellius, Kamer 206a, PAND 2202                        ││
+││                                                                            ││
+│└─[Usage: [ESC] quits, [arrows] select printer, [enter] use selected printer]┘│
+└──[Modify > User > Add user]──────────────────────────────────────────────────┘
+```
 
 __NOTE:__ If you press enter this screen will be erased and there are
 NO means to retrieve the password (unless you print the
@@ -796,7 +902,17 @@ exports.
 __Example usage:__
 
 ```bash
-Enter username: [masikh]
+┌──────────────────────────────────────────────────────────────────────────────┐
+│    Search           Modify           Login           Help           Exit     │
+│────────────────────┌─────────────┐───────────────────────────────────────────│
+│┌────────────────────────────────────────────────────────────────────────────┐│
+││                                                                            ││
+││ Delete user                                                                ││
+││                                                                            ││
+││ Enter username: masikh                                                     ││
+││                                                                            ││
+│└────────────────────────────────────────────────────────────────────────────┘│
+└──[Modify > User > Delete user]───────────────────────────────────────────────┘
 ```
 
 __Result:__
@@ -812,14 +928,38 @@ With this helper you can reset a user its password.
 __Example usage:__
 
 ```bash
-Enter username: [masikh]
+┌──────────────────────────────────────────────────────────────────────────────┐
+│    Search           Modify           Login           Help           Exit     │
+│────────────────────┌─────────────┐───────────────────────────────────────────│
+│┌────────────────────────────────────────────────────────────────────────────┐│
+││                                                                            ││
+││ Change password                                                            ││
+││                                                                            ││
+││ Enter username: masikh                                                     ││
+││                                                                            ││
+│└─[Press any key to continue]────────────────────────────────────────────────┘│
+└──[Modify > User > Change user password]──────────────────────────────────────┘
+
 ```
 
 __Result:__
 
 ```bash
-Password reset: OK
-New Password: unZl2gs3VI  
+┌──────────────────────────────────────────────────────────────────────────────┐
+│    Search           Modify           Login           Help           Exit     │
+│────────────────────┌─────────────┐───────────────────────────────────────────│
+│┌────────────────────────────────────────────────────────────────────────────┐│
+││                                                                            ││
+││ Change password                                                            ││
+││                                                                            ││
+││ Enter username: masikh                                                     ││
+││                                                                            ││
+││ Password reset: OK                                                         ││
+││ New Password: nPJEEa\qC-                                                   ││
+││                                                                            ││
+│└─[Press any key to continue]────────────────────────────────────────────────┘│
+└──[Modify > User > Change user password]──────────────────────────────────────┘
+
 ```
 
 ### <a name="modifymenu-user-attr" />-> User -> Modify user attributes
@@ -843,26 +983,68 @@ Already exists
 __Example usage:__
 
 ```bash
-Enter username: [masikh]
+┌──────────────────────────────────────────────────────────────────────────────┐
+│    Search           Modify           Login           Help           Exit     │
+│────────────────────┌─────────────┐───────────────────────────────────────────│
+│┌────────────────────────────────────────────────────────────────────────────┐│
+││                                                                            ││
+││ Modify user attributes                                                     ││
+││                                                                            ││
+││ Enter username: masikh                                                     ││
+││                                                                            ││
+│└────────────────────────────────────────────────────────────────────────────┘│
+└──[Modify > User > Modify user attributes]────────────────────────────────────┘
 
-* EmployeeType:         Student
-  uid:                  masikh
-  loginShell:           /bin/tcsh
-  sn:                   ---
-* uidNumber:            6948
-* gidNumber:            500
-  gecos:                Masikh Masih
-  employeeNumber:       500.6948
-  homeDirectory:        /home/masikh
-  automountInformation: -soft,intr,nosuid nfs-server02:/users/13/student:&
-  cn:                   ---
+┌──────────────────────────────────────────────────────────────────────────────┐
+│    Search           Modify           Login           Help           Exit     │
+│────────────────────┌─────────────┐───────────────────────────────────────────│
+│┌────────────────────────────────────────────────────────────────────────────┐│
+││                                                                            ││
+││ Modify user attributes                                                     ││
+││                                                                            ││
+││*employeeType:         Student                                              ││
+││ uid:                  masikh                                               ││
+││*loginShell:           /bin/bash                                            ││
+││*uidNumber:            6929                                                 ││
+││*employeeNumber:       500.6929                                             ││
+││*gidNumber:            500                                                  ││
+││*gecos:                Masikh Masih                                         ││
+││*sn:                   Masih                                                ││
+││ homeDirectory:        /home/masikh                                         ││
+││*automountInformation: -soft,intr,nosuid protactinium:/users/14/student:&   ││
+││*cn:                   Masikh                                               ││
+││                                                                            ││
+│└─[Press [ESC] when done, [arrow keys] to select and [enter] to edit.]───────┘│
+└──[Modify > User > Modify user attributes]────────────────────────────────────┘
 ```
 
 Change each attribute you wish and press escape when done. MPLS
 will ask you if you'd like to commit these changes. E.g.
 
 ```bash
-Do you wish to commit the changes? [y|n]
+┌──────────────────────────────────────────────────────────────────────────────┐
+│    Search           Modify           Login           Help           Exit     │
+│────────────────────┌─────────────┐───────────────────────────────────────────│
+│┌────────────────────────────────────────────────────────────────────────────┐│
+││                                                                            ││
+││ Modify user attributes                                                     ││
+││                                                                            ││
+││*employeeType:         Student                                              ││
+││ uid:                  masikh                                               ││
+││*loginShell:           /bin/bash                                            ││
+││*uidNumber:            6929                                                 ││
+││*employeeNumber:       500.6929                                             ││
+││*gidNumber:            500                                                  ││
+││*gecos:                Masikh Masih                                         ││
+││*sn:                   Masih                                                ││
+││ homeDirectory:        /home/masikh                                         ││
+││*automountInformation: -soft,intr,nosuid protactinium:/users/14/student:&   ││
+││*cn:                   Masikh                                               ││
+││                                                                            ││
+││ Do you wish to commit the changes? [y|n]                                   ││
+││                                                                            ││
+│└────────────────────────────────────────────────────────────────────────────┘│
+└──[Modify > User > Modify user attributes]────────────────────────────────────┘
 ```
 
 'y' will commit the changes made.
@@ -946,7 +1128,21 @@ Press escape when all is filled in correctly. A do you which to
 commit question will be asked. E.g.
 
 ```bash
-Ready to add 2 users, do you wish to continue? [y|n]
+┌──────────────────────────────────────────────────────────────────────────────┐
+│    Search           Modify           Login           Help           Exit     │
+│────────────────────┌─────────────┐───────────────────────────────────────────│
+│┌────────────────────────────────────────────────────────────────────────────┐│
+││                                                                            ││
+││ Add users                                                                  ││
+││                                                                            ││
+││*employeeType:         Gast                                                 ││
+││*automountInformation: -soft,intr,nosuid nfs-server06:/users/15/student:&   ││
+││                                                                            ││
+││ Ready to add 2 users, do you wish to continue? [y|n]                       ││
+││                                                                            ││
+│└────────────────────────────────────────────────────────────────────────────┘│
+└──[Modify > User > Add multiple users]────────────────────────────────────────┘
+
 ```
 
 Finally you'll be asked if you wish to print the new account-forms
@@ -956,14 +1152,30 @@ yes!!!)
 __Example:__
 
 ```bash
-Queue               Location
------------------------------------------------------------------
-ISSC-P2202-17       Snellius, kamer 47, PAND 2202
-ISSC-P2202-19       Snellius, kamer 47, PAND 2202
-ISSC-P2202-20       Snellius, kamer 40, PAND 2202
-ISSC-P2202-24       Snellius, kamer 404, PAND 2202
-ISSC-P2202-33       Snellius, kamer 56, PAND 2202
-hp-106-bw           Snellius, kamer 106, PAND 2202
+┌──────────────────────────────────────────────────────────────────────────────┐
+│    Search           Modify           Login           Help           Exit     │
+│────────────────────┌─────────────┐───────────────────────────────────────────│
+│┌────────────────────────────────────────────────────────────────────────────┐│
+││                                                                            ││
+││ Print account form                                                         ││
+││                                                                            ││
+││ Queue               Location                                               ││
+││────────────────────────────────────────────────────────────────────────────││
+││ ISSC_P2202_17       Snellius, kamer 47, PAND 2202                          ││
+││ ISSC_P2202_19       Snellius, kamer 47, PAND 2202                          ││
+││ ISSC_P2202_20       Snellius, kamer 40, PAND 2202                          ││
+││ ISSC_P2202_24       Snellius, kamer 404, PAND 2202                         ││
+││ ISSC_P2202_33       Snellius, kamer 56, PAND 2202                          ││
+││ hp-106-bw           Snellius, kamer 106, PAND 2202                         ││
+││ hp-119-bw           Snellius, kamer 119, PAND 2202                         ││
+││ hp-123-c            Snellius, kamer 123, PAND 2202                         ││
+││ hp-144-c            Snellius, kamer 144, PAND 2202                         ││
+││ hp-145-c            Snellius, kamer 145, PAND 2202                         ││
+││ hp-153-bw           Snellius, kamer 153, PAND 2202                         ││
+││ hp-155-bw           Snellius, kamer 155, PAND 2202                         ││
+││                                                                            ││
+│└─[Usage: [ESC] quits, [arrows] select printer, [enter] use selected printer]┘│
+└──[Modify > User > Add multiple users]────────────────────────────────────────┘
 ```
 
 ### <a name="modifymenu-group" />Modify -> Group
@@ -1035,7 +1247,19 @@ are: cn (the group name), gidNumber and the group password.
 
 __Example usage:__
 
-Enter group:   [csdale]
+```bash
+┌──────────────────────────────────────────────────────────────────────────────┐
+│    Search           Modify           Login           Help           Exit     │
+│────────────────────┌─────────────┐───────────────────────────────────────────│
+│┌────────────────────────────────────────────────────────────────────────────┐│
+││                                                                            ││
+││ Modify group attributes                                                    ││
+││                                                                            ││
+││ Enter group:    csdale                                                     ││
+││                                                                            ││
+│└────────────────────────────────────────────────────────────────────────────┘│
+└──[Modify > Group > Modify group]─────────────────────────────────────────────┘
+```
 
 In a new screen you can change the group attributes: e.g.
 
