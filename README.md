@@ -313,7 +313,7 @@ Enter groupname: [csdale]
 result:
 
 Members of group csdale (gidNumber: 11158)  
-=========================================  
+------------------------------------------  
 memberUid: csdale  
 memberUid: tcocx   
 
