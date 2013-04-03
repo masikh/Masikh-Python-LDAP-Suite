@@ -206,7 +206,9 @@ of its name.
 
 __Example usage:__
 
+```bash
 1: Enter username: [ert]
+```
 
 __Result:__
 
@@ -221,7 +223,9 @@ With this helper you can lookup all attributes of a single user.
 
 __Example usage:__
 
+```bash
 1: Enter username: [robert]
+```
 
 __Result:__
 
@@ -252,7 +256,9 @@ the LDAP database. Thus all autofs entries.
 
 __Example usage:__
 
+```bash
 1: Enter username: [robert]  
+```
 
 __Result:__  
 
@@ -308,7 +314,9 @@ With this helper you can lookup groups assign to a user.
 
 __Example usage:__
 
+```bash
 Enter username: [fbeek]
+```
 
 __Result:__
 
@@ -337,7 +345,9 @@ With this helper you can lookup members of a given group.
 
 __Example usage:__
 
+```bash
 Enter groupname: [csdale]
+```
 
 __Result:__
 
@@ -387,7 +397,9 @@ This helper shows the netgroups a user is member of.
 
 __Example usage:__
 
+```bash
 Enter username: [fbeek]
+```
 
 __Result:__
 
@@ -410,7 +422,9 @@ This helper shows all information of a given netgroup.
 
 __Example usage:__
 
+```bash
 Enter netgroup: [users-pc302]
+```
 
 __Result:__
 
@@ -516,7 +530,9 @@ __NOTE:__ If the username is not free, a warning will be issued and
 the helper will abort all actions! (e.g. ERROR: User robert
 already exists!)
 
+```bash
 Enter new username: [masikh]
+```
 
 After you press enter the following screen will appear:
 
@@ -625,7 +641,9 @@ exports.
 
 __Example usage:__
 
+```bash
 Enter username: [masikh]
+```
 
 __Result:__
 
@@ -639,12 +657,16 @@ With this helper you can reset a user its password.
 
 __Example usage:__
 
+```bash
 Enter username: [masikh]
+```
 
 __Result:__
 
+```bash
 Password reset: OK
 New Password: unZl2gs3VI  
+```
 
 ### <a name="modifymenu-user-attr" />-> User -> Modify user attributes
 
@@ -659,11 +681,14 @@ employeeNumber, homeDirectory, automountInformation and cn.
 If you try to rename an username to an existing user, an error will
 be reported. E.g.
 
+```bash
 ERROR Moving dn: uid=masikh,ou=People,dc=unix,dc=example,dc=nl REASON:
 Already exists
+```
 
 __Example usage:__
 
+```bash
 Enter username: [masikh]
 
 * EmployeeType:         Student
@@ -677,16 +702,18 @@ Enter username: [masikh]
   homeDirectory:        /home/masikh
   automountInformation: -soft,intr,nosuid nfs-server02:/users/13/student:&
   cn:                   ---
-
+```
 
 Change each attribute you wish and press escape when done. MPLS
 will ask you if you'd like to commit these changes. E.g.
 
+```bash
 Do you wish to commit the changes? [y|n]
+```
 
 'y' will commit the changes made.
 
-__NOTE:__ An astrix ' * ' means a changed attribute.
+__NOTE:__ An astrix * means a changed attribute.
 
 ### <a name="modifymenu-user-add-multiple" />-> User -> Add multiple users
 
@@ -695,9 +722,11 @@ cut&paste a list of users from a text file into MPLS and create
 these users in one blow.
 The source file follows a strict format:
 
+```bash
 studentnumber:firstname:initials:preposition:surname
 
 E.g. 1292285:Andrada:A.I.::Bacaoanu
+```
 
 The last line is a single "." at the beginning of the line stating
 the end of the list of new users.
@@ -715,24 +744,32 @@ After you pasted the users, two more questions will be asked.
 
 __Example usage:__
 
-Add users
-
-File format: studentnumber:firstname:initials:preposition:surname          
-
-e.g.: 1046853:Ran:R.::An
-      1286781:Emmanuel:E.:A:Appiah
-      1292285:Andrada:A.I.::Bacaoanu
-      . <- End of file marker!!!
-
- Paste file contents here: 3 lines pasted, 0 lines discarded.
-/----------------------------------------------------------------\
-|                                                                |
-|1046853:Ran:R.::An                                              |
-|1046853:Ran:R.::An                                              |
-|1286781:Emmanuel:E.:A:Appiah                                    |
-|.                                                               |
-\----------------------------------------------------------------/
-
+```bash
+┌──────────────────────────────────────────────────────────────────────────────┐
+│    Search           Modify           Login           Help           Exit     │
+│────────────────────┌─────────────┐───────────────────────────────────────────│
+│┌────────────────────────────────────────────────────────────────────────────┐│
+││                                                                            ││
+││ Add users                                                                  ││
+││                                                                            ││
+││ File format: studentnumber:firstname:initials:preposition:surname          ││
+││                                                                            ││
+││ e.g.: 1046853:Ran:R.::An                                                   ││
+││       1286781:Emmanuel:E.:A:Appiah                                         ││
+││       1292285:Andrada:A.I.::Bacaoanu                                       ││
+││       . <- End of file marker!!!                                           ││
+││                                                                            ││
+││ Paste file contents here: Maximal 500 lines, including the '.' marker!     ││
+││┌──────────────────────────────────────────────────────────────────────────┐││
+│││                                                                          │││
+│││                                                                          │││
+│││                                                                          │││
+│││                                                                          │││
+│││                                                                          │││
+││└──────────────────────────────────────────────────────────────────────────┘││
+│└─[Use [ESC] to abort!]──────────────────────────────────────────────────────┘│
+└──[Modify > User > Add multiple users]────────────────────────────────────────┘
+```
 After this two questions about employeeType and
 automountInformation will be asked:
 
