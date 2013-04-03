@@ -560,9 +560,9 @@ After you have entered all (needed) attributes for a given user,
 you press escape. If you left any attributes blank (---) a
 informative warning will be issued E.g.
 
-WARNING: Attribute 'gecos' is not set.
-WARNING: Attribute 'sn' is not set.
-WARNING: Attribute 'cn' is not set.
+WARNING: Attribute 'gecos' is not set.  
+WARNING: Attribute 'sn' is not set.  
+WARNING: Attribute 'cn' is not set.  
 
 If you agree with this warning press 'y' or 'Y' to commit this
 transaction. E.g.
