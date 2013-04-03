@@ -28,7 +28,7 @@
 - [About & Copyrights](#gpl)  
 
 ## <a name="conventions" />Conventions used in this manual
-Every item within brackets is user input. E.g. [fverbeek], in this case 'fverbeek' is user input (without the brackets!!!).
+Every item within brackets is user input. E.g. [fverbeek], in this case 'fverbeek' is user input (without the brackets!!!). 
 
 ## <a name="introductionmpls" />A short introduction into MPLS
 MPLS is a user account tool for LDAP. It stands-out of other LDAP software because it handles NIS-netgroups and has a transaction undo feature.
