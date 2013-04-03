@@ -420,23 +420,23 @@ Entity: The user, group or netgroup which is modified.
 
 Date: The transaction date (computed from the TID)
 
-Type: The type of modification made. E.g. add-grp (a unix group is
-added), multiple-user-add (a bunch of users was created) etc...
+Type: The type of modification made.  
+E.g. add-grp (a unix group is added), multiple-user-add (a bunch of users was created) etc...
 
 Action: There are three types of actions:
 
-	done: 		This is a transaction done somewhere in
-			the past.
+	done: 	This is a transaction done somewhere in	the past.
 
-	undo: 		For every transaction there exists an undo
-			file. The undo transaction is not
-			committed (yet) to the LDAP server but can
-			be used to undo a past transaction.
+	undo: 	For every transaction there exists an undo
+		file. The undo transaction is not
+		committed (yet) to the LDAP server but can
+		be used to undo a past transaction.
 
-	reverted:	These are the undo transactions which has
-			been committed. Thus if you commit an undo
-			transaction it becomes a reverted
-			transaction.
+	reverted:
+		These are the undo transactions which has
+		been committed. Thus if you commit an undo
+		transaction it becomes a reverted
+		transaction.
 
 Example usage:
 
@@ -448,9 +448,9 @@ result:
 
 Show transaction
 
-Transaction Entity  Date                  Type              Action  
-------------------------------------------------------------------  
-1363183419  Bijvak  Wed Mar 13 15:03 2013 multiple-user-add done  
+Transaction Entity  Date                  Type              Action    
+=========== ======  ===================== ================= ======  
+1363183419  Bijvak  Wed Mar 13 15:03 2013 multiple-user-add done    
 1363183419  Bijvak  Wed Mar 13 15:03 2013 multiple-user-add undo  
 1363178314  Student Wed Mar 13 13:38 2013 multiple-user-add done  
 1363178314  Student Wed Mar 13 13:38 2013 multiple-user-add undo  
