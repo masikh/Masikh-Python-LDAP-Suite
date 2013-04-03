@@ -13,6 +13,10 @@
 - [General usage](#generalusage)  
  - [Navigate through the program](#generalusage-navigate) 
  - [Color usage and its function](#generalusage-colorusage)
+ - [Bread crumbs](#generalusage-breadcrumbs)
+ - [Input validation](#generalusage-inputvalidation)
+ - [Leaving a sub-module (part of the program)](#generalusage-leaving)
+ - [Terminal size](#generalusage-terminalsize)
 - [Overview of MPLS options](#mplsoptions)  
 - [Search menu](#searchmenu)  
 - [Modify menu](#modifymenu)  
@@ -93,7 +97,7 @@ the systems MPLS interacts with.
 	  item. E.g.
 		Query by (part of) username
 
-- 2.3	Bread crumbs
+### <a name="generalusage-breadcrumbs" />Bread crumbs
 
 	Through out the whole program you can easily see where you are 
 	in terms of the menu-structure. Every step in the menu-structure
@@ -101,7 +105,7 @@ the systems MPLS interacts with.
 	are printed in the left-bottom of the screen. If the trail gets
 	to long, the begin is truncated as dots 
 
-- 2.4	Input validation
+### <a name="generalusage-inputvalidation" />Input validation
 
 	Every editable item in this program (e.g. enter username:) is
 	validated on proper input. This works mostly but probably not 
@@ -113,14 +117,14 @@ the systems MPLS interacts with.
 	This warning is displayed at the bottom of the active screen
         in the color RED
 
-- 2.5     Leaving a sub-module (part of the program)
+### <a name="generalusage-leaving" />Leaving a sub-module (part of the program)
 
 	Most of the time people are 'just browsing around' through the
 	program. If you enter one of the sub-modules (e.g. Add user)
 	you can simply bail out by pressing [esc] or give empty input
 	(e.g. [enter])
 	
-- 2.6	Terminal size
+### <a name="generalusage-terminalsize" />Terminal size
 
 	MPLS has been designed to work in a standard 'telnet' window.
 	These windows are typically 80 characters wide and 24 lines long
