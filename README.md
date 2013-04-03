@@ -560,20 +560,24 @@ After you have entered all (needed) attributes for a given user,
 you press escape. If you left any attributes blank (---) a
 informative warning will be issued E.g.
 
+```bash
 WARNING: Attribute 'gecos' is not set.  
 WARNING: Attribute 'sn' is not set.  
 WARNING: Attribute 'cn' is not set.  
+```
 
-If you agree with this warning press 'y' or 'Y' to commit this
-transaction. E.g.
+If you agree with this warning press 'y' or 'Y' to commit this transaction. E.g.
 
+```bash
 Do you wish to add user 'masikh' [y|n]
+```
 
 The user will now be created. You will receive the new password
 for the given user and an option to printout an account form.
 
 E.g.
 
+```bash
 User 'masikh' added successfully!
 
 Login:    masikh
@@ -582,6 +586,7 @@ Password: 7D,OB0|4Or
 Account form has been saved as: 1363099593.user-add.masikh.ps
 
 Do you wish to print 1363099593.user-add.masikh.ps? [y|n]
+```
 
 You almost always want to print this account form. If you choose
 to do so, a list of available CUPS printers will be presented.
