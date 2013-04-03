@@ -71,17 +71,17 @@ the systems MPLS interacts with.
 ## <a name="generalusage" />General usage
 ### <a name="generalusage-navigate" />Navigate through the program
 	
-	Moving around in the program can be done in several ways
+Moving around in the program can be done in several ways
 	
-	* Hot keys. Hot keys are marked as red letters. Typing such a let-
-	  ter will automaticly select the appropriate menu item within the
-	  current sub menu.
+* Hot keys. Hot keys are marked as red letters. Typing such a let-
+  ter will automaticly select the appropriate menu item within the
+  current sub menu.
 
-	* Arrow keys. Arrow keys can be used to navigate through the menu-
-	  structure. Note the behavior of the arrow keys change between
-	  horizontal and vertical menus. E.g. In a horizontal menu (top-
-	  menu) the down-arrow opens an item but in a vertical menu the
-	  right-arrow opens a menu-item.
+* Arrow keys. Arrow keys can be used to navigate through the menu-
+  structure. Note the behavior of the arrow keys change between
+  horizontal and vertical menus. E.g. In a horizontal menu (top-
+  menu) the down-arrow opens an item but in a vertical menu the
+  right-arrow opens a menu-item.
 
 ### <a name="generalusage-colorusage" />Color usage and its function
 
