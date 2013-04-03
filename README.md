@@ -207,16 +207,48 @@ of its name.
 __Example usage:__
 
 ```bash
-1: Enter username: [ert]
+┌──────────────────────────────────────────────────────────────────────────────┐
+│    Search           Modify           Login           Help           Exit     │
+│──┌───────────────┐───────────────────────────────────────────────────────────│
+│┌────────────────────────────────────────────────────────────────────────────┐│
+││                                                                            ││
+││ Query by (part of) username                                                ││
+││                                                                            ││
+││ Enter username: re                                                         ││
+││                                                                            ││
+│└────────────────────────────────────────────────────────────────────────────┘│
+└──[Search > User > By part of username]───────────────────────────────────────┘
 ```
 
 __Result:__
 
 ```bash
-dn: uid=labert,ou=People,dc=unix,dc=example,dc=org  
-dn: uid=lerts,ou=People,dc=unix,dc=example,dc=org  
-dn: uid=robert,ou=People,dc=unix,dc=example,dc=org
+┌──────────────────────────────────────────────────────────────────────────────┐
+│    Search           Modify           Login           Help           Exit     │
+│──┌───────────────┐───────────────────────────────────────────────────────────│
+│┌────────────────────────────────────────────────────────────────────────────┐│
+││dn: uid=aandreye,ou=People,dc=unix,dc=example,dc=nl                         ││
+││dn: uid=areuneke,ou=People,dc=unix,dc=example,dc=nl                         ││
+││dn: uid=bbourdre,ou=People,dc=unix,dc=example,dc=nl                         ││
+││dn: uid=bcarels,ou=People,dc=unix,dc=example,dc=nl                          ││
+││dn: uid=bharensl,ou=People,dc=unix,dc=example,dc=nl                         ││
+││dn: uid=birrer,ou=People,dc=unix,dc=example,dc=nl                           ││
+││dn: uid=ccremers,ou=People,dc=unix,dc=example,dc=nl                         ││
+││dn: uid=csre,ou=People,dc=unix,dc=example,dc=nl                             ││
+││dn: uid=csuares,ou=People,dc=unix,dc=example,dc=nl                          ││
+││dn: uid=cveffere,ou=People,dc=unix,dc=example,dc=nl                         ││
+││dn: uid=cvissere,ou=People,dc=unix,dc=example,dc=nl                         ││
+││dn: uid=eparren,ou=People,dc=unix,dc=example,dc=nl                          ││
+││dn: uid=ereehuis,ou=People,dc=unix,dc=example,dc=nl                         ││
+││dn: uid=eschreud,ou=People,dc=unix,dc=example,dc=nl                         ││
+││dn: uid=evreeswi,ou=People,dc=unix,dc=example,dc=nl                         ││
+││dn: uid=fbigarel,ou=People,dc=unix,dc=example,dc=nl                         ││
+││dn: uid=ftreurni,ou=People,dc=unix,dc=example,dc=nl                         ││
+││dn: uid=fvgemere,ou=People,dc=unix,dc=example,dc=nl                         ││
+│└─[use arrow keys for scrolling or [ESC] for quit]───────────────────────────┘│
+└──[Search > User > By part of username]───────────────────────────────────────┘
 ```
+
 ### <a name="searchmenu-user-information" />-> User -> Information
 
 With this helper you can lookup all attributes of a single user.
@@ -224,26 +256,44 @@ With this helper you can lookup all attributes of a single user.
 __Example usage:__
 
 ```bash
-1: Enter username: [robert]
+┌──────────────────────────────────────────────────────────────────────────────┐
+│    Search           Modify           Login           Help           Exit     │
+│──┌───────────────┐───────────────────────────────────────────────────────────│
+│┌────────────────────────────────────────────────────────────────────────────┐│
+││                                                                            ││
+││ Query user Information                                                     ││
+││                                                                            ││
+││ Enter username: robert                                                     ││
+││                                                                            ││
+│└────────────────────────────────────────────────────────────────────────────┘│
+└──[Search > User > Information]───────────────────────────────────────────────┘
 ```
 
 __Result:__
 
 ```bash
-dn: uid=robert,ou=People,dc=unix,dc=example,dc=org  
-employeeType: Staff  
-uid: robert  
-objectClass: inetOrgPerson  
-objectClass: posixAccount  
-objectClass: shadowAccount  
-loginShell: /bin/bash  
-uidNumber: 58430  
-gidNumber: 100  
-gecos: R.D.A. Nagtegaal.  
-sn: Nagtegaal  
-homeDirectory: /home/robert  
-cn: Robert  
-employeeNumber: 100.58430  
+┌──────────────────────────────────────────────────────────────────────────────┐
+│    Search           Modify           Login           Help           Exit     │
+│──┌───────────────┐───────────────────────────────────────────────────────────│
+│┌────────────────────────────────────────────────────────────────────────────┐│
+││dn: uid=robert,ou=People,dc=unix,dc=example,dc=nl                           ││
+││employeeType: Staff                                                         ││
+││cn: Robert                                                                  ││
+││objectClass: inetOrgPerson                                                  ││
+││objectClass: posixAccount                                                   ││
+││objectClass: shadowAccount                                                  ││
+││loginShell: /bin/bash                                                       ││
+││uidNumber: 11010                                                            ││
+││gidNumber: 100                                                              ││
+││gecos: Robert Nagtegaal                                                     ││
+││sn: Nagtegaal                                                               ││
+││homeDirectory: /home/robert                                                 ││
+││uid: robert                                                                 ││
+││employeeNumber: 100.11010                                                   ││
+││                                                                            ││
+│└─[use arrow keys for scrolling or [ESC] for quit]───────────────────────────┘│
+└──[Search > User > Information]───────────────────────────────────────────────┘
+
 ```
 
 __Note:__ employeeNumber is either a concatenation of gidNumber and
@@ -257,23 +307,47 @@ the LDAP database. Thus all autofs entries.
 __Example usage:__
 
 ```bash
-1: Enter username: [robert]  
+┌──────────────────────────────────────────────────────────────────────────────┐
+│    Search           Modify           Login           Help           Exit     │
+│──┌───────────────┐───────────────────────────────────────────────────────────│
+│┌────────────────────────────────────────────────────────────────────────────┐│
+││                                                                            ││
+││ Query Autofs                                                               ││
+││                                                                            ││
+││ Enter username: robert                                                     ││
+││                                                                            ││
+│└────────────────────────────────────────────────────────────────────────────┘│
+└──[Search > User > Autofs entries]────────────────────────────────────────────┘
+
 ```
 
 __Result:__  
 
 ```bash
-dn: cn=robert,ou=auto.home,ou=Autofs,dc=unix,dc=example,dc=org  
--soft,intr,nosuid nfs-server01:/users/staff:&  
-  
-dn: cn=/scratch,ou=auto.direct,ou=Autofs,dc=unix,dc=example,dc=org  
-scratch.example.org:/scratch  
-  
-dn: cn=/var/spool/mail,ou=auto.direct,ou=Autofs,dc=unix,dc=example,dc=org  
-mailhost.example.org:/var/spool/mail  
-  
-dn: cn=/appl,ou=auto.direct,ou=Autofs,dc=unix,dc=example,dc=org  
-nfs-server01.example.org,nfs-server02.example.org:/appl  
+┌──────────────────────────────────────────────────────────────────────────────┐
+│    Search           Modify           Login           Help           Exit     │
+│──┌───────────────┐───────────────────────────────────────────────────────────│
+│┌────────────────────────────────────────────────────────────────────────────┐│
+││                                                                            ││
+││ Query Autofs                                                               ││
+││                                                                            ││
+││ Enter username: robert                                                     ││
+││                                                                            ││
+││ dn: cn=robert,ou=auto.home,ou=Autofs,dc=unix,dc=example,dc=nl              ││
+││ -soft,intr,nosuid nfs-01:/users/beheer:&                                   ││
+││                                                                            ││
+││ dn: cn=/scratch,ou=auto.direct,ou=Autofs,dc=unix,dc=example,dc=nl          ││
+││ scratch.example.nl:/scratch                                                ││
+││                                                                            ││
+││ dn: cn=/var/spool/mail,ou=auto.direct,ou=Autofs,dc=unix,dc=example,dc=nl   ││
+││ mail.example.nl:/var/spool/mail                                            ││
+││                                                                            ││
+││ dn: cn=/appl,ou=auto.direct,ou=Autofs,dc=unix,dc=example,dc=nl             ││
+││ nfs-01.example.nl,nfs-02.example.nl:/appl                                  ││
+││                                                                            ││
+││                                                                            ││
+│└─[Press any key to continue]────────────────────────────────────────────────┘│
+└──[Search > User > Autofs entries]────────────────────────────────────────────┘
 ```
 
 __Note:__ The user 'Robert' has one home-directory and three other
@@ -298,14 +372,20 @@ escape to exit this helper.
 __Result:__
 
 ```bash
-...  
-dn: cn=acmmm,ou=Group,dc=unix,dc=example,dc=org  
-dn: cn=admin,ou=Group,dc=unix,dc=example,dc=org  
-dn: cn=afddoc,ou=Group,dc=unix,dc=example,dc=org  
-dn: cn=afdrap,ou=Group,dc=unix,dc=example,dc=org  
-dn: cn=alumni,ou=Group,dc=unix,dc=example,dc=org  
-dn: cn=apparc,ou=Group,dc=unix,dc=example,dc=org  
-...  
+┌──────────────────────────────────────────────────────────────────────────────┐
+│    Search           Modify           Login           Help           Exit     │
+│──┌───────────────┐───────────────────────────────────────────────────────────│
+│┌────────────────────────────────────────────────────────────────────────────┐│
+││dn: cn=acmmm,ou=Group,dc=unix,dc=example,dc=nl                              ││
+││dn: cn=admin,ou=Group,dc=unix,dc=example,dc=nl                              ││
+││dn: cn=addoc,ou=Group,dc=unix,dc=example,dc=nl                              ││
+││dn: cn=adrap,ou=Group,dc=unix,dc=example,dc=nl                              ││
+││dn: cn=alui,ou=Group,dc=unix,dc=example,dc=nl                               ││
+││dn: cn=sparc,ou=Group,dc=unix,dc=example,dc=nl                              ││
+││dn: cn=csbt,ou=Group,dc=unix,dc=example,dc=nl                               ││
+││                                                                            ││
+│└─[use arrow keys for scrolling or [ESC] for quit]───────────────────────────┘│
+└──[Search > Group > Show all groups]──────────────────────────────────────────┘
 ```
 
 ### <a name="searchmenu-group-byuser" />-> Group -> By user name
