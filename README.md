@@ -395,25 +395,38 @@ With this helper you can lookup groups assign to a user.
 __Example usage:__
 
 ```bash
-Enter username: [fbeek]
+┌──────────────────────────────────────────────────────────────────────────────┐
+│    Search           Modify           Login           Help           Exit     │
+│──┌───────────────┐───────────────────────────────────────────────────────────│
+│┌────────────────────────────────────────────────────────────────────────────┐│
+││                                                                            ││
+││ Query groups by user                                                       ││
+││                                                                            ││
+││ Enter username: robert                                                     ││
+││                                                                            ││
+│└────────────────────────────────────────────────────────────────────────────┘│
+└──[Search > Group > By user name]─────────────────────────────────────────────┘
 ```
 
 __Result:__
 
 ```bash
-gidNumber Primary group DN for user fbeek
-------------------------------------------------------------
-100      dn: cn=staff,ou=Group,dc=unix,dc=example,dc=org
- 
-gidNumber Non-primary groups DNs for user fbeek|
--------------------------------------------------------------
-11177     dn: cn=cshrpr,ou=Group,dc=unix,dc=example,dc=org -
-11147     dn: cn=cszebra,ou=Group,dc=unix,dc=example,dc=org-
-11185     dn: cn=csstuva,ou=Group,dc=unix,dc=example,dc=org
-11175     dn: cn=csbpn,ou=Group,dc=unix,dc=example,dc=org  
-11153     dn: cn=cshci,ou=Group,dc=unix,dc=example,dc=org  
-11192     dn: cn=csre,ou=Group,dc=unix,dc=example,dc=org   
-11144     dn: cn=csbio,ou=Group,dc=unix,dc=example,dc=org  
+┌──────────────────────────────────────────────────────────────────────────────┐
+│    Search           Modify           Login           Help           Exit     │
+│──┌───────────────┐───────────────────────────────────────────────────────────│
+│┌────────────────────────────────────────────────────────────────────────────┐│
+││gidNumber Primairy group DN for user robert                                 ││
+││--------- -------------------------------------                             ││
+││100       dn: cn=staff,ou=Group,dc=unix,dc=example,dc=nl                    ││
+││                                                                            ││
+││gidNumber Non-primary groups DNs for user robert                            ││
+││--------- -------------------------------------                             ││
+││105       dn: cn=ctd,ou=Group,dc=unix,dc=example,dc=nl                      ││
+││11100     dn: cn=admin,ou=Group,dc=unix,dc=example,dc=nl                    ││
+││11186     dn: cn=stud,ou=Group,dc=unix,dc=example,dc=nl                     ││
+││                                                                            ││
+│└─[use arrow keys for scrolling or [ESC] for quit]───────────────────────────┘│
+└──[Search > Group > By user name]─────────────────────────────────────────────┘
 ```
 
 Note: In this example the user 'fbeek' has primary group  
@@ -426,16 +439,33 @@ With this helper you can lookup members of a given group.
 __Example usage:__
 
 ```bash
-Enter groupname: [csdale]
+┌──────────────────────────────────────────────────────────────────────────────┐
+│    Search           Modify           Login           Help           Exit     │
+│──┌───────────────┐───────────────────────────────────────────────────────────│
+│┌────────────────────────────────────────────────────────────────────────────┐│
+││                                                                            ││
+││ Query group by name                                                        ││
+││                                                                            ││
+││ Enter groupname: csdale                                                    ││
+││                                                                            ││
+│└────────────────────────────────────────────────────────────────────────────┘│
+└──[Search > Group > By group name]────────────────────────────────────────────┘
 ```
 
 __Result:__
 
 ```bash
-Members of group csdale (gidNumber: 11158)
-------------------------------------------
-memberUid: csdale
-memberUid: tcocx
+┌──────────────────────────────────────────────────────────────────────────────┐
+│    Search           Modify           Login           Help           Exit     │
+│──┌───────────────┐───────────────────────────────────────────────────────────│
+│┌────────────────────────────────────────────────────────────────────────────┐│
+││Members of group csdale (gidNumber: 11158)                                  ││
+││-------------------------------------                                       ││
+││memberUid: csdale                                                           ││
+││memberUid: tcocx                                                            ││
+││                                                                            ││
+│└─[use arrow keys for scrolling or [ESC] for quit]───────────────────────────┘│
+└──[Search > Group > By group name]────────────────────────────────────────────┘
 ```
 
 Note: In this example there are two members of the group 'csdale'
@@ -461,14 +491,26 @@ escape to exit this helper.
 __Result:__
 
 ```bash
-...  
-dn: cn=allse,ou=Netgroup,dc=unix,dc=example,dc=nl  
-dn: cn=allwi,ou=Netgroup,dc=unix,dc=example,dc=nl  
-dn: cn=allws,ou=Netgroup,dc=unix,dc=example,dc=nl  
-dn: cn=cdh000a,ou=Netgroup,dc=unix,dc=example,dc=nl  
-dn: cn=cdh000b,ou=Netgroup,dc=unix,dc=example,dc=nl  
-dn: cn=cdh000c,ou=Netgroup,dc=unix,dc=example,dc=nl    
-...  
+┌──────────────────────────────────────────────────────────────────────────────┐
+│    Search           Modify           Login           Help           Exit     │
+│──┌───────────────┐───────────────────────────────────────────────────────────│
+│┌────────────────────────────────────────────────────────────────────────────┐│
+││dn: cn=cd000a,ou=Netgroup,dc=unix,dc=example,dc=nl                          ││
+││dn: cn=cd000b,ou=Netgroup,dc=unix,dc=example,dc=nl                          ││
+││dn: cn=cd000c,ou=Netgroup,dc=unix,dc=example,dc=nl                          ││
+││dn: cn=cd000d,ou=Netgroup,dc=unix,dc=example,dc=nl                          ││
+││dn: cn=cd000e,ou=Netgroup,dc=unix,dc=example,dc=nl                          ││
+││dn: cn=cd000f,ou=Netgroup,dc=unix,dc=example,dc=nl                          ││
+││dn: cn=cd000g,ou=Netgroup,dc=unix,dc=example,dc=nl                          ││
+││dn: cn=cd000h,ou=Netgroup,dc=unix,dc=example,dc=nl                          ││
+││dn: cn=cd000i,ou=Netgroup,dc=unix,dc=example,dc=nl                          ││
+││dn: cn=cd000j,ou=Netgroup,dc=unix,dc=example,dc=nl                          ││
+││dn: cn=cd000k,ou=Netgroup,dc=unix,dc=example,dc=nl                          ││
+││dn: cn=cd000l,ou=Netgroup,dc=unix,dc=example,dc=nl                          ││
+││dn: cn=cd000m,ou=Netgroup,dc=unix,dc=example,dc=nl                          ││
+││dn: cn=cd000n,ou=Netgroup,dc=unix,dc=example,dc=nl                          ││
+│└─[use arrow keys for scrolling or [ESC] for quit]───────────────────────────┘│
+└──[Search > Netgroup > Show all netgroups]────────────────────────────────────┘
 ```
 
 ### <a name="searchmenu-netgroup-membership" />-> Netgroup -> Show membership
