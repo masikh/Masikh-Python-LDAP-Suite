@@ -1011,7 +1011,7 @@ __Example usage:__
 ││*gecos:                Masikh Masih                                         ││
 ││*sn:                   Masih                                                ││
 ││ homeDirectory:        /home/masikh                                         ││
-││*automountInformation: -soft,intr,nosuid protactinium:/users/14/student:&   ││
+││*automountInformation: -soft,intr,nosuid nfs-server04:/users/14/student:&   ││
 ││*cn:                   Masikh                                               ││
 ││                                                                            ││
 │└─[Press [ESC] when done, [arrow keys] to select and [enter] to edit.]───────┘│
@@ -1038,7 +1038,7 @@ will ask you if you'd like to commit these changes. E.g.
 ││*gecos:                Masikh Masih                                         ││
 ││*sn:                   Masih                                                ││
 ││ homeDirectory:        /home/masikh                                         ││
-││*automountInformation: -soft,intr,nosuid protactinium:/users/14/student:&   ││
+││*automountInformation: -soft,intr,nosuid nfs-server04:/users/14/student:&   ││
 ││*cn:                   Masikh                                               ││
 ││                                                                            ││
 ││ Do you wish to commit the changes? [y|n]                                   ││
