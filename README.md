@@ -1047,8 +1047,6 @@ will ask you if you'd like to commit these changes. E.g.
 └──[Modify > User > Modify user attributes]────────────────────────────────────┘
 ```
 
-'y' will commit the changes made.
-
 __NOTE:__ An astrix * means a changed attribute.
 
 ### <a name="modifymenu-user-add-multiple" />-> User -> Add multiple users
