@@ -4,18 +4,22 @@
 #                 This program is distributed under the terms of the GNU 
 #                 General Public License (or the Lesser GPL)
 
-import curses,os,re,time
+import curses,os,re,time,sys
 import helper_apply_ldif as apply_ldif
 
 def getUndofiles(env):
+	dirList = []	
+
 	# Get logfiles as list.
 	dirList=os.listdir(env.LOGS)
         
         # Initialize dictonairies for logfiles
         logfiles = []
        	revertables = []
- 
-        # Build a dictionary of all log files
+
+	if dirList == [] or dirList == ['.gitignore']:
+		dirList = ['0..Epoch.']
+	# Build a dictionary of all log files
         for file in dirList:
                 # Make an array of filename part with field seperator "."
                 t = file.split(".")
