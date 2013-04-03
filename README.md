@@ -160,9 +160,9 @@ and Exit. The two most important are Search and Modify.
 	undo transactions/modifications on the LDAP database via
 	MPLS.
 	
-*	Login: From here you can bind to a different LDAP server
-	Then the default server. (The Default server is	configured
-	in the MPLS environment file; environment.py)
+*	Login: From here you can bind to a LDAP server other then
+	the default server. (The Default server is configured in
+	the MPLS environment file; environment.py)
 
 *	Help menu: You can browse through these help-pages.
 
