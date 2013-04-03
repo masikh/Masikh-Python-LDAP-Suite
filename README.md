@@ -944,6 +944,7 @@ as LDAP, NIS, or NIS+, NOT in a local file.
 
 ## <a name="gpl" />About the Author/Programmer and Copyrights
 
+|              |                                                        |
 |:-------------|:-------------------------------------------------------|
 |Author:       | Robert Nagtegaal                                       |
 |E-mail:       | robert@liacs.nl, masikh@gmail.com                      |
