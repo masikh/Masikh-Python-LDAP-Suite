@@ -194,7 +194,7 @@ dn: uid=labert,ou=People,dc=unix,dc=example,dc=org
 dn: uid=lerts,ou=People,dc=unix,dc=example,dc=org  
 dn: uid=robert,ou=People,dc=unix,dc=example,dc=org
 
-### <a name="seachmenu-user-information" />-> User -> Information
+### <a name="searchmenu-user-information" />-> User -> Information
 
 With this helper you can lookup all attributes of a single user.
 
