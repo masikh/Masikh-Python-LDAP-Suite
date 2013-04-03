@@ -12,10 +12,11 @@ def helper_query_homedir(UID,env):
 	FILTER="(&(objectClass=automount)(cn=" + UID + "))"
 	ATTR=["automountInformation"]
 	options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
-	ldap.set_option(*options[0])
-	connection = ldap.initialize(env.LDAPSERVER)
-	connection.simple_bind_s()
-	try:result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
+	try:
+		ldap.set_option(*options[0])
+		connection = ldap.initialize(env.LDAPSERVER)
+		connection.simple_bind_s()
+		result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
 	except ldap.LDAPError, e:result = [("Generic error occured (are you logged in?)",{"automountInformation": [""]})]
 	if result == []:result = [("No such user!",{'automountInformation': [""]})]
 	connection.unbind()
@@ -26,10 +27,11 @@ def helper_query_direct(env):
 	FILTER="(&(objectClass=automount)(cn=*))"
 	ATTR=["automountInformation"]
 	options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
-	ldap.set_option(*options[0])
-	connection = ldap.initialize(env.LDAPSERVER)
-	connection.simple_bind_s()
-	try:result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
+	try:
+		ldap.set_option(*options[0])
+		connection = ldap.initialize(env.LDAPSERVER)
+		connection.simple_bind_s()
+		result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
 	except ldap.LDAPError, e:result = [("Generic error occured (are you logged in?)",{"automountInformation": [""]})]
 	connection.unbind()
 	return (result)

@@ -26,10 +26,11 @@ def helper_query_user(UID,env):
 		"objectClass"
 	     ]
 	options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
-	ldap.set_option(*options[0])
-	connection = ldap.initialize(env.LDAPSERVER)
-        connection.simple_bind_s()
-        try:result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
+	try:
+		ldap.set_option(*options[0])
+		connection = ldap.initialize(env.LDAPSERVER)
+        	connection.simple_bind_s()
+        	result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
        	except ldap.LDAPError, e:result = [("Generic error occured (are you logged in?)",{"": ""})]
 	if result == []:result = [("No such user!",{"": ""})]
 	connection.unbind()
@@ -40,10 +41,11 @@ def query_bypart(UID,env):
         FILTER="(&(objectClass=posixAccount)(uid=*" + UID + "*))"
         ATTR=["dn", "uid"]
 	options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
-	ldap.set_option(*options[0])
-	connection = ldap.initialize(env.LDAPSERVER)
-        connection.simple_bind_s()
-        try:result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
+	try:
+		ldap.set_option(*options[0])
+		connection = ldap.initialize(env.LDAPSERVER)
+        	connection.simple_bind_s()
+        	result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
        	except ldap.LDAPError, e:result = [("Generic error occured (are you logged in?)","")] 
 	connection.unbind_s()
 	return result
