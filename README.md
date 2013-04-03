@@ -62,7 +62,7 @@
 - [About & Copyrights](#gpl)  
 
 ## <a name="conventions" />Conventions used in this manual
-Every item within brackets is user input. E.g. [fverbeek], in this case
+Every item within brackets is user input. E.g. [__fverbeek__], in this case
 'fverbeek' is user input (without the brackets!!!).
 
 ## <a name="introductionmpls" />A short introduction into MPLS
@@ -122,14 +122,14 @@ Moving around in the program can be done in several ways
 Through out the whole program there is a consistent color usage.
 	
 * Text in the color RED always means an action or a warning. E.g.
-	Enter username: ....
+	__Enter username: ....__
 
 * Text in the color WHITE is informational in nature. E.g.
-	Bread-crumbs at the bottom of the screen.
+	__Bread-crumbs at the bottom of the screen.__
 
 * Blocked text in the color WHITE means your current active menu
   item. E.g.
-	Query by (part of) username
+	__Query by (part of) username__
 
 ### <a name="generalusage-breadcrumbs" />Bread crumbs
 
@@ -146,7 +146,7 @@ validated on proper input. This works mostly but probably not
 always, be warned! If a user enters an invalid input, the user
 gets a warning. This warning looks like: 
 	
-(Wrong input: Use -.+=, a-z A-Z 0-9 only)
+__(Wrong input: Use -.+=, a-z A-Z 0-9 only)__
 
 This warning is displayed at the bottom of the active screen
        in the color RED
@@ -916,7 +916,7 @@ result:
 ## <a name="environment" />Configuring MPLS for your environment (uidNumber ranges, etc...)
 ## <a name="whatis" />What is a 'user', 'group' or 'netgroup' anyway?
 
-UNIX user:
+__UNIX user__:
 
 UNIX is a multiuser system. This means that separate users can
 work simultaneously on the same hardware. In order to distinct
@@ -924,7 +924,7 @@ between these users, the concept of a username is devised.
 A username is a way to identify which files or processes belongs
 to who.
 
-UNIX group:
+__UNIX group__:
 
 When many users exist on a system it becomes hard to see which
 role each user has. There might be staff members, guests etc..
@@ -933,7 +933,7 @@ types of users. For instance you can make the groups 'staff',
 'students' and 'guest' and place users in their respective group.
 In this way it's much more easy to distinguish between users.
 
-UNIX netgroup:
+__UNIX netgroup__:
 
 A netgroup defines a network-wide group of hosts and users. Use a
 netgroup to restrict access to shared NFS file systems and to
