@@ -174,9 +174,9 @@ the systems MPLS interacts with.
 
 	result:
 
-	dn: uid=labert,ou=People,dc=unix,dc=example,dc=org
-	dn: uid=lerts,ou=People,dc=unix,dc=example,dc=org
-	dn: uid=robert,ou=People,dc=unix,dc=example,dc=org
+	dn: uid=labert,ou=People,dc=unix,dc=example,dc=org  
+	dn: uid=lerts,ou=People,dc=unix,dc=example,dc=org  
+	dn: uid=robert,ou=People,dc=unix,dc=example,dc=org  
 
 - 4.1.2	-> User -> Information
 
@@ -188,20 +188,20 @@ the systems MPLS interacts with.
 
 	result:
 
-	dn: uid=robert,ou=People,dc=unix,dc=example,dc=org
-	employeeType: Staff
-	uid: robert
-	objectClass: inetOrgPerson
-	objectClass: posixAccount
-	objectClass: shadowAccount
-	loginShell: /bin/bash
-	uidNumber: 58430
-	gidNumber: 100
-	gecos: R.D.A. Nagtegaal.
-	sn: Nagtegaal
-	homeDirectory: /home/robert
-	cn: Robert
-	employeeNumber: 100.58430
+	dn: uid=robert,ou=People,dc=unix,dc=example,dc=org  
+	employeeType: Staff  
+	uid: robert  
+	objectClass: inetOrgPerson  
+	objectClass: posixAccount  
+	objectClass: shadowAccount  
+	loginShell: /bin/bash  
+	uidNumber: 58430  
+	gidNumber: 100  
+	gecos: R.D.A. Nagtegaal.  
+	sn: Nagtegaal  
+	homeDirectory: /home/robert  
+	cn: Robert  
+	employeeNumber: 100.58430  
 
 	Note: employeeNumber is either a concatenation of gidNumber and
 	uidNumber or a student registration number.
@@ -213,22 +213,22 @@ the systems MPLS interacts with.
 
 	Example usage:
 
-	1: Enter username: [robert]
+	1: Enter username: [robert]  
 
-	result:
+	result:  
 
-	dn: cn=robert,ou=auto.home,ou=Autofs,dc=unix,dc=example,dc=org
-	-soft,intr,nosuid nfs-server01:/users/staff:&
-	
-	dn: cn=/scratch,ou=auto.direct,ou=Autofs,dc=unix,dc=example,dc=org
-	scratch.example.org:/scratch
-	
-	dn: cn=/var/spool/mail,ou=auto.direct,ou=Autofs,dc=unix,dc=example,dc=org
-	mailhost.example.org:/var/spool/mail
-	
-	dn: cn=/appl,ou=auto.direct,ou=Autofs,dc=unix,dc=example,dc=org
-	nfs-server01.example.org,nfs-server02.example.org:/appl
-
+	dn: cn=robert,ou=auto.home,ou=Autofs,dc=unix,dc=example,dc=org  
+	-soft,intr,nosuid nfs-server01:/users/staff:&  
+	  
+	dn: cn=/scratch,ou=auto.direct,ou=Autofs,dc=unix,dc=example,dc=org  
+	scratch.example.org:/scratch  
+	  
+	dn: cn=/var/spool/mail,ou=auto.direct,ou=Autofs,dc=unix,dc=example,dc=org  
+	mailhost.example.org:/var/spool/mail  
+	  
+	dn: cn=/appl,ou=auto.direct,ou=Autofs,dc=unix,dc=example,dc=org  
+	nfs-server01.example.org,nfs-server02.example.org:/appl  
+  
 	Note: The user 'Robert' has one home-directory and three other
 	exports, /scratch, /var/spool/mail and /appl. The respective
 	exporting servers are: nfs-server01 and nfs-server02.
