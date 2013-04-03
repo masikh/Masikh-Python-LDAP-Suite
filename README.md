@@ -290,7 +290,7 @@ gidNumber Primary group DN for user fverbeek
 100       dn: cn=staff,ou=Group,dc=unix,dc=example,dc=org  
   
 gidNumber Non-primary groups DNs for user fverbeek  
-========= ======================================== 
+========= ==================================   
 11177     dn: cn=cshrpr,ou=Group,dc=unix,dc=example,dc=org  
 11147     dn: cn=cszebra,ou=Group,dc=unix,dc=example,dc=org  
 11185     dn: cn=csstuva,ou=Group,dc=unix,dc=example,dc=org  
@@ -313,7 +313,7 @@ Enter groupname: [csdale]
 result:
 
 Members of group csdale (gidNumber: 11158)  
-========================================== 
+==========================================  
 memberUid: csdale  
 memberUid: tcocx   
 
@@ -339,14 +339,14 @@ escape to exit this helper.
 
 result:
 
-...
-dn: cn=allse,ou=Netgroup,dc=unix,dc=example,dc=nl
-dn: cn=allwi,ou=Netgroup,dc=unix,dc=example,dc=nl
-dn: cn=allws,ou=Netgroup,dc=unix,dc=example,dc=nl
-dn: cn=cdh000a,ou=Netgroup,dc=unix,dc=example,dc=nl
-dn: cn=cdh000b,ou=Netgroup,dc=unix,dc=example,dc=nl
-dn: cn=cdh000c,ou=Netgroup,dc=unix,dc=example,dc=nl  
-...
+...  
+dn: cn=allse,ou=Netgroup,dc=unix,dc=example,dc=nl  
+dn: cn=allwi,ou=Netgroup,dc=unix,dc=example,dc=nl  
+dn: cn=allws,ou=Netgroup,dc=unix,dc=example,dc=nl  
+dn: cn=cdh000a,ou=Netgroup,dc=unix,dc=example,dc=nl  
+dn: cn=cdh000b,ou=Netgroup,dc=unix,dc=example,dc=nl  
+dn: cn=cdh000c,ou=Netgroup,dc=unix,dc=example,dc=nl    
+...  
 
 ### <a name="searchmenu-netgroup-membership" />-> Netgroup -> Show membership
 
@@ -358,11 +358,11 @@ Enter username: [fverbeek]
 
 result:
 
-dn: cn=sun,ou=Netgroup,dc=unix,dc=example,dc=nl
-dn: cn=pc156a,ou=Netgroup,dc=unix,dc=example,dc=nl
-dn: cn=pc409a,ou=Netgroup,dc=unix,dc=example,dc=nl
-dn: cn=users-pc306,ou=Netgroup,dc=unix,dc=example,dc=nl
-dn: cn=users-pc302,ou=Netgroup,dc=unix,dc=example,dc=nl
+dn: cn=sun,ou=Netgroup,dc=unix,dc=example,dc=nl  
+dn: cn=pc156a,ou=Netgroup,dc=unix,dc=example,dc=nl  
+dn: cn=pc409a,ou=Netgroup,dc=unix,dc=example,dc=nl  
+dn: cn=users-pc306,ou=Netgroup,dc=unix,dc=example,dc=nl  
+dn: cn=users-pc302,ou=Netgroup,dc=unix,dc=example,dc=nl  
 
 Note: In this example the user fverbeek is a member of the netgroups
 'sun', 'pc156a', 'pc409a', 'users-pc306 and 'users-pc302'. All
@@ -380,23 +380,23 @@ Enter netgroup: [users-pc302]
 result:
 
 Distinguished name of netgroup users-pc302
--------------------------------------
-dn: cn=users-pc302,ou=Netgroup,dc=unix,dc=example,dc=nl
+==========================================
+dn: cn=users-pc302,ou=Netgroup,dc=unix,dc=example,dc=nl  
 
-Member nis-groups of nis-group users-pc302
--------------------------------------
+Member nis-groups of nis-group users-pc302  
+==========================================
 
 Host triples in netgroup
--------------------------------------
+==========================================
 
 User triples in netgroup
--------------------------------------
-(-,aakachar,)   (-,aaleman,)    (-,aandreye,)   (-,aandring,)
-(-,aanton,)     (-,aassink,)    (-,abacaoan,)   (-,abaggio,)
-(-,abaihaki,)   (-,abegia,)     (-,abijlsma,)   (-,abom,)
-(-,aboogert,)   (-,abosman,)    (-,acaraghi,)   (-,acavusog,)
-(-,acervell,)   (-,achaibra,)   (-,achinedu,)   (-,aclairmo,)
-(-,acomley,)    (-,adarvish,)   (-,adegroot,)   (-,adejonge,) 
+==========================================
+(-,aakachar,)   (-,aaleman,)    (-,aandreye,)   (-,aandring,)  
+(-,aanton,)     (-,aassink,)    (-,abacaoan,)   (-,abaggio,)  
+(-,abaihaki,)   (-,abegia,)     (-,abijlsma,)   (-,abom,)  
+(-,aboogert,)   (-,abosman,)    (-,acaraghi,)   (-,acavusog,)  
+(-,acervell,)   (-,achaibra,)   (-,achinedu,)   (-,aclairmo,)  
+(-,acomley,)    (-,adarvish,)   (-,adegroot,)   (-,adejonge,)   
 
 Note: In this example there are only user 'triples' in the
 netgroup 'users-pc302'. If we would lookup netgroup 'pc302a' we
