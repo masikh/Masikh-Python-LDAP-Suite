@@ -10,10 +10,10 @@ from os import system
 def getInput(screen,offset_y,offset_x,length,alfabet,cursor):
         allowed = {     0 : (set("y" + "Y" + "n" + "N"),
                             "Use yY/nN only!"),
-                        1 : (set(string.digits + string.ascii_letters + "-" + "_" + "." + "+"),
-                            "Use -_.+ a-z A-Z 0-9 only"),
-                        2 : (set(string.digits + string.ascii_letters + "-" + "_" + "." + "+" + "=" + ","),
-                            "Use -_.+=, a-z A-Z 0-9 only")
+                        1 : (set(string.digits + string.ascii_letters + "-" + "_" + "." + "+" + ":"),
+                            "Use -_.+: a-z A-Z 0-9 only"),
+                        2 : (set(string.digits + string.ascii_letters + "-" + "_" + "." + "+" + "=" + "," + ":"),
+                            "Use -_.+=,: a-z A-Z 0-9 only")
                   }
         wy,wx=screen.getmaxyx()
         i = 0
