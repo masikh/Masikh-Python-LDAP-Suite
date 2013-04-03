@@ -944,14 +944,16 @@ as LDAP, NIS, or NIS+, NOT in a local file.
 
 ## <a name="gpl" />About the Author/Programmer and Copyrights
 
-Author:         Robert Nagtegaal  
-E-mail:         robert@example.org, masikh@gmail.com  
-Copyright:      Copyright 2013 Robert Nagtegaal  
-		Robert Nagtegaal <masikh@gmail.com>  
-                This program is distributed under the terms of the GNU   
-                General Public License (or the Lesser GPL)  
-
-Thanks to:      Maartje Mulder (For putting up with all my absence)
-                Kristian Rietveld
-                Mattias Holm
-                Maarten Derickx
+|              |                                                        |
+|:-------------|:-------------------------------------------------------|
+|Author:       | Robert Nagtegaal                                       |
+|E-mail:       | robert@example.org, masikh@gmail.com                   |
+|Copyright:    | Copyright 2013 Robert Nagtegaal                        |
+|              | Robert Nagtegaal <masikh@gmail.com>                    |
+|              | This program is distributed under the terms of the GNU |   
+|              | General Public License (or the Lesser GPL)             |
+|              |                                                        |
+|Thanks to:    | Maartje Mulder (For putting up with all my absence)    |
+|              | Kristian Rietveld                                      |
+|              | Mattias Holm                                           |
+|              | Maarten Derickx                                        |
