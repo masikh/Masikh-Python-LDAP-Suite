@@ -528,17 +528,17 @@ gidNumber will change accordingly. (Use arrow keys to select!)
 
 __Example:__
 
-* employeeType:         /------------\
-  uid:                  | CS-Account |
-  loginShell:           | CDH        |
-* uidNumber:            |-Bijvak-----|
-* employeeNumber:       | Student    |
-* gidNumber:            | Gast       |
-  gecos:                | Staff      |
-  sn:                   \------------/
-  homeDirectory:        /home/masikh
-  automountInformation: ---
-  cn:                   ---
+* employeeType:         /------------\  
+  uid:                  | CS-Account |  
+  loginShell:           | CDH        |  
+* uidNumber:            |-Bijvak-----|  
+* employeeNumber:       | Student    |  
+* gidNumber:            | Gast       |  
+  gecos:                | Staff      |  
+  sn:                   \------------/  
+  homeDirectory:        /home/masikh  
+  automountInformation: ---  
+  cn:                   ---  
 
 __NOTE:__ An asterix ' * ' will appear before each changed user
 attribute.
@@ -551,14 +551,14 @@ __Example:__
 
 Select export for account
 
-HINT: Older exports (before 2013) are at the bottom!
--------------------------------------------------------------------
-Staff leden      -soft,intr,nosuid nfs-server01:/users/staff:&
-Student 2013     -soft,intr,nosuid nfs-server02:/users/13/student:&
-Student 2014     -soft,intr,nosuid nfs-server02:/users/14/student:&
-Student 2015     -soft,intr,nosuid nfs-server02:/users/15/student:&
-Student 2016     -soft,intr,nosuid nfs-server02:/users/16/student:&
-...
+|HINT:           | Older exports (before 2013) are at the bottom!   |
+|:---------------|:-------------------------------------------------|
+|Staff leden     |-soft,intr,nosuid nfs-server01:/users/staff:&     |
+|Student 2013    |-soft,intr,nosuid nfs-server02:/users/13/student:&|
+|Student 2014    |-soft,intr,nosuid nfs-server02:/users/14/student:&|
+|Student 2015    |-soft,intr,nosuid nfs-server02:/users/15/student:&|
+|Student 2016    |-soft,intr,nosuid nfs-server02:/users/16/student:&|
+|...             |                                                  |
 
 
 After you have entered all (needed) attributes for a given user,
