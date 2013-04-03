@@ -28,29 +28,60 @@
 - [About & Copyrights](#gpl)  
 
 ## <a name="conventions" />Conventions used in this manual
-Every item within brackets is user input. E.g. [fverbeek], in this case 'fverbeek' is user input (without the brackets!!!).
+Every item within brackets is user input. E.g. [fverbeek], in this case
+'fverbeek' is user input (without the brackets!!!).
 
 ## <a name="introductionmpls" />A short introduction into MPLS
-MPLS is a user account tool for LDAP. It stands-out of other LDAP software because it handles NIS-netgroups and has a transaction undo feature.
+MPLS is a user account tool for LDAP. It stands-out of other LDAP software
+because it handles NIS-netgroups and has a transaction undo feature.
 
-MPLS is meant as a unified tool for LDAP manipulations. Unified means that it's build to accommodate the needs of 'users', 'help-desk' and 'system-administrators.' MPLS tries to simplify standard daily tasks but also the somewhat complex tasks. E.g. renaming a user and make sure its (net-)group memberships are preserved. Every transaction made to the LDAP database from MPLS is logged and made undo-able. Thus if you delete a user or something else you can easily undo this. This is part of the philosophy of MPLS. 
+MPLS is meant as a unified tool for LDAP manipulations. Unified means that
+it's build to accommodate the needs of 'users', 'help-desk' and 'system-
+administrators.' MPLS tries to simplify standard daily tasks but also the
+somewhat complex tasks. E.g. renaming a user and make sure its (net-)group
+memberships are preserved. Every transaction made to the LDAP database
+from MPLS is logged and made undo-able. Thus if you delete a user or some-
+thing else you can easily undo this. This is part of the philosophy of
+MPLS. 
 
-Another philosophy behind MPLS is: Every helper-program should be callable from MPLS and the CLI. Every helper-program (helpers) has a set of 'command-line arguments' you can set. This is obviously not needed when you call these helpers from within MPLS. Because every helper is a standalone unit (like UNIX tools) MPLS is easily expendable.  
+Another philosophy behind MPLS is: Every helper-program should be callable
+from MPLS and the CLI. Every helper-program (helpers) has a set of
+'command-line arguments' you can set. This is obviously not needed when
+you call these helpers from within MPLS. Because every helper is a stand-
+alone unit (like UNIX tools) MPLS is easily expendable.
 
-There is a unified menu-structure which is trivially expandable with new items. The menu-structure as such has nothing to do with MPLS as whole but is rather a convenient method of presenting helpers to a user. See chapter 'Further Development' for more in-depth information.
+There is a unified menu-structure which is trivially expandable with new 
+items. The menu-structure as such has nothing to do with MPLS as whole but
+is rather a convenient method of presenting helpers to a user. See chapter
+'Further Development' for more in-depth information.
 
-MPLS is by no means a complete product. It aims at taking away the burden of repetitive account tasks and delegating tasks to appropriate skilled personnel.
+MPLS is by no means a complete product. It aims at taking away the burden 
+of repetitive account tasks and delegating tasks to appropriate skilled
+personnel.
 
-MPLS has no security whatsoever. The security of this tool is handled by the mechanisms already in place on the target systems. E.g. You can access this tool via SSH protocol (Just make it the default shell of a 'special user'). SSH is charged with the security not MPLS! Every connection made to the LDAP server is done with the security measures imposed by the LDAP server itself (e.g. SSL/TLS) not MPLS. The philosophy of MPLS is: Make security not the problem of MPLS but that of the systems MPLS interacts with.
+MPLS has no security whatsoever. The security of this tool is handled by
+the mechanisms already in place on the target systems. E.g. You can
+access this tool via SSH protocol (Just make it the default shell of a 
+'special user'). SSH is charged with the security not MPLS! Every
+connection made to the LDAP server is done with the security measures 
+imposed by the LDAP server itself (e.g. SSL/TLS) not MPLS. The
+philosophy of MPLS is: Make security not the problem of MPLS but that of
+the systems MPLS interacts with.
 
 ## <a name="generalusage" />General usage
 ### <a name="generalusage-navigate" />Navigate through the program
 	
 	Moving around in the program can be done in several ways
 	
-	* Hot keys. Hot keys are marked as red letters. Typing such a letter will automaticly select the appropriate menu item within the current sub menu.
+	* Hot keys. Hot keys are marked as red letters. Typing such a let-
+	  ter will automaticly select the appropriate menu item within the
+	  current sub menu.
 
-	* Arrow keys. Arrow keys can be used to navigate through the menustructure. Note the behavior of the arrow keys change between horizontal and vertical menus. E.g. In a horizontal menu (top-menu) the down-arrow opens an item but in a vertical menu the right-arrow opens a menu-item.
+	* Arrow keys. Arrow keys can be used to navigate through the menu-
+	  structure. Note the behavior of the arrow keys change between
+	  horizontal and vertical menus. E.g. In a horizontal menu (top-
+	  menu) the down-arrow opens an item but in a vertical menu the
+	  right-arrow opens a menu-item.
 
 ### <a name="generalusage-colorusage" />Color usage and its function
 
@@ -68,11 +99,18 @@ MPLS has no security whatsoever. The security of this tool is handled by the mec
 
 ### <a name="generalusage-breadcrumbs" />Bread crumbs
 
-	Through out the whole program you can easily see where you are in terms of the menu-structure. Every step in the menu-structure will leave a bread-crumb. Thus it leaves a trail. These crumbs are printed in the left-bottom of the screen. If the trail gets to long, the begin is truncated as dots 
+	Through out the whole program you can easily see where you are 
+	in terms of the menu-structure. Every step in the menu-structure
+	will leave a bread-crumb. Thus it leaves a trail. These crumbs 
+	are printed in the left-bottom of the screen. If the trail gets
+	to long, the begin is truncated as dots 
 
 ### <a name="generalusage-inputvalidation" />Input validation
 
-	Every editable item in this program (e.g. enter username:) is validated on proper input. This works mostly but probably not always, be warned! If a user enters an invalid input, the user gets a warning. This warning looks like: 
+	Every editable item in this program (e.g. enter username:) is
+	validated on proper input. This works mostly but probably not 
+	always, be warned! If a user enters an invalid input, the user
+	gets a warning. This warning looks like: 
 	
 	(Wrong input: Use -_.+=, a-z A-Z 0-9 only)
 
@@ -81,29 +119,48 @@ MPLS has no security whatsoever. The security of this tool is handled by the mec
 
 ### <a name="generalusage-leaving" />Leaving a sub-module (part of the program)
 
-	Most of the time people are 'just browsing around' through the program. If you enter one of the sub-modules (e.g. Add user) you can simply bail out by pressing [esc] or give empty input (e.g. [enter])
+	Most of the time people are 'just browsing around' through the
+	program. If you enter one of the sub-modules (e.g. Add user)
+	you can simply bail out by pressing [esc] or give empty input
+	(e.g. [enter])
 	
 ### <a name="generalusage-terminalsize" />Terminal size
 
-	MPLS has been designed to work in a standard 'telnet' window.  These windows are typically 80 characters wide and 24 lines long (80x24). A larger window is not a problem, but MPLS ~WILL CRASH~ if you make the terminal window smaller than 80x24. This has nothing to do with MPLS but rather the underlying (n)Curses interface. 
+	MPLS has been designed to work in a standard 'telnet' window.
+	These windows are typically 80 characters wide and 24 lines long
+	(80x24). A larger window is not a problem, but MPLS ~WILL CRASH~
+	if you make the terminal window smaller than 80x24. This has
+	nothing to do with MPLS but rather the underlying (n)Curses
+	interface. 
 
 ## <a name="mplsoptions" />Overview of MPLS options
 
-	MPLS has five top-level menu items: Search, Modify, Login, Help and Exit. The two most important are Search and Modify.
+	MPLS has five top-level menu items: Search, Modify, Login, Help
+	and Exit. The two most important are Search and Modify.
 
-	*	Search: In this menu you can query for user, group or NIS-netgroups items. Furthermore, you can query all transactions/modifications on the LDAP database via MPLS.
+	*	Search: In this menu you can query for user, group or
+		NIS-netgroups items. Furthermore, you can query all
+		transactions/modifications on the LDAP database via MPLS.
 
-	*	Modify: In this menu you can modify user(s), group(s) and NIS-Netgroups. Furthermore, you can query, view and undo transactions/modifications on the LDAP database via MPLS.
+	*	Modify: In this menu you can modify user(s), group(s)
+		and NIS-Netgroups. Furthermore, you can query, view and
+		undo transactions/modifications on the LDAP database via
+		MPLS.
 	
-	*	Login: From here you can bind to a different LDAP server Then the default server. (The Default server is configured in the MPLS environment file; environment.py)
+	*	Login: From here you can bind to a different LDAP server
+		Then the default server. (The Default server is	configured
+		in the MPLS environment file; environment.py)
 
 	*	Help menu: You can browse through these help-pages.
 
-	*	Exit: Every program needs a stop condition. This is the one!
+	*	Exit: Every program needs a stop condition. This is the
+		one!
 
 ## <a name="searchmenu" />Search menu
 
-	In this menu you can query for user, group or NIS-netgroups items. Furthermore, you can query all transactions/modifications on the LDAP database via MPLS.
+	In this menu you can query for user, group or NIS-netgroups items.
+	Furthermore, you can query all transactions/modifications on the
+	LDAP database via MPLS.
 
 - 4.1	Search -> User
 
@@ -111,7 +168,8 @@ MPLS has no security whatsoever. The security of this tool is handled by the mec
 
 - 4.1.1	-> User -> By part of username
 
-	With this helper you can look-up an username if you only know part of its name.
+	With this helper you can look-up an username if you only know part
+	of its name.
 
 	Example usage:
 
