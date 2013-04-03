@@ -62,8 +62,8 @@
 - [About & Copyrights](#gpl)  
 
 ## <a name="conventions" />Conventions used in this manual
-Every item within brackets is user input. E.g. [__fverbeek__], in this case
-'fverbeek' is user input (without the brackets!!!).
+Every item within brackets is user input.  
+E.g. [fbeek], in this case 'fbeek' is user input (without the brackets!!!).
 
 ## <a name="introductionmpls" />A short introduction into MPLS
 MPLS is a user account tool for LDAP. It stands-out of other LDAP software
@@ -103,6 +103,7 @@ philosophy of MPLS is: Make security not the problem of MPLS but that of
 the systems MPLS interacts with.
 
 ## <a name="generalusage" />General usage
+
 ### <a name="generalusage-navigate" />Navigate through the program
 	
 Moving around in the program can be done in several ways
@@ -121,14 +122,13 @@ Moving around in the program can be done in several ways
 
 Through out the whole program there is a consistent color usage.
 	
-* Text in the color RED always means an action or a warning. E.g.
+* Text in the color RED always means an action or a warning. E.g.  
 	__Enter username: ....__
 
-* Text in the color WHITE is informational in nature. E.g.
+* Text in the color WHITE is informational in nature. E.g.  
 	__Bread-crumbs at the bottom of the screen.__
 
-* Blocked text in the color WHITE means your current active menu
-  item. E.g.
+* Blocked text in the color WHITE means your current active menu item. E.g.  
 	__Query by (part of) username__
 
 ### <a name="generalusage-breadcrumbs" />Bread crumbs
@@ -148,8 +148,7 @@ gets a warning. This warning looks like:
 	
 __(Wrong input: Use -.+=, a-z A-Z 0-9 only)__
 
-This warning is displayed at the bottom of the active screen
-       in the color RED
+This warning is displayed at the bottom of the active screen in the color RED
 
 ### <a name="generalusage-leaving" />Leaving a sub-module (part of the program)
 
@@ -205,11 +204,11 @@ In this sub menu you can query for a user or user specific items.
 With this helper you can look-up an username if you only know part
 of its name.
 
-Example usage:
+__Example usage:__
 
 1: Enter username: [ert]
 
-result:
+__result:__
 
 dn: uid=labert,ou=People,dc=unix,dc=example,dc=org  
 dn: uid=lerts,ou=People,dc=unix,dc=example,dc=org  
@@ -219,11 +218,11 @@ dn: uid=robert,ou=People,dc=unix,dc=example,dc=org
 
 With this helper you can lookup all attributes of a single user.
 
-Example usage:
+__Example usage:__
 
 1: Enter username: [robert]
 
-result:
+__result:__
 
 dn: uid=robert,ou=People,dc=unix,dc=example,dc=org  
 employeeType: Staff  
@@ -248,11 +247,11 @@ uidNumber or a student registration number.
 With this helper you can lookup all exports for this user known in
 the LDAP database. Thus all autofs entries.
 
-Example usage:
+__Example usage:__
 
 1: Enter username: [robert]  
 
-result:  
+__result:__  
 
 dn: cn=robert,ou=auto.home,ou=Autofs,dc=unix,dc=example,dc=org  
 -soft,intr,nosuid nfs-server01:/users/staff:&  
@@ -280,12 +279,12 @@ certain group.
 
 With this helper you can lookup all groups
 
-Example usage:
+__Example usage:__
 
 Use your arrow keys to scroll through all available groups and use
 escape to exit this helper.
 
-result:
+__result:__
 
 ...  
 dn: cn=acmmm,ou=Group,dc=unix,dc=example,dc=org  
@@ -300,17 +299,17 @@ dn: cn=apparc,ou=Group,dc=unix,dc=example,dc=org
 
 With this helper you can lookup groups assign to a user.
 
-Example usage:
+__Example usage:__
 
-Enter username: [fverbeek]
+Enter username: [fbeek]
 
-result:
+__result:__
 
-|gidNumber|Primary group DN for user fverbeek|
+|gidNumber|Primary group DN for user fbeek|
 |:--------|:---------------------------------|
 |100      |dn: cn=staff,ou=Group,dc=unix,dc=example,dc=org|
   
-|gidNumber|Non-primary groups DNs for user fverbeek|
+|gidNumber|Non-primary groups DNs for user fbeek|
 |:--------|:---------------------------------------|
 |11177    | dn: cn=cshrpr,ou=Group,dc=unix,dc=example,dc=org |
 |11147    | dn: cn=cszebra,ou=Group,dc=unix,dc=example,dc=org| 
@@ -320,18 +319,18 @@ result:
 |11192    | dn: cn=csre,ou=Group,dc=unix,dc=example,dc=org   |
 |11144    | dn: cn=csbio,ou=Group,dc=unix,dc=example,dc=org  |
   
-Note: In this example the user 'fverbeek' has primary group  
+Note: In this example the user 'fbeek' has primary group  
 'staff' with gidNumber '100' and seven secondary groups.  
 
 ### <a name="searchmenu-group-byname" />-> Group -> By group name
 
 With this helper you can lookup members of a given group.
 
-Example usage:
+__Example usage:__
 
 Enter groupname: [csdale]
 
-result:
+__result:__
 
 |Members of group csdale|(gidNumber: 11158)|
 |:----------------------|:-----------------|
@@ -353,12 +352,12 @@ groups of a netgroup.
 
 This helper gives a list of all available netgroups. 
 
-Example usage:
+__Example usage:__
 
 Use your arrow keys to scroll through all available groups and use
 escape to exit this helper.
 
-result:
+__result:__
 
 ...  
 dn: cn=allse,ou=Netgroup,dc=unix,dc=example,dc=nl  
@@ -373,11 +372,11 @@ dn: cn=cdh000c,ou=Netgroup,dc=unix,dc=example,dc=nl
 
 This helper shows the netgroups a user is member of.
 
-Example usage:
+__Example usage:__
 
-Enter username: [fverbeek]
+Enter username: [fbeek]
 
-result:
+__result:__
 
 dn: cn=sun,ou=Netgroup,dc=unix,dc=example,dc=nl  
 dn: cn=pc156a,ou=Netgroup,dc=unix,dc=example,dc=nl  
@@ -385,20 +384,20 @@ dn: cn=pc409a,ou=Netgroup,dc=unix,dc=example,dc=nl
 dn: cn=users-pc306,ou=Netgroup,dc=unix,dc=example,dc=nl  
 dn: cn=users-pc302,ou=Netgroup,dc=unix,dc=example,dc=nl  
 
-Note: In this example the user fverbeek is a member of the netgroups
+Note: In this example the user fbeek is a member of the netgroups
 'sun', 'pc156a', 'pc409a', 'users-pc306 and 'users-pc302'. All
-hosts in sun, pc156a etc..are hosts the user fverbeek has access
+hosts in sun, pc156a etc..are hosts the user fbeek has access
 to.
 
 ### <a name="searchmenu-netgroup-information" />-> Netgroup -> Information
 
 This helper shows all information of a given netgroup.
 
-Example usage:
+__Example usage:__
 
 Enter netgroup: [users-pc302]
 
-result:
+__result:__
 
 |Distinguished name of netgroup users-pc302||||
 |:--------------|:--------------|:--------------|:--------------|
@@ -421,7 +420,7 @@ result:
 |(-,acervell,)  | (-,achaibra,) | (-,achinedu,) | (-,aclairmo,) | 
 |(-,acomley,)   | (-,adarvish,) | (-,adegroot,) | (-,adejonge,) | 
 
-Note: In this example there are only user 'triples' in the
+__Note:__ In this example there are only user 'triples' in the
 netgroup 'users-pc302'. If we would lookup netgroup 'pc302a' we
 can observe that is only has one member nis-group, 'users-pc302'.
 Using this mechanism users and hosts are bind-ed together.
@@ -436,38 +435,37 @@ This helper gives an overview of all write-transactions from MPLS
 to the LDAP database. Each column in the overview gives specific
 information about the transaction
 
-TID: Transaction identification number. It's a UNIX date-stamp in
+__TID:__ Transaction identification number. It's a UNIX date-stamp in
 seconds (thus always incrementing!)
 
-Entity: The user, group or netgroup which is modified.
+__Entity:__ The user, group or netgroup which is modified.
 
-Date: The transaction date (computed from the TID)
+__Date:__ The transaction date (computed from the TID)
 
-Type: The type of modification made.  
+__Type:__ The type of modification made.  
 E.g. add-grp (a unix group is added), multiple-user-add (a bunch of users was created) etc...
 
-Action: There are three types of actions:
+__Action:__ There are three types of actions:
 
-	done: 	This is a transaction done somewhere in	the past.
+__done:__ 	This is a transaction done somewhere in	the past.
 
-	undo: 	For every transaction there exists an undo
+__undo:__ 	For every transaction there exists an undo
 		file. The undo transaction is not
 		committed (yet) to the LDAP server but can
 		be used to undo a past transaction.
 
-	reverted:
-		These are the undo transactions which has
+__reverted:__	These are the undo transactions which has
 		been committed. Thus if you commit an undo
 		transaction it becomes a reverted
 		transaction.
 
-Example usage:
+__Example usage:__
 
 Use your arrow keys to scroll through all available transactions.
 Press enter to view the highlighted entry and escape to leave the
 helper.
 
-result:
+__result:__
 
 Show transaction
 
@@ -501,11 +499,11 @@ common name and automount export.
 All these items are free selectable from predefined list (where
 applicable) or free text fields.
 
-Example usage:
+__Example usage:__
 
 First enter a new (free) username.
 
-NOTE: If the username is not free, a warning will be issued and
+__NOTE:__ If the username is not free, a warning will be issued and
 the helper will abort all actions! (e.g. ERROR: User robert
 already exists!)
 
@@ -528,7 +526,7 @@ cn:                   ---
 If you change the employeeType, the uidNumber, employeeNumber and
 gidNumber will change accordingly. (Use arrow keys to select!)
 
-Example:
+__Example:__
 
 * employeeType:         /------------\
   uid:                  | CS-Account |
@@ -542,14 +540,14 @@ Example:
   automountInformation: ---
   cn:                   ---
 
-NOTE: An asterix ' * ' will appear before each changed user
+__NOTE:__ An asterix ' * ' will appear before each changed user
 attribute.
 
 If you change the automountInformation attribute a list of autofs
 exports will be presented. Please choose the appropriate export for
 the new user with you arrow keys and press enter to select.
 
-Example:
+__Example:__
 
 Select export for account
 
@@ -594,11 +592,11 @@ You almost always want to print this account form. If you choose
 to do so, a list of available CUPS printers will be presented.
 Select your printer of choice and printout the account-form. 
 
-NOTE: If you press enter this screen will be erased and there are
+__NOTE:__ If you press enter this screen will be erased and there are
 NO means to retrieve the password (unless you print the
 account form by hand!!!)
 
-NOTE: Per default, no netgroups will be assigned to this new user.
+__NOTE:__ Per default, no netgroups will be assigned to this new user.
 If you wish, you can assign these memberships separately.
 
 ### <a name="modifymenu-user-deluser" />-> User -> Delete user
@@ -608,11 +606,11 @@ deleted an undo-file is created. From this undo-file you can
 re-create the user, its (net-)group membership and its autofs
 exports.
 
-Example usage:
+__Example usage:__
 
 Enter username: [masikh]
 
-result:
+__result:__
 
 'OK' or 'NO such user!'
 
@@ -622,11 +620,11 @@ NOTE: A transaction is added to the transaction list afterward.
 
 With this helper you can reset a user its password.
 
-Example usage:
+__Example usage:__
 
 Enter username: [masikh]
 
-result:
+__result:__
 
 Password reset: OK
 New Password: unZl2gs3VI  
@@ -636,7 +634,7 @@ New Password: unZl2gs3VI
 With this helper its possible to change EVERY attribute of a given
 user. Yes even the username itself! (mod(r)dn in LDAP terms)
 
-Thus you can change:
+__Thus you can change:__
 
 EmployeeType, uid, loginShell, sn, uidNumber, gidNumber, gecos,
 employeeNumber, homeDirectory, automountInformation and cn.
@@ -647,7 +645,7 @@ be reported. E.g.
 ERROR Moving dn: uid=masikh,ou=People,dc=unix,dc=example,dc=nl REASON:
 Already exists
 
-Example usage:
+__Example usage:__
 
 Enter username: [masikh]
 
@@ -671,7 +669,7 @@ Do you wish to commit the changes? [y|n]
 
 'y' will commit the changes made.
 
-NOTE: An astrix ' * ' means a changed attribute.
+__NOTE:__ An astrix ' * ' means a changed attribute.
 
 ### <a name="modifymenu-user-add-multiple" />-> User -> Add multiple users
 
@@ -698,7 +696,7 @@ After you pasted the users, two more questions will be asked.
 	* automountInformation (where is the NFS homedir of the
 	  new user(s)
 
-Example usage:
+__Example usage:__
 
 Add users
 
@@ -733,7 +731,7 @@ Finally you'll be asked if you wish to print the new account-forms
 on a CUPS printer of your choice (Highly recommended to answer
 yes!!!)
 
-Example:
+__Example:__
 
 Queue               Location
 -----------------------------------------------------------------
@@ -760,14 +758,14 @@ changes in the MPLS environment file also. See chapter
 
 If you try to add an existing group, an error is reported.
 
-Example usage:
+__Example usage:__
 
 Add new group
 	
 Enter group:   [csdale]
 Is this group a primairy group?: [y/n]
 
-result:
+__result:__
 
 'OK' or 'Group csdale already exist!'
 
@@ -778,11 +776,11 @@ you deleted the wrong group the undo feature (transaction logs)
 will enable you to fully revert that transaction. With fully is
 ment, re-add the group PLUS its group-members.
 
-Example usage:
+__Example usage:__
 
 Enter group:   [csdale]
 
-result:
+__result:__
 
 'OK' or 'No such group'
 
@@ -791,7 +789,7 @@ result:
 With this helper you can modify group attributes. These attributes
 are: cn (the group name), gidNumber and the group password.
 
-Example usage:
+__Example usage:__
 
 Enter group:   [csdale]
 
@@ -805,18 +803,18 @@ If you're content with the modifications, press escape and commit
 the changes by answering 'y' on the question 'Do you wish to
 commit changes? [y|[n]]'.
 
-NOTE: This transaction is logged and revertable
+__NOTE:__ This transaction is logged and revertable
 
 ### <a name="modifymenu-group-adduser" />-> Group -> Link user to group
 
 With this helper you can add a user to a group.
 
-Example usage:
+__Example usage:__
 
 Enter username:   [masikh]
 Enter group:      [csdale]
 
-result:
+__result:__
 
 'OK' or 'User masikh already in group csdale'
 
@@ -824,12 +822,12 @@ result:
 
 With this helper you can remove a user from a group
 
-Example usage:
+__Example usage:__
 
 Enter username:   [masikh]
 Enter group:      [csdale]
 
-result:
+__result:__
 
 'OK' or 'User masikh is not a member of group csdale!'
 
@@ -843,11 +841,11 @@ user, host or netgroup itself.
 
 With this helper you can add a new netgroup to the LDAP database.
 
-Example usage:
+__Example usage:__
 
 Enter netgroup:  [lgm]
 
-result:
+__result:__
 
 'netgroup lgm created' or 'ERROR: netgroup lgm already exists!'
 
@@ -856,11 +854,11 @@ result:
 With this helper you can remove a netgroup from the LDAP
 database. 
 
-Example usage:
+__Example usage:__
 
 Enter netgroup:  [lgm]
 
-result:
+__result:__
 
 'OK' or 'ERROR: netgroup lgm does not exists!'
 
@@ -868,12 +866,12 @@ result:
 
 With this helper you can add a user to a netgroup.
 
-Example usage:
+__Example usage:__
 
 Enter username:  [masikh]
 Enter netgroup:  [users-sil]
 
-result:
+__result:__
 
 'OK' or 'ERROR: netgroup users-sil does not exists!' or 'ERROR:
 user masikh does not exists!'
@@ -882,12 +880,12 @@ user masikh does not exists!'
 
 With this helper you can add a hostname to a netgroup.
 
-Example usage:
+__Example usage:__
 
 Enter hostname:  [stoeidoos]
 Enter netgroup:  [allwi]
 
-result:
+__result:__
 
 'OK' or 'ERROR: netgroup allwi does not exists!'
 
@@ -897,12 +895,12 @@ With this helper you can add a netgroup to a netgroup (Yes,
 recursion!) It gives you the possibility to nest netgroups. This
 reduces the amount of netgroups needed to run you business.
 
-Example usage:
+__Example usage:__
 
 Enter parent netgroup:  [allwi]
 Enter child netgroup:   [wsstaf]
 
-result:
+__result:__
 
 'OK' or 'ERROR: netgroup .... does not exist!'
 
