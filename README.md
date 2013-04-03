@@ -449,7 +449,7 @@ result:
 Show transaction
 
 |Transaction| Entity | Date | Type | Action |
-|-----------| :------| ---- | ---- | ------ |
+|:-----------| :------| :---- | :---- | :------ |
 |1363183419 | Bijvak | Wed Mar 13 15:03 2013 | multiple-user-add | done |
 |1363183419 | Bijvak | Wed Mar 13 15:03 2013 | multiple-user-add | undo | 
 |1363178314 | Student| Wed Mar 13 13:38 2013 | multiple-user-add | done | 
