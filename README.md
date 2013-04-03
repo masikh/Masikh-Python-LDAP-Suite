@@ -429,8 +429,8 @@ __Result:__
 └──[Search > Group > By user name]─────────────────────────────────────────────┘
 ```
 
-Note: In this example the user 'fbeek' has primary group  
-'staff' with gidNumber '100' and seven secondary groups.  
+Note: In this example the user 'robert' has primary group  
+'staff' with gidNumber '100' and three secondary groups.  
 
 ### <a name="searchmenu-group-byname" />-> Group -> By group name
 
@@ -520,17 +520,33 @@ This helper shows the netgroups a user is member of.
 __Example usage:__
 
 ```bash
-Enter username: [fbeek]
+┌──────────────────────────────────────────────────────────────────────────────┐
+│    Search           Modify           Login           Help           Exit     │
+│──┌───────────────┐───────────────────────────────────────────────────────────│
+│┌────────────────────────────────────────────────────────────────────────────┐│
+││                                                                            ││
+││ Query netgroup membership                                                  ││
+││                                                                            ││
+││ Enter username: robert                                                     ││
+││                                                                            ││
+│└────────────────────────────────────────────────────────────────────────────┘│
+└──[Search > Netgroup > Show Membership]───────────────────────────────────────┘
 ```
 
 __Result:__
 
 ```bash
-dn: cn=sun,ou=Netgroup,dc=unix,dc=example,dc=nl  
-dn: cn=pc156a,ou=Netgroup,dc=unix,dc=example,dc=nl  
-dn: cn=pc409a,ou=Netgroup,dc=unix,dc=example,dc=nl  
-dn: cn=users-pc306,ou=Netgroup,dc=unix,dc=example,dc=nl  
-dn: cn=users-pc302,ou=Netgroup,dc=unix,dc=example,dc=nl  
+┌──────────────────────────────────────────────────────────────────────────────┐
+│    Search           Modify           Login           Help           Exit     │
+│──┌───────────────┐───────────────────────────────────────────────────────────│
+│┌────────────────────────────────────────────────────────────────────────────┐│
+││dn: cn=sh,ou=Netgroup,dc=unix,dc=example,dc=nl                              ││
+││dn: cn=sun,ou=Netgroup,dc=unix,dc=example,dc=nl                             ││
+││dn: cn=stoeidoos,ou=Netgroup,dc=unix,dc=example,dc=nl                       ││
+││dn: cn=pc56a,ou=Netgroup,dc=unix,dc=example,dc=nl                           ││
+││                                                                            ││
+│└─[use arrow keys for scrolling or [ESC] for quit]───────────────────────────┘│
+└──[Search > Netgroup > Show Membership]───────────────────────────────────────┘
 ```
 
 Note: In this example the user fbeek is a member of the netgroups
@@ -545,30 +561,46 @@ This helper shows all information of a given netgroup.
 __Example usage:__
 
 ```bash
-Enter netgroup: [users-pc302]
+┌──────────────────────────────────────────────────────────────────────────────┐
+│    Search           Modify           Login           Help           Exit     │
+│──┌───────────────┐───────────────────────────────────────────────────────────│
+│┌────────────────────────────────────────────────────────────────────────────┐│
+││                                                                            ││
+││ Query netgroup information                                                 ││
+││                                                                            ││
+││ Enter netgroup: users-pc302                                                ││
+││                                                                            ││
+│└────────────────────────────────────────────────────────────────────────────┘│
+└──[Search > Netgroup > Information]───────────────────────────────────────────┘
 ```
 
 __Result:__
 
 ```bash
-Distinguished name of netgroup users-pc302
------------------------------------------------------------------
-dn: cn=users-pc302,ou=Netgroup,dc=unix,dc=example,dc=nl
-
-Member nis-groups of nis-group users-pc302
------------------------------------------------------------------
-
-Host triples in netgroup
------------------------------------------------------------------
-
-User triples in netgroup
------------------------------------------------------------------
-(-,aakachar,)   (-,aaleman,)   (-,aandreye,)  (-,aandring,) 
-(-,aanton,)     (-,aassink,)   (-,abacaoan,)  (-,abaggio,)  
-(-,abaihaki,)   (-,abegia,)    (-,abijlsma,)  (-,abom,)     
-(-,aboogert,)   (-,abosman,)   (-,acaraghi,)  (-,acavusog,)   
-(-,acervell,)   (-,achaibra,)  (-,achinedu,)  (-,aclairmo,)  
-(-,acomley,)    (-,adarvish,)  (-,adegroot,)  (-,adejonge,)  
+┌──────────────────────────────────────────────────────────────────────────────┐
+│    Search           Modify           Login           Help           Exit     │
+│──┌───────────────┐───────────────────────────────────────────────────────────│
+│┌────────────────────────────────────────────────────────────────────────────┐│
+││Distinguished name of netgroup users-pc302                                  ││
+││-------------------------------------                                       ││
+││dn: cn=users-pc302,ou=Netgroup,dc=unix,dc=example,dc=nl                     ││
+││                                                                            ││
+││Member nis-groups of nis-group users-pc302                                  ││
+││-------------------------------------                                       ││
+││                                                                            ││
+││Host triples in netgroup                                                    ││
+││-------------------------------------                                       ││
+││                                                                            ││
+││User triples in netgroup                                                    ││
+││-------------------------------------                                       ││
+││(-,akacar,)   (-,aleman,)    (-,adrye,)    (-,anding,)                      ││
+││(-,aton,)     (-,assink,)    (-,abcaan,)   (-,baggio,)                      ││
+││(-,ahaki,)    (-,agia,)      (-,abijla,)   (-,bom,)                         ││
+││(-,aogert,)   (-,aman,)      (-,araghi,)   (-,acvuog,)                      ││
+││(-,aervel,)   (-,achaib,)    (-,achine,)   (-,aclair,)                      ││
+││(-,acomy,)    (-,adarv,)     (-,aroot,)    (-,ajonge,)                      ││
+│└─[use arrow keys for scrolling or [ESC] for quit]───────────────────────────┘│
+└──[Search > Netgroup > Information]───────────────────────────────────────────┘
 ```
 
 __Note:__ In this example there are only user 'triples' in the
