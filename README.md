@@ -175,7 +175,7 @@ In this menu you can query for user, group or NIS-netgroups items.
 Furthermore, you can query all transactions/modifications on the
 LDAP database via MPLS.
 
-### <a name="seachmenu---user" />Search -> User
+### <a name="seachmenu-user" />Search -> User
 
 In this sub menu you can query for a user or user specific items.
 
