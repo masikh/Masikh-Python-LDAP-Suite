@@ -511,18 +511,19 @@ Enter new username: [masikh]
 
 After you press enter the following screen will appear:
 
-employeeType:         Staff
-uid:                  masikh
-loginShell:           /bin/tcsh
-uidNumber:            58441
-employeeNumber:       100.58441
-gidNumber:            100
-gecos:                ---
-sn:                   ---
-homeDirectory:        /home/masikh
-automountInformation: ---
-cn:                   --- 
-
+```bash
+    employeeType:         Staff
+    uid:                  masikh
+    loginShell:           /bin/tcsh
+    uidNumber:            58441
+    employeeNumber:       100.58441
+    gidNumber:            100
+    gecos:                ---
+    sn:                   ---
+    homeDirectory:        /home/masikh
+    automountInformation: ---
+    cn:                   --- 
+```
 If you change the employeeType, the uidNumber, employeeNumber and
 gidNumber will change accordingly. (Use arrow keys to select!)
 
