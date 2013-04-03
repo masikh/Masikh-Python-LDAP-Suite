@@ -759,27 +759,41 @@ __Example usage:__
 ││       1292285:Andrada:A.I.::Bacaoanu                                       ││
 ││       . <- End of file marker!!!                                           ││
 ││                                                                            ││
-││ Paste file contents here: Maximal 500 lines, including the '.' marker!     ││
+││ Paste file contents here: 2 lines pasted, 0 lines discarded.               ││
 ││┌──────────────────────────────────────────────────────────────────────────┐││
 │││                                                                          │││
 │││                                                                          │││
-│││                                                                          │││
-│││                                                                          │││
-│││                                                                          │││
+│││12345123:Robert:RDA::Nagtegaal                                            │││
+│││12342132:Dirk:DS::Stoop                                                   │││
+│││.                                                                         │││
 ││└──────────────────────────────────────────────────────────────────────────┘││
-│└─[Use [ESC] to abort!]──────────────────────────────────────────────────────┘│
+│└────────────────────────────────────────────────────────────────────────────┘│
 └──[Modify > User > Add multiple users]────────────────────────────────────────┘
 ```
 After this two questions about employeeType and
 automountInformation will be asked:
 
-* employeeType:         CDH
-* automountInformation: -soft,intr,nosuid nfs-server02:/users/13/student:&
+```bash
+┌──────────────────────────────────────────────────────────────────────────────┐
+│    Search           Modify           Login           Help           Exit     │
+│────────────────────┌─────────────┐───────────────────────────────────────────│
+│┌────────────────────────────────────────────────────────────────────────────┐│
+││                                                                            ││
+││ Add users                                                                  ││
+││                                                                            ││
+││*employeeType:         Guest                                                ││
+││*automountInformation: -soft,intr,nosuid nfs-server02:/users/15/student:&   ││
+││                                                                            ││
+│└─[Press [ESC] when done, [arrow keys] to select and [enter] to edit.]───────┘│
+└──[Modify > User > Add multiple users]────────────────────────────────────────┘
+```
 
 Press escape when all is filled in correctly. A do you which to
 commit question will be asked. E.g.
 
-Ready to add 3 users, do you wish to continue? [y|n]
+```bash
+Ready to add 2 users, do you wish to continue? [y|n]
+```
 
 Finally you'll be asked if you wish to print the new account-forms
 on a CUPS printer of your choice (Highly recommended to answer
@@ -787,6 +801,7 @@ yes!!!)
 
 __Example:__
 
+```bash
 Queue               Location
 -----------------------------------------------------------------
 ISSC-P2202-17       Snellius, kamer 47, PAND 2202
@@ -795,6 +810,7 @@ ISSC-P2202-20       Snellius, kamer 40, PAND 2202
 ISSC-P2202-24       Snellius, kamer 404, PAND 2202
 ISSC-P2202-33       Snellius, kamer 56, PAND 2202
 hp-106-bw           Snellius, kamer 106, PAND 2202
+```
 
 ### <a name="modifymenu-group" />Modify -> Group
 
@@ -814,10 +830,20 @@ If you try to add an existing group, an error is reported.
 
 __Example usage:__
 
-Add new group
-	
-Enter group:   [csdale]
-Is this group a primairy group?: [y/n]
+```bash
+┌──────────────────────────────────────────────────────────────────────────────┐
+│    Search           Modify           Login           Help           Exit     │
+│────────────────────┌─────────────┐───────────────────────────────────────────│
+│┌────────────────────────────────────────────────────────────────────────────┐│
+││                                                                            ││
+││ Add new group                                                              ││
+││                                                                            ││
+││ Enter group:    csdale                                                     ││
+││ Is this group a primairy group?: [y/n]                                     ││
+││                                                                            ││
+│└────────────────────────────────────────────────────────────────────────────┘│
+└──[Modify > Group > Add new group]────────────────────────────────────────────┘
+```
 
 __Result:__
 
@@ -831,9 +857,19 @@ will enable you to fully revert that transaction. With fully is
 ment, re-add the group PLUS its group-members.
 
 __Example usage:__
-
-Enter group:   [csdale]
-
+```bash
+┌──────────────────────────────────────────────────────────────────────────────┐
+│    Search           Modify           Login           Help           Exit     │
+│────────────────────┌─────────────┐───────────────────────────────────────────│
+│┌────────────────────────────────────────────────────────────────────────────┐│
+││                                                                            ││
+││ Delete group                                                               ││
+││                                                                            ││
+││ Enter group:    csdale                                                     ││
+││                                                                            ││
+│└─[Press any key to continue]────────────────────────────────────────────────┘│
+└──[Modify > Group > Delete group]─────────────────────────────────────────────┘
+```
 __Result:__
 
 'OK' or 'No such group'
@@ -849,9 +885,21 @@ Enter group:   [csdale]
 
 In a new screen you can change the group attributes: e.g.
 
-cn                csdale
-gidNumber         11158
-userPassword      {crypt} *
+```bash
+┌──────────────────────────────────────────────────────────────────────────────┐
+│    Search           Modify           Login           Help           Exit     │
+│────────────────────┌─────────────┐───────────────────────────────────────────│
+│┌────────────────────────────────────────────────────────────────────────────┐│
+││                                                                            ││
+││ Modifying group csdale                                                     ││
+││                                                                            ││
+││ cn                csdale                                                   ││
+││ gidNumber         11158                                                    ││
+││ userPassword      {crypt}*                                                 ││
+││                                                                            ││
+│└─[Use [ESC] when done or to quit, [arrow] selects item, [enter] modify item]┘│
+└──[Modify > Group > Modify group]─────────────────────────────────────────────┘
+```
 
 If you're content with the modifications, press escape and commit
 the changes by answering 'y' on the question 'Do you wish to
@@ -865,9 +913,20 @@ With this helper you can add a user to a group.
 
 __Example usage:__
 
-Enter username:   [masikh]
-Enter group:      [csdale]
-
+```bash
+┌──────────────────────────────────────────────────────────────────────────────┐
+│    Search           Modify           Login           Help           Exit     │
+│────────────────────┌─────────────┐───────────────────────────────────────────│
+│┌────────────────────────────────────────────────────────────────────────────┐│
+││                                                                            ││
+││ Link user to group                                                         ││
+││                                                                            ││
+││ Enter username: masikh                                                     ││
+││ Enter group:    csdale                                                     ││
+││                                                                            ││
+│└────────────────────────────────────────────────────────────────────────────┘│
+└──[Modify > Group > Link user to group]───────────────────────────────────────┘
+```
 __Result:__
 
 'OK' or 'User masikh already in group csdale'
@@ -878,8 +937,20 @@ With this helper you can remove a user from a group
 
 __Example usage:__
 
-Enter username:   [masikh]
-Enter group:      [csdale]
+```bash
+┌──────────────────────────────────────────────────────────────────────────────┐
+│    Search           Modify           Login           Help           Exit     │
+│────────────────────┌─────────────┐───────────────────────────────────────────│
+│┌────────────────────────────────────────────────────────────────────────────┐│
+││                                                                            ││
+││ Unlink user from group                                                     ││
+││                                                                            ││
+││ Enter username: masikh                                                     ││
+││ Enter group:    csdale                                                     ││
+││                                                                            ││
+│└────────────────────────────────────────────────────────────────────────────┘│
+└──[Modify > Group > Unlink user from group]───────────────────────────────────┘
+```
 
 __Result:__
 
@@ -897,7 +968,19 @@ With this helper you can add a new netgroup to the LDAP database.
 
 __Example usage:__
 
-Enter netgroup:  [lgm]
+```bash
+┌──────────────────────────────────────────────────────────────────────────────┐
+│    Search           Modify           Login           Help           Exit     │
+│────────────────────┌─────────────┐───────────────────────────────────────────│
+│┌────────────────────────────────────────────────────────────────────────────┐│
+││                                                                            ││
+││ Add new netgroup                                                           ││
+││                                                                            ││
+││ Enter netgroup: lgm                                                        ││
+││                                                                            ││
+│└─[Press any key to continue]────────────────────────────────────────────────┘│
+└──[Modify > Netgroup > Add new netgroup]──────────────────────────────────────┘
+```
 
 __Result:__
 
@@ -910,7 +993,19 @@ database.
 
 __Example usage:__
 
-Enter netgroup:  [lgm]
+```bash
+┌──────────────────────────────────────────────────────────────────────────────┐
+│    Search           Modify           Login           Help           Exit     │
+│────────────────────┌─────────────┐───────────────────────────────────────────│
+│┌────────────────────────────────────────────────────────────────────────────┐│
+││                                                                            ││
+││ Delete netgroup                                                            ││
+││                                                                            ││
+││ Enter netgroup: lgm                                                        ││
+││                                                                            ││
+│└─[Press any key to continue]────────────────────────────────────────────────┘│
+└──[Modify > Netgroup > Delete netgroup]───────────────────────────────────────┘
+```
 
 __Result:__
 
@@ -922,8 +1017,22 @@ With this helper you can add a user to a netgroup.
 
 __Example usage:__
 
-Enter username:  [masikh]
-Enter netgroup:  [users-sil]
+```bash
+┌──────────────────────────────────────────────────────────────────────────────┐
+│    Search           Modify           Login           Help           Exit     │
+│────────────────────┌─────────────┐───────────────────────────────────────────│
+│┌────────────────────────────────────────────────────────────────────────────┐│
+││                                                                            ││
+││ Link user to netgroup                                                      ││
+││                                                                            ││
+││ Enter username: masikh                                                     ││
+││ Enter netgroup: users-sil                                                  ││
+││                                                                            ││
+││ ERROR: user masikh does not exists!                                        ││
+││                                                                            ││
+│└─[Press any key to continue]────────────────────────────────────────────────┘│
+└──[Modify > Netgroup > Link entity to netgroup > User to netgroup]────────────┘
+```
 
 __Result:__
 
@@ -936,12 +1045,25 @@ With this helper you can add a hostname to a netgroup.
 
 __Example usage:__
 
-Enter hostname:  [stoeidoos]
-Enter netgroup:  [allwi]
+```bash
+┌──────────────────────────────────────────────────────────────────────────────┐
+│    Search           Modify           Login           Help           Exit     │
+│────────────────────┌─────────────┐───────────────────────────────────────────│
+│┌────────────────────────────────────────────────────────────────────────────┐│
+││                                                                            ││
+││ Link host to netgroup                                                      ││
+││                                                                            ││
+││ Enter hostname: stoeidoos                                                  ││
+││ Enter netgroup: sil                                                        ││
+││                                                                            ││
+││ OK                                                                         ││
+││                                                                            ││
+│└─[Press any key to continue]────────────────────────────────────────────────┘│
+└──[Modify > Netgroup > Link entity to netgroup > Host to netgroup]────────────┘
 
 __Result:__
 
-'OK' or 'ERROR: netgroup allwi does not exists!'
+'OK' or 'ERROR: netgroup sil does not exists!'
 
 ### <a name="modifymenu-netgroup-linkgroup" />-> Netgroup -> Link entity to netgroup -> Netgroup to netgroup
 
@@ -951,8 +1073,20 @@ reduces the amount of netgroups needed to run you business.
 
 __Example usage:__
 
-Enter parent netgroup:  [allwi]
-Enter child netgroup:   [wsstaf]
+```bash
+┌──────────────────────────────────────────────────────────────────────────────┐
+│    Search           Modify           Login           Help           Exit     │
+│────────────────────┌─────────────┐───────────────────────────────────────────│
+│┌────────────────────────────────────────────────────────────────────────────┐│
+││                                                                            ││
+││ Link netgroup to netgroup                                                  ││
+││                                                                            ││
+││ Enter parent netgroup: silver                                              ││
+││ Enter child netgroup:  stoeidoos                                           ││
+││                                                                            ││
+│└─[Press any key to continue]────────────────────────────────────────────────┘│
+└──[Modify > Netgroup > Link entity to netgroup > Netgroup to netgroup]────────┘
+```
 
 __Result:__
 
