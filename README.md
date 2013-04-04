@@ -1447,6 +1447,11 @@ With this helper you can add a netgroup to a netgroup (Yes,
 recursion!) It gives you the possibility to nest netgroups. This
 reduces the amount of netgroups needed to run you business.
 
+E.g. A netgroup 'users-sil' might contain all
+users allowed to login to hosts in the netgroup 'sil'. To allow 
+these users to login to these host, one has to add the netgroup
+'users-sil' to 'sil'.
+
 __Example usage:__
 
 ```bash
@@ -1468,13 +1473,189 @@ __Result:__
 
 'OK' or 'ERROR: netgroup .... does not exist!'
 
-### <a name="modifymenu-netgroup-unlinkuser" />-> Netgroup -> Unlink entity to netgroup -> User to netgroup
-### <a name="modifymenu-netgroup-unlinkhost" />-> Netgroup -> Unlink entity to netgroup -> Host to netgroup
-### <a name="modifymenu-netgroup-unlinkgroup" />-> Netgroup -> Unlink entity to netgroup -> Netgroup to netgroup
+### <a name="modifymenu-netgroup-unlinkuser" />-> Netgroup -> Unlink entity to netgroup -> User from netgroup
+
+With this this helper you can remove a user from a given netgroup,
+thus revoking the authorization for parts (or the whole) of your
+network equipment (e.g. a number of hosts)
+
+__Example usage:__
+
+```bash
+┌──────────────────────────────────────────────────────────────────────────────┐
+│    Search           Modify           Login           Help           Exit     │
+│────────────────────┌─────────────┐───────────────────────────────────────────│
+│┌────────────────────────────────────────────────────────────────────────────┐│
+││                                                                            ││
+││ Unlink user from netgroup                                                  ││
+││                                                                            ││
+││ Enter username: robert                                                     ││
+││ Enter netgroup: sil                                                        ││
+││                                                                            ││
+│└────────────────────────────────────────────────────────────────────────────┘│
+└──[Modify > Netgroup > Unlink entity from netgroup  > User from netgroup]─────┘
+```
+__result:__
+```bash
+┌──────────────────────────────────────────────────────────────────────────────┐
+│    Search           Modify           Login           Help           Exit     │
+│────────────────────┌─────────────┐───────────────────────────────────────────│
+│┌────────────────────────────────────────────────────────────────────────────┐│
+││                                                                            ││
+││ Unlink user from netgroup                                                  ││
+││                                                                            ││
+││ Enter username: robert                                                     ││
+││ Enter netgroup: users-silver                                               ││
+││                                                                            ││
+││ ERROR: robert is not a member of netgroup users-sil                        ││
+││                                                                            ││
+│└─[Press any key to continue]────────────────────────────────────────────────┘│
+└──[Modify > Netgroup > Unlink entity from netgroup  > User from netgroup]─────┘
+```
+
+'OK' or 'ERROR: robert is not a member of netgroup users-sil'
+
+### <a name="modifymenu-netgroup-unlinkhost" />-> Netgroup -> Unlink entity to netgroup -> Host from netgroup
+
+With this helper you can remove a hostname from a given netgroup.
+The given hostname is the name know to the LDAP database not DNS!
+
+__Example usage:__
+```bash
+┌──────────────────────────────────────────────────────────────────────────────┐
+│    Search           Modify           Login           Help           Exit     │
+│────────────────────┌─────────────┐───────────────────────────────────────────│
+│┌────────────────────────────────────────────────────────────────────────────┐│
+││                                                                            ││
+││ Unlink host from netgroup                                                  ││
+││                                                                            ││
+││ Enter hostname: stoeidoos                                                  ││
+││ Enter netgroup: sil                                                        ││
+││                                                                            ││
+│└────────────────────────────────────────────────────────────────────────────┘│
+└──[Modify > Netgroup > Unlink entity from netgroup  > Host from netgroup]─────┘
+```
+__result:__
+```bash
+┌──────────────────────────────────────────────────────────────────────────────┐
+│    Search           Modify           Login           Help           Exit     │
+│────────────────────┌─────────────┐───────────────────────────────────────────│
+│┌────────────────────────────────────────────────────────────────────────────┐│
+││                                                                            ││
+││ Unlink host from netgroup                                                  ││
+││                                                                            ││
+││ Enter hostname: stoeidoos                                                  ││
+││ Enter netgroup: sil                                                        ││
+││                                                                            ││
+││ OK                                                                         ││
+││                                                                            ││
+│└─[Press any key to continue]────────────────────────────────────────────────┘│
+└──[Modify > Netgroup > Unlink entity from netgroup  > Host from netgroup]─────┘
+```
+'OK' or 'ERROR: stoeidoos is not a host in netgroup sil' or
+'ERROR: netgroup sil does not exists!'
+
+### <a name="modifymenu-netgroup-unlinkgroup" />-> Netgroup -> Unlink entity to netgroup -> Netgroup from netgroup
+
+With this helper you can remove a netgroup from a netgroup.
+Netgroups can be nested to build an abstraction of your
+organisation. E.g. A netgroup 'users-sil' might contain all
+users allowed to login to hosts in the netgroup 'sil'. To allow
+these users to login to these host, one has to add the netgroup
+'users-sil' to 'sil'. 
+
+__Example usage:__
+
+```bash
+┌──────────────────────────────────────────────────────────────────────────────┐
+│    Search           Modify           Login           Help           Exit     │
+│────────────────────┌─────────────┐───────────────────────────────────────────│
+│┌────────────────────────────────────────────────────────────────────────────┐│
+││                                                                            ││
+││ Unlink netgroup from netgroup                                              ││
+││                                                                            ││
+││ Enter parent netgroup: sil                                                 ││
+││ Enter child netgroup:  users-sil                                           ││
+││                                                                            ││
+│└────────────────────────────────────────────────────────────────────────────┘│
+└──[...fy > Netgroup > Unlink entity from netgroup  > Netgroup from netgroup]──┘
+```
+
+__result:__
+
+```bash
+┌──────────────────────────────────────────────────────────────────────────────┐
+│    Search           Modify           Login           Help           Exit     │
+│────────────────────┌─────────────┐───────────────────────────────────────────│
+│┌────────────────────────────────────────────────────────────────────────────┐│
+││                                                                            ││
+││ Unlink netgroup from netgroup                                              ││
+││                                                                            ││
+││ Enter parent netgroup: silver                                              ││
+││ Enter child netgroup:  users-silver                                        ││
+││                                                                            ││
+││ OK: Netgroup users-sil deleted from netgroup sil.                          ││
+││                                                                            ││
+│└─[Press any key to continue]────────────────────────────────────────────────┘│
+└──[...fy > Netgroup > Unlink entity from netgroup  > Netgroup from netgroup]──┘
+```
+'OK: Netgroup users-silver deleted from netgroup silver.' or
+'ERROR: netgroup users-silver is not a member of silver!' or
+'ERROR: netgroup silver does not exists'
 
 ## <a name="loginmenu" />Login Menu
+
+With this helper its possible to logon to a LDAP server without
+the predevined settings from the environment.py file. This enables
+un-privileged users to bind anonymously to a LDAP server or simply
+change any of the following at runtime: Servername, BaseDN, BindDN
+and the Password for the 'binding user'.
+Furthermore, entering the login menu triggers a login to the
+predevined LDAP server. A status of the connection will be shown
+at the bottom of the active window. E.g.
+
+[Authentication at ldap.unix.example.nl succesful]
+If you enter the helper with a predevined environment the output
+looks somewhat like this:
+
+Servername: ldap.unix.example.nl
+Base DN:    dc=unix,dc=example,dc=nl
+Bind DN:    cn=admin,dc=unix,dc=example,dc=nl
+
+reset values? [y,[n]]
+
+Pressing [enter] or [n] just leaves this helper. 
+
+If you choose to reset the settings (only in memory, the
+environment.py file won't be touched!) the helper will clear the
+runtime environment regarding the login settings and exit the
+helper.
+
+Entering the login helper again will yeild to a number of
+questions:
+
+Example:
+Servername:     [ldap.unix.example.nl]
+Base DN:        dc=unix,dc=example,dc=nl
+Bind DN:        cn=admin,dc=unix,dc=example,dc=nl
+Password:       .....(not echoed)
+
+Result:
+
+'Authentication at ldap.unix.example.nl succesful' or 'Cannot reach
+server' or 'Credential failure.'
+
+
 ## <a name="helpmenu" />Help Menu
+
+This helper shows this help. You can use [esc] to leave this help
+and the arrow keys to browse around.
+
 ## <a name="exit" />Exit Menu
+
+This 'helper' stops the execution of the MPLS interface, thus
+exiting the program.
+
 ## <a name="environment" />Configuring MPLS for your environment (uidNumber ranges, etc...)
 ## <a name="whatis" />What is a 'user', 'group' or 'netgroup' anyway?
 
