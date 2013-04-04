@@ -1462,7 +1462,7 @@ __Example usage:__
 ││                                                                            ││
 ││ Link netgroup to netgroup                                                  ││
 ││                                                                            ││
-││ Enter parent netgroup: silver                                              ││
+││ Enter parent netgroup: sil                                                 ││
 ││ Enter child netgroup:  stoeidoos                                           ││
 ││                                                                            ││
 │└─[Press any key to continue]────────────────────────────────────────────────┘│
@@ -1505,7 +1505,7 @@ __result:__
 ││ Unlink user from netgroup                                                  ││
 ││                                                                            ││
 ││ Enter username: robert                                                     ││
-││ Enter netgroup: users-silver                                               ││
+││ Enter netgroup: users-sil                                                  ││
 ││                                                                            ││
 ││ ERROR: robert is not a member of netgroup users-sil                        ││
 ││                                                                            ││
@@ -1591,17 +1591,17 @@ __result:__
 ││                                                                            ││
 ││ Unlink netgroup from netgroup                                              ││
 ││                                                                            ││
-││ Enter parent netgroup: silver                                              ││
-││ Enter child netgroup:  users-silver                                        ││
+││ Enter parent netgroup: sil                                                 ││
+││ Enter child netgroup:  users-sil                                           ││
 ││                                                                            ││
 ││ OK: Netgroup users-sil deleted from netgroup sil.                          ││
 ││                                                                            ││
 │└─[Press any key to continue]────────────────────────────────────────────────┘│
 └──[...fy > Netgroup > Unlink entity from netgroup  > Netgroup from netgroup]──┘
 ```
-'OK: Netgroup users-silver deleted from netgroup silver.' or
-'ERROR: netgroup users-silver is not a member of silver!' or
-'ERROR: netgroup silver does not exists'
+'OK: Netgroup users-sil deleted from netgroup sil.' or
+'ERROR: netgroup users-sil is not a member of sil!' or
+'ERROR: netgroup sil does not exists'
 
 ## <a name="loginmenu" />Login Menu
 
