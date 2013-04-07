@@ -7,7 +7,7 @@ Quickstart:
 Pre-requisites:
 
 Redhat:
-pip install ordereddict		(see: OrderedDict for older versions of python - Stack Overflow)
+        pip install ordereddict		(see: OrderedDict for older versions of python - Stack Overflow)
 
 Longer setup:
 	
