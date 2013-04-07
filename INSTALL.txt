@@ -4,7 +4,7 @@ Quickstart:
 	cd Masikh-Python-LDAP-Suite/bin
 	./mpls
 
-Pre-requesites:
+Pre-requisites:
 
 Redhat:
 pip install ordereddict		(see: OrderedDict for older versions of python - Stack Overflow)
