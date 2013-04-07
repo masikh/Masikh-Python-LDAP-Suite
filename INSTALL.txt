@@ -67,8 +67,8 @@ Primairy/Secundairy group ranges:
 		return self.ranges[typeset][0],self.ranges[typeset][1]
 
 	'primairy' is entry shown in mpls user interface. (STRING)
-	'100' is the minimal gid for a new primairy group.
-	'999' is the maximum gid for a new primairy group.
+	'100' is the minimal gid for a new primairy group. (INT)
+	'999' is the maximum gid for a new primairy group. (INT)
 	idem for secondairy...
 
 User ranges per group:
@@ -82,8 +82,8 @@ User ranges per group:
 
 	'Staff' is entry shown in mpls user interface. (STRING)
 	'100' is the gid of group 'Staff'. (INT)
-	'1000' is the minimum uid of a user with primairy gid '100'
-	'4999' is the maximum uid of a user with primairy gid '100'
+	'1000' is the minimum uid of a user with primairy gid '100' (INT)
+	'4999' is the maximum uid of a user with primairy gid '100' (INT)
 
 	Note: 'Staff' here is ~linked~ to 'Staff' in def user_netgroups(self)
 	see below.
@@ -117,7 +117,7 @@ Default autofs export for user nfs homedirectory:
 	"-soft,intr,nosuid server-01:/users/staff:&" is autofs homedirectory entry. (STRING) 
 
 Default shell for new user:
-		     SHELL = "/bin/bash",
+		     SHELL = "/bin/bash"
 
 2 Make sure all executable files (python scripts) are in a subdirectory
 	If you did a git clone, this is already done.
@@ -145,9 +145,9 @@ The whole MPLS file-tree should look like this:
 
 4 Make a template postscript file
 
-	MPLS uses function below to parse the 'templateform.ps' file. In that file the items DDMMJJJX, DDMMJJJY, USERID,
+	MPLS uses the function below to parse the templateform.ps file. In that file the items DDMMJJJX, DDMMJJJY, USERID,
 	employeeType, COMPUTERACCOUNT, PASSWORD, GECOS and employeeNumber are replaced by a means of regular expressions 
-	with their respected values.
+	with their respected values. This will produce the new account forms for newly added users.
 
 	DDMMJJJX		Date today (Account is valid from)
 	DDMMJJJY		Revocation date (Account is valid until)
