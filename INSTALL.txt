@@ -20,7 +20,7 @@ Longer setup:
 	* Debugging
 	* LDAP-Mapping
 	* Primairy/Secundairy group ranges
-	* User ranges per group
+	* UserID ranges per group
 	* Predefined user netgroups for new users
 	* Default autofs export for user nfs homedirectory
 	* Default shell for new user
