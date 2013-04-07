@@ -8,7 +8,7 @@ import argparse,curses,ldap,ldif,re,string,sys
 from os import system
 
 def helper_query_homedir(UID,env):
-	DN="ou=auto.home,ou=Autofs," + env.BASEDN
+	DN="%s,%s"%(env.AUTOFS_HOME,env.BASEDN)
 	FILTER="(&(objectClass=automount)(cn=" + UID + "))"
 	ATTR=["automountInformation"]
 	options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
@@ -23,7 +23,7 @@ def helper_query_homedir(UID,env):
 	return (result)
 
 def helper_query_direct(env):
-	DN="ou=auto.direct,ou=Autofs," + env.BASEDN
+	DN="%s,%s"%(env.AUTOFS_DIRECT,env.BASEDN)
 	FILTER="(&(objectClass=automount)(cn=*))"
 	ATTR=["automountInformation"]
 	options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]

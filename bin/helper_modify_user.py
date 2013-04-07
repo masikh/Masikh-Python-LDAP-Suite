@@ -177,7 +177,7 @@ def helper_create_account_form(modified, clearpassword, env):
 	return error, fname
 
 def query_user(UID,env):
-        DN="ou=People," + env.BASEDN
+        DN="%s,%s"%(env.PEOPLE,env.BASEDN)
         FILTER="(&(objectClass=posixAccount)(uid=%s))"%(UID)
         ATTR=[  "sn",
                 "loginShell", 
@@ -204,7 +204,7 @@ def query_user(UID,env):
 
 def getOldPassword(UID, env):
 	error = "OK"
-	DN="ou=People,%s" % (env.BASEDN)
+        DN="%s,%s"%(env.PEOPLE,env.BASEDN)
 	FILTER="(&(objectClass=posixAccount)(uid=%s))" % UID
 	ATTR=[ "userPassword" ]
 	try:
@@ -219,7 +219,7 @@ def getOldPassword(UID, env):
 
 def isUser(UID, env):
         error="OK"
-        DN="ou=People," + env.BASEDN
+        DN="%s,%s"%(env.PEOPLE,env.BASEDN)
         FILTER="(&(objectClass=posixAccount)(uid=%s))"%UID
         ATTR = [ "uid" ]
         try:
@@ -234,7 +234,7 @@ def isUser(UID, env):
 
 def get_Groups(UID, env):
 	error = "OK"
-	DN="ou=Group," + env.BASEDN
+	DN="%s,%s"%(env.GROUP,env.BASEDN)
         FILTER="(&(objectClass=posixGroup)(memberUid=" + UID + "))"
         ATTR = None
         try:
@@ -249,7 +249,7 @@ def get_Groups(UID, env):
 
 def get_Netgroups(UID, env):
         error = "OK"
-	DN="ou=netgroup," + env.BASEDN
+	DN="%s,%s"%(env.NETGROUP,env.BASEDN)
         FILTER="(&(objectClass=nisNetgroup)(nisNetgroupTriple=*," + UID + ",*))"
         ATTR=[ "nisNetgroupTriple" ]
 	try:
@@ -265,7 +265,7 @@ def get_Netgroups(UID, env):
 
 def get_Autofs(UID, env):
 	error = "OK"
-        DN="ou=auto.home,ou=Autofs," + env.BASEDN
+        DN="%s,%s"%(env.AUTOFS_HOME,env.BASEDN)
         FILTER="(&(objectClass=automount)(cn=" + UID + "))"
         ATTR=["automountInformation"]
 	try:
@@ -282,7 +282,7 @@ def get_Autofs(UID, env):
 def helper_next_free(TYPE, env):
 	error = "OK"
 	toprange = highest = 0
-	DN="ou=People," + env.BASEDN
+        DN="%s,%s"%(env.PEOPLE,env.BASEDN)
 	FILTER="(uid=*)"
 	ATTR=["uidNumber"]
 	try:
@@ -313,7 +313,7 @@ def helper_next_free(TYPE, env):
 
 def helper_uid_isfree(uid, env):
 	error = "OK"
-	DN="ou=People,%s"%env.BASEDN
+        DN="%s,%s"%(env.PEOPLE,env.BASEDN)
 	FILTER="(uid=*)"
 	ATTR=["uidNumber"]
 	try:
@@ -330,7 +330,7 @@ def helper_uid_isfree(uid, env):
 	return error, True
 
 def del_user(UID, groups, netgroups, autofs, env):
-	dofile = "dn: cn=%s,ou=auto.home,ou=Autofs,%s\n" %(UID,env.BASEDN)
+	dofile = "dn: cn=%s,%s,%s\n" %(UID,env.AUTOFS_HOME,env.BASEDN)
 	dofile += "changetype: delete\n\n"
 	for dn,entry in groups:
 		dofile += "dn: %s\n" % dn
@@ -347,7 +347,7 @@ def del_user(UID, groups, netgroups, autofs, env):
 			if re.match( '((.*),' + UID + ',(.*))', (nisNetgroupTriple), re.M|re.I):
 				dofile += "nisNetgroupTriple: %s\n" % (nisNetgroupTriple)
 		dofile += "\n"
-	dofile += "dn: uid=%s,ou=People,%s\n" % (UID,env.BASEDN)
+	dofile += "dn: uid=%s,%s,%s\n" % (UID,env.PEOPLE,env.BASEDN)
 	dofile += "changetype: delete\n\n"
 	result = query_user(UID, env)
 	error, oldpassword = getOldPassword(UID, env)
@@ -385,11 +385,11 @@ def del_user(UID, groups, netgroups, autofs, env):
 	return dofile, undofile
 	
 def mod_user(modified, UID, groups, netgroups, autofs, env):
-	dofile = "dn: cn=%s,ou=auto.home,ou=Autofs,%s\n" %(UID,env.BASEDN)
+	dofile = "dn: cn=%s,%s,%s\n" %(UID,env.AUTOFS_HOME,env.BASEDN)
 	dofile += "changetype: moddn\n"
 	dofile += "newrdn: cn=%s\n"%(modified['uid'][0])
 	dofile += "deloldrdn: 1\n\n"
-	undofile = "dn: cn=%s,ou=auto.home,ou=Autofs,%s\n" %(modified['uid'][0],env.BASEDN)
+	undofile = "dn: cn=%s,%s,%s\n" %(modified['uid'][0],env.AUTOFS_HOME,env.BASEDN)
 	undofile += "changetype: moddn\n"
 	undofile += "newrdn: cn=%s\n"%(UID)
 	undofile += "deloldrdn: 1\n\n"
@@ -487,7 +487,7 @@ def helper_add_user(UID, s, env):
 		uid = modified['uid'][0]
 		# Write account form to file
 		error, fname = helper_create_account_form(modified, clearpassword, env)
-		dofile = "dn: uid=%s,ou=People,%s\n"%(uid,env.BASEDN)
+		dofile = "dn: uid=%s,%s,%s\n"%(uid,env.PEOPLE,env.BASEDN)
 		dofile += "objectClass: inetOrgPerson\n"
 		dofile += "objectClass: posixAccount\n"
 		dofile += "objectClass: shadowAccount\n"
@@ -502,14 +502,14 @@ def helper_add_user(UID, s, env):
 		dofile += "gecos: %s\n"%(modified['gecos'][0])
 		dofile += "cn: %s\n"%(modified['cn'][0])
 		dofile += "homeDirectory: %s\n\n"%(modified['homeDirectory'][0])
-		dofile += "dn: cn=%s,ou=auto.home,ou=Autofs,%s\n"%(uid,env.BASEDN)
+		dofile += "dn: cn=%s,%s,%s\n"%(uid,env.AUTOFS_HOME,env.BASEDN)
 		dofile += "objectClass: top\n"
 		dofile += "objectClass: automount\n"
 		dofile += "cn: %s\n"%(uid)
 		dofile += "automountInformation: %s\n\n"%(autofs)
-		undofile = "dn: uid=%s,ou=People,%s\n"%(uid,env.BASEDN)
+		undofile = "dn: uid=%s,%s,%s\n"%(uid,env.PEOPLE,env.BASEDN)
 		undofile += "changetype: delete\n\n"
-		undofile += "dn: cn=%s,ou=auto.home,ou=Autofs,%s\n"%(uid,env.BASEDN)
+		undofile += "dn: cn=%s,%s,%s\n"%(uid,env.AUTOFS_HOME,env.BASEDN)
 		undofile += "changetype: delete\n\n"
 		content,error=apply_ldif.ldif2dict(dofile)
 		if error != "OK":return error
@@ -554,11 +554,11 @@ def helper_change_password(UID, env):
 	length = 10
 	newpassword = ''.join([random.choice(letters) for _ in range(length)])
 	sha1 = base64.encodestring(sha.new(str(newpassword)).digest())
-	dofile = "dn: uid=%s,ou=People,%s\n" % (UID,env.BASEDN)
+	dofile = "dn: uid=%s,%s,%s\n" % (UID,env.PEOPLE,env.BASEDN)
 	dofile += "changetype: modify\n"
 	dofile += "replace: userPassword\n"
 	dofile += "userPassword: {SHA}%s\n" % (sha1)
-	undofile = "dn: uid=%s,ou=People,%s\n" % (UID,env.BASEDN)
+	undofile = "dn: uid=%s,%s,%s\n" % (UID,env.PEOPLE,env.BASEDN)
 	undofile += "changetype: modify\n"
 	undofile += "replace: userPassword\n"
 	undofile += "userPassword: %s\n" % (oldpassword)
@@ -573,7 +573,7 @@ def helper_change_password(UID, env):
 def helper_get_userattr(UID, env):
 	error = "OK"
 	# If netgroup does not exist; error message, return                             
-	DN="ou=People,%s"%(env.BASEDN)
+	DN="%s,%s"%(env.PEOPLE,env.BASEDN)
 	FILTER="(&(objectClass=posixAccount)(uid=%s))"%(UID)
 	ATTR=None
 	options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
@@ -717,11 +717,11 @@ def helper_modified_user_to_ldif(env, result, modified):
 	del result['automountInformation']
 	del modified['automountInformation']
 	if result['uid'] != modified['uid']:
-		dofile += "dn: uid=%s,ou=People,%s\n"%(result['uid'][0],env.BASEDN)
+		dofile += "dn: uid=%s,%s,%s\n"%(result['uid'][0],env.PEOPLE,env.BASEDN)
 		dofile += "changetype: moddn\n"
 		dofile += "newrdn: uid=%s\n"%(modified['uid'][0]) 
 		dofile += "deleteoldrdn: 1\n\n"
-		undofile += "dn: uid=%s,ou=People,%s\n"%(modified['uid'][0],env.BASEDN)
+		undofile += "dn: uid=%s,%s,%s\n"%(modified['uid'][0],env.PEOPLE,env.BASEDN)
 		undofile += "changetype: moddn\n"
 		undofile += "newrdn: uid=%s\n"%(result['uid'][0]) 
 		undofile += "deleteoldrdn: 1\n\n"
@@ -737,20 +737,20 @@ def helper_modified_user_to_ldif(env, result, modified):
 		if item == "uid":continue
 		else:
 			if result[item] != modified[item]:
-				dofile += "dn: uid=%s,ou=People,%s\n"%(modified['uid'][0],env.BASEDN)
+				dofile += "dn: uid=%s,%s,%s\n"%(modified['uid'][0],env.PEOPLE,env.BASEDN)
 				dofile += "changetype: modify\n"
 				dofile += "replace: %s\n"%(item)
 				dofile += "%s: %s\n\n"%(item, modified[item][0])
-				undofile += "dn: uid=%s,ou=People,%s\n"%(result['uid'][0],env.BASEDN)
+				undofile += "dn: uid=%s,%s,%s\n"%(result['uid'][0],env.PEOPLE,env.BASEDN)
 				undofile += "changetype: modify\n"
 				undofile += "replace: %s\n"%(item)
 				undofile += "%s: %s\n\n"%(item, result[item][0])
 	if autofs_new != "":
-		dofile += "dn: cn=%s,ou=auto.home,ou=Autofs,%s\n"%(modified['uid'][0],env.BASEDN)
+		dofile += "dn: cn=%s,%s,%s\n"%(modified['uid'][0],env.AUTOFS_HOME,env.BASEDN)
 		dofile += "changetype: modify\n"
 		dofile += "replace: automountInformation\n"
 		dofile += "automountInformation: %s\n\n"%(autofs_new)
-		undofile += "dn: cn=%s,ou=auto.home,ou=Autofs,%s\n"%(result['uid'][0],env.BASEDN)
+		undofile += "dn: cn=%s,%s,%s\n"%(result['uid'][0],env.AUTOFS_HOME,env.BASEDN)
 		undofile += "changetype: modify\n"
 		undofile += "replace: automountInformation\n"
 		undofile += "automountInformation: %s\n\n"%(autofs_orig)
@@ -1080,21 +1080,21 @@ def build_users(user, env):
 	dofile = undofile = ""
 	netgroups = env.user_netgroups()
 	for entry in user:
-		dofile += "dn: cn=%s,ou=auto.home,ou=autofs,%s\n"%(user[entry]['uid'],env.BASEDN)
+		dofile += "dn: cn=%s,%s,%s\n"%(user[entry]['uid'],env.AUTOFS_HOME,env.BASEDN)
 		dofile += "cn: %s\n"%(user[entry]['cn'])
 		dofile += "objectClass: top\n"
 		dofile += "objectClass: automount\n"
 		dofile += "automountInformation: %s\n\n"%(user[entry]['automountInformation'])
 		
-		undofile += "dn: cn=%s,ou=auto.home,ou=autofs,%s\n"%(user[entry]['uid'],env.BASEDN)
+		undofile += "dn: cn=%s,%s,%s\n"%(user[entry]['uid'],env.AUTOFS_HOME,env.BASEDN)
 		undofile += "changetype: delete\n\n"
 
-		dofile += "dn: uid=%s,ou=People,%s\n"%(user[entry]['uid'],env.BASEDN)
+		dofile += "dn: uid=%s,%s,%s\n"%(user[entry]['uid'],env.PEOPLE,env.BASEDN)
 		dofile += "objectClass: inetOrgPerson\n"
 		dofile += "objectClass: posixAccount\n"
 		dofile += "objectClass: shadowAccount\n"
 		
-		undofile += "dn: uid=%s,ou=People,%s\n"%(user[entry]['uid'],env.BASEDN)
+		undofile += "dn: uid=%s,%s,%s\n"%(user[entry]['uid'],env.PEOPLE,env.BASEDN)
 		undofile += "changetype: delete\n\n"
 	
 		for value in user[entry]:
@@ -1103,12 +1103,12 @@ def build_users(user, env):
 		dofile += "\n"
 
 		for group in netgroups[user[entry]['employeeType']]:
-			dofile += "dn: cn=%s,ou=Netgroup,%s\n"%(group,env.BASEDN)
+			dofile += "dn: cn=%s,%s,%s\n"%(group,env.NETGROUP,env.BASEDN)
 			dofile += "changetype: modify\n"
 			dofile += "add: nisNetgroupTriple\n"
 			dofile += "nisNetgroupTriple: (-,%s,)\n\n"%(user[entry]['uid'])
 			
-			undofile += "dn: cn=%s,ou=Netgroup,%s\n"%(group,env.BASEDN)
+			undofile += "dn: cn=%s,%s,%s\n"%(group,env.NETGROUP,env.BASEDN)
 			undofile += "changetype: modify\n"
 			undofile += "delete: nisNetgroupTriple\n"
 			undofile += "nisNetgroupTriple: (-,%s,)\n\n"%(user[entry]['uid'])

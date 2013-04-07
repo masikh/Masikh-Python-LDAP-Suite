@@ -32,7 +32,7 @@ def WriteLog(content,fname, env):
 
 def isGroup(GROUP, env):
 	error="OK"
-	DN="ou=Group," + env.BASEDN
+	DN="%s,%s"%(env.GROUP,env.BASEDN)
         FILTER="(&(objectClass=posixGroup)(cn=" + GROUP + "))"
         ATTR = [ "memberUid" ]
         try:
@@ -47,7 +47,7 @@ def isGroup(GROUP, env):
 
 def isUser(UID, env):
         error="OK"
-        DN="ou=People," + env.BASEDN
+        DN="%s,%s"%(env.PEOPLE,env.BASEDN)
         FILTER="(&(objectClass=posixAccount)(uid=" + UID + "))"
         ATTR = [ "uid" ]
         try:
@@ -62,7 +62,7 @@ def isUser(UID, env):
 
 def isInGroup(UID, GROUP, env):
 	error = "OK"
-        DN="ou=Group," + env.BASEDN
+	DN="%s,%s"%(env.GROUP,env.BASEDN)
         FILTER="(&(cn=%s)(memberUid=%s))"%(GROUP,UID)
         ATTR = [ "cn" ]
 	try:
@@ -77,7 +77,7 @@ def isInGroup(UID, GROUP, env):
 
 def helper_get_gidNumber(GROUP, env):
 	error="OK"
-	DN="ou=Group," + env.BASEDN
+	DN="%s,%s"%(env.GROUP,env.BASEDN)
 	FILTER="(&(objectClass=posixGroup)(cn=" + GROUP + "))"
 	ATTR = [ "gidNumber" ]
 	try:
@@ -95,7 +95,7 @@ def helper_get_gidNumber(GROUP, env):
 
 def helper_get_memberUID(GROUP, env):
 	error="OK"
-	DN="ou=Group," + env.BASEDN
+	DN="%s,%s"%(env.GROUP,env.BASEDN)
 	FILTER="(&(objectClass=posixGroup)(cn=" + GROUP + "))"
 	ATTR = [ "memberUid" ]
 	try:
@@ -116,7 +116,7 @@ def helper_get_memberUID(GROUP, env):
 
 def helper_get_group_attr(attributes, GROUP, env):
 	error = "OK"
-	DN="ou=Group,%s"%(env.BASEDN)
+	DN="%s,%s"%(env.GROUP,env.BASEDN)
 	FILTER="(&(objectClass=posixGroup)(cn=%s))"%(GROUP)
 	ATTR = None 
 	try:
@@ -148,29 +148,29 @@ def helper_commit_modify_group(GROUP, result, modified, env):
 	error = "OK"
 	dofile = undofile = ""
 	if result['cn'] != modified['cn']:
-		dofile += "dn: cn=%s,ou=Group,%s\n"%(GROUP,env.BASEDN)
+		dofile += "dn: cn=%s,%s,%s\n"%(GROUP,env.GROUP,env.BASEDN)
 		dofile += "changetype: moddn\n"
 		dofile += "newrdn: cn=%s\n"%(modified['cn'])
 		dofile += "deleteoldrdn: 1\n\n"
-		undofile += "dn: cn=%s,ou=Group,%s\n"%(modified['cn'],env.BASEDN)
+		undofile += "dn: cn=%s,%s,%s\n"%(modified['cn'],env.GROUP,env.BASEDN)
 		undofile += "changetype: moddn\n"
 		undofile += "newrdn: cn=%s\n"%(GROUP)
 		undofile += "deleteoldrdn: 1\n\n"
 	if result['gidNumber'] != modified['gidNumber']:
-		dofile += "dn: cn=%s,ou=Group,%s\n"%(modified['cn'],env.BASEDN)
+		dofile += "dn: cn=%s,%s,%s\n"%(modified['cn'],env.GROUP,env.BASEDN)
 		dofile += "changetype: modify\n"
 		dofile += "replace: gidNumber\n"
 		dofile += "gidNumber: %s\n\n"%(modified['gidNumber'])
-		undofile += "dn: cn=%s,ou=Group,%s\n"%(modified['cn'],env.BASEDN)
+		undofile += "dn: cn=%s,%s,%s\n"%(modified['cn'],env.GROUP,env.BASEDN)
 		undofile += "changetype: modify\n"
 		undofile += "replace: gidNumber\n"
 		undofile += "gidNumber: %s\n\n"%(result['gidNumber'])
 	if result['userPassword'] != modified['userPassword']:
-		dofile += "dn: cn=%s,ou=Group,%s\n"%(modified['cn'],env.BASEDN)
+		dofile += "dn: cn=%s,%s,%s\n"%(modified['cn'],env.GROUP,env.BASEDN)
 		dofile += "changetype: modify\n"
 		dofile += "replace: userPassword\n"
 		dofile += "userPassword: %s\n\n"%(modified['userPassword'])
-		undofile += "dn: cn=%s,ou=Group,%s\n"%(modified['cn'],env.BASEDN)
+		undofile += "dn: cn=%s,%s,%s\n"%(modified['cn'],env.GROUP,env.BASEDN)
 		undofile += "changetype: modify\n"
 		undofile += "replace: userPassword\n"
 		undofile += "userPassword: %s\n\n"%(result['userPassword'])
@@ -239,31 +239,31 @@ def helper_modify_group(GROUP, screen, env):
 	return error
 
 def add_group(GROUP, next_free, env):
-	dofile = "dn: cn=%s,ou=Group,%s\n" % (GROUP,env.BASEDN)
+	dofile = "dn: cn=%s,%s,%s\n" % (GROUP,env.GROUP,env.BASEDN)
 	dofile += "objectClass: posixGroup\n"
 	dofile += "objectClass: top\n"
 	dofile += "cn: %s\n" % (GROUP)
 	dofile += "userPassword: {crypt}*\n"
 	dofile += "gidNumber: %s\n\n" % (next_free)
-	undofile = "dn: cn=%s,ou=Group,%s\n" % (GROUP,env.BASEDN)
+	undofile = "dn: cn=%s,%s,%s\n" % (GROUP,env.GROUP,env.BASEDN)
 	undofile += "changetype: delete\n\n"
 	return dofile,undofile
 
 def add_user(UID, GROUP, env):
-	dofile = "dn: cn=%s,ou=Group,%s\n" % (GROUP,env.BASEDN)
+	dofile = "dn: cn=%s,%s,%s\n" % (GROUP,env.GROUP,env.BASEDN)
 	dofile += "changetype: modify\n"
 	dofile += "add: memberUid\n"
 	dofile += "memberUid: %s\n\n" % (UID)
-	undofile = "dn: cn=%s,ou=Group,%s\n" % (GROUP,env.BASEDN)
+	undofile = "dn: cn=%s,%s,%s\n" % (GROUP,env.GROUP,env.BASEDN)
 	undofile += "changetype: delete\n"
 	undofile += "delete: memberUid\n"
 	undofile += "memberUid: %s\n\n" % (UID)
 	return dofile,undofile
 
 def del_group(GROUP, gidNumber, result, env):
-	dofile = "dn: cn=%s,ou=Group,%s\n" % (GROUP,env.BASEDN)
+	dofile = "dn: cn=%s,%s,%s\n" % (GROUP,env.GROUP,env.BASEDN)
 	dofile += "changetype: delete\n\n"
-	undofile = "dn: cn=%s,ou=Group,%s\n" % (GROUP,env.BASEDN)
+	undofile = "dn: cn=%s,%s,%s\n" % (GROUP,env.GROUP,env.BASEDN)
 	undofile += "objectClass: posixGroup\n"
 	undofile += "objectClass: top\n"
 	undofile += "cn: %s\n" % (GROUP)
@@ -276,11 +276,11 @@ def del_group(GROUP, gidNumber, result, env):
 	return dofile,undofile
 
 def del_user(UID, GROUP, env):
-	dofile = "dn: cn=%s,ou=Group,%s\n" % (GROUP,env.BASEDN)
+	dofile = "dn: cn=%s,%s,%s\n" % (GROUP,env.GROUP,env.BASEDN)
 	dofile += "changetype: modify\n"
 	dofile += "delete: memberUid\n"
 	dofile += "memberUid: %s\n\n" % (UID)
-	undofile = "dn: cn=%s,ou=Group,%s\n" % (GROUP,env.BASEDN)
+	undofile = "dn: cn=%s,%s,%s\n" % (GROUP,env.GROUP,env.BASEDN)
 	undofile += "changetype: modify\n"
 	undofile += "add: memberUid\n"
 	undofile += "memberUid: %s\n\n" % (UID)
@@ -289,7 +289,7 @@ def del_user(UID, GROUP, env):
 def helper_next_free(TYPE, env):
 	error = "OK"
 	toprange = highest = 0
-	DN="ou=Group," + env.BASEDN
+	DN="%s,%s"%(env.GROUP,env.BASEDN)
 	FILTER="(cn=*)"
 	ATTR=["gidNumber"]
 	try:begin,end=env.group_ranges(TYPE)
@@ -317,7 +317,7 @@ def helper_next_free(TYPE, env):
 
 def helper_free_gid(gidNumber, env):
 	error = "OK"
-	DN="ou=Group,%s"%(env.BASEDN)
+	DN="%s,%s"%(env.GROUP,env.BASEDN)
 	FILTER="(&(objectClass=posixGroup)(gidNumber=%s))"%(gidNumber)
 	ATTR = ["cn"]
 	try:

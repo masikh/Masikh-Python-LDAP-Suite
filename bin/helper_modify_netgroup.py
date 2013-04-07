@@ -27,7 +27,7 @@ def WriteLog(content,fname, env):
 
 def helper_create_netgroup(NETGROUP,env):
 	dofile = undofile = error=""
-        DN="ou=Netgroup," + env.BASEDN
+        DN="%s,%s"%(env.NETGROUP,env.BASEDN)
         FILTER="(&(objectClass=nisnetgroup)(cn=" + NETGROUP + "))"
 	ATTR = [ "cn" ]
 	options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
@@ -47,7 +47,7 @@ def helper_create_netgroup(NETGROUP,env):
 			error="ERROR: netgroup " + NETGROUP + " already exists!"
 			return dofile, undofile, error	
 	# else make (un)dofile
-	dn="cn=" + NETGROUP + ",ou=Netgroup," + env.BASEDN
+	dn="cn=%s,%s,%s"%(NETGROUP,env,NETGROUP,env.BASEDN)
 	entry={"objectClass": ["nisNetgroup", "top"], "cn": [NETGROUP]}
 	dofile = ldif.CreateLDIF(dn,entry)
 	undofile = ldif.CreateLDIF(dn,{"changetype": ("delete",)})
@@ -55,7 +55,7 @@ def helper_create_netgroup(NETGROUP,env):
 
 def helper_delete_netgroup(NETGROUP,env):
 	dofile = undofile = error=""
-	DN="ou=Netgroup," + env.BASEDN
+	DN="%s,%s"%(env.NETGROUP,env.BASEDN)
 	FILTER="(&(objectClass=nisnetgroup)(cn=" + NETGROUP + "))"
 	ATTR=None
 	options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
@@ -75,14 +75,14 @@ def helper_delete_netgroup(NETGROUP,env):
 	# else make (un)dofile
 	for dn,entry in result:
 	        undofile = ldif.CreateLDIF(dn,entry)
-	DN="cn=" + NETGROUP + ",ou=Netgroup," + env.BASEDN
+	DN="cn=%s,%s,%s"%(NETGROUP,env.NETGROUP,env.BASEDN)
         entry={"objectClass": ["nisNetgroup", "top"], "cn": [NETGROUP]}
         dofile = ldif.CreateLDIF(DN,{"changetype": ("delete",)})
 	return dofile, undofile, error
 
 def helper_add_user_to_netgroup(NETGROUP, UID, env):
 	dofile = undofile = error=""
-        DN="ou=Netgroup," + env.BASEDN
+        DN="%s,%s"%(env.NETGROUP,env.BASEDN)
         FILTER="(&(objectClass=nisNetgroup)(cn=" + NETGROUP + ")(nisNetgroupTriple=\(*," + UID + ",*\)))"
         ATTR=[ "cn" ]
 	options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
@@ -99,7 +99,7 @@ def helper_add_user_to_netgroup(NETGROUP, UID, env):
 	if result != []:
 		error="ERROR: User " + UID + " already member of netgroup " + NETGROUP
 		return dofile, undofile, error
-        DN="ou=Netgroup," + env.BASEDN
+        DN="%s,%s"%(env.NETGROUP,env.BASEDN)
         FILTER="(&(objectClass=nisnetgroup)(cn=" + NETGROUP + "))"
         ATTR=None
 	options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
@@ -116,7 +116,7 @@ def helper_add_user_to_netgroup(NETGROUP, UID, env):
         if result == []:
                 error="ERROR: netgroup " + NETGROUP + " does not exists!"
                 return dofile, undofile, error
-        DN="ou=People," + env.BASEDN
+        DN="%s,%s"%(env.PEOPLE,env.BASEDN)
         FILTER="(&(objectClass=posixAccount)(uid=" + UID + "))"
         ATTR=[ "cn" ]
 	options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
@@ -134,11 +134,11 @@ def helper_add_user_to_netgroup(NETGROUP, UID, env):
                 error="ERROR: user " + UID + " does not exists!"
                 return dofile, undofile, error
 	# else make (un)dofile
-	dofile = "dn: cn=" + NETGROUP + ",ou=Netgroup," + env.BASEDN + "\n"
+	dofile = "dn: cn=%s,%s,%s\n"%(NETGROUP,env.NETGROUP,env.BASEDN)
 	dofile += "changetype: modify\n"
 	dofile += "add: nisNetgroupTriple\n"
 	dofile += "nisNetgroupTriple: (-," + UID + ",)\n\n"
-	undofile = "dn: cn=" + NETGROUP + ",ou=Netgroup," + env.BASEDN + "\n"
+	undofile = "dn: cn=%s,%s,%s\n"%(NETGROUP,env.NETGROUP,env.BASEDN)
         undofile += "changetype: modify\n"
         undofile += "delete: nisNetgroupTriple\n"
         undofile += "nisNetgroupTriple: (-," + UID + ",)\n\n"
@@ -147,7 +147,7 @@ def helper_add_user_to_netgroup(NETGROUP, UID, env):
 def helper_del_user_from_netgroup(NETGROUP, UID, env):
         dofile = undofile = error=""
         # if user does not exist; error message, return
-        DN="ou=People," + env.BASEDN
+        DN="%s,%s"%(env.PEOPLE,env.BASEDN)
         FILTER="(&(objectClass=posixAccount)(uid=" + UID + "))"
         ATTR=[ "cn" ]
 	options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
@@ -164,7 +164,7 @@ def helper_del_user_from_netgroup(NETGROUP, UID, env):
                 error="ERROR: user " + UID + " does not exists!"
                 return dofile, undofile, error
         # if netgroup does not exist; error message, return
-        DN="ou=Netgroup," + env.BASEDN
+        DN="%s,%s"%(env.NETGROUP,env.BASEDN)
         FILTER="(&(objectClass=nisnetgroup)(cn=" + NETGROUP + "))"
         ATTR=None
 	options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
@@ -181,7 +181,7 @@ def helper_del_user_from_netgroup(NETGROUP, UID, env):
                 error="ERROR: netgroup " + NETGROUP + " does not exists!"
                 return dofile, undofile, error
         # if user not in netgroup, error message, return
-        DN="ou=Netgroup," + env.BASEDN
+        DN="%s,%s"%(env.NETGROUP,env.BASEDN)
         FILTER="(&(objectClass=nisNetgroup)(cn=" + NETGROUP + ")(nisNetgroupTriple=\(*," + UID + ",*\)))"
         ATTR=[ "nisNetgroupTriple" ]
 	options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
@@ -206,11 +206,11 @@ def helper_del_user_from_netgroup(NETGROUP, UID, env):
 					if t != None:
 						nisNetgroupTriple = (value)
 	# Build LDIFs
-	dofile = "dn: cn=" + NETGROUP + ",ou=Netgroup," + env.BASEDN + "\n"
+	dofile = "dn: cn=%s,%s,%s\n"%(NETGROUP,env.NETGROUP,env.BASEDN)
         dofile += "changetype: modify\n"
         dofile += "delete: nisNetgroupTriple\n"
         dofile += "nisNetgroupTriple: " + nisNetgroupTriple + "\n\n"
-	undofile = "dn: cn=" + NETGROUP + ",ou=Netgroup," + env.BASEDN + "\n"
+	undofile = "dn: cn=%s,%s,%s\n"%(NETGROUP,env.NETGROUP,env.BASEDN)
         undofile += "changetype: modify\n"
         undofile += "add: nisNetgroupTriple\n"
         undofile += "nisNetgroupTriple: " + nisNetgroupTriple + "\n\n"
@@ -219,7 +219,7 @@ def helper_del_user_from_netgroup(NETGROUP, UID, env):
 def helper_del_host_from_netgroup(NETGROUP, HOST, env):                                 
         dofile = undofile = error = nisNetgroupTriple = "" 
 	# If netgroup does not exist; error message, return                             
-	DN="ou=Netgroup,%s"%(env.BASEDN)
+	DN="%s,%s"%(env.NETGROUP,env.BASEDN)
 	FILTER="(&(objectClass=nisnetgroup)(cn=%s))"%(NETGROUP)                         
 	ATTR=None
 	options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
@@ -236,7 +236,7 @@ def helper_del_host_from_netgroup(NETGROUP, HOST, env):
 		error="ERROR: netgroup %s does not exists!"%(NETGROUP)                  
 		return dofile, undofile, error
 	# If host not in netgroup; error message, return                                
-	DN="ou=Netgroup,%s"%(env.BASEDN)
+	DN="%s,%s"%(env.NETGROUP,env.BASEDN)
 	FILTER="(&(objectClass=nisNetgroup)(cn=%s)(nisNetgroupTriple=\(%s,,\)))"%(NETGROUP, HOST)    
 	ATTR=[ "nisNetgroupTriple" ]
 	options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
@@ -272,7 +272,7 @@ def helper_del_host_from_netgroup(NETGROUP, HOST, env):
 def helper_add_host_to_netgroup(NETGROUP, HOST, env):
 	dofile = undofile = error = nisNetgroupTriple = "" 
 	# If netgroup does not exist; error message, return                             
-	DN="ou=Netgroup,%s"%(env.BASEDN)
+	DN="%s,%s"%(env.NETGROUP,env.BASEDN)
 	FILTER="(&(objectClass=nisnetgroup)(cn=%s))"%(NETGROUP)                         
 	ATTR=None
 	options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
@@ -289,7 +289,7 @@ def helper_add_host_to_netgroup(NETGROUP, HOST, env):
 		error="ERROR: netgroup %s does not exists!"%(NETGROUP)                  
 		return dofile, undofile, error
 	# If host not in netgroup; error message, return                                
-	DN="ou=Netgroup,%s"%(env.BASEDN)
+	DN="%s,%s"%(env.NETGOUP,env.BASEDN)
 	FILTER="(&(objectClass=nisNetgroup)(cn=%s)(nisNetgroupTriple=\(%s,,\)))"%(NETGROUP, HOST)    
 	ATTR=[ "nisNetgroupTriple" ]
 	options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
@@ -318,7 +318,7 @@ def helper_add_host_to_netgroup(NETGROUP, HOST, env):
 def helper_add_netgroup_to_netgroup(PARENT, CHILD, env):
 	dofile = undofile = error = ""
 	# If netgroup does not exist; error message, return                             
-	DN="ou=Netgroup,%s"%(env.BASEDN)
+	DN="%s,%s"%(env.NETGROUP,env.BASEDN)
 	FILTER1="(&(objectClass=nisnetgroup)(cn=%s))"%(PARENT)                         
 	FILTER2="(&(objectClass=nisnetgroup)(cn=%s))"%(CHILD)                         
 	FILTER3="(&(objectClass=nisnetgroup)(cn=%s)(memberNisNetgroup=%s))"%(PARENT, CHILD)                         
@@ -359,7 +359,7 @@ def helper_add_netgroup_to_netgroup(PARENT, CHILD, env):
 def helper_del_netgroup_from_netgroup(PARENT, CHILD, env):
 	dofile = undofile = error = ""
 	# If netgroup does not exist; error message, return                             
-	DN="ou=Netgroup,%s"%(env.BASEDN)
+	DN="%s,%s"%(env.NETGROUP,env.BASEDN)
 	FILTER1="(&(objectClass=nisnetgroup)(cn=%s))"%(PARENT)                         
 	FILTER2="(&(objectClass=nisnetgroup)(cn=%s)(memberNisNetgroup=%s))"%(PARENT, CHILD)                         
 	ATTR=None

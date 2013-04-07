@@ -11,7 +11,7 @@ class environment:
 	LDAPSERVER=BASEDN=BINDDN=LDAPPW=""
 
 def helper_query_user(UID,env):
-        DN="ou=People," + env.BASEDN
+        DN="%s,%s"%(env.PEOPLE,env.BASEDN)
         FILTER="(uid=" + UID + ")"
         ATTR=[	"sn",
 		"loginShell", 
@@ -37,7 +37,7 @@ def helper_query_user(UID,env):
 	return result 
 
 def query_bypart(UID,env):
-        DN="ou=People," + env.BASEDN
+        DN="%s,%s"%(env.PEOPLE,env.BASEDN)
         FILTER="(&(objectClass=posixAccount)(uid=*" + UID + "*))"
         ATTR=["dn", "uid"]
 	options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]

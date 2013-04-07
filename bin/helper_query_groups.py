@@ -10,7 +10,7 @@ import scroller
 
 def helper_query_groups_byuser(UID,env):
 	output = warning = gidNumber = ""
-        DN="ou=People," + env.BASEDN
+        DN="%s,%s"%(env.PEOPLE,env.BASEDN)
         FILTER="(&(objectClass=PosixAccount)(uid=%s))"%(UID)
 	ATTR = [ "gidNumber" ]
 	options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
@@ -26,7 +26,7 @@ def helper_query_groups_byuser(UID,env):
 		gidNumber = "-1"
 	except KeyError:
 		gidNumber = "-1"
-	DN="ou=Group,%s"%(env.BASEDN)
+	DN="%s,%s"%(env.GROUP,env.BASEDN)
 	FILTER="(&(objectClass=posixGroup)(gidNumber=%s))"%(gidNumber)
 	ATTR = ["cn"]
 	try:result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
@@ -42,7 +42,7 @@ def helper_query_groups_byuser(UID,env):
 	else:
 		for dn,entry in result:
 			output += "%s\t  dn: %s\n"%(gidNumber,dn)
-        DN="ou=Group," + env.BASEDN
+        DN="%s,%s"%(env.GROUP,env.BASEDN)
 	FILTER="(&(objectClass=posixGroup)(memberUid=" + UID + "))"
 	ATTR = None
         try:result = connection.search_s(DN, ldap.SCOPE_SUBTREE, FILTER, ATTR)
@@ -58,7 +58,7 @@ def helper_query_groups_byuser(UID,env):
 
 def helper_query_groups_bygroup(GROUP,env):
         output = ""
-        DN="ou=Group," + env.BASEDN
+        DN="%s,%s"%(env.GROUP,env.BASEDN)
         FILTER="(&(objectClass=posixGroup)(cn=" + GROUP + "))"
         ATTR1 = [ "memberUid" ]
         ATTR2 = [ "gidNumber" ]
@@ -84,7 +84,7 @@ def helper_query_groups_bygroup(GROUP,env):
 
 def helper_query_groups_all(env):
         output = ""
-        DN="ou=Group," + env.BASEDN
+        DN="%s,%s"%(env.GROUP,env.BASEDN)
         FILTER="(&(objectClass=posixGroup)(cn=*))"
         ATTR = [ "cn" ]
 	options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]

@@ -8,7 +8,7 @@ import argparse,curses,ldap,ldif,re,scroller,string,sys
 from os import system
 
 def helper_query_netgroups(UID,env):
-        DN="ou=netgroup," + env.BASEDN
+        DN="%s,%s"%(env.NETGROUP,env.BASEDN)
         FILTER="(&(objectClass=nisNetgroup)(nisNetgroupTriple=*," + UID + ",*))"
         ATTR=[ "cn" ]
 	options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
@@ -23,7 +23,7 @@ def helper_query_netgroups(UID,env):
 	return (result)
 
 def helper_query_allgroups(env):
-        DN="ou=netgroup," + env.BASEDN
+        DN="%s,%s"%(env.NETGROUP,env.BASEDN)
         FILTER="cn=*"
         ATTR=[ "cn" ]
 	options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
@@ -38,7 +38,7 @@ def helper_query_allgroups(env):
         return (result)
 
 def helper_query_dn(NETGROUP,env):
-	DN="ou=netgroup," + env.BASEDN
+        DN="%s,%s"%(env.NETGROUP,env.BASEDN)
 	FILTER="cn=" + NETGROUP
 	ATTR=[ "cn" ]
 	options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
@@ -53,7 +53,7 @@ def helper_query_dn(NETGROUP,env):
 	return (result)	
 
 def helper_query_membergroups(NETGROUP,env):
-        DN="ou=netgroup," + env.BASEDN
+        DN="%s,%s"%(env.NETGROUP,env.BASEDN)
         FILTER="cn=" + NETGROUP
         ATTR=[ "memberNisNetgroup" ]
 	options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
@@ -67,7 +67,7 @@ def helper_query_membergroups(NETGROUP,env):
         return (result)
 
 def helper_query_hosttriples(NETGROUP,env):
-        DN="ou=netgroup," + env.BASEDN
+        DN="%s,%s"%(env.NETGROUP,env.BASEDN)
         FILTER="(&(objectClass=nisNetgroup)(cn=" + NETGROUP + ")(nisNetgroupTriple=\(*,,*\)))"
         ATTR=None
 	options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
@@ -81,7 +81,7 @@ def helper_query_hosttriples(NETGROUP,env):
         return (result)
 
 def helper_query_usertriples(NETGROUP,env):
-        DN="ou=netgroup," + env.BASEDN
+        DN="%s,%s"%(env.NETGROUP,env.BASEDN)
         FILTER="(&(objectClass=nisNetgroup)(cn=" + NETGROUP + ")(nisNetgroupTriple=\(-,*,*\)))"
         ATTR=None
 	options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
