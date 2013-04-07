@@ -37,7 +37,7 @@ Debugging:
 LDAP-Mapping:
 		Absolute or relative path for ldif transaction files     
 			LOGS = "./../LOGS/"
-		Absolute or relative path for a postscript template account form
+		Absolute or relative path for to store user account forms 
 			ACCOUNTFORM = "./../FORMS/"
 		LDAP Admin password in cleartext
 			LDAPPW = "s3cr3t"
@@ -46,7 +46,7 @@ LDAP-Mapping:
 		LDAP basedn container
 			BASEDN = "dc=unix,dc=example,dc=nl"
 		LDAP admin account container (omit the basedn)
-			BINDDN = "cn=admin,"
+			BINDDN = "cn=admin"
 		LDAP user container (omit the basedn)
 			PEOPLE = "ou=People"
 		LDAP group container (omit the basedn)
