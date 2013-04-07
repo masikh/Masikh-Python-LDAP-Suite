@@ -21,17 +21,17 @@ def getUndofiles(env):
 		dirList = ['0..Epoch.']
 	# Build a dictionary of all log files
         for file in dirList:
-                # Make an array of filename part with field seperator "."
-                t = file.split(".")
-                # Build a tuple and append it to the logfiles dictionairy
-		x = {	'tid': str(t[0]),
-			'type' : t[1],
-			'action': t[2],
-                 	'entity': t[3],
-                 	'filename': file
-		    }
-                logfiles.append(x)
-
+		if file != '.gitignore':
+                	# Make an array of filename part with field seperator "."
+                	t = file.split(".")
+                	# Build a tuple and append it to the logfiles dictionairy
+			x = {	'tid': str(t[0]),
+				'type' : t[1],
+				'action': t[2],
+                	 	'entity': t[3],
+                	 	'filename': file
+			    }
+                	logfiles.append(x)
 	# Get all undoable transactions  
         count = 0
 	for row in logfiles:
