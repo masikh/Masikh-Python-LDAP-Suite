@@ -61,7 +61,8 @@ LDAP-Mapping:
 Primairy/Secundairy group ranges:
 	
 	Function:
-		def group_ranges(self, typeset):
+	
+        def group_ranges(self, typeset):
 		self.ranges = { 'primary': ['100','999'],
 		                'secondairy': ['1000', '1999'] }
 		return self.ranges[typeset][0],self.ranges[typeset][1]
@@ -74,7 +75,8 @@ Primairy/Secundairy group ranges:
 User ranges per group:
 
 	Function:
-		def user_ranges(self):
+	
+        def user_ranges(self):
 		self.ranges = { 'Staff':   ['100','1000','4999'],
 		                'Guest':   ['200','5000','6000'],
 		                'Student': ['500','6000','9999'] }
@@ -91,7 +93,8 @@ User ranges per group:
 Predefined user netgroups for new users:
 
 	Function:
-		def user_netgroups(self):
+	
+        def user_netgroups(self):
 		self.netgroups = { 'Staff': ['users-stafpcs', 'users-guestpcs'], 
 				   'Guest' : ['users-guestpcs'],
 				   'Student' : ['users-studentpcs'] }
@@ -106,18 +109,20 @@ Predefined user netgroups for new users:
 Default autofs export for user nfs homedirectory:
 	
 	Function:
-		def user_exports(self):
+	
+        def user_exports(self):
 		self.exports = { 0 : ["Item 0","-soft,intr,nosuid server-01:/users/staff:&"],
 				 1 : ["Item 1","-soft,intr,nosuid server-02:/users/student-math:&"],
 				 2 : ["Item 2","-soft,intr,nosuid server-02:/users/student-cs:&"]
 		}
 		return self.exports
+
 	0, 1, ... is order of appearance. (INT)	
 	"Item 0" is entry shown in mpls user interface. (STRING)
 	"-soft,intr,nosuid server-01:/users/staff:&" is autofs homedirectory entry. (STRING) 
 
 Default shell for new user:
-		     SHELL = "/bin/bash"
+        SHELL = "/bin/bash"
 
 2 Make sure all executable files (python scripts) are in a subdirectory
 	If you did a git clone, this is already done.
@@ -125,7 +130,7 @@ Default shell for new user:
 3 Make a LOGS and a FORMS directory
 	If you did a git clone, this is already done.
 
-The whole MPLS file-tree should look like this:
+        The whole MPLS file-tree should look like this:
 
 	.:
 	bin  FORMS  LOGS
