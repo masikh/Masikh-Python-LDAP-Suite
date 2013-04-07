@@ -9,7 +9,7 @@ Pre-requisites:
 Redhat (Or python < version 2.7)
         pip install ordereddict		(see: OrderedDict for older versions of python - Stack Overflow)
         pip install ldif
-        pop install ldap
+        pip install ldap
 
 Longer setup:
 	
