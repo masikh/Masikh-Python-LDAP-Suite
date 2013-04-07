@@ -47,7 +47,7 @@ def helper_create_netgroup(NETGROUP,env):
 			error="ERROR: netgroup " + NETGROUP + " already exists!"
 			return dofile, undofile, error	
 	# else make (un)dofile
-	dn="cn=%s,%s,%s"%(NETGROUP,env,NETGROUP,env.BASEDN)
+	dn="cn=%s,%s,%s"%(NETGROUP,env.NETGROUP,env.BASEDN)
 	entry={"objectClass": ["nisNetgroup", "top"], "cn": [NETGROUP]}
 	dofile = ldif.CreateLDIF(dn,entry)
 	undofile = ldif.CreateLDIF(dn,{"changetype": ("delete",)})
@@ -289,7 +289,7 @@ def helper_add_host_to_netgroup(NETGROUP, HOST, env):
 		error="ERROR: netgroup %s does not exists!"%(NETGROUP)                  
 		return dofile, undofile, error
 	# If host not in netgroup; error message, return                                
-	DN="%s,%s"%(env.NETGOUP,env.BASEDN)
+	DN="%s,%s"%(env.NETGROUP,env.BASEDN)
 	FILTER="(&(objectClass=nisNetgroup)(cn=%s)(nisNetgroupTriple=\(%s,,\)))"%(NETGROUP, HOST)    
 	ATTR=[ "nisNetgroupTriple" ]
 	options = [(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)]
