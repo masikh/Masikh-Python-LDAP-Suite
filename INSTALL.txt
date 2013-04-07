@@ -1,7 +1,123 @@
+Quickstart:
 
-1 Change the file environment.py to suit your needs
-	See help.txt (in this directory) for more information
-	regarding the adjustment of the MPLS environment file.
+	git clone ...
+	cd Masikh-Python-LDAP-Suite/bin
+	./mpls
+
+Pre-requesites:
+
+Redhat:
+pip install ordereddict		(see: OrderedDict for older versions of python - Stack Overflow)
+
+Longer setup:
+	
+	Change the file environment.py to suit your needs
+	The environment.py file can be found in the /bin directory	
+
+	The environment.py file holds the environment for the mpls system. It
+	defines:
+	
+	* Debugging
+	* LDAP-Mapping
+	* Primairy/Secundairy group ranges
+	* User ranges per group
+	* Predefined user netgroups for new users
+	* Default autofs export for user nfs homedirectory
+	* Default shell for new user
+
+Debugging:
+		LDAP Server communication debug messages.
+		      LDBUG = False/True		Default: False
+		PRINT helper_apply_ldif state from its state machine. 	
+		      VERBOSE = False/True		Default: False
+		CONTINUE COMMIT even if an error occured.
+		(e.g item already exist. You really want to leave this to True)
+		      CONTINUEONERROR = False/True	Default: True
+
+LDAP-Mapping:
+		Absolute or relative path for ldif transaction files     
+			LOGS = "./../LOGS/"
+		Absolute or relative path for a postscript template account form
+			ACCOUNTFORM = "./../FORMS/"
+		LDAP Admin password in cleartext
+			LDAPPW = "s3cr3t"
+		LDAP server address
+			LDAPSERVER = "ldaps://ldap.unix.example.nl:636"
+		LDAP basedn container
+			BASEDN = "dc=unix,dc=example,dc=nl"
+		LDAP admin account container (omit the basedn)
+			BINDDN = "cn=admin,"
+		LDAP user container (omit the basedn)
+			PEOPLE = "ou=People"
+		LDAP group container (omit the basedn)
+			GROUP = "ou=Group"
+		LDAP netgroup container (omit the basedn) 
+			NETGROUP = "ou=Netgroup"
+		LDAP autofs container for nfs homedirectory exports
+			AUTOFS_HOME = "ou=auto.home,ou=Autofs"
+		LDAP autofs container for nfs direct mounts exports
+			AUTOFS_DIRECT = "ou=auto.direct,ou=Autofs"
+
+Primairy/Secundairy group ranges:
+	
+	Function:
+		def group_ranges(self, typeset):
+		self.ranges = { 'primary': ['100','999'],
+		                'secondairy': ['1000', '1999'] }
+		return self.ranges[typeset][0],self.ranges[typeset][1]
+
+	'primairy' is entry shown in mpls user interface. (STRING)
+	'100' is the minimal gid for a new primairy group.
+	'999' is the maximum gid for a new primairy group.
+	idem for secondairy...
+
+User ranges per group:
+
+	Function:
+		def user_ranges(self):
+		self.ranges = { 'Staff':   ['100','1000','4999'],
+		                'Guest':   ['200','5000','6000'],
+		                'Student': ['500','6000','9999'] }
+		return self.ranges
+
+	'Staff' is entry shown in mpls user interface. (STRING)
+	'100' is the gid of group 'Staff'. (INT)
+	'1000' is the minimum uid of a user with primairy gid '100'
+	'4999' is the maximum uid of a user with primairy gid '100'
+
+	Note: 'Staff' here is ~linked~ to 'Staff' in def user_netgroups(self)
+	see below.
+
+Predefined user netgroups for new users:
+
+	Function:
+		def user_netgroups(self):
+		self.netgroups = { 'Staff': ['users-stafpcs', 'users-guestpcs'], 
+				   'Guest' : ['users-guestpcs'],
+				   'Student' : ['users-studentpcs'] }
+		return self.netgroups
+
+	'Staff' is entry shown in mpls user interface. (STRING)
+	users-stafpcs, users-questpcs etc... are NIS-Netgroups. (STRING IN LIST)
+
+	Note: 'Staff' here is ~linked~ to 'Staff' in def user_ranges(self)
+	see above 
+
+Default autofs export for user nfs homedirectory:
+	
+	Function:
+		def user_exports(self):
+		self.exports = { 0 : ["Item 0","-soft,intr,nosuid server-01:/users/staff:&"],
+				 1 : ["Item 1","-soft,intr,nosuid server-02:/users/student-math:&"],
+				 2 : ["Item 2","-soft,intr,nosuid server-02:/users/student-cs:&"]
+		}
+		return self.exports
+	0, 1, ... is order of appearance. (INT)	
+	"Item 0" is entry shown in mpls user interface. (STRING)
+	"-soft,intr,nosuid server-01:/users/staff:&" is autofs homedirectory entry. (STRING) 
+
+Default shell for new user:
+		     SHELL = "/bin/bash",
 
 2 Make sure all executable files (python scripts) are in a subdirectory
 	If you did a git clone, this is already done.
@@ -26,3 +142,34 @@ The whole MPLS file-tree should look like this:
 	./FORMS:
 	
 	./LOGS:
+
+4 Make a template postscript file
+
+	MPLS uses function below to parse the 'templateform.ps' file. In that file the items DDMMJJJX, DDMMJJJY, USERID,
+	employeeType, COMPUTERACCOUNT, PASSWORD, GECOS and employeeNumber are replaced by a means of regular expressions 
+	with their respected values.
+
+	DDMMJJJX		Date today (Account is valid from)
+	DDMMJJJY		Revocation date (Account is valid until)
+	USERID			The username of the new user
+	employeeType		The interface name used in MPLS for the type of user (e.g. Staff, Guest, Student)
+	COMPUTERACCOUNT		The accountname of a functional account (e.g. a website account)
+	PASSWORD		The plaintext password for the new user
+	GECOS			The GECOS field of a new user (e.g. Full name)
+	employeeNumber		The concatenation of uid.gid
+
+	Function:
+		def helper_create_account_form(modified, clearpassword, env):
+		        error, content = openfile("./templateform.ps")
+		        DDMMJJJX = str(datetime.date.today())
+		        DDMMJJJY = str((datetime.date.today() + datetime.timedelta(6*365/12)).isoformat())
+		        content = re.sub("USERID" , modified['uid'][0], content)
+		        content = re.sub("employeeType" , modified['employeeType'][0], content)
+		        content = re.sub("GECOS" , str(modified['gecos'][0]), content)
+		        content = re.sub("employeeNumber" , modified['employeeNumber'][0], content)
+		        content = re.sub("COMPUTERACCOUNT" , modified['employeeType'][0], content)
+		        content = re.sub("DDMMJJJX" , DDMMJJJX, content)
+		        content = re.sub("DDMMJJJY" , DDMMJJJY, content)
+		        content = re.sub("PASSWORD" , clearpassword, content)
+		        fname = WriteForm(content, modified['uid'][0], env)
+		        return error, fname
