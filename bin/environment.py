@@ -6,7 +6,7 @@
 #                 General Public License (or the Lesser GPL)
 
 #
-# WARNING:	  THIS FILE CONTAINS PASSWORD (NOT NEEDED BTW) THUS KEEP
+# WARNING:	  THIS FILE CONTAINS A PASSWORD (NOT NEEDED BTW) THUS KEEP
 #		  THE FILE SECURITY TIGHT! (e.g. 600 -rw-------)
 
 class environment:
@@ -14,12 +14,18 @@ class environment:
 		      CWD = "",
 		      LOGS = "./../LOGS/",
 		      ACCOUNTFORM = "./../FORMS/",
-		      LDAPPW = "YOURVERYSECRETPASSWORDHERE",
-		      LDAPSERVER = "ldaps://ldap.unix.example.nl:636",
+		      LDAPPW = "YOUR_LDAP_ADMIN_PASSWORD",
+		      LDAPSERVER = "ldap://ldap.unix.example.nl",
 		      LDBUG = False,
 		      VERBOSE = False,
 		      BASEDN = "dc=unix,dc=example,dc=nl",
 		      BINDDN = "cn=admin,",
+		      PEOPLE = "ou=People",
+		      GROUP = "ou=Group",
+		      NETGROUP = "ou=Netgroup",
+		      AUTOFS_HOME = "ou=auto.home,ou=Autofs",
+		      AUTOFS_DIRECT = "ou=auto.direct,ou=Autofs",
+		      SHELL = "/bin/bash",
 		      CONTINUEONERROR = True):
 
 		self.CWD = CWD
@@ -31,6 +37,12 @@ class environment:
 		self.VERBOSE = VERBOSE
 		self.BASEDN = BASEDN
 		self.BINDDN = BINDDN + BASEDN
+		self.PEOPLE = PEOPLE
+		self.GROUP = GROUP
+		self.NETGROUP = NETGROUP
+		self.AUTOFS_HOME = AUTOFS_HOME
+		self.AUTOFS_DIRECT = AUTOFS_DIRECT
+		self.SHELL = SHELL
 		self.CONTINUEONERROR = True
 
 	@classmethod 
