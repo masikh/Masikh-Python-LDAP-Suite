@@ -6,7 +6,10 @@
 
 import argparse,base64,getpass,ldap,ldif,os,re,sys,time
 import ldap.modlist as modlist
-from collections import OrderedDict
+try:
+	from collections import OrderedDict
+except:
+	from odict import odict as OrderedDict
 #from environment import *
 from string import lower
 
