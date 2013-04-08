@@ -8,8 +8,15 @@ import curses,traceback,os,string
 from os import system
 os.putenv("ESCDELAY", "25") # no delay after pressing ESC key
 
+try:
+	import ordereddict
+except ImportError:
+	print "Warning: 'ordereddict' Not found as importable module!"
+	print "         If mpls continues to run, ordereddict is part"
+	print "         of the python distribution already. In that case"
+	print "         you can savely ignore this warning."
+
 import helper_query_autofs as query_autofs
-#import helper_show_logs as query_logs
 import helper_query_user as query_user
 import helper_query_netgroup as query_netgroup
 import helper_query_groups as query_groups
