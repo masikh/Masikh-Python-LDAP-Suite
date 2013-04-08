@@ -14,7 +14,7 @@ Redhat (Or python < version 2.7)
 Setup MPLS to suit your needs:
 	
 	Change the file environment.py to suit your needs
-	The environment.py file can be found in the /bin directory	
+	The environment.py file can be found in the Masikh-Python-LDAP-Suite/bin directory	
 
 	The environment.py file holds the environment for the mpls system. It
 	defines:
