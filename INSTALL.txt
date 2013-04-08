@@ -28,37 +28,51 @@ Setup MPLS to suit your needs:
 	* Default shell for new user
 
 Debugging:
-		LDAP Server communication debug messages.
-		      LDBUG = False/True		Default: False
-		PRINT helper_apply_ldif state from its state machine. 	
-		      VERBOSE = False/True		Default: False
-		CONTINUE COMMIT even if an error occured.
-		(e.g item already exist. You really want to leave this to True)
-		      CONTINUEONERROR = False/True	Default: True
+	LDAP Server communication debug messages.
+		LDBUG = False/True		Default: False
+	
+	PRINT helper_apply_ldif state from its state machine. 	
+	      
+		VERBOSE = False/True		Default: False
+	
+	CONTINUE COMMIT even if an error occured.
+	(e.g item already exist. You really want to leave this to True)
+	
+		CONTINUEONERROR = False/True	Default: True
 
 LDAP-Mapping:
-		Absolute or relative path for ldif transaction files     
-			LOGS = "./../LOGS/"
-		Absolute or relative path for to store user account forms 
-			ACCOUNTFORM = "./../FORMS/"
-		LDAP Admin password in cleartext
-			LDAPPW = "s3cr3t"
-		LDAP server address
-			LDAPSERVER = "ldaps://ldap.unix.example.nl:636"
-		LDAP basedn container
-			BASEDN = "dc=unix,dc=example,dc=nl"
-		LDAP admin account container (omit the basedn)
-			BINDDN = "cn=admin"
-		LDAP user container (omit the basedn)
-			PEOPLE = "ou=People"
-		LDAP group container (omit the basedn)
-			GROUP = "ou=Group"
-		LDAP netgroup container (omit the basedn) 
-			NETGROUP = "ou=Netgroup"
-		LDAP autofs container for nfs homedirectory exports
-			AUTOFS_HOME = "ou=auto.home,ou=Autofs"
-		LDAP autofs container for nfs direct mounts exports
-			AUTOFS_DIRECT = "ou=auto.direct,ou=Autofs"
+	Absolute or relative path for ldif transaction files     
+		LOGS = "./../LOGS/"
+	
+	Absolute or relative path for to store user account forms 
+		ACCOUNTFORM = "./../FORMS/"
+	
+	LDAP Admin password in cleartext
+		LDAPPW = "s3cr3t"
+	
+	LDAP server address
+		LDAPSERVER = "ldaps://ldap.unix.example.nl:636"
+	
+	LDAP basedn container
+		BASEDN = "dc=unix,dc=example,dc=nl"
+	
+	LDAP admin account container (omit the basedn)
+		BINDDN = "cn=admin"
+	
+	LDAP user container (omit the basedn)
+		PEOPLE = "ou=People"
+	
+	LDAP group container (omit the basedn)
+		GROUP = "ou=Group"
+	
+	LDAP netgroup container (omit the basedn) 
+		NETGROUP = "ou=Netgroup"
+	
+	LDAP autofs container for nfs homedirectory exports
+		AUTOFS_HOME = "ou=auto.home,ou=Autofs"
+	
+	LDAP autofs container for nfs direct mounts exports
+		AUTOFS_DIRECT = "ou=auto.direct,ou=Autofs"
 
 Primairy/Secundairy group ranges:
 	
@@ -127,10 +141,14 @@ Default shell for new user:
         SHELL = "/bin/bash"
 
 2 Make sure all executable files (python scripts) are in a subdirectory
-	If you did a git clone, this is already done.
+	If you did a git clone, this is already done. Otherwise place all .py files in one directory
+	and start mpls with ./mpls in your new directory.
 	
 3 Make a LOGS and a FORMS directory
-	If you did a git clone, this is already done.
+	If you did a git clone, this is already done. Otherwise make a directory LOGS and FORMS just
+	outsite (one niveau higer) the bin directory. 
+	
+	E.g.
 
         The whole MPLS file-tree should look like this:
 
