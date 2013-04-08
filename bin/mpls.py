@@ -11,20 +11,32 @@ os.putenv("ESCDELAY", "25") # no delay after pressing ESC key
 try:
 	import ordereddict
 except ImportError:
-	print "Warning: 'ordereddict' Not found as importable module!"
-	print "         If mpls continues to run, ordereddict is part"
-	print "         of the python distribution already. In that case"
-	print "         you can savely ignore this warning."
+	print "Warning:\n"
+	print "	'ordereddict' Not found as importable module!"
+	print "	If mpls continues to run, ordereddict is part"
+	print "	of the python distribution already. In that case"
+	print "	you can savely ignore this warning."
 	print "\n	Please install the following packages:"
 	print "\n	pip install ordereddict to install this module\n"
 
 try:
-	import cuprs
+	import cups
 except ImportError:
-	print "Warning: 'cups' Not found as importable module!"
+	print "Warning:\n"
+	print "	'cups' Not found as importable module!"
 	print "\n	Please install the following packages:\n"
 	print "	[yum|zypper] install python-cups"
-	print "	[yum|zypper] install system-config-printer-libs"
+	print "	[yum|zypper] install system-config-printer-libs\n"
+
+try:
+	import ldap
+	import ldif
+except ImportError:
+	print "Warning:\n"
+	print "	Either 'ldap' or 'ldif' failed to import as a module!"
+	print "\n	Please install the following packages:\n"
+	print "	[yum/zypper] install openldap-devel\n"
+	print "	Then run: pip install python-ldap\n"
 
 import helper_query_autofs as query_autofs
 import helper_query_user as query_user
