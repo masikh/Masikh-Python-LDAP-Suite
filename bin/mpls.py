@@ -15,14 +15,14 @@ except ImportError:
 	print "         If mpls continues to run, ordereddict is part"
 	print "         of the python distribution already. In that case"
 	print "         you can savely ignore this warning."
-	print "\nPlease install the following packages:\n"
+	print "\n	Please install the following packages:"
 	print "\n	pip install ordereddict to install this module\n"
 
 try:
-	import cups
+	import cuprs
 except ImportError:
 	print "Warning: 'cups' Not found as importable module!"
-	print "\nPlease install the following packages:\n"
+	print "\n	Please install the following packages:\n"
 	print "	[yum|zypper] install python-cups"
 	print "	[yum|zypper] install system-config-printer-libs"
 
