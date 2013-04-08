@@ -7,8 +7,13 @@ Quickstart:
 Pre-requisites:
 
 Redhat (Or python < version 2.7)
-        pip install ordereddict		(see: OrderedDict for older versions of python - Stack Overflow)
-        pip install ldif
+	[yum|zypper] install python-ordereddict 
+		(see: http://pkgs.org/centos-5-rhel-5/epel-i386/python-ordereddict-1.1-2.el5.noarch.rpm.html
+	or:
+        pip install ordereddict		
+		(see: OrderedDict for older versions of python - Stack Overflow)
+        
+	pip install ldif
         pip install ldap
 
 Setup MPLS to suit your needs:
