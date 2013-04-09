@@ -14,12 +14,12 @@ class environment:
 		      CWD = "",
 		      LOGS = "./../LOGS/",
 		      ACCOUNTFORM = "./../FORMS/",
-		      LDAPPW = "YOUR_LDAP_ADMIN_PASSWORD",
-		      LDAPSERVER = "ldap://ldap.unix.example.nl",
+		      LDAPPW = "s3cr3t",
+		      LDAPSERVER = "ldaps://ldap.unix.example.nl:636",
 		      LDBUG = False,
 		      VERBOSE = False,
 		      BASEDN = "dc=unix,dc=example,dc=nl",
-		      BINDDN = "cn=admin,",
+		      BINDDN = "cn=admin",
 		      PEOPLE = "ou=People",
 		      GROUP = "ou=Group",
 		      NETGROUP = "ou=Netgroup",
@@ -36,7 +36,7 @@ class environment:
 		self.LDBUG = LDBUG
 		self.VERBOSE = VERBOSE
 		self.BASEDN = BASEDN
-		self.BINDDN = BINDDN + BASEDN
+		self.BINDDN = "%s,%s"%(BINDDN,BASEDN)
 		self.PEOPLE = PEOPLE
 		self.GROUP = GROUP
 		self.NETGROUP = NETGROUP
