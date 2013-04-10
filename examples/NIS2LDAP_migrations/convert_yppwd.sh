@@ -14,7 +14,7 @@ for user in `ypcat passwd`; do
 	gecos="`echo $user | awk -F: {'print $5'}`"	
 	
 	# Print DN header and attributes
-	echo "dn: uid=$uid,ou=People,dc=unix,dc=liacs,dc=nl"
+	echo "dn: uid=$uid,ou=People,dc=unix,dc=example,dc=nl"
 	echo "uid: $uid"
 	# Get first field (before a possible studentnumber)
 	echo -n "cn: "

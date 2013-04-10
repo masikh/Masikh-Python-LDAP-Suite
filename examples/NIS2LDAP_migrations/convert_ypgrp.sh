@@ -6,7 +6,7 @@ for group in `ypcat group`; do
 	gidNumber="`echo $group | awk -F: {'print $3'}`"
 	
 	# Print DN header and attributes
-	echo "dn: cn=$cn,ou=Group,dc=unix,dc=liacs,dc=nl"
+	echo "dn: cn=$cn,ou=Group,dc=unix,dc=example,dc=nl"
 	echo "objectClass: posixGroup"
 	echo "objectClass: top"
 	echo "cn: $cn"
