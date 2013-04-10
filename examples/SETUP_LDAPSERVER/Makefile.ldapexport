@@ -1,0 +1,93 @@
+#
+# Makefile for the NIS databases
+#
+# This Makefile should only be run on the NIS master server of a domain.
+# All updated maps will be pushed to all NIS slave servers listed in the
+# /var/yp/ypservers file. Please make sure that the hostnames of all
+# NIS servers in your domain are listed in /var/yp/ypservers.
+#
+# This Makefile can be modified to support more NIS maps if desired.
+#
+
+# Set the following variable to "-b" to have NIS servers use the domain
+# name resolver for hosts not in the current domain. This is only needed,
+# if you have SunOS slave YP server, which gets here maps from this
+# server. The NYS YP server will ignore the YP_INTERDOMAIN key.
+#B=-b
+B=
+
+# If we have only one server, we don't have to push the maps to the
+# slave servers (NOPUSH=true). If you have slave servers, change this
+# to "NOPUSH=false" and put all hostnames of your slave servers in the file
+# /var/yp/ypservers.
+NOPUSH=false
+
+# We do not put password entries with lower UIDs (the root and system
+# entries) in the NIS password database, for security. MINUID is the
+# lowest uid that will be included in the password maps. If you
+# create shadow maps, the UserID for a shadow entry is taken from
+# the passwd file. If no entry is found, this shadow entry is
+# ignored.
+# MINGID is the lowest gid that will be included in the group maps.
+MINUID=500
+MINGID=0
+
+# Should we merge the passwd file with the shadow file ?
+# MERGE_PASSWD=true|false
+MERGE_PASSWD=true
+
+# Should we merge the group file with the gshadow file ?
+# We don't support /etc/gshadow anymore, so we don't can merge it.
+# MERGE_GROUP=true|false
+MERGE_GROUP=false
+
+# These are commands which this Makefile needs to properly rebuild the
+# NIS databases. Don't change these unless you have a good reason.
+AWK = /usr/bin/gawk
+MAKE = /usr/bin/gmake
+UMASK = umask 066
+
+#
+# These are the source directories for the NIS files; normally
+# that is /etc but you may want to move the source for the password
+# and group files to (for example) /var/yp/ypfiles. The directory
+# for passwd, group and shadow is defined by YPPWDDIR, the rest is
+# taken from YPSRCDIR.
+#
+YPSRCDIR = /etc
+YPPWDDIR = $(shell . /etc/sysconfig/ypserv; echo $$YPPWD_SRCDIR)
+YPBINDIR = /usr/lib/yp
+YPSBINDIR = /usr/sbin
+YPDIR = /var/yp
+
+# These are the files from which the NIS databases are built. You may edit
+# these to taste in the event that you wish to keep your NIS source files
+# seperate from your NIS server's actual configuration files.
+#
+NETGROUP    = $(YPDIR)/base/netgroup
+
+DBLOAD = $(YPBINDIR)/makedbm -c -m `$(YPBINDIR)/yphelper --hostname` --no-limit-check
+MKNETID = $(YPBINDIR)/mknetid
+YPPUSH = $(YPSBINDIR)/yppush
+MERGER = $(YPBINDIR)/yphelper
+DOMAIN = `basename \`pwd\``
+LOCALDOMAIN = `/bin/domainname`
+REVNETGROUP = $(YPBINDIR)/revnetgroup
+CREATE_PRINTCAP = $(YPBINDIR)/create_printcap
+
+netgrp:	   	netgroup netgroup.byhost netgroup.byuser
+
+netgroup: $(NETGROUP) $(YPDIR)/Makefile
+	@echo "Updating $@..."
+	@$(AWK) '{ if ($$1 != "" && $$1 !~ "#" && $$1 != "+") \
+		print $$0 }' $(NETGROUP) > test.netgroup
+
+
+netgroup.byhost: $(NETGROUP) $(YPDIR)/Makefile
+	@echo "Updating $@..."
+	@$(REVNETGROUP) -h < $(NETGROUP) > test.netgroup.byhost 
+
+
+netgroup.byuser: $(NETGROUP) $(YPDIR)/Makefile
+	@echo "Updating $@..."
+	@$(REVNETGROUP) -u < $(NETGROUP) > test.netgroup.byuser 
