@@ -12,51 +12,9 @@ for group in `ypcat group`; do
 	echo "cn: $cn"
 	echo "userPassword: $userPassword"
 	echo "gidNumber: $gidNumber"
-
-#	# Group membership assignment
-#	case "$cn" in
-#	staff)
-#		for member in `ypcat passwd`; do
-#			echo $member | grep ":$gidNumber:" | awk -F: {'print "memberUid: "$1'}
-#		done
-#		;;
-#	student)
-#		for member in `ypcat passwd`; do
-#			echo $member | grep ":$gidNumber:" | awk -F: {'print "memberUid: "$1'}
-#		done
-#		;;
-#	bijvak)
-#		for member in `ypcat passwd`; do
-#			echo $member | grep ":$gidNumber:" | awk -F: {'print "memberUid: "$1'}
-#		done
-#		;;
-#	iee)
-#		for member in `ypcat passwd`; do
-#			echo $member | grep ":$gidNumber:" | awk -F: {'print "memberUid: "$1'}
-#		done
-#		;;
-#	iib)
-#		for member in `ypcat passwd`; do
-#			echo $member | grep ":$gidNumber:" | awk -F: {'print "memberUid: "$1'}
-#		done
-#		;;
-#	media)
-#		for member in `ypcat passwd`; do
-#			echo $member | grep ":$gidNumber:" | awk -F: {'print "memberUid: "$1'}
-#		done
-#		;;
-#	sbb)
-#		for member in `ypcat passwd`; do
-#			echo $member | grep ":$gidNumber:" | awk -F: {'print "memberUid: "$1'}
-#		done
-#		;;
-#	
-#	*)	
-		members="`echo $group | awk -F: {'print $4'} | sed s/,/\ /g`"
-		for member in $members; do
-			echo "memberUid: $member"
-		done
-#		;;
-#	esac
+	members="`echo $group | awk -F: {'print $4'} | sed s/,/\ /g`"
+	for member in $members; do
+		echo "memberUid: $member"
+	done
 	echo
 done
