@@ -1,0 +1,78 @@
+# User & Group containers
+##
+dn: ou=People,dc=unix,dc=example,dc=nl
+objectClass: organizationalUnit
+ou: People 
+
+dn: ou=Group,dc=unix,dc=example,dc=nl
+objectClass: organizationalUnit
+ou: Group
+
+# Netgroup containers
+##
+dn: ou=Netgroup,dc=unix,dc=example,dc=nl
+objectClass: organizationalUnit
+ou: Netgroup
+
+# Autofs
+## Autofs contains auto.master etc...
+dn: ou=Autofs,dc=unix,dc=example,dc=nl
+ou: Autofs
+objectClass: top
+objectClass: organizationalUnit
+
+# Auto Master
+## auto.master -> /home, /autofs
+dn: ou=auto.master,ou=Autofs,dc=unix,dc=example,dc=nl
+objectClass: top
+objectClass: automountMap
+ou: auto.master
+
+# /home -> auto.home
+dn: cn=/home,ou=auto.master,ou=Autofs,dc=unix,dc=example,dc=nl
+objectClass: top
+objectClass: automount
+cn: /home
+automountInformation: ldap:ou=auto.home,ou=Autofs,dc=unix,dc=example,dc=nl --timeout=60 --ghost
+
+# /autofs -> auto.autofs
+dn: cn=/-,ou=auto.master,ou=Autofs,dc=unix,dc=example,dc=nl
+objectClass: top
+objectClass: automount
+cn: /-
+automountInformation: ldap:ou=auto.direct,ou=Autofs,dc=unix,dc=example,dc=nl --timeout=60 --ghost
+
+# Auto Home
+## auto.home -> /home/$uid
+dn: ou=auto.home,ou=Autofs,dc=unix,dc=example,dc=nl
+objectClass: top
+objectClass: automountMap
+ou: auto.home
+
+# Auto Direct
+## auto.autofs -> /autofs/scratch, /autofs/appl, /autofs/mail
+dn: ou=auto.direct,ou=Autofs,dc=unix,dc=example,dc=nl
+objectClass: top
+objectClass: automountMap
+ou: auto.direct
+
+# /autofs/scratch
+dn: cn=/scratch,ou=auto.direct,ou=Autofs,dc=unix,dc=example,dc=nl
+objectClass: top
+objectClass: automount
+cn: /scratch
+automountInformation: scratch.example.nl:/scratch
+
+# /autofs/mail
+dn: cn=/var/spool/mail,ou=auto.direct,ou=Autofs,dc=unix,dc=example,dc=nl
+objectClass: top
+objectClass: automount
+cn: /var/spool/mail
+automountInformation: mailhost.example.nl:/var/spool/mail
+
+# /autofs/appl
+dn: cn=/appl,ou=auto.direct,ou=Autofs,dc=unix,dc=example,dc=nl
+objectClass: top
+objectClass: automount
+cn: /appl
+automountInformation: nfs-server01.example.nl,nfs-server02.example.nl:/appl
